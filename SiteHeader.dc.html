@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site header</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+.esme-hdr{position:sticky;top:-37px;z-index:40;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif}
+.esme-top a{color:#C8CDD6;display:flex}
+.esme-top a:hover{color:#FFFFFF}
+.esme-bar{position:relative;background:#FFFFFF;border-bottom:1px solid #E4E7EC;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.esme-nav{display:flex;align-items:center;gap:2px}
+.esme-nl{display:inline-flex;align-items:center;gap:5px;padding:8px 9px;border-radius:6px;border:none;background:none;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:600;color:#14181D;cursor:pointer;text-decoration:none;white-space:nowrap}
+.esme-nl:hover{background:#F2F4F7;color:#14181D;text-decoration:none}
+.esme-nl.is-on{color:#1E4FA8}
+.esme-caret{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;opacity:.75}
+.esme-dd{position:static}
+/* CanadianSME-style mega menu: full width under the bar, link columns on the left, an editor's pick on the right */
+.esme-mega{display:none;position:absolute;left:0;right:0;top:100%;z-index:60;background:#FFFFFF;border-top:1px solid #E4E7EC;box-shadow:0 18px 32px rgba(16,24,40,.12)}
+.esme-mega::before{content:"";position:absolute;left:0;right:0;top:-26px;height:26px}
+.esme-dd:hover .esme-mega,.esme-dd:focus-within .esme-mega{display:block}
+.esme-dd:hover > .esme-nl,.esme-dd:focus-within > .esme-nl{background:#F2F4F7}
+.esme-mm{max-width:1232px;margin:0 auto;padding:28px 32px 30px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:32px;align-items:center}
+.esme-mmcols{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr)}
+.esme-mmcol{min-width:0;padding:0 26px;border-left:1px solid #E4E7EC}
+.esme-mmcol:first-child{padding-left:0;border-left:0}
+.esme-mmh{margin:0 0 8px;padding:0 0 14px;border-bottom:1px solid #E4E7EC;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#101828}
+.esme-pick{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;align-items:center;padding:12px;border-radius:14px;background:linear-gradient(160deg,#0B1B33 0%,#0B2A6B 100%);color:#FFFFFF;text-decoration:none;box-shadow:0 16px 32px -20px rgba(16,24,40,.45)}
+.esme-pick:hover{color:#FFFFFF;text-decoration:none}
+.esme-pick img{width:150px;aspect-ratio:4/3;object-fit:cover;border-radius:8px;display:block;background:#1D2939}
+.esme-pick-b{display:flex;flex-direction:column;gap:8px;min-width:0}
+.esme-pick-k{display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F7941D}
+.esme-pick-k::after{content:"";width:34px;height:1px;background:rgba(247,148,29,.6)}
+.esme-pick-t{font-family:'Sora',sans-serif;font-size:14.5px;font-weight:700;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.esme-pick-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:8px;background:#F7941D;color:#101828;font-family:'Sora',sans-serif;font-size:12.5px;font-weight:700}
+.esme-pick:hover .esme-pick-btn{background:#FFA94D}
+@media (max-width: 1100px){.esme-mm{grid-template-columns:minmax(0,1fr)}.esme-pick{display:none}}
+@media (max-width: 700px){.esme-mmcols{grid-auto-flow:row}.esme-mmcol{padding:0;border-left:0}.esme-mmcol + .esme-mmcol{margin-top:14px}.esme-mm{padding:18px 20px 22px;max-height:70vh;overflow-y:auto}}
+.esme-ddm{display:none;position:absolute;left:0;top:100%;padding-top:8px;z-index:60}
+.esme-dd:hover .esme-ddm,.esme-dd:focus-within .esme-ddm{display:block}
+.esme-ddp{min-width:250px;background:#FFFFFF;border:1px solid #EAECF0;border-radius:14px;box-shadow:0 2px 4px rgba(16,24,40,.04),0 24px 48px -16px rgba(16,24,40,.28);padding:18px 20px 10px}
+.esme-ddh{margin:0 0 6px;padding:0 0 12px;border-bottom:1px solid #EAECF0;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#101828}
+.esme-ddcols{display:grid;grid-template-columns:1fr 1fr}
+.esme-ddcol{min-width:0;padding:0 20px;border-left:1px solid #EAECF0}
+.esme-ddcol:first-child{padding-left:0;border-left:0}
+.esme-ddcol:last-child{padding-right:0}
+.esme-ddi{display:flex;align-items:center;gap:12px;margin:0 -10px;padding:8px 10px;border-radius:10px;font-size:14.5px;font-weight:600;line-height:1.3;color:#1D2939;text-decoration:none}
+.esme-ddi:hover,.esme-ddi:focus-visible{background:#F6F7F9;color:#1E4FA8;text-decoration:none}
+.esme-ict{flex:none;width:32px;height:32px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;background:#F2F4F7;color:#475467;transition:background .18s ease,color .18s ease}
+.esme-ict svg{width:17px;height:17px}
+.esme-ddi:hover .esme-ict,.esme-ddi:focus-visible .esme-ict{background:#1E4FA8;color:#FFFFFF}
+.esme-mmcol:nth-child(2n) .esme-ddi:hover .esme-ict,.esme-mmcol:nth-child(2n) .esme-ddi:focus-visible .esme-ict{background:#F7941D;color:#101828}
+.esme-new{display:inline-block;margin-left:7px;padding:2px 5px;border-radius:4px;background:#F7941D;color:#101828;font-family:'Sora',sans-serif;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;vertical-align:2px}
+.esme-ddall{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px -20px -10px;padding:12px;border-top:1px solid #EAECF0;background:#F9FAFB;font-family:'Sora',sans-serif;font-size:13px;font-weight:700;color:#1E4FA8;text-decoration:none;border-radius:0 0 14px 14px}
+.esme-ddall:hover{background:#F2F4F7;text-decoration:none}
+.esme-ddi small{display:block;font-size:12.5px;font-weight:400;color:#667085;margin-top:2px;white-space:nowrap}
+.esme-search{display:flex;align-items:center;gap:8px;height:40px;width:170px;padding:0 12px;border:1px solid #D0D5DD;border-radius:8px;background:#F9FAFB;color:#667085}
+.esme-search:focus-within{border-color:#1E4FA8;background:#FFFFFF;box-shadow:0 0 0 3px rgba(30,79,168,.12)}
+.esme-search input{flex:1;min-width:0;border:none;background:transparent;outline:none;font-size:14px;color:#14181D}
+.esme-sbtn{flex:none;width:40px;height:40px;box-sizing:border-box;padding:0;margin:0;display:flex;align-items:center;justify-content:center;border:1px solid #D0D5DD;border-radius:8px;background:#FFFFFF;color:#344054;cursor:pointer;transition:border-color .15s ease,color .15s ease,background .15s ease}
+.esme-sbtn:hover{border-color:#0B2A6B;color:#0B2A6B;background:#F5F7FA}
+.esme-sbtn[aria-expanded="true"]{border-color:#0B2A6B;background:#0B2A6B;color:#FFFFFF}
+.esme-sbtn:focus-visible,.esme-spanel-x:focus-visible{outline:2px solid #1E4FA8;outline-offset:2px}
+.esme-spanel{display:none;position:absolute;left:0;right:0;top:100%;z-index:60;background:#FFFFFF;border-top:1px solid #EAECF0;border-bottom:1px solid #E4E7EC;box-shadow:0 24px 40px -24px rgba(16,24,40,.35)}
+.esme-spanel.is-open{display:block}
+.esme-spanel-in{max-width:1232px;margin:0 auto;padding:22px 32px 20px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px}
+.esme-spanel-l{font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:700;color:#14181D}
+.esme-spanel-row{display:flex;gap:10px;align-items:center}
+.esme-spanel-box{flex:1 1 auto;min-width:0;display:flex;align-items:center;gap:10px;height:52px;padding:0 16px;border:1.5px solid #0B2A6B;border-radius:12px;color:#667085;background:#FFFFFF}
+.esme-spanel-box:focus-within{box-shadow:0 0 0 4px rgba(30,79,168,.15)}
+.esme-spanel-box input{flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;font-size:16px;color:#14181D}
+.esme-spanel-x{flex:none;width:48px;height:48px;border:1px solid #D0D5DD;border-radius:12px;background:#FFFFFF;color:#344054;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.esme-spanel-x:hover{border-color:#0B2A6B;color:#0B2A6B}
+.esme-spanel-pop{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13.5px;color:#667085}
+.esme-spanel-pop a{display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;background:#F2F4F7;color:#14181D;font-weight:600;text-decoration:none}
+.esme-spanel-pop a:hover{background:#0B2A6B;color:#FFFFFF;text-decoration:none}
+@media (max-width: 860px){.esme-spanel-in{padding:16px 20px}.esme-spanel-row .esme-btn{display:none}.esme-sbtn{width:44px;height:44px;margin-left:auto}}
+.esme-row{flex-wrap:nowrap}
+.esme-row .esme-btn{flex:none}
+@media (min-width: 861px){.esme-row>.esme-sbtn,.esme-row>.esme-adv,.esme-row>.esme-hsub{align-self:center;margin:0;height:40px;min-height:40px;box-sizing:border-box;padding-top:0;padding-bottom:0;line-height:1}.esme-row>.esme-adv,.esme-row>.esme-hsub{padding-left:18px;padding-right:18px;font-size:13.5px}.esme-row>.esme-adv,.esme-row>.esme-hsub{margin-left:-4px}}
+@media (max-width: 1280px){.esme-adv{display:none}}
+@media (max-width: 1060px){.esme-logo img{height:40px !important}.esme-nl{padding:8px 7px}}
+@media (max-width: 700px){.esme-ddcols{grid-template-columns:1fr}.esme-ddcol{padding:0;border-left:0}.esme-ddcol + .esme-ddcol{margin-top:14px}}
+@media (max-width: 1180px){.esme-row{flex-wrap:wrap}.esme-nav{order:3;width:100%;overflow-x:auto}}
+.esme-burger{display:none;flex:none;width:44px;height:44px;border:1px solid #D0D5DD;border-radius:10px;background:#FFFFFF;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+.esme-burger span{display:block;width:20px;height:2px;border-radius:2px;background:#14181D;transition:transform .2s ease,opacity .2s ease}
+.esme-bar.is-open .esme-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.esme-bar.is-open .esme-burger span:nth-child(2){opacity:0}
+.esme-bar.is-open .esme-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width: 860px){
+.esme-hdr{top:-37px}
+.esme-row{flex-wrap:wrap !important;min-height:64px !important;padding:10px 20px !important}
+.esme-logo img{height:36px !important}
+.esme-burger{display:flex}
+.esme-row .esme-hsub{padding:9px 14px;font-size:13px}
+.esme-nav{display:none !important;order:3;width:100%;flex-direction:column;align-items:stretch;gap:2px;padding:8px 0 6px;border-top:1px solid #EAECF0;overflow:visible !important}
+.esme-bar.is-open .esme-nav{display:flex !important}
+.esme-nav .esme-nl{justify-content:space-between;padding:13px 10px;font-size:16px;border-radius:8px}
+.esme-nav .esme-caret{transform:rotate(-90deg)}
+.esme-dd:hover .esme-mega,.esme-dd:focus-within .esme-mega{display:none}
+}
+@media (max-width: 420px){.esme-row .esme-hsub{display:none}}
+
+</style>
+</helmet>
+<header class="esme-hdr">
+<div class="esme-top" style="background: #101828; color: #C8CDD6; font-size: 12.5px">
+<div style="max-width: 1232px; height: 37px; box-sizing: border-box; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+<span style="display: flex; align-items: center; gap: 14px; white-space: nowrap; overflow: hidden"><strong style="color: #FFFFFF; font-weight: 600">{{today}}</strong><span class="esme-tagline" aria-hidden="true" style="width: 1px; height: 14px; background: rgba(255,255,255,.25)"></span><span class="esme-tagline">America’s platform for small-business insight</span></span>
+</div>
+</div>
+<div class="esme-bar {{barCls}}">
+<div class="esme-row" style="max-width: 1232px; min-height: 80px; box-sizing: border-box; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; gap: 12px 14px">
+<a href="./" aria-label="American SMB home" class="esme-logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none">
+<img src="logo.png" alt="American SMB Business Magazine" width="760" height="145" style="display: block; height: 46px; width: auto; max-width: 52vw">
+</a>
+<nav aria-label="Main" class="esme-nav" id="esme-mainnav">
+<a class="esme-nl {{latestOn}}" href="#">Latest</a>
+<div class="esme-dd">
+<a class="esme-nl {{newsOn}}" href="#" aria-haspopup="true">News <span class="esme-caret"></span></a>
+<div class="esme-mega"><div class="esme-mm">
+<div class="esme-mmcols">
+<sc-for list="{{mNews.cols}}" as="c" hint-placeholder-count="2">
+<div class="esme-mmcol">
+<p class="esme-mmh">{{c.heading}}</p>
+<sc-for list="{{c.links}}" as="l" hint-placeholder-count="4">
+<a class="esme-ddi" href="{{l.href}}"><span class="esme-ict" dc-html="{{l.icon}}"></span><span style="min-width: 0">{{l.label}}<sc-if value="{{l.isNew}}" hint-placeholder-val="{{ false }}"><span class="esme-new">New</span></sc-if><sc-if value="{{l.hasSub}}" hint-placeholder-val="{{ false }}"><small>{{l.sub}}</small></sc-if></span></a>
+</sc-for>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{mNews.hasPick}}" hint-placeholder-val="{{ true }}">
+<a class="esme-pick" href="{{mNews.pick.href}}"><img src="{{mNews.pick.img}}" alt="" loading="lazy"><span class="esme-pick-b"><span class="esme-pick-k">{{mNews.pickLabel}}</span><span class="esme-pick-t">{{mNews.pick.title}}</span><span class="esme-pick-btn">{{mNews.pickCta}} <span aria-hidden="true">→</span></span></span></a>
+</sc-if>
+</div></div>
+</div>
+<a class="esme-nl {{interviewsOn}}" href="#">Interviews</a>
+<div class="esme-dd">
+<a class="esme-nl {{resOn}}" href="#" aria-haspopup="true">Resources <span class="esme-caret"></span></a>
+<div class="esme-mega"><div class="esme-mm">
+<div class="esme-mmcols">
+<sc-for list="{{mRes.cols}}" as="c" hint-placeholder-count="2">
+<div class="esme-mmcol">
+<p class="esme-mmh">{{c.heading}}</p>
+<sc-for list="{{c.links}}" as="l" hint-placeholder-count="4">
+<a class="esme-ddi" href="{{l.href}}"><span class="esme-ict" dc-html="{{l.icon}}"></span><span style="min-width: 0">{{l.label}}<sc-if value="{{l.isNew}}" hint-placeholder-val="{{ false }}"><span class="esme-new">New</span></sc-if><sc-if value="{{l.hasSub}}" hint-placeholder-val="{{ false }}"><small>{{l.sub}}</small></sc-if></span></a>
+</sc-for>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{mRes.hasPick}}" hint-placeholder-val="{{ true }}">
+<a class="esme-pick" href="{{mRes.pick.href}}"><img src="{{mRes.pick.img}}" alt="" loading="lazy"><span class="esme-pick-b"><span class="esme-pick-k">{{mRes.pickLabel}}</span><span class="esme-pick-t">{{mRes.pick.title}}</span><span class="esme-pick-btn">{{mRes.pickCta}} <span aria-hidden="true">→</span></span></span></a>
+</sc-if>
+</div></div>
+</div>
+<div class="esme-dd">
+<a class="esme-nl {{aboutOn}}" href="#" aria-haspopup="true">About Us <span class="esme-caret"></span></a>
+<div class="esme-mega"><div class="esme-mm">
+<div class="esme-mmcols">
+<sc-for list="{{mAbout.cols}}" as="c" hint-placeholder-count="2">
+<div class="esme-mmcol">
+<p class="esme-mmh">{{c.heading}}</p>
+<sc-for list="{{c.links}}" as="l" hint-placeholder-count="4">
+<a class="esme-ddi" href="{{l.href}}"><span class="esme-ict" dc-html="{{l.icon}}"></span><span style="min-width: 0">{{l.label}}<sc-if value="{{l.isNew}}" hint-placeholder-val="{{ false }}"><span class="esme-new">New</span></sc-if><sc-if value="{{l.hasSub}}" hint-placeholder-val="{{ false }}"><small>{{l.sub}}</small></sc-if></span></a>
+</sc-for>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{mAbout.hasPick}}" hint-placeholder-val="{{ true }}">
+<a class="esme-pick" href="{{mAbout.pick.href}}"><img src="{{mAbout.pick.img}}" alt="" loading="lazy"><span class="esme-pick-b"><span class="esme-pick-k">{{mAbout.pickLabel}}</span><span class="esme-pick-t">{{mAbout.pick.title}}</span><span class="esme-pick-btn">{{mAbout.pickCta}} <span aria-hidden="true">→</span></span></span></a>
+</sc-if>
+</div></div>
+</div>
+</nav>
+<span style="flex: 1 1 0"></span>
+<button type="button" class="esme-sbtn" aria-label="{{searchLabel}}" aria-expanded="{{searchOpen}}" aria-controls="esme-spanel" onClick="{{toggleSearch}}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></button>
+<a class="esme-btn esme-btn--blue esme-adv" href="#">Advertise With Us</a>
+<a class="esme-btn esme-btn--gold esme-hsub" href="#newsletter">Subscribe Free</a>
+<button type="button" class="esme-burger" aria-label="{{menuLabel}}" aria-expanded="{{menuOpen}}" aria-controls="esme-mainnav" onClick="{{toggleMenu}}"><span></span><span></span><span></span></button>
+</div>
+<div class="esme-spanel {{searchCls}}" id="esme-spanel">
+<form class="esme-spanel-in" action="#" method="get" role="search">
+<label for="hdr-q" class="esme-spanel-l">Search American SMB</label>
+<div class="esme-spanel-row">
+<span class="esme-spanel-box"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg><input id="hdr-q" name="q" type="search" placeholder="Search news, guides and tools — e.g. SBA loans, tariffs, taxes" autocomplete="off"></span>
+<button type="submit" class="esme-btn esme-btn--blue esme-btn--lg">Search</button>
+<button type="button" class="esme-spanel-x" aria-label="Close search" onClick="{{toggleSearch}}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div class="esme-spanel-pop"><span>Popular:</span><a href="#">Grant & Loan Finder</a><a href="#">Tax deadlines</a><a href="#">SBA loans</a><a href="#">Tariffs</a><a href="#">Health insurance</a></div>
+</form>
+</div>
+</div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["none","Articles","Funding","Growth","Money","Marketing","Hiring","Tech","Policy","Countries","Tools"],"default":"none"},"$preview":{"width":1440,"height":360}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { open: false, search: false }; }
+  renderVals() {
+    const active = this.props.active ?? 'none';
+    const open = !!(this.state && this.state.open);
+    const search = !!(this.state && this.state.search);
+    const E = typeof ESME !== 'undefined' ? ESME : null;
+    const S = (E && E.sections) || {};
+    const ic = (n) => (E ? E.icon(n, 17) : '');
+    const posts = (E && E.posts && E.posts()) || [];
+    const bySlug = (s) => posts.filter((p) => p.slug === s)[0];
+    const withImg = (test) => posts.filter((p) => p.img && test(p))[0];
+    const pick = (p) => (p ? { href: p.href, img: p.thumb || p.img, title: p.title } : {});
+    const link = (label, href, icon, sub, isNew) => ({ label, href, icon: ic(icon), sub: sub || '', hasSub: !!sub, isNew: !!isNew });
+    const topic = (k) => link(S[k] ? S[k].label : k, '#' + k, k);
+    const menu = (cols, p, pickLabel, pickCta) => ({ cols, pick: pick(p), hasPick: !!p, pickLabel: pickLabel || 'Editor’s pick', pickCta: pickCta || 'Read the full story' });
+    const cover = E && E.cover && E.cover();
+    const inSection = ['Growth', 'Money', 'Marketing', 'Hiring', 'Tech', 'Articles'].indexOf(active) > -1;
+    return {
+      today: new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }),
+      // CanadianSME-style menu: Latest · News · Interviews · Resources · About Us
+      mNews: menu([
+        { heading: 'Money & Economy', links: [topic('funding'), topic('money'), topic('policy'), topic('growth')] },
+        { heading: 'Business & People', links: [topic('people'), topic('marketing'), topic('tech'), link('Founder interviews', '#', 'guide')] }
+      ], (cover && cover.post) || withImg(() => true)),
+      mRes: menu([
+        { heading: 'Plan & Run', links: [link('Free tools', '#', 'grid', 'Calculators and checkers'), link('How-to guides', '#', 'guide', 'Step-by-step help'), link('Grant & Loan Finder', '#', 'search', 'SBA, state and local programs'), link('Tax Deadline Calendar', '#', 'calendar', 'Federal and state dates')] },
+        { heading: 'Read & Meet', links: [link('Magazine', '#', 'news', 'Read the latest issue'), link('Events', '#', 'people', 'Summits and webinars'), link('State guides', '#', 'pin', 'All 50 states', true), link('Contributors', '#', 'marketing', 'Our writers and experts')] }
+      ], bySlug('post-26') || withImg((p) => p.section === 'funding'), 'Featured guide'),
+      mAbout: menu([
+        { heading: 'American SMB', links: [link('About us', '#', 'people'), link('Our team', '#', 'hire'), link('Contact', '#', 'globe')] },
+        { heading: 'Work with us', links: [link('Advertise with us', '#', 'marketing'), link('Submit your story', '#', 'guide'), link('The Main Street Briefing', '#newsletter', 'news')] }
+      ], posts.filter((p) => p.img)[1], 'Latest story'),
+      latestOn: active === 'Articles' ? 'is-on' : '',
+      sectionsOn: inSection && active !== 'Articles' ? 'is-on' : '',
+      newsOn: inSection ? 'is-on' : '', interviewsOn: active === 'Interviews' ? 'is-on' : '', resOn: active === 'Tools' ? 'is-on' : '',
+      aboutOn: active === 'About' ? 'is-on' : '',
+      // Phone menu (below 860px): the burger opens the five sections as a list.
+      barCls: open ? 'is-open' : '', menuOpen: open ? 'true' : 'false', menuLabel: open ? 'Close menu' : 'Open menu',
+      toggleMenu: () => this.setState({ open: !open, search: false }),
+      // Search: an icon in the bar opens a full-width search box under it.
+      searchCls: search ? 'is-open' : '', searchOpen: search ? 'true' : 'false', searchLabel: search ? 'Close search' : 'Search the site',
+      toggleSearch: () => {
+        this.setState({ search: !search, open: false });
+        if (!search && typeof document !== 'undefined') setTimeout(() => { const el = document.getElementById('hdr-q'); if (el) el.focus(); }, 30);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

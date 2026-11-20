@@ -2,407 +2,498 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>American SMB — The magazine for America's small businesses</title>
-<meta name="description" content="Funding, taxes, hiring, marketing, AI and trade news for America's small business owners.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,500;1,8..60,600&display=swap">
-<style>
-:root{
-  --navy:#0B2552; --navy-dk:#061736; --ink:#0E1525; --red:#C8102E; --orange:#F7941D;
-  --blue:#1F4FA8; --pale:#E8EEF8; --muted:#4A5568; --line:#DDE2EA; --soft:#F4F6FA;
-  --serif:'Source Serif 4',Georgia,serif;
-}
-*{box-sizing:border-box}
-body{margin:0;background:#fff;color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:var(--ink);text-decoration:none}
-a:hover{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
-.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
-.kicker{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
-.date{font-size:13px;color:var(--muted)}
-.serif{font-family:var(--serif)}
-.sec-head{border-top:3px solid var(--ink);padding-top:14px;margin-bottom:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px}
-.sec-head h2{margin:0;font-family:var(--serif);font-size:32px;font-weight:600}
-.sec-head p{margin:4px 0 0;font-size:15px;color:var(--muted)}
-.sec-head a.more{font-size:14px;font-weight:600;color:var(--blue)}
-.sec-head.sm h2{font-size:24px}
-
-/* Header */
-.util{background:var(--navy-dk);color:#C9D3EA;font-size:13px}
-.util .wrap{padding-top:8px;padding-bottom:8px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
-.util nav{display:flex;gap:20px;flex-wrap:wrap}
-.util a{color:#C9D3EA}
-.brandbar{background:var(--navy);position:relative;overflow:hidden}
-.brandbar::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--red) 0 33%,#fff 33% 66%,var(--orange) 66%)}
-.brandbar .wrap{padding-top:18px;padding-bottom:22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.icon-btn{width:44px;height:44px;border-radius:22px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 auto}
-.logo img{display:block;height:64px;width:auto}
-.btn-sub{background:var(--orange);color:var(--navy-dk);font-weight:700;font-size:14px;padding:13px 22px;border-radius:999px;white-space:nowrap}
-.btn-sub:hover{color:var(--navy-dk);background:#FFA53A;text-decoration:none}
-.mainnav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
-.mainnav .wrap{display:flex;align-items:center;justify-content:safe center;gap:0 22px;overflow-x:auto;scrollbar-width:none}
-.mainnav .wrap::-webkit-scrollbar{display:none}
-.mainnav a{padding:16px 0;font-size:13.5px;font-weight:600;white-space:nowrap}
-.mainnav a.pill{margin-left:6px;padding:8px 14px;border-radius:999px;color:var(--navy);border:1px solid var(--navy)}
-
-/* Pulse strip */
-.pulse{background:var(--soft);border-bottom:1px solid var(--line)}
-.pulse .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
-.pulse .lbl{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:12px 20px 12px 0;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
-.pulse .lbl i{width:8px;height:8px;border-radius:4px;background:var(--red);display:inline-block}
-.pulse .item{flex:0 0 auto;padding:12px 20px;border-left:1px solid var(--line);font-size:13px;color:var(--muted);white-space:nowrap}
-.pulse .item b{color:var(--ink);font-weight:700}
-
-/* Covers (typographic art, no stock photos) */
-.cover{position:relative;overflow:hidden;border-radius:8px;container-type:inline-size;display:flex;align-items:center;justify-content:center;color:#fff}
-.cover .ring{position:absolute;width:78%;aspect-ratio:1;border-radius:50%;border:2px solid var(--ring,rgba(247,148,29,.85));right:-18%;bottom:-38%;opacity:.9}
-.cover .ring.r2{width:46%;right:auto;left:-12%;top:-22%;bottom:auto;opacity:.45}
-.cover .stripes{position:absolute;left:0;top:0;bottom:0;width:10px;background:repeating-linear-gradient(180deg,var(--red) 0 14px,#fff 14px 28px);opacity:.9}
-.cover .glyph{position:relative;font-family:var(--serif);font-style:italic;font-weight:600;line-height:1;letter-spacing:-.02em;font-size:var(--size,24cqw)}
-.cover .star{position:absolute;top:12%;right:10%;width:8cqw;height:8cqw;fill:var(--ring,#F7941D)}
-.t-navy{background:var(--navy);--ring:#F7941D}
-.t-red{background:var(--red);--ring:#fff}
-.t-blue{background:var(--blue);--ring:#F7941D}
-.t-ink{background:var(--ink);--ring:#F7941D}
-.t-orange{background:var(--orange);color:var(--navy-dk)!important;--ring:#0B2552}
-.t-pale{background:var(--pale);color:var(--navy)!important;--ring:#C8102E}
-
-/* Top stories */
-.top{display:flex;flex-wrap:wrap;gap:48px;padding-top:40px;padding-bottom:56px}
-.lead{flex:7 1 560px;min-width:0;display:flex;flex-direction:column;gap:14px}
-.lead h1{margin:0;font-family:var(--serif);font-size:48px;line-height:1.08;font-weight:600;letter-spacing:-.015em}
-.lead .dek{margin:0;font-family:var(--serif);font-size:21px;line-height:1.5;color:var(--muted)}
-.side{flex:5 1 360px;min-width:0;display:flex;flex-direction:column;gap:24px}
-.side article{padding-bottom:24px;border-bottom:1px solid var(--line)}
-.side h2{margin:0;font-family:var(--serif);font-weight:600;line-height:1.2}
-.latest-row{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
-.latest-row .d{flex:0 0 56px;font-size:12px;font-weight:600;color:var(--muted);padding-top:3px}
-.latest-row a{font-size:16px;font-weight:600;line-height:1.35}
-
-/* Topics grid */
-.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-.topic{display:flex;flex-direction:column;gap:10px;padding:20px;border:1px solid var(--line);border-radius:12px;transition:border-color .15s,box-shadow .15s,transform .15s}
-.topic:hover{text-decoration:none;border-color:var(--navy);box-shadow:0 6px 20px rgba(11,37,82,.08);transform:translateY(-2px)}
-.topic .ic{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center}
-.topic .ic svg{width:22px;height:22px}
-.topic b{font-size:16px;color:var(--ink)}
-.topic span{font-size:14px;line-height:1.5;color:var(--muted)}
-.topic em{font-style:normal;font-size:12px;font-weight:700;color:var(--blue)}
-
-/* Newsletter */
-.news{background:var(--navy);position:relative;overflow:hidden}
-.news .wrap{padding-top:52px;padding-bottom:52px;display:flex;flex-wrap:wrap;gap:32px 64px;align-items:center;justify-content:space-between}
-.news h2{margin:0;font-family:var(--serif);font-size:36px;line-height:1.15;font-weight:600;color:#fff}
-.news p{margin:0;font-size:17px;line-height:1.55;color:#C9D3EA}
-.news input{flex:1 1 240px;height:52px;padding:0 16px;border-radius:8px;border:none;font-size:16px;font-family:inherit}
-.news button{height:52px;padding:0 26px;border-radius:8px;border:none;background:var(--orange);color:var(--navy-dk);font-weight:700;font-size:15px;font-family:inherit;cursor:pointer}
-
-/* Tools */
-.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
-.tool{display:flex;gap:16px;align-items:flex-start;padding:20px;border:1px solid var(--line);border-radius:12px}
-.tool:hover{text-decoration:none;border-color:var(--navy)}
-.tool .g{flex:0 0 48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-weight:600;font-size:19px}
-.tool b{display:block;font-size:16px;color:var(--ink);margin-bottom:4px}
-.tool span{font-size:14px;line-height:1.5;color:var(--muted)}
-
-.grid4{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:32px 28px}
-.grid4 article{display:flex;flex-direction:column;gap:10px}
-.grid4 h3{margin:6px 0 0;font-family:var(--serif);font-size:21px;line-height:1.25;font-weight:600}
-.cols{display:flex;flex-wrap:wrap;gap:48px 40px}
-.col{flex:1 1 320px;min-width:0;display:flex;flex-direction:column}
-.col article{display:flex;flex-direction:column;gap:10px;padding-bottom:20px;border-bottom:1px solid var(--line)}
-.col h3{margin:8px 0 0;font-family:var(--serif);font-size:23px;line-height:1.22;font-weight:600}
-.col p{margin:0;font-size:15px;line-height:1.55;color:var(--muted)}
-.col .more-link{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;font-weight:600;line-height:1.35}
-
-/* Interviews */
-.voices{background:var(--soft)}
-.iv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-.iv{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:14px}
-.iv .who{display:flex;gap:14px;align-items:center}
-.iv .av{width:56px;height:56px;border-radius:28px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:#fff}
-.iv q{font-family:var(--serif);font-size:20px;line-height:1.4;font-style:italic;quotes:"“" "”"}
-.iv .meta{font-size:13px;color:var(--muted)}
-.iv .tag{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:4px;background:#FFF3E3;color:#9A5A00}
-.feature-cta{background:var(--navy);color:#fff;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:12px;justify-content:center}
-.feature-cta h3{margin:0;font-family:var(--serif);font-size:26px;font-weight:600}
-.feature-cta p{margin:0;color:#C9D3EA;line-height:1.55}
-.feature-cta a{align-self:flex-start;background:var(--orange);color:var(--navy-dk);font-weight:700;padding:12px 20px;border-radius:999px;font-size:14px}
-
-.duo-wrap{display:flex;flex-wrap:wrap;gap:48px}
-.duo{flex:8 1 560px;min-width:0;display:flex;flex-direction:column;gap:40px}
-.duo article{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
-.duo h3{margin:0;font-family:var(--serif);font-size:22px;line-height:1.22;font-weight:600}
-.duo p{margin:0;font-size:15px;line-height:1.55;color:var(--muted)}
-.mostread{flex:4 1 300px;min-width:0}
-.mostread .box{background:var(--soft);border-radius:10px;padding:28px}
-.mostread ol{list-style:none;margin:0;padding:0}
-.mostread li{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
-.mostread li span{flex:0 0 28px;font-family:var(--serif);font-size:30px;font-weight:600;line-height:1;color:var(--red)}
-.mostread li a{font-size:16px;font-weight:600;line-height:1.35}
-
-.states{display:flex;flex-wrap:wrap;gap:10px}
-.states a{padding:10px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;font-weight:600}
-.states a:hover{border-color:var(--navy);text-decoration:none}
-.states a.all{background:var(--navy);color:#fff;border-color:var(--navy)}
-
-footer{background:var(--navy-dk);color:#C9D3EA}
-footer .wrap{padding-top:56px;padding-bottom:28px}
-footer .cols4{display:flex;flex-wrap:wrap;gap:40px 56px;justify-content:space-between}
-footer nav{flex:1 1 160px;display:flex;flex-direction:column;gap:10px;font-size:14px}
-footer nav span{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
-footer a{color:#C9D3EA}
-.fbot{margin-top:48px;padding-top:20px;border-top:1px solid rgba(201,211,234,.25);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:13px}
-.section{padding-top:64px}
-@media (max-width:720px){
-  .wrap{padding:0 18px}
-  .logo img{height:34px}
-  .brandbar .wrap{gap:10px}
-  .icon-btn{width:36px;height:36px}
-  .btn-sub{padding:9px 12px;font-size:12px}
-  .btn-sub .long{display:none}
-  .topics{grid-template-columns:1fr 1fr;gap:10px}
-  .topic{padding:14px}
-  .topic span:not(.ic){display:none}
-  .nums{grid-template-columns:1fr 1fr!important}
-  .util .tag{display:none}
-  .mainnav .wrap{justify-content:flex-start}
-  .lead h1{font-size:32px}
-  .lead .dek{font-size:18px}
-  .sec-head h2{font-size:26px}
-  .news h2{font-size:28px}
-  .section{padding-top:44px}
-  .top{gap:32px;padding-top:24px}
-}
-</style>
+<title>American SMB — The magazine for America’s small businesses</title>
+<script src="./data.js"></script>
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#14181D;text-decoration:none}
+a:hover{color:#1E4FA8}
+.esme-herocard{transition:background-color .2s ease,border-color .2s ease,transform .2s ease}
+.esme-herocard:hover{background:rgba(255,255,255,.09) !important;border-color:rgba(247,148,29,.5) !important;transform:translateY(-2px);color:#FFFFFF !important;text-decoration:none}
+.esme-ticker::-webkit-scrollbar{display:none}
+.esme-ticker{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 32px,#000 calc(100% - 32px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 32px,#000 calc(100% - 32px),transparent 100%)}
+.esme-tktrack{display:flex;gap:28px;width:max-content;animation:esme-marquee 70s linear infinite}
+.esme-ticker:hover .esme-tktrack,.esme-ticker:focus-within .esme-tktrack{animation-play-state:paused}
+@keyframes esme-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.esme-tktrack{animation:none}.esme-ticker{overflow-x:auto;scrollbar-width:none}.esme-tkdup{display:none !important}}
+.esme-ticker a:hover span{color:#F7941D}
+.esme-tkbar{background:#101828;color:#FFFFFF;border-top:1px solid rgba(255,255,255,.06)}
+.esme-tkin{max-width:1232px;margin:0 auto;padding:0 32px;box-sizing:border-box;display:flex;align-items:stretch;gap:24px;min-height:148px}
+.esme-tklabel{flex:none;display:inline-flex;align-items:center;gap:10px;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#FFFFFF}
+.esme-tkdot{width:9px;height:9px;border-radius:50%;background:#F7941D;box-shadow:0 0 0 4px rgba(247,148,29,.18)}
+.esme-tktrack{gap:0 !important;height:100%}
+.esme-tki{flex:0 0 400px;box-sizing:border-box;display:flex;gap:18px;align-items:center;padding:24px 26px;border-left:1px solid rgba(255,255,255,.1);color:#FFFFFF !important;text-decoration:none !important}
+.esme-tki img{width:132px;height:92px;flex:none;object-fit:cover;border-radius:8px;background:#1D2939}
+.esme-tki-b{display:flex;flex-direction:column;gap:8px;min-width:0}
+.esme-tki-k{font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#F7941D;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.esme-tki-t{font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:16.5px;font-weight:600;line-height:1.35;color:#FFFFFF;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.esme-tki:hover .esme-tki-t,.esme-tki:focus-visible .esme-tki-t{color:#F7941D}
+.esme-tki:focus-visible{outline:2px solid #F7941D;outline-offset:-4px}
+@media (max-width: 860px){.esme-tkin{padding:0 20px;min-height:120px;gap:14px}.esme-tklabel{display:none}.esme-tki{flex-basis:320px;padding:18px 18px;gap:14px}.esme-tki img{width:96px;height:68px}.esme-tki-t{font-size:15px}}
+.esme-tic{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;transition:transform .2s ease}
+.esme-toolcard:hover .esme-tic{transform:rotate(-6deg) scale(1.06)}
+.esme-toolcard{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.esme-toolcard:hover{transform:translateY(-4px);border-color:#D0D5DD !important;color:#14181D !important;text-decoration:none}
+.esme-flink:hover{color:#FFFFFF !important}
+button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-serif}
+.yc-wrap{max-width:1232px;box-sizing:border-box;margin:0 auto;padding:64px 32px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
+/* Site: the cover-story visual runs from the kicker to the buttons on wide screens */
+.esme-hero-img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+@media (min-width: 961px){.esme-hero-vis{display:flex !important}.esme-hero-vis figure,.esme-hero-vis .esme-hero-img{flex:1 1 auto;aspect-ratio:auto !important;min-height:330px}}
+.yc-left{display:flex;flex-direction:column;gap:18px}
+.yc-ticks{list-style:none;margin:2px 0 4px;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px;color:#344054}
+.yc-ticks li{display:flex;align-items:center;gap:12px}
+.yc-ticks li span{flex:none;width:30px;height:30px;border-radius:9px;background:#E6ECF7;color:#003399;display:flex;align-items:center;justify-content:center}
+.yc-sub{display:flex;flex-direction:column;gap:10px;margin-top:6px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #EAECF0;box-shadow:0 1px 2px rgba(16,24,40,.04),0 12px 28px -20px rgba(16,24,40,.35)}
+.yc-sub-l{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:#101828}
+.yc-sub-row{display:flex;gap:10px;flex-wrap:wrap}
+.yc-sub-in{flex:1 1 220px;display:flex;align-items:center;gap:8px;height:50px;padding:0 14px;border:1.5px solid #D0D5DD;border-radius:10px;background:#FFFFFF;transition:border-color .15s ease,box-shadow .15s ease}
+.yc-sub-in:focus-within{border-color:#003399;box-shadow:0 0 0 4px rgba(0,51,153,.1)}
+.yc-sub-in input{flex:1;min-width:0;border:none;outline:none;background:transparent;font-size:15px;color:#14181D}
+.yc-sub-note{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#5A6470}
+.yc-box{display:flex;flex-direction:column;gap:16px;padding:24px;border-radius:22px;color:#FFFFFF;background:radial-gradient(520px 260px at 100% 0%, rgba(247,148,29,.16), transparent 60%),radial-gradient(420px 260px at 0% 100%, rgba(47,91,183,.45), transparent 60%),linear-gradient(140deg,#0B1B33,#0B2A6B 70%,#003399);box-shadow:0 30px 60px -36px rgba(11,27,51,.8),inset 0 0 0 1px rgba(255,255,255,.06)}
+.yc-box-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.yc-box-flag{width:60px;height:40px;object-fit:cover;border-radius:7px;box-shadow:0 0 0 2px rgba(255,255,255,.25),0 10px 20px -10px rgba(0,0,0,.6)}
+.yc-live-l{display:inline-flex;align-items:center;gap:8px;font-family:'Sora',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9FE1CB}
+.yc-pulse{width:8px;height:8px;border-radius:50%;background:#32D583;box-shadow:0 0 0 0 rgba(50,213,131,.6);animation:yc-p 1.8s infinite}
+@keyframes yc-p{0%{box-shadow:0 0 0 0 rgba(50,213,131,.55)}70%{box-shadow:0 0 0 9px rgba(50,213,131,0)}100%{box-shadow:0 0 0 0 rgba(50,213,131,0)}}
+.yc-live-big{display:inline-flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.01em;color:#9FE1CB}
+.yc-live-big .yc-pulse{width:10px;height:10px}
+.yc-right{display:flex;flex-direction:column;gap:14px}
+.yc-more{display:flex;justify-content:flex-end;gap:22px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700}
+.yc-more a{color:#1E4FA8;text-decoration:none}
+.yc-more a:hover{color:#003399;text-decoration:underline;text-underline-offset:3px}
+.yc-box-t{font-family:'Sora',sans-serif;font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.yc-stats{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.06);font-size:13px;color:rgba(255,255,255,.75)}
+.yc-stats strong{color:#FFFFFF;font-family:'Sora',sans-serif}
+.yc-sep{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.35)}
+.yc-top{display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:16px;background:#FFFFFF;color:#14181D;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+.yc-top:hover{transform:translateY(-2px);box-shadow:0 18px 30px -18px rgba(0,0,0,.6);color:#14181D;text-decoration:none}
+.yc-top-k{display:flex;align-items:center;gap:8px;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#344054}
+.yc-top-t{font-family:'Sora',sans-serif;font-size:19px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
+.yc-top:hover .yc-top-t{color:#1E4FA8}
+.yc-top-m{font-size:14px;line-height:1.55;color:#5A6470}
+.yc-top-f{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:#5A6470;padding-top:8px;border-top:1px solid #EAECF0}
+.esme-toolcard .esme-tbtn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;background:#003399;color:#FFFFFF;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:700;line-height:1;transition:background-color .2s ease,color .2s ease}
+.esme-toolcard:hover .esme-tbtn{background:#1E4FA8;color:#FFFFFF}
+.esme-btn--sm{padding:7px 13px;font-size:12.5px}
+.hm-band{position:relative}
+@media (min-width: 900px){.hm-tools{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}
+.hm-band--blue{background:radial-gradient(700px 380px at 100% 0%, rgba(30,79,168,.10), transparent 62%),#EEF2F8;border-top:1px solid #E1E7F0;border-bottom:1px solid #E1E7F0}
+.hm-band--navy{color:#FFFFFF;background:radial-gradient(45% 65% at 8% 80%, rgba(30,90,168,.85), rgba(30,90,168,0) 70%),radial-gradient(40% 60% at 95% 10%, rgba(247,148,29,.18), rgba(247,148,29,0) 70%),#0A1630}
+.hm-band--navy .esme-sechead .esme-sub{color:rgba(255,255,255,.78)}
+.hm-band--grey{background:#F4F6F8;border-top:1px solid #E8EBEF;border-bottom:1px solid #E8EBEF}
+.hm-band--gold{background:#FFFFFF;border-top:1px solid #EAECF0;border-bottom:1px solid #EAECF0}
+.esme-toolcard{background:#FFFFFF !important}
 
-<header>
-  <div class="util"><div class="wrap">
-    <span class="tag">The independent magazine for America's small businesses</span>
-    <nav aria-label="Utility"><a href="#">About</a><a href="#">Advertise</a><a href="#">Write for us</a><a href="#">Contact</a></nav>
-  </div></div>
-  <div class="brandbar"><div class="wrap">
-    <button class="icon-btn" type="button" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
-    <a class="logo" href="#" aria-label="American SMB home"><img src="assets/logo.png" alt="American SMB — Small Business Magazine"></a>
-    <a class="btn-sub" href="#newsletter">Subscribe<span class="long"> free</span></a>
-  </div></div>
-  <nav class="mainnav" aria-label="Sections"><div class="wrap" id="mainnav"></div></nav>
-</header>
-
-<div class="pulse" aria-label="SMB Pulse"><div class="wrap">
-  <span class="lbl"><i></i>SMB Pulse</span>
-  <span class="item">NFIB Optimism (Oct) <b>97.8</b></span>
-  <span class="item">Owners planning price hikes <b>net 37%</b></span>
-  <span class="item">2027 small-group health premiums <b>+14% median ask</b></span>
-  <span class="item">SBA capital, FY2026 <b>$100B</b></span>
-  <span class="item">Small Business Saturday <b>Nov 28</b></span>
-</div></div>
+.esme-arrowbtn{justify-self:end;width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#003399;color:#FFFFFF !important;transition:background-color .2s ease,transform .2s ease}
+.esme-arrowbtn:hover{background:#1E4FA8;transform:translateX(3px)}
+.esme-arrowbtn:focus-visible{outline:3px solid #1E4FA8;outline-offset:2px}
+.esme-toolcard{border-color:#D9DEE7 !important}
+.yc-badge{margin-left:auto;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.1);font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.85)}
+.yc-top-b{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:8px;background:#003399;color:#FFFFFF;font-family:'Sora',sans-serif;font-size:12.5px;font-weight:700}
+.yc-top:hover .yc-top-b{background:#1E4FA8}
+.yc-foot-l{display:inline-flex;align-items:center;gap:6px;color:#FFFFFF !important}
+.yc-foot-l:hover{color:#F7941D !important}
+.yc-due{display:flex;flex-direction:column;gap:4px;margin-top:6px;padding:18px 18px 10px;border-radius:16px;background:#FFFFFF;border:1px solid #D9DEE7;box-shadow:0 1px 2px rgba(16,24,40,.04),0 12px 28px -20px rgba(16,24,40,.35)}
+.yc-due-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:10px;margin-bottom:4px;border-bottom:1px solid #EAECF0}
+.yc-due-h a.esme-btn{color:#FFFFFF}
+.yc-due-t{display:inline-flex;align-items:center;gap:8px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:#101828}
+.yc-due-r{display:flex;align-items:center;gap:14px;padding:9px 8px;margin:0 -8px;border-radius:10px;color:#14181D;text-decoration:none}
+.yc-due-r:hover{background:#F5F7FA;color:#14181D;text-decoration:none}
+.yc-due-r:hover .yc-due-x{color:#1E4FA8}
+.yc-due-d{flex:none;width:52px;height:52px;border-radius:12px;background:#003399;color:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;line-height:1.1}
+.yc-due-d strong{font-size:19px;letter-spacing:0;color:#F7941D}
+.yc-due-k{font-family:'Sora',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#667085}
+.yc-due-x{font-size:14.5px;font-weight:600;line-height:1.35;color:#14181D}
+.yc-sample{background:#FFF4D6;color:#6B4E00}
+.yc-ic{flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.yc-ic svg{width:18px;height:18px}
+.yc-row{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#FFFFFF;text-decoration:none;transition:background-color .15s ease,border-color .15s ease}
+.yc-row:hover{background:rgba(255,255,255,.1);border-color:rgba(247,148,29,.45);color:#FFFFFF;text-decoration:none}
+.yc-row .yc-ic{background:rgba(255,255,255,.1) !important;color:#F7941D !important}
+.yc-row-k{font-family:'Sora',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.yc-row-t{font-family:'Sora',sans-serif;font-size:14.5px;font-weight:600;line-height:1.35}
+.yc-row-time{flex:none;font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.65)}
+.yc-chev{flex:none;color:rgba(255,255,255,.4);display:flex;transition:transform .15s ease,color .15s ease}
+.yc-row:hover .yc-chev{color:#F7941D;transform:translateX(2px)}
+.yc-box-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;padding-top:6px;border-top:1px solid rgba(255,255,255,.1);font-family:'Sora',sans-serif;font-size:13px;font-weight:600}
+.yc-box-foot a{text-decoration:none}
+.yc-box-foot a.yc-foot-l:hover{color:#F7941D;text-decoration:none}
+.yc-switch{margin-left:auto;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);cursor:pointer}
+.yc-switch select{border:none;outline:none;background:transparent;color:#FFFFFF;font-family:'Sora',sans-serif;font-size:12.5px;font-weight:600;cursor:pointer}
+.yc-switch option{color:#14181D}
+.yc-sample{flex:none;padding:2px 6px;border-radius:4px;background:rgba(247,148,29,.18);color:#F7941D;font-family:'Sora',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+@media (max-width: 960px){.yc-wrap{grid-template-columns:1fr;gap:32px;padding:48px 24px}}
+</style>
+</helmet>
+<div style="color: #14181D; background: #FFFFFF; min-height: 100vh">
+<dc-import name="SiteHeader" active="none" hint-size="100%,118px"></dc-import>
 
 <main>
-<section class="wrap top" aria-label="Top stories">
-  <article class="lead">
-    <a href="#" aria-label="Health premiums 2027" id="leadCover"></a>
-    <span class="kicker" style="margin-top:10px">Cover story · Hiring &amp; Benefits</span>
-    <h1><a href="#">Health insurance is about to cost more again. How small employers can get ready for 2027 renewals</a></h1>
-    <p class="dek">Insurers selling to small businesses have asked for a median 14% premium increase next year. What's driving it, which alternatives are worth a look, and the questions to ask your broker before you sign.</p>
-    <p class="date" style="margin:4px 0 0">By <strong style="color:var(--ink);font-weight:600">American SMB Editorial Team</strong> · 20 November 2026</p>
-    <div style="margin-top:28px;border-top:3px solid var(--ink);padding-top:12px">
-      <h2 style="margin:0 0 16px;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">Main Street by the numbers</h2>
-      <div class="nums" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
-        <div style="background:var(--soft);border-radius:10px;padding:18px"><div class="serif" style="font-size:34px;font-weight:600;color:var(--navy)">1 in 4</div><div style="font-size:13px;color:var(--muted);line-height:1.45;margin-top:6px">owners say finding quality workers is their top problem</div><div style="font-size:11px;color:var(--muted);margin-top:8px">NFIB, Oct 2026</div></div>
-        <div style="background:var(--soft);border-radius:10px;padding:18px"><div class="serif" style="font-size:34px;font-weight:600;color:var(--red)">57%</div><div style="font-size:13px;color:var(--muted);line-height:1.45;margin-top:6px">call inflation their biggest concern</div><div style="font-size:11px;color:var(--muted);margin-top:8px">US Chamber, Q2 2026</div></div>
-        <div style="background:var(--soft);border-radius:10px;padding:18px"><div class="serif" style="font-size:34px;font-weight:600;color:var(--navy)">3 in 4</div><div style="font-size:13px;color:var(--muted);line-height:1.45;margin-top:6px">say tariffs are affecting their business</div><div style="font-size:11px;color:var(--muted);margin-top:8px">Fora Financial, 2026</div></div>
-        <div style="background:var(--soft);border-radius:10px;padding:18px"><div class="serif" style="font-size:34px;font-weight:600;color:#C46A00">52%</div><div style="font-size:13px;color:var(--muted);line-height:1.45;margin-top:6px">plan to increase their use of AI this year</div><div style="font-size:11px;color:var(--muted);margin-top:8px">LegalZoom, 2026</div></div>
-      </div>
-    </div>
-  </article>
-  <aside class="side" aria-label="More top stories">
-    <article style="display:flex;flex-direction:column;gap:12px">
-      <a href="#" id="side1Cover"></a>
-      <span class="kicker">Marketing &amp; Sales</span>
-      <h2 style="font-size:23px"><a href="#">Small Business Saturday is Nov. 28: a 7-day prep plan for Main Street shops</a></h2>
-      <span class="date">19 November 2026</span>
-    </article>
-    <article style="display:flex;gap:18px;align-items:flex-start">
-      <a href="#" id="side2Cover" style="flex:0 0 170px"></a>
-      <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
-        <span class="kicker">Funding &amp; Grants</span>
-        <h2 style="font-size:20px"><a href="#">SBA closes 2026 with $100 billion in capital and a new $10 million loan ceiling</a></h2>
-        <span class="date">18 November 2026</span>
-      </div>
-    </article>
-    <div>
-      <div class="sec-head sm" style="margin-bottom:4px;padding-top:12px"><h2 style="font-family:Inter;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">Latest</h2><a class="more" href="#" style="font-size:13px">All stories</a></div>
-      <div id="latest"></div>
-    </div>
-  </aside>
+<section aria-label="Cover story" style="position: relative; overflow: hidden; color: #FFFFFF; background: radial-gradient(900px 520px at 88% 8%, rgba(247,148,29,.16), transparent 62%), radial-gradient(900px 640px at 0% 100%, rgba(30,79,168,.55), transparent 62%), linear-gradient(135deg, #0B1B33 0%, #0B2A6B 100%)">
+<div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 64px; padding-bottom: 40px; display: flex; flex-wrap: wrap; align-items: stretch; gap: 48px">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h1 style="margin: -0.16em 0 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(30px, 3.3vw, 44px); line-height: 1.12; font-weight: 700; letter-spacing: -0.025em; color: #FFFFFF"><a href="{{coverHref}}" style="color: inherit; text-decoration: none">{{coverTitle}}</a></h1>
+<span aria-hidden="true" style="width: 56px; height: 3px; border-radius: 2px; background: #F7941D"></span>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: rgba(255,255,255,.82); max-width: 560px">{{coverDek}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 4px">
+<a class="esme-btn esme-btn--gold esme-btn--lg" href="{{coverHref}}">Read the story <span aria-hidden="true">→</span></a>
+<a class="esme-btn esme-btn--ghost esme-btn--lg" href="#">All articles</a>
+</div>
+</div>
+<a href="{{coverHref}}" aria-label="{{coverTitle}}" class="esme-hero-vis" style="flex: 1 1 480px; min-width: 0; display: block; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.12)"><sc-if value="{{coverIsPhoto}}"><img class="esme-hero-img" src="{{coverImg}}" alt="{{coverAlt}}"></sc-if></a>
+</div>
+<div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-bottom: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 20px">
+<sc-for list="{{coverSecondary}}" as="c">
+<a href="{{c.href}}" class="esme-herocard" style="display: flex; flex-wrap: wrap; gap: 18px; align-items: center; padding: 12px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); color: #FFFFFF; text-decoration: none">
+<span style="flex: 0 0 200px; max-width: 100%; border-radius: 9px; overflow: hidden; display: block"><sc-if value="{{c.isPhoto}}"><img src="{{c.img}}" alt="{{c.alt}}" loading="lazy" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover"></sc-if></span>
+<span style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 9px">
+<span class="esme-tag esme-tag--gold" style="align-self: flex-start">{{c.tag}}</span>
+<span style="font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 18px; line-height: 1.3; font-weight: 700">{{c.title}}</span>
+<span style="font-size: 12.5px; color: rgba(255,255,255,.7)">{{c.meta}}</span>
+</span>
+</a>
+</sc-for>
+</div>
 </section>
 
-<section class="wrap" aria-label="Explore by topic" style="padding-bottom:8px">
-  <div class="sec-head"><div><h2>Explore by topic</h2><p>Practical answers to the problems American owners tell us about most.</p></div></div>
-  <div class="topics" id="topics"></div>
+
+<sc-if value="{{ready}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Latest news" class="esme-tkbar">
+<div class="esme-tkin">
+<span class="esme-tklabel"><span aria-hidden="true" class="esme-tkdot"></span>Latest news</span>
+<div class="esme-ticker" style="flex: 1 1 auto; min-width: 0">
+<div class="esme-tktrack">
+<sc-for list="{{latest}}" as="l" hint-placeholder-count="5">
+<a href="{{l.href}}" class="esme-tki">
+<img src="{{l.thumb}}" alt="" loading="lazy">
+<span class="esme-tki-b"><span class="esme-tki-k">{{l.sectionLabel}}</span><span class="esme-tki-t">{{l.title}}</span></span>
+</a>
+</sc-for>
+<sc-for list="{{latest}}" as="l" hint-placeholder-count="5">
+<a href="{{l.href}}" class="esme-tki esme-tkdup" aria-hidden="true" tabindex="-1">
+<img src="{{l.thumb}}" alt="" loading="lazy">
+<span class="esme-tki-b"><span class="esme-tki-k">{{l.sectionLabel}}</span><span class="esme-tki-t">{{l.title}}</span></span>
+</a>
+</sc-for>
+</div>
+</div>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{loading}}" hint-placeholder-val="{{ false }}">
+<div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 72px; padding-bottom: 72px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px">
+<sc-for list="{{skeletons}}" as="k" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 12px"><div class="esme-skel" style="aspect-ratio: 16 / 10"></div><div class="esme-skel" style="height: 18px; width: 60%"></div><div class="esme-skel" style="height: 22px"></div></div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{failed}}" hint-placeholder-val="{{ false }}">
+<div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 48px; padding-bottom: 48px; font-size: 16px; color: #5A6470">Live articles could not be loaded right now. Please refresh, or <a href="#" style="color: #1E4FA8; text-decoration: underline">browse all articles</a>.</div>
+</sc-if>
+
+<sc-if value="{{ready}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Featured stories" style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 80px; padding-bottom: 80px">
+<div class="esme-sechead">
+<div><p class="esme-eyebrow">Editor’s picks</p><h2 class="esme-h2">Featured stories</h2><p class="esme-sub">Picked by our editors for America’s small-business owners.</p></div>
+
+</div>
+<nav aria-label="Filter featured stories by topic" style="display: flex; flex-wrap: wrap; gap: 8px; margin: -6px 0 30px">
+<sc-for list="{{chips}}" as="c" hint-placeholder-count="8">
+<button type="button" class="esme-chipf {{c.cls}}" aria-pressed="{{c.on}}" onClick="{{c.pick}}">{{c.label}}</button>
+</sc-for>
+</nav>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<div style="flex: 6 1 520px; min-width: 0"><dc-import name="Card" post="{{feature}}" variant="feature" hint-size="100%,640px"></dc-import></div>
+<div style="flex: 6 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 24px">
+<sc-for list="{{featureSide}}" as="f" hint-placeholder-count="4">
+<dc-import name="Card" post="{{f}}" variant="standard" hint-size="100%,330px"></dc-import>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; justify-content: flex-end; margin-top: 22px"><a class="esme-btn esme-btn--blue" href="{{featHref}}">{{featMore}} <span aria-hidden="true">→</span></a></div>
+</section>
+</sc-if>
+
+<div class="hm-band hm-band--blue">
+<section aria-label="Tools for SMEs" style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 76px; padding-bottom: 80px">
+<div class="esme-sechead">
+<div><p class="esme-eyebrow">Free tools</p><h2 class="esme-h2">Tools for American small businesses</h2><p class="esme-sub">Find funding, track tax deadlines and run the numbers — checked monthly by our editors.</p></div>
+<a class="esme-btn esme-btn--blue" href="#">All tools <span aria-hidden="true">→</span></a>
+</div>
+<div class="hm-tools" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px">
+<sc-for list="{{tools}}" as="t" hint-placeholder-count="7">
+<a href="{{t.href}}" class="esme-toolcard" style="display: flex; flex-direction: column; gap: 14px; padding: 22px; background: #FFFFFF; border: 1px solid #EAECF0; border-radius: 14px; box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px -16px rgba(16,24,40,.18); color: #14181D; text-decoration: none">
+<span style="display: flex; justify-content: space-between; align-items: flex-start"><span class="esme-tic" style="color: {{t.tone}}; background: {{t.tint}}" dc-html="{{t.iconSvg}}"></span><sc-if value="{{t.isNew}}" hint-placeholder-val="{{ false }}"><span class="esme-tag esme-tag--gold">New</span></sc-if></span>
+<span style="font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 17px; font-weight: 700">{{t.name}}</span>
+<span style="font-size: 14px; line-height: 1.6; color: #5A6470">{{t.long}}</span>
+<span class="esme-tbtn">Open tool <span aria-hidden="true">→</span></span>
+</a>
+</sc-for>
+</div>
+</section>
+</div>
+
+<sc-if value="{{ready}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Trade and Policy" class="hm-band hm-band--navy">
+<div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 72px; padding-bottom: 72px">
+<div class="esme-sechead">
+<div><p class="esme-eyebrow is-dark">Trade &amp; Policy</p><h2 class="esme-h2 is-dark">The rules that shape your business</h2><p class="esme-sub is-dark">Tariffs, taxes, SBA programs and the federal rules that shape how small businesses buy, sell and hire.</p></div>
+<a class="esme-btn esme-btn--gold" href="#">View all policy articles <span aria-hidden="true">→</span></a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px">
+<sc-for list="{{policy}}" as="p" hint-placeholder-count="4">
+<dc-import name="Card" post="{{p}}" variant="standard" hint-size="100%,400px"></dc-import>
+</sc-for>
+</div>
+</div>
 </section>
 
-<section id="newsletter" class="news section" style="margin-top:64px;padding-top:0" aria-label="Newsletter">
-  <div class="wrap">
-    <div style="flex:1 1 440px;display:flex;flex-direction:column;gap:12px">
-      <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)">The Main Street Briefing</span>
-      <h2>America's small-business week, in one email.</h2>
-      <p>Funding deadlines, tax changes, tariff updates and practical playbooks. Every Tuesday, free.</p>
-    </div>
-    <form style="flex:1 1 420px;display:flex;flex-direction:column;gap:10px" onsubmit="return false">
-      <label for="nl" style="font-size:14px;font-weight:600;color:#fff">Work email</label>
-      <div style="display:flex;flex-wrap:wrap;gap:12px"><input id="nl" type="email" placeholder="name@company.com"><button type="submit">Subscribe</button></div>
-      <p style="font-size:13px">Free. Unsubscribe at any time. Read our <a href="#" style="color:#fff;text-decoration:underline">privacy policy</a>.</p>
-    </form>
-  </div>
+<section aria-label="Sections" style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 80px; padding-bottom: 80px">
+<div class="esme-sechead">
+<div><p class="esme-eyebrow">By topic</p><h2 class="esme-h2">Grow, fund and market your business</h2></div>
+
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 40px 28px">
+<sc-for list="{{columns}}" as="c" hint-placeholder-count="3">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="display: grid; grid-template-columns: 34px 1fr 34px; align-items: center; gap: 8px; padding-bottom: 12px; border-bottom: 2px solid {{c.color}}">
+<span aria-hidden="true"></span>
+<h3 style="margin: 0; display: flex; align-items: center; justify-content: center; text-align: center; gap: 9px; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; font-weight: 700"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: {{c.color}}"></span>{{c.name}}</h3>
+<a class="esme-arrowbtn" href="{{c.href}}" aria-label="More in {{c.name}}" title="More in {{c.name}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+<dc-import name="Card" post="{{c.lead}}" variant="standard" hint-size="100%,400px"></dc-import>
+<div>
+<sc-for list="{{c.more}}" as="m" hint-placeholder-count="2">
+<div style="border-bottom: 1px solid #EAECF0"><dc-import name="Card" post="{{m}}" variant="compact" hint-size="100%,92px"></dc-import></div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
 </section>
 
-<section class="wrap section" aria-label="Tools">
-  <div class="sec-head"><div><h2>Free tools for owners</h2><p>Quick answers, checked monthly by our editors.</p></div><a class="more" href="#">All tools</a></div>
-  <div class="tools" id="tools"></div>
+<div class="hm-band hm-band--grey">
+<section aria-label="People, technology and most read" style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 76px; padding-bottom: 80px; display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 8 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 56px">
+<sc-for list="{{duo}}" as="d" hint-placeholder-count="2">
+<div>
+<div class="esme-sechead" style="margin-bottom: 22px">
+<div><p class="esme-eyebrow">{{d.eyebrow}}</p><h2 class="esme-h2" style="font-size: 30px">{{d.name}}</h2></div>
+<a class="esme-btn esme-btn--line" href="{{d.href}}">More in {{d.name}} <span aria-hidden="true">→</span></a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 18px">
+<sc-for list="{{d.items}}" as="i" hint-placeholder-count="2">
+<dc-import name="Card" post="{{i}}" variant="row" hint-size="100%,210px"></dc-import>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+<aside aria-label="Popular" style="flex: 4 1 300px; min-width: 0">
+<div style="position: sticky; top: 104px; background: #FFFFFF; border: 1px solid #EAECF0; border-radius: 14px; padding: 24px 22px 10px; box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px -16px rgba(16,24,40,.18)">
+<p class="esme-eyebrow">Most read</p>
+<h2 style="margin: 10px 0 6px; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.01em">Popular this month</h2>
+<ol style="list-style: none; margin: 0; padding: 0">
+<sc-for list="{{popular}}" as="r" hint-placeholder-count="5">
+<li style="border-bottom: 1px solid #EAECF0"><dc-import name="Card" post="{{r.post}}" variant="compact" rank="{{r.n}}" hint-size="100%,92px"></dc-import></li>
+</sc-for>
+</ol>
+</div>
+</aside>
+</section>
+</div>
+
+<section aria-label="This week in America" class="yc hm-band hm-band--gold">
+<div class="yc-wrap">
+<div class="yc-left">
+<p class="esme-eyebrow">This week on Main Street</p>
+<h2 style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(28px, 3vw, 38px); line-height: 1.12; font-weight: 700; letter-spacing: -0.025em">Small-business news, as it happens</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #5A6470">The funding, tax changes and market news that matter to America’s small businesses — checked by our editors every day.</p>
+<ul class="yc-ticks">
+<li><span dc-html="{{tickNews}}"></span>Daily news, only when something happens</li>
+<li><span dc-html="{{tickTrend}}"></span>What other owners are reading this week</li>
+<li><span dc-html="{{tickTools}}"></span>SBA programs and tax deadlines, explained</li>
+</ul>
+<div class="yc-due">
+<div class="yc-due-h"><span class="yc-due-t"><span dc-html="{{tickTools}}" style="display: flex; color: #003399"></span>Coming up</span><a class="esme-btn esme-btn--blue esme-btn--sm" href="#">All deadlines <span aria-hidden="true">→</span></a></div>
+<sc-for list="{{dueSoon}}" as="d" hint-placeholder-count="3">
+<a class="yc-due-r" href="{{d.href}}"><span class="yc-due-d"><strong>{{d.day}}</strong>{{d.mon}}</span><span style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><span class="yc-due-k">{{d.topic}} · {{d.year}}</span><span class="yc-due-x">{{d.title}}</span></span></a>
+</sc-for>
+</div>
+</div>
+<div class="yc-right">
+<div class="yc-box">
+<div class="yc-box-head">
+<span class="yc-live-big"><span class="yc-pulse"></span>Live <span style="color: #FFFFFF">from Main Street</span></span>
+<span class="yc-badge">{{statWeek}} stories this week</span>
+</div>
+<div class="yc-stats"><span>Trending: <strong style="color: #F7941D">{{statTrend}}</strong></span></div>
+<sc-if value="{{hasTop}}" hint-placeholder-val="{{ true }}">
+<a class="yc-top" href="{{top.href}}">
+<span class="yc-top-k"><span class="yc-ic" style="background: {{top.tint}}; color: {{top.color}}" dc-html="{{top.icon}}"></span>Top story · {{top.sectionLabel}}</span>
+<span class="yc-top-t">{{top.title}}</span>
+<span class="yc-top-m">{{top.excerpt}}</span>
+<span class="yc-top-f"><span>{{top.dayLabel}} · {{top.time}}</span><span class="yc-top-b">Read more <span aria-hidden="true">→</span></span></span>
+</a>
+</sc-if>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{boxNews}}" as="n" hint-placeholder-count="3">
+<a class="yc-row" href="{{n.href}}">
+<span class="yc-ic" style="background: {{n.tint}}; color: {{n.color}}" dc-html="{{n.icon}}"></span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px">
+<span class="yc-row-k">{{n.sectionLabel}}</span>
+<span class="yc-row-t">{{n.title}}</span>
+</span>
+<span class="yc-row-time">{{n.time}}</span>
+<span class="yc-chev" aria-hidden="true" dc-html="{{chevIcon}}"></span>
+</a>
+</sc-for>
+</div>
+<div class="yc-box-foot">
+<a class="esme-btn esme-btn--gold" href="{{boxNewsHref}}">All news <span aria-hidden="true">→</span></a>
+<a class="yc-foot-l" href="#">Tax deadlines <span aria-hidden="true">→</span></a>
+<a class="yc-foot-l" href="#">Funding calls <span aria-hidden="true">→</span></a>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<section class="wrap section" aria-label="Funding and grants">
-  <div class="sec-head"><div><h2>Funding &amp; Grants</h2><p>SBA loans, real grants and smarter ways to finance growth.</p></div><a class="more" href="#">See all in Funding</a></div>
-  <div class="grid4" id="funding"></div>
-</section>
 
-<section class="wrap section" aria-label="Sections"><div class="cols" id="cols"></div></section>
+</sc-if>
 
-<section class="voices section" style="margin-top:64px;padding-bottom:64px" aria-label="Founder interviews">
-  <div class="wrap">
-    <div class="sec-head"><div><h2>Founder Interviews</h2><p>Straight talk from the people running America's small businesses.</p></div><a class="more" href="#">All interviews</a></div>
-    <div class="iv-grid" id="interviews"></div>
-  </div>
-</section>
-
-<section class="wrap section" aria-label="AI, trade and most read">
-  <div class="duo-wrap">
-    <div class="duo" id="duo"></div>
-    <aside class="mostread" aria-label="Most read"><div class="box">
-      <h2 style="margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase">Most read</h2>
-      <ol id="mostread"></ol>
-    </div></aside>
-  </div>
-</section>
-
-<section class="wrap section" style="padding-bottom:72px" aria-label="State guides">
-  <div class="sec-head"><div><h2>Your state, your rules</h2><p>Taxes, licences, incentives and local grants, state by state.</p></div></div>
-  <div class="states" id="states"></div>
+<section id="newsletter" aria-label="Newsletter" style="color: #FFFFFF; background: radial-gradient(800px 500px at 100% 0%, rgba(247,148,29,.14), transparent 60%), linear-gradient(135deg, #0B1B33 0%, #0B2A6B 100%)">
+<div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 72px; padding-bottom: 72px; display: flex; flex-wrap: wrap; gap: 40px 72px; align-items: center">
+<div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 14px">
+<p class="esme-eyebrow is-dark">Free for American business owners</p>
+<h2 class="esme-h2 is-dark" style="margin-top: 4px">Get the Weekly Briefing</h2>
+<p class="esme-sub is-dark" style="font-size: 16px">Funding, tax changes, tariff updates and practical playbooks for America’s small-business owners — every Tuesday.</p>
+</div>
+<form action="/newsletter/" method="get" style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 16px; background: #FFFFFF; color: #14181D; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6)">
+<label for="nl-email" style="font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600">Email address</label>
+<input id="nl-email" name="email" required type="email" placeholder="you@yourbusiness.com" style="height: 48px; padding: 0 14px; border-radius: 8px; border: 1px solid #D0D5DD; font-size: 15px; color: #14181D">
+<button type="submit" class="esme-btn esme-btn--gold esme-btn--lg" style="width: 100%">Subscribe free</button>
+<p style="margin: 0; font-size: 12.5px; color: #5A6470">No spam. Unsubscribe any time. Free, every Tuesday.</p>
+<span class="esme-nl-note">Free, every Tuesday. You confirm on the next page and can unsubscribe at any time. <a href="/privacy-policy/">Privacy policy</a></span>
+</form>
+</div>
 </section>
 </main>
 
-<footer><div class="wrap">
-  <div class="cols4">
-    <div style="flex:2 1 320px;display:flex;flex-direction:column;gap:16px">
-      <img src="assets/logo.png" alt="American SMB" style="height:48px;width:auto;align-self:flex-start">
-      <p style="margin:0;font-size:15px;line-height:1.6;max-width:380px">News, ideas and practical guides for the owners of America's 36 million small businesses, from Main Street shops to fast-growing firms.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:16px;font-size:14px"><a href="#" style="color:#fff">LinkedIn</a><a href="#" style="color:#fff">X</a><a href="#" style="color:#fff">Instagram</a><a href="#" style="color:#fff">YouTube</a><a href="#" style="color:#fff">Facebook</a></div>
-    </div>
-    <nav aria-label="Sections"><span>Sections</span><a href="#">Funding &amp; Grants</a><a href="#">Money &amp; Taxes</a><a href="#">Hiring &amp; Benefits</a><a href="#">Marketing &amp; Sales</a><a href="#">AI &amp; Tech</a><a href="#">Tariffs &amp; Trade</a><a href="#">Legal &amp; Insurance</a></nav>
-    <nav aria-label="Magazine"><span>Magazine</span><a href="#">About us</a><a href="#">Founder interviews</a><a href="#">Write for us</a><a href="#">Advertise</a><a href="#">Newsletter</a><a href="#">Contact</a></nav>
-    <nav aria-label="Legal"><span>Legal</span><a href="#">Privacy policy</a><a href="#">Terms of use</a><a href="#">Cookie settings</a><a href="#">Do not sell my info</a></nav>
-  </div>
-  <div class="fbot"><span>© 2026 American SMB · info@americansmb.com</span><span>Made for all 50 states</span></div>
-</div></footer>
-
-<script>
-const $ = id => document.getElementById(id);
-const STAR = '<svg class="star" viewBox="-7 -7 14 14"><path d="M0,-7 L1.65,-2.27 L6.66,-2.16 L2.66,0.87 L4.11,5.66 L0,2.8 L-4.11,5.66 L-2.66,0.87 L-6.66,-2.16 L-1.65,-2.27Z"/></svg>';
-function cover(tone, glyph, size, ratio){
-  return `<div class="cover t-${tone}" style="aspect-ratio:${ratio||'16/10'};--size:${size||'24cqw'}"><span class="ring"></span><span class="ring r2"></span>${tone==='navy'||tone==='ink'?'<span class="stripes"></span>':''}${STAR}<span class="glyph">${glyph}</span></div>`;
+<dc-import name="SiteFooter" note="" hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"brand":{"editor":"color","default":"#0B2A6B","options":["#0B2A6B","#003399","#14213D","#1E3A8A"]},"$preview":{"width":1440,"height":4000}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { posts: null, failed: false }; }
+  componentDidMount() {
+    ESME.detectCountry().then((g) => { if (g) this.setState({ geo: g }); });
+    ESME.loadPosts().then((posts) => this.setState({ posts })).catch(() => this.setState({ failed: true }));
+  }
+  renderVals() {
+    const { posts, failed } = this.state;
+    const geo = this.state.geo, geoC = geo ? ESME.country(geo.code) : null;
+    const base = {
+      // Site: the cover story and the two stories under it, chosen in the CMS (Homepage → Top stories).
+      ...(() => {
+        const ps = posts || [];
+        const cv = (typeof ESME !== 'undefined' && ESME.cover && ESME.cover()) || (ps[0] ? { post: ps[0], secondary: ps.slice(1, 3), kicker: 'Cover story · ' + ps[0].sectionLabel } : null);
+        const p = (cv && cv.post) || {};
+        const kinds = { news: 'News', guide: 'Guide', explainer: 'Explainer', interview: 'Interview', exclusive: 'Exclusive' };
+        // Only the three design visuals replace the photo (anything else, e.g. the CMS default 'none', shows the photo).
+        const VIS = ['ai-act', 'e-invoice', 'eu-inc'];
+        const vis = (x) => ({ isAIAct: x.visual === 'ai-act', isEInvoice: x.visual === 'e-invoice', isEUInc: x.visual === 'eu-inc', isPhoto: VIS.indexOf(x.visual) < 0 });
+        const v = vis(p);
+        return {
+          coverKicker: (cv && cv.kicker) || 'Cover story', coverTitle: p.title || '', coverDek: p.excerpt || '', coverHref: p.href || '#',
+          coverIsAIAct: v.isAIAct, coverIsEInvoice: v.isEInvoice, coverIsEUInc: v.isEUInc, coverIsPhoto: v.isPhoto && !!p.imgLarge,
+          coverImg: p.imgLarge || '', coverAlt: p.alt || '',
+          coverSecondary: ((cv && cv.secondary) || []).map((x) => Object.assign({}, x, vis(x), {
+            isPhoto: VIS.indexOf(x.visual) < 0 && !!x.img, tag: kinds[x.type] || 'Guide', meta: x.sectionLabel + ' · ' + x.mins + ' min read'
+          }))
+        };
+      })(),
+      hasGeo: !!geoC, noGeo: !geoC, geoC: geoC || {}, geoHub: geoC ? '#' + geoC.code : '#',
+      geoNote: geo && geo.source === 'cloudflare' ? 'Based on your location' : geo && geo.source === 'browser' ? 'Based on your browser settings' : 'Your country',
+      ...(() => {
+        const code = geoC ? geoC.code : null;
+        const pool = ESME.news.filter((n) => !code || n.country === code || n.country === 'eu');
+        const deco = (n) => Object.assign({}, n, { icon: ESME.icon(n.section, 18), tint: n.color + '1A', dayLabel: ESME.dayLabel(n.at) });
+        const today = pool.filter((n) => ESME.dayLabel(n.at) === 'Today').length;
+        const week = pool.filter((n) => n.at > Date.now() - 7 * 86400000).length;
+        const counts = {}; pool.forEach((n) => { counts[n.sectionLabel] = (counts[n.sectionLabel] || 0) + 1; });
+        const trend = Object.keys(counts).sort((x, y) => counts[y] - counts[x])[0] || '';
+        const where = geoC ? geoC.name : 'America';
+        return {
+          top: pool[0] ? deco(pool[0]) : {}, hasTop: !!pool[0], boxNews: pool.slice(1, 4).map(deco),
+          boxFlag: geoC ? geoC.flag : 'https://flagcdn.com/w80/us.png', boxWhere: where,
+          boxKicker: geoC ? (geo.source === 'cloudflare' ? 'Live · based on your location' : geo.source === 'browser' ? 'Live · from your browser settings' : 'Live · your country') : 'Live · nationwide',
+          boxTitle: 'Today in ' + where, boxHub: geoC ? '#' + geoC.code : '#', boxCta: geoC ? 'Open ' + geoC.name + ' hub' : 'Choose your country',
+          statToday: String(today), statWeek: String(week), statTrend: trend,
+          boxNewsHref: '#' + (geoC ? '&country=' + geoC.code : ''), boxRulesHref: '#' + (geoC ? '?country=' + geoC.code : ''),
+          subLabel: geoC ? 'Get ' + geoC.name + '’s SME news in your inbox' : 'Get America’s small-business news in your inbox',
+          mailIcon: ESME.icon('news', 18), checkIcon: ESME.icon('check', 15), chevIcon: ESME.icon('arrow', 16)
+        };
+      })(),
+      ycEyebrow: geoC ? 'Your country · ' + geoC.name : 'Your country',
+      ycTitle: geoC ? 'Your business news, close to home' : 'Business news for where you work',
+      ycText: geoC ? 'We opened ' + geoC.name + ' for you, based on where you are. The news, rules and funding below are picked for businesses there.' : 'Daily small-business news, rules and funding for owners across all 50 states.',
+      dueSoon: ESME.upcoming ? ESME.upcoming(3) : [],
+      tickNews: ESME.icon('news', 16), tickTrend: ESME.icon('trend', 16), tickTools: ESME.icon('calendar', 16), pinIcon: ESME.icon('pin', 14),
+      pickLabel: geoC ? geoC.name + ' · change' : 'Choose country',
+      allCountries: ESME.countries.slice().sort((x, y) => x.name.localeCompare(y.name)),
+      goCountry: (e) => { const v = e.target.value; if (!v) return; ESME.setCountry(v); location.href = '#' + v; },
+      brand: this.props.brand ?? '#0B2A6B',
+      tools: ESME.tools.map((t) => Object.assign({}, t, { iconSvg: ESME.icon(t.icon, 24), tint: t.tone + '14', isNew: !!t.isNew })),
+      footCols: [
+        { title: 'Explore', links: [{ label: 'Latest articles', href: '#' }, { label: 'SME tools', href: '#' }, { label: 'Compliance calendar', href: '#' }, { label: 'Newsletter', href: '#newsletter' }] },
+        { title: 'Sections', links: Object.keys(ESME.sections).map((k) => ({ label: ESME.sections[k].label, href: '#' + k })) },
+        { title: 'Company', links: [{ label: 'About American SMB', href: '#' }, { label: 'Our authors', href: '#' }, { label: 'Contact us', href: '#' }] },
+        { title: 'Work with us', links: [{ label: 'Advertise with us', href: '/advertise/' }, { label: 'Become a partner', href: '/advertise/#options' }, { label: 'Submit a story', href: '#' }, { label: 'Subscribe', href: '#' }] }
+      ],
+      loading: !posts && !failed, failed, ready: !!posts,
+      skeletons: [1, 2, 3, 4], latest: []
+    };
+    if (!posts) return base;
+    const S = ESME.sections;
+    const used = {};
+    const sec = (k) => (p) => p.section === k;
+    const latest = posts.slice(0, 8);
+    let feature = ESME.take(posts, (p) => !!p.imgLarge, 1, used)[0];
+    let featureSide = ESME.take(posts, null, 4, used);
+    // Featured stories: the topic tabs filter in place (no page change).
+    const fsec = this.state.fsec || 'all';
+    if (fsec !== 'all') {
+      const pool = posts.filter((p) => p.section === fsec);
+      feature = pool.filter((p) => !!p.imgLarge)[0] || pool[0];
+      featureSide = pool.filter((p) => p !== feature).slice(0, 4);
+    }
+    const policy = ESME.take(posts, sec('policy'), 4, used);
+    const col = (k) => {
+      const items = ESME.take(posts, sec(k), 3, used);
+      return { name: S[k].label, color: S[k].color, href: '#' + k, lead: items[0], more: items.slice(1) };
+    };
+    const columns = ['growth', 'money', 'marketing'].map(col).filter((c) => c.lead);
+    const duo = ['people', 'tech'].map((k) => ({ eyebrow: k === 'people' ? 'Leadership' : 'Digital', name: S[k].label, color: S[k].color, href: '#' + k, items: ESME.take(posts, sec(k), 2, used) })).filter((d) => d.items.length);
+    const chips = ['all'].concat(Object.keys(S)).map((k) => ({ label: k === 'all' ? 'All' : S[k].label, on: k === fsec ? 'true' : 'false', cls: k === fsec ? 'is-on' : '', pick: () => this.setState({ fsec: k }) }));
+    const featHref = fsec === 'all' ? '#' : '#' + fsec;
+    const featMore = fsec === 'all' ? 'All news & guides' : 'More in ' + S[fsec].label;
+    const popular = ESME.take(posts, sec('funding'), 2, used).concat(ESME.take(posts, null, 5, used)).slice(0, 5).map((post, i) => ({ n: String(i + 1), post }));
+    return Object.assign(base, { chips, featHref, featMore, latest, feature, featureSide, policy, columns, duo, popular, total: posts.length });
+  }
 }
-$('leadCover').innerHTML = cover('navy','+14%','30cqw','16/9');
-$('side1Cover').innerHTML = cover('red','Shop Small','14cqw','16/8');
-$('side2Cover').innerHTML = cover('orange','$10M','26cqw','16/10');
-
-const NAV = ['Funding & Grants','Money & Taxes','Hiring & Benefits','Marketing & Sales','AI & Tech','Tariffs & Trade','Legal & Insurance','Start & Grow','Industries','Interviews'];
-$('mainnav').innerHTML = NAV.map(n=>`<a href="#">${n.replace('&','&amp;')}</a>`).join('') + '<a class="pill" href="#">Tools</a>';
-
-const latest = [
-  ['20 Nov','Money & Taxes','Year-end tax moves for 2026: bonus depreciation, Section 179 and the Dec. 31 deadline'],
-  ['12 Nov','Economy','Small-business optimism holds at 97.8, but price-hike plans hit their highest since 2022'],
-  ['10 Nov','Funding & Grants','Veterans Small Business Week: where 1.8 million veteran owners can find capital and contracts'],
-  ['5 Nov','Marketing & Sales','One in five holiday shoppers plan to buy from small or local businesses this year, NRF survey finds'],
-  ['Open','Community','Nominations open for the 2027 National Small Business Week awards']
-];
-$('latest').innerHTML = latest.map(([d,c,t])=>`<div class="latest-row"><span class="d">${d}</span><div style="display:flex;flex-direction:column;gap:4px;min-width:0"><span class="kicker" style="font-size:10.5px">${c.replace('&','&amp;')}</span><a href="#">${t}</a></div></div>`).join('');
-
-const IC = {
-  dollar:'<path d="M12 2v20M17 6.5C17 4.6 14.8 3.5 12 3.5S7 4.6 7 7s2.2 3.3 5 4 5 1.6 5 4-2.2 3.5-5 3.5-5-1.1-5-3"/>',
-  receipt:'<path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/>',
-  users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.3-5.5 6.5-5.5s5.9 1.9 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M17.5 14.5c2.2.4 3.6 2 4 4.5"/>',
-  megaphone:'<path d="M3 10v4l11 5V5z"/><path d="M14 8a4 4 0 0 1 0 8"/><path d="M6 15.5 7.5 20h3l-1.2-3.4"/>',
-  cpu:'<rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>',
-  ship:'<path d="M3 15l2 5h14l2-5z"/><path d="M5 15V9h14v6"/><path d="M9 9V5h6v4"/>',
-  shield:'<path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
-  rocket:'<path d="M12 15l-3-3c1.5-5 4.5-8 10-9-1 5.5-4 8.5-9 10z"/><path d="M9 12H5l2-4h4M12 15v4l4-2v-4"/><path d="M6 18c-1 1-1 3-1 3s2 0 3-1"/>',
-  store:'<path d="M3 9l2-5h14l2 5"/><path d="M3 9c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3"/><path d="M5 12v8h14v-8M10 20v-5h4v5"/>',
-  mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8.5 21h7"/>'
-};
-const svg = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
-const topics = [
-  ['dollar','Funding & Grants','SBA loans, real grants, business credit and lenders.','#0B2552','#fff','SBA 7(a) · 504 · Grants'],
-  ['receipt','Money & Taxes','Cash flow, pricing, bookkeeping and tax deadlines.','#E8EEF8','#0B2552','Year-end · Sales tax'],
-  ['users','Hiring & Benefits','Finding workers, payroll, health plans and 1099s.','#C8102E','#fff','Health premiums · Retention'],
-  ['megaphone','Marketing & Sales','Local SEO, social, email and ecommerce that sells.','#F7941D','#061736','Google Profile · Email'],
-  ['cpu','AI & Tech','AI tools, software picks and cybersecurity basics.','#0E1525','#fff','AI how-tos · Security'],
-  ['ship','Tariffs & Trade','Tariff updates, sourcing and shipping costs.','#1F4FA8','#fff','Tariffs · Supply chain'],
-  ['shield','Legal & Insurance','LLC vs S-corp, compliance and business insurance.','#E8EEF8','#0B2552','Entity · Insurance'],
-  ['rocket','Start & Grow','Starting, scaling, buying or selling a business.','#0B2552','#fff','Business plans · Exit'],
-  ['store','Industries','Retail, restaurants, trades, manufacturing, services.','#FFF3E3','#9A5A00','Main Street · Makers'],
-  ['mic','Founder Interviews','Owners share what worked, and what didn\'t.','#C8102E','#fff','Q&As · Spotlights']
-];
-$('topics').innerHTML = topics.map(([k,n,d,bg,fg,ex])=>`<a class="topic" href="#"><span class="ic" style="background:${bg};color:${fg}">${svg(k)}</span><b>${n.replace('&','&amp;')}</b><span>${d}</span><em>${ex}</em></a>`).join('');
-
-const tools = [
-  ['$','Grant & Loan Finder','Federal, state and local programs with deadlines.','#0B2552','#fff'],
-  ['31','Tax Deadline Calendar','Federal and state due dates, by entity type.','#0E1525','#fff'],
-  ['SBA','Am I a "small business"?','Check SBA size standards for your industry.','#E8EEF8','#0B2552'],
-  ['%','Tariff Cost Calculator','Estimate landed cost on what you import.','#C8102E','#fff']
-];
-$('tools').innerHTML = tools.map(([g,n,d,bg,fg])=>`<a class="tool" href="#"><span class="g" style="background:${bg};color:${fg}">${g}</span><span><b>${n}</b><span>${d}</span></span></a>`).join('');
-
-const funding = [
-  ['navy','7(a)','30cqw','SBA Loans','SBA 7(a) or 504? Choosing the right loan now that the limit is $10 million','15 November 2026'],
-  ['pale','Grants','24cqw','Grants','Small business grants that really exist: a no-hype guide for 2027','14 November 2026'],
-  ['red','Make','28cqw','Manufacturing','SCALE and E2G: what the SBA\'s new manufacturing grants mean for small makers','12 November 2026'],
-  ['blue','Credit','24cqw','Business Credit','Building business credit that lenders trust, step by step','10 November 2026']
-];
-$('funding').innerHTML = funding.map(([t,g,s,c,h,d])=>`<article>${cover(t,g,s,'4/3')}<span class="kicker" style="margin-top:6px">${c}</span><h3><a href="#">${h}</a></h3><span class="date">${d}</span></article>`).join('');
-
-const cols = [
-  {name:'Money & Taxes', lead:['ink','Tax','28cqw','The 2026 year-end tax checklist: what the new tax law changed for owners','Bonus depreciation is back at 100%, Section 179 is bigger, and pass-through timing still matters. Five moves before Dec. 31.'], more:['Raising prices without losing customers: a playbook for 2027','A 13-week cash flow forecast you can build in one afternoon']},
-  {name:'Hiring & Benefits', lead:['red','Hire','26cqw','Can\'t find good workers? You\'re not alone','About one in four owners now names labor quality as their single biggest problem. What the businesses that do hire well are doing differently.'], more:['W-2 or 1099? Classifying workers without IRS trouble','ICHRA and QSEHRA explained: alternatives to a group health plan']},
-  {name:'Marketing & Sales', lead:['orange','Local','24cqw','Google Business Profile: the free tool that wins "near me" searches','The single highest-return hour most local businesses can spend this month, step by step.'], more:['Email marketing for Main Street: a simple monthly plan','How to get your business recommended by AI search assistants']}
-];
-$('cols').innerHTML = cols.map(c=>`<div class="col"><div class="sec-head sm" style="margin-bottom:20px"><h2>${c.name.replace('&','&amp;')}</h2><a class="more" href="#" style="font-size:13px">More</a></div><article>${cover(c.lead[0],c.lead[1],c.lead[2],'16/10')}<h3><a href="#">${c.lead[3]}</a></h3><p>${c.lead[4]}</p><span class="date">20 November 2026</span></article>${c.more.map(m=>`<a class="more-link" href="#">${m}</a>`).join('')}</div>`).join('');
-
-const iv = [
-  ['MS','#0B2552','“The day we stopped competing on price and started competing on service, our margins came back.”','[Founder name]','Family hardware store · Ohio','Retail'],
-  ['TR','#C8102E','“We moved half our sourcing in six months. It was painful, and it saved the business.”','[Founder name]','Apparel maker · Texas','Manufacturing']
-];
-$('interviews').innerHTML = iv.map(([i,c,q,n,co,tag])=>`<article class="iv"><span class="tag">Sample interview · ${tag}</span><q>${q.replace(/[“”]/g,'')}</q><div class="who"><span class="av" style="background:${c}">${i}</span><div><b>${n}</b><div class="meta">${co}</div></div></div><a href="#" style="font-weight:600;color:var(--blue);font-size:14px">Read the interview →</a></article>`).join('') +
-  `<div class="feature-cta"><h3>Run a small business? Tell us your story.</h3><p>Answer 10 questions by email and get featured in American SMB and our magazine.</p><a href="#">Get featured</a></div>`;
-
-const duo = [
-  {name:'AI & Tech', items:[
-    ['ink','AI','34cqw','Where to start with AI: five jobs small businesses hand over first','Half of owners say they plan to use more AI this year, mostly for marketing content. A practical starting list.'],
-    ['pale','Cyber','24cqw','Cybersecurity basics every 10-person business needs','You are not too small to be targeted. The low-cost steps that stop most attacks.']]},
-  {name:'Tariffs & Trade', items:[
-    ['blue','Ruling','22cqw','Tariffs after the Supreme Court ruling: what changed and what didn\'t','The emergency tariffs were struck down in February, new tariffs took their place, and Section 232 and 301 duties still apply.'],
-    ['navy','Source','22cqw','Rethinking suppliers: sourcing options for small importers','How owners are spreading risk across countries without blowing up their costs.']]}
-];
-$('duo').innerHTML = duo.map(d=>`<div><div class="sec-head sm" style="margin-bottom:20px"><h2>${d.name.replace('&','&amp;')}</h2><a class="more" href="#" style="font-size:13px">More</a></div><div style="display:flex;flex-direction:column;gap:24px">${d.items.map(i=>`<article><div style="flex:0 0 220px;max-width:100%">${cover(i[0],i[1],i[2],'16/10')}</div><div style="flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:8px"><h3><a href="#">${i[3]}</a></h3><p>${i[4]}</p><span class="date">20 November 2026</span></div></article>`).join('')}</div></div>`).join('');
-
-const mr = ['How to get an SBA loan: the complete 2027 guide','LLC vs. S-corp: which saves you more in taxes?','Sales tax nexus: when you owe tax in another state','Hiring your first employee: the paperwork checklist','How to write a business plan that gets funded'];
-$('mostread').innerHTML = mr.map((t,i)=>`<li><span>${i+1}</span><a href="#">${t}</a></li>`).join('');
-
-const st = ['California','Texas','Florida','New York','Illinois','Pennsylvania','Ohio','Georgia','North Carolina','Michigan','Arizona','Washington'];
-$('states').innerHTML = st.map(s=>`<a href="#">${s}</a>`).join('') + '<a class="all" href="#">All 50 states →</a>';
 </script>
 </body>
 </html>
