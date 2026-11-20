@@ -204,6 +204,8 @@
 <script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["none","Articles","Funding","Growth","Money","Marketing","Hiring","Tech","Policy","Countries","Tools"],"default":"none"},"$preview":{"width":1440,"height":360}}'>
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { open: false, search: false }; }
+  // Defining componentDidMount makes the runtime keep this instance (and its open/closed state) between redraws.
+  componentDidMount() {}
   renderVals() {
     const active = this.props.active ?? 'none';
     const open = !!(this.state && this.state.open);
