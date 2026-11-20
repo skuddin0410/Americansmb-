@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>State guides — American SMB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./data.js"></script>
+<script src="./states.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+a{color:#14181D;text-decoration:none}
+a:hover{color:#1E4FA8}
+.cx-card{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#FFFFFF;border:1px solid #EAECF0;border-radius:14px;box-shadow:0 1px 2px rgba(16,24,40,.04);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.cx-card:hover{transform:translateY(-3px);border-color:#D0D5DD;box-shadow:0 14px 28px -18px rgba(16,24,40,.35);text-decoration:none;color:#14181D}
+.cx-card.is-you{border-color:#0F7B6C;box-shadow:0 0 0 3px rgba(15,123,108,.14)}
+.cx-flag{flex:none;width:44px;height:30px;border-radius:5px;object-fit:cover;box-shadow:0 0 0 1px rgba(16,24,40,.12)}
+.cx-pill{font-family:'Sora',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:5px}
+</style>
+</helmet>
+<div style="color: #14181D; background: #FFFFFF">
+<dc-import name="SiteHeader" active="Countries" hint-size="100%,118px"></dc-import>
+<main>
+<section aria-label="Introduction" style="background: radial-gradient(800px 420px at 100% 0%, rgba(247,148,29,.16), transparent 60%), linear-gradient(135deg, #0B1B33, #0B2A6B); color: #FFFFFF">
+<div style="max-width: 1232px; margin: 0 auto; padding: 56px 32px 48px; display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-end; justify-content: space-between">
+<div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 14px">
+<p class="esme-eyebrow is-dark">State guides</p>
+<h1 style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(34px, 4.6vw, 52px); line-height: 1.06; font-weight: 700; letter-spacing: -0.03em; color: #FFFFFF">Your state, your rules</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: rgba(255,255,255,.8); max-width: 600px">Sales tax, income tax, registration and free local help for all 50 states and Washington, D.C.</p>
+</div>
+<label style="flex: 0 1 380px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">Find your state
+<input type="search" placeholder="e.g. Texas" value="{{q}}" onInput="{{setQ}}" style="height: 50px; padding: 0 14px; border-radius: 10px; border: none; font-size: 16px; font-family: inherit"></label>
+</div>
+</section>
+<section aria-label="All states" style="max-width: 1232px; margin: 0 auto; padding: 48px 32px 72px; display: flex; flex-direction: column; gap: 40px">
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div class="esme-rule" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px"><h2 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 26px; font-weight: 700">{{g.title}}</h2><span style="font-size: 14px; color: #5A6470">{{g.sub}}</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px">
+<sc-for list="{{g.items}}" as="c" hint-placeholder-count="12">
+<a class="cx-card" href="{{c.href}}">
+<img src="{{c.flag}}" alt="" class="cx-flag" loading="lazy">
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong style="font-family: 'Sora', sans-serif; font-size: 15.5px">{{c.name}}</strong><span style="font-size: 13px; color: #5A6470">{{c.meta}}</span></span>
+<span class="cx-pill" style="background: {{c.pillBg}}; color: {{c.pillFg}}">{{c.pill}}</span>
+</a>
+</sc-for>
+</div>
+</div>
+</sc-for>
+<sc-if value="{{empty}}"><p style="font-size: 16px; color: #5A6470">No state matches “{{q}}”.</p></sc-if>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5A6470">Statewide sales tax rates as of 2026; most states also allow local sales taxes. “No income tax” means no state tax on wages — some of these states tax business receipts instead.</p>
+</section>
+</main>
+<dc-import name="SiteFooter" note="" hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1800}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { q: '' }; }
+  componentDidMount() {}
+  renderVals() {
+    const q = this.state.q.trim().toLowerCase();
+    const ST = (window.AMSMB_STATES || []).filter((x) => !q || x.name.toLowerCase().includes(q) || x.code.toLowerCase() === q);
+    const card = (x) => ({ name: x.name, flag: 'https://flagcdn.com/w80/us-' + x.code.toLowerCase() + '.png', href: 'Country.dc.html?state=' + x.code,
+      meta: (x.sales ? x.sales + '% state sales tax' : 'No state sales tax') + ' · ' + (x.income ? 'income tax' : 'no income tax'),
+      pill: x.code, pillBg: x.income ? '#E8EEFB' : '#E7F5F1', pillFg: x.income ? '#1E4FA8' : '#0B5B50' });
+    const regions = [['Northeast', 'Maine to Pennsylvania'], ['South', 'Delaware to Texas, including D.C.'], ['Midwest', 'Ohio to the Dakotas'], ['West', 'Montana to Hawaii']];
+    const groups = regions.map(([r, sub]) => ({ title: r, sub, items: ST.filter((x) => x.region === r).map(card) })).filter((g) => g.items.length);
+    return { q: this.state.q, setQ: (e) => this.setState({ q: e.target.value }), groups, empty: !groups.length };
+  }
+}
+</script>
+</body>
+</html>

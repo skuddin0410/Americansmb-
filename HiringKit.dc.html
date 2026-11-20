@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>First-hire checklist — American SMB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./data.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+a{color:#14181D;text-decoration:none}
+a:hover{color:#1E4FA8}
+.hk-tab{display:flex;align-items:center;gap:12px;width:100%;padding:16px;border-radius:12px;border:1.5px solid #EAECF0;background:#FFFFFF;text-align:left;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;color:#14181D;transition:border-color .15s ease,background-color .15s ease}
+.hk-tab:hover{border-color:#D0D5DD}
+.hk-tab[aria-pressed="true"]{border-color:#C2410C;background:#FFF5EF}
+.hk-ic{flex:none;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#FDEBDF;color:#C2410C}
+.hk-item{display:flex;gap:14px;align-items:flex-start;width:100%;padding:16px 4px;border:none;border-bottom:1px solid #EAECF0;background:none;text-align:left;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;color:#14181D}
+.hk-box{flex:none;width:22px;height:22px;margin-top:1px;border-radius:6px;border:2px solid #98A2B3;display:flex;align-items:center;justify-content:center;transition:background-color .15s ease,border-color .15s ease}
+.hk-item[aria-pressed="true"] .hk-box{background:#0F7B6C;border-color:#0F7B6C}
+.hk-item[aria-pressed="true"] .hk-box::after{content:"";width:6px;height:11px;border:solid #FFFFFF;border-width:0 2.5px 2.5px 0;transform:translateY(-1px) rotate(45deg)}
+.hk-item[aria-pressed="true"] .hk-t{color:#5A6470;text-decoration:line-through;text-decoration-color:#98A2B3}
+</style>
+</helmet>
+<div style="color: #14181D; background: #FFFFFF">
+<dc-import name="SiteHeader" active="Tools" hint-size="100%,118px"></dc-import>
+
+<main>
+<section aria-label="Introduction" class="esme-hero">
+<div style="max-width: 1232px; margin: 0 auto; padding: 32px 32px 60px; display: flex; flex-direction: column; gap: 14px">
+<nav class="esme-hero-crumb" aria-label="Breadcrumb" style="font-size: 13px; color: #5A6470"><a href="Tools.dc.html" style="color: #5A6470">Tools</a> / First-hire checklist</nav>
+<span style="display: flex; align-items: center; gap: 12px"><span style="width: 48px; height: 48px; border-radius: 12px; background: #C2410C; color: #FFFFFF; display: flex; align-items: center; justify-content: center" dc-html="{{hire}}"></span><span class="esme-tag esme-tag--gold">New tool</span></span>
+<h1 class="esme-hero-h1" style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(32px, 4.2vw, 46px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em">Hiring your first employee: the checklist</h1>
+<p class="esme-hero-lead" style="margin: 0; font-size: 17px; line-height: 1.6; color: #5A6470; max-width: 680px">About one in four small business owners say finding good workers is their biggest problem. Once you find the right person, get the paperwork right from day one — tick off each step as you go.</p>
+</div>
+</section>
+
+<section aria-label="Checklist" style="max-width: 1232px; margin: 0 auto; padding: 36px 32px 72px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div role="group" aria-label="Choose your situation" style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 10px; position: sticky; top: 104px">
+<p class="esme-eyebrow" style="margin-bottom: 6px">Your situation</p>
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+<button type="button" class="hk-tab" aria-pressed="{{t.on}}" onClick="{{t.pick}}"><span class="hk-ic" dc-html="{{t.icon}}"></span><span style="display: flex; flex-direction: column; gap: 3px"><strong style="font-family: 'Sora', sans-serif; font-size: 14.5px; font-weight: 700">{{t.title}}</strong><span style="font-size: 13px; line-height: 1.45; color: #5A6470">{{t.sub}}</span></span></button>
+</sc-for>
+</div>
+
+<div style="flex: 2 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<h2 style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.01em">{{current.title}}</h2>
+<span style="font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 700; color: #0F7B6C">{{done}} of {{total}} done</span>
+</div>
+<div aria-hidden="true" style="height: 8px; border-radius: 999px; background: #EAECF0; overflow: hidden; margin: 6px 0 4px"><span style="display: block; height: 100%; width: {{pct}}%; background: #0F7B6C; border-radius: 999px; transition: width .3s ease"></span></div>
+<sc-for list="{{items}}" as="i" hint-placeholder-count="6">
+<button type="button" class="hk-item" aria-pressed="{{i.on}}" onClick="{{i.toggle}}"><span class="hk-box" aria-hidden="true"></span><span style="display: flex; flex-direction: column; gap: 4px"><span class="hk-t" style="font-size: 15.5px; font-weight: 600; line-height: 1.45">{{i.title}}</span><span style="font-size: 14px; line-height: 1.55; color: #5A6470">{{i.note}}</span></span></button>
+</sc-for>
+<div style="margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px">
+<sc-for list="{{current.links}}" as="l" hint-placeholder-count="2">
+<a href="{{l.href}}" target="{{l.target}}" rel="noopener" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; border: 1px solid #EAECF0; border-radius: 12px; background: #FFFFFF; box-shadow: 0 1px 2px rgba(16,24,40,.04)"><strong style="font-family: 'Sora', sans-serif; font-size: 14.5px; font-weight: 700; color: #1E4FA8">{{l.label}}</strong><span style="font-size: 13px; line-height: 1.5; color: #5A6470">{{l.note}}</span></a>
+</sc-for>
+</div>
+<p style="margin: 18px 0 0; font-size: 12.5px; line-height: 1.6; color: #5A6470">General guidance on federal rules, not legal advice. State rules on wages, leave, new-hire reporting and insurance vary — check with your state labor and tax agencies or an employment adviser.</p>
+</div>
+</section>
+</main>
+
+<dc-import name="SiteFooter" note="" hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 'before', done: {} }; }
+  componentDidMount() {}
+  renderVals() {
+    const { tab, done } = this.state;
+    const ext = (label, href, note) => ({ label: label + ' ↗', href, note, target: '_blank' });
+    const own = (label, slug, note) => ({ label: label + ' →', href: 'Post.dc.html?slug=' + slug, note, target: '_self' });
+    const T = {
+      before: { title: 'Before you hire', sub: 'Set up your business as an employer', icon: 'check',
+        items: [
+          ['Get an Employer Identification Number (EIN)', 'Apply free on IRS.gov. You need it for payroll taxes and every payroll form.'],
+          ['Register with your state', 'Sign up for state income tax withholding (if your state has an income tax) and a state unemployment insurance account.'],
+          ['Buy workers’ compensation insurance', 'Required in almost every state once you have employees. Your state sets the rules; some allow you to buy through a state fund.'],
+          ['Choose a payroll system', 'A payroll provider calculates withholding, deposits taxes on time and files your quarterly and annual returns.'],
+          ['Check wage and hour rules', 'The federal minimum wage is $7.25 an hour, but many states and cities set higher rates. Decide whether the role is exempt or non-exempt from overtime.'],
+          ['Decide: employee or contractor?', 'Getting this wrong is expensive. Use the IRS and Department of Labor tests before you decide.']
+        ],
+        links: [own('Hiring your first employee: the full guide', 'hiring-first-employee-paperwork', 'Every step explained'), own('W-2 or 1099? How to classify workers', 'w2-or-1099-worker-classification', 'The tests regulators use')] },
+      firstday: { title: 'On the first day', sub: 'Paperwork for each new employee', icon: 'hire',
+        items: [
+          ['Complete Form I-9', 'The employee fills in Section 1 by their first day; you check their documents and complete Section 2 within three business days. Keep it on file — don’t send it to the government.'],
+          ['Collect Form W-4', 'For federal income tax withholding — plus your state’s withholding form if it has one.'],
+          ['Report the new hire to your state', 'Generally within 20 days of hiring. Your state’s new-hire reporting website explains how.'],
+          ['Display required posters', 'Federal and state labor law notices must be posted where employees can see them (or shared electronically for remote staff).'],
+          ['Give a written offer and handbook', 'Pay, schedule, start date, time off and workplace rules in writing prevent misunderstandings.'],
+          ['Enroll them in benefits', 'Health coverage, retirement plan and any other benefits you offer, within the plan’s deadlines.']
+        ],
+        links: [ext('USCIS — Form I-9', 'https://www.uscis.gov/i-9', 'The official form and instructions'), ext('IRS — Form W-4', 'https://www.irs.gov/forms-pubs/about-form-w-4', 'Employee’s withholding certificate')] },
+      ongoing: { title: 'Every payday and every year', sub: 'Keep payroll compliant', icon: 'calendar',
+        items: [
+          ['Withhold and match payroll taxes', 'Federal income tax, Social Security (6.2%) and Medicare (1.45%) from wages, plus the same employer share. Social Security applies up to $184,500 in 2026 and $192,300 in 2027.'],
+          ['Deposit taxes on time', 'Monthly or semiweekly, depending on how much you owe — through EFTPS or your payroll provider.'],
+          ['File Form 941 every quarter', 'Due the last day of the month after each quarter ends (or the next business day).'],
+          ['Pay FUTA and file Form 940 each year', 'Federal unemployment tax is 6% on the first $7,000 of each employee’s wages, usually reduced to 0.6% by the state credit.'],
+          ['Send W-2s by January 31', 'To employees and the Social Security Administration — February 1, 2027 for the 2026 tax year.'],
+          ['Keep records', 'Keep payroll and tax records for at least four years.']
+        ],
+        links: [{ label: 'Tax Deadline Calendar →', href: 'Compliance.dc.html', note: 'Every federal payroll date', target: '_self' }, { label: 'True cost of an employee →', href: 'Calculators.dc.html#payroll', note: 'Taxes, insurance and benefits added up', target: '_self' }] }
+    };
+    const order = ['before', 'firstday', 'ongoing'];
+    const cur = T[tab];
+    const items = cur.items.map(([title, note], i) => {
+      const id = tab + i;
+      return { title, note, on: done[id] ? 'true' : 'false', toggle: () => this.setState({ done: Object.assign({}, done, { [id]: !done[id] }) }) };
+    });
+    const doneCount = items.filter((i) => i.on === 'true').length;
+    return {
+      hire: ESME.icon('hire', 26),
+      tabs: order.map((k) => ({ title: T[k].title, sub: T[k].sub, icon: ESME.icon(T[k].icon, 20), on: k === tab ? 'true' : 'false', pick: () => this.setState({ tab: k }) })),
+      current: cur, items, done: doneCount, total: items.length, pct: Math.round(doneCount / items.length * 100)
+    };
+  }
+}
+</script>
+</body>
+</html>

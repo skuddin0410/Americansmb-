@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Articles — American SMB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./data.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#14181D;text-decoration:none}
+a:hover{color:#1E4FA8}
+.esme-chipbtn{transition:background .15s ease, border-color .15s ease}
+.esme-chipbtn:hover{border-color:#101828}
+.ar-h{font-family:'Sora',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5A6470}
+.ar-tools{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.ar-search{position:relative;display:flex;align-items:center;gap:8px;height:44px;width:300px;max-width:100%;padding:0 12px;border:1px solid #D0D5DD;border-radius:10px;background:#FFFFFF;color:#98A2B3}
+.ar-search:focus-within{border-color:#1E4FA8;box-shadow:0 0 0 3px rgba(30,79,168,.12)}
+.ar-search input{flex:1;min-width:0;border:none;outline:none;background:transparent;font-size:14.5px;color:#14181D}
+.ar-layout{display:grid;grid-template-columns:292px minmax(0,1fr);gap:34px;align-items:start}
+.ar-side{position:sticky;top:24px;display:flex;flex-direction:column;gap:16px}
+.ar-sidecard{padding:16px;border-radius:18px;background:linear-gradient(180deg,#F5F7FB 0%,#FFFFFF 100%);border:1px solid #E4E8F0;box-shadow:0 1px 2px rgba(16,24,40,.04),0 12px 28px -22px rgba(16,24,40,.35)}
+.ar-side-h{margin:2px 6px 12px;font-family:'Sora',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5A6470}
+.ar-chips{display:flex;flex-direction:column;gap:4px}
+.ar-sidelinks{display:flex;flex-direction:column;gap:2px}
+.ar-sidelinks a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;font-family:'Sora',sans-serif;font-size:13.5px;font-weight:600;color:#1E4FA8}
+.ar-sidelinks a:hover{background:#EEF2FA;color:#003399}
+.ar-sidelinks a span{display:flex;color:#1E4FA8}
+.ar-main{min-width:0;display:flex;flex-direction:column;gap:26px}
+.ar-chip{display:flex;width:100%;text-align:left;align-items:center;gap:11px;padding:7px 10px 7px 7px;border:1px solid transparent;border-radius:12px;background:transparent;cursor:pointer;font-family:'Sora',sans-serif;font-size:13.5px;font-weight:600;color:#14181D;transition:background-color .15s ease,border-color .15s ease,color .15s ease}
+.ar-chip:hover{background:#FFFFFF;border-color:#E4E8F0;transform:translateX(2px)}
+.ar-cl{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ar-chip{transition:background-color .15s ease,border-color .15s ease,color .15s ease,transform .15s ease}
+.ar-ct{flex:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--tint);color:var(--c)}
+.ar-ct svg{width:17px;height:17px}
+.ar-n{font-size:11.5px;font-weight:700;color:#667085;background:#F2F4F7;border-radius:999px;padding:2px 8px}
+.ar-chip[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#FFFFFF;box-shadow:0 8px 18px -10px var(--c)}
+.ar-chip[aria-pressed="true"] .ar-ct{background:rgba(255,255,255,.18);color:#FFFFFF}
+.ar-chip[aria-pressed="true"] .ar-n{background:rgba(255,255,255,.2);color:#FFFFFF}
+.ar-hero{position:relative;flex:none;width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--c),#1E4FA8);color:#FFFFFF;box-shadow:0 12px 24px -12px var(--c),inset 0 0 0 1px rgba(255,255,255,.15)}
+.ar-hero svg{width:30px;height:30px}
+.ar-sh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-bottom:12px;border-bottom:2px solid #101828}
+.ar-sh h2{margin:0;display:flex;align-items:center;gap:12px;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:21px;font-weight:700}
+.ar-sh a{font-family:'Sora',sans-serif;font-size:13.5px;font-weight:700;color:#1E4FA8}
+.ar-shi{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.ar-shi svg{width:20px;height:20px}
+@media (max-width: 960px){.ar-layout{grid-template-columns:minmax(0,1fr);gap:22px}.ar-side{position:static}.ar-sidelinks{display:none}.ar-sidecard{padding:12px}.ar-chips{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:8px}.ar-chip{flex:none;width:auto;border-color:#D9DEE7;border-radius:999px;background:#FFFFFF;padding:5px 12px 5px 5px}.ar-cl{flex:none}}
+@media (max-width: 700px){.ar-search{width:100%}}
+</style>
+</helmet>
+<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<dc-import name="SiteHeader" active="{{navActive}}" hint-size="100%,118px"></dc-import>
+
+<main>
+<section class="esme-hero" aria-label="{{heading}}"><div class="esme-hero-in" style="gap: 20px; padding-top: 44px; padding-bottom: 52px">
+<div style="display: flex; flex-wrap: wrap; gap: 18px 24px; align-items: center; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 12px; min-width: 0">
+<p class="esme-eyebrow is-dark">{{eyebrow}}</p>
+<div style="display: flex; align-items: center; gap: 18px; min-width: 0">
+<span class="ar-hero" style="--c: {{heroColor}}" dc-html="{{heroIcon}}"></span>
+<h1 class="esme-hero-h1" style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(30px, 3.8vw, 42px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em">{{heading}}</h1>
+</div>
+</div>
+<div class="ar-tools">
+<div class="ar-search"><span dc-html="{{searchIcon}}"></span><label for="art-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search articles</label><input id="art-search" type="search" placeholder="Search: VAT, hiring, cash flow…" value="{{q}}" onInput="{{setQ}}"></div>
+<label class="esme-hero-lead" style="display: flex; align-items: center; gap: 8px; font-size: 14px">Sort
+<select id="art-sort" value="{{sort}}" onChange="{{setSort}}" style="height: 44px; padding: 0 10px; border-radius: 10px; border: 1px solid #D0D5DD; font-size: 14px; font-family: inherit; background: #FFFFFF">
+<option value="latest">Latest</option>
+<option value="quick">Quickest reads</option>
+<option value="az">A–Z</option>
+</select>
+</label>
+</div>
+</div>
+<p class="esme-hero-lead" style="margin: 0; font-size: 17px; line-height: 1.6; max-width: 760px">{{intro}}</p>
+</div></section>
+<div class="ar-wrap" style="max-width: 1232px; box-sizing: border-box; margin: 0 auto; padding: 40px 32px 72px; display: flex; flex-direction: column; gap: 26px">
+<div class="ar-layout">
+<aside class="ar-side" aria-label="Sections">
+<div class="ar-sidecard">
+<p class="ar-side-h">Sections</p>
+<nav aria-label="Filter by topic" class="ar-chips">
+<sc-for list="{{topics}}" as="t" hint-placeholder-count="8">
+<button type="button" class="ar-chip" aria-pressed="{{t.on}}" onClick="{{t.pick}}" style="--c: {{t.color}}; --tint: {{t.tint}}"><span class="ar-ct" dc-html="{{t.icon}}"></span><span class="ar-cl">{{t.label}}</span><span class="ar-n">{{t.count}}</span></button>
+</sc-for>
+</nav>
+</div>
+<div class="ar-sidecard ar-sidelinks">
+<p class="ar-side-h">Also useful</p>
+<a href="FundingHub.dc.html"><span dc-html="{{fundIcon}}"></span>Funding &amp; grants</a>
+<a href="Compliance.dc.html"><span dc-html="{{calIcon}}"></span>Tax deadlines</a>
+<a href="Tools.dc.html"><span dc-html="{{toolIcon}}"></span>Free SME tools</a>
+</div>
+</aside>
+<div class="ar-main">
+
+<sc-if value="{{loading}}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px">
+<sc-for list="{{skeletons}}" as="s" hint-placeholder-count="6">
+<div style="display: flex; flex-direction: column; gap: 12px"><div class="esme-skel" style="aspect-ratio: 16 / 10"></div><div class="esme-skel" style="height: 14px; width: 40%"></div><div class="esme-skel" style="height: 22px"></div></div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{failed}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 32px; border: 1px solid #E4E7EC; border-radius: 12px; font-size: 16px; color: #5A6470">We couldn't load the articles right now. Please refresh the page.</div>
+</sc-if>
+
+<sc-if value="{{ready}}" hint-placeholder-val="{{ false }}">
+<sc-if value="{{showNews}}" hint-placeholder-val="{{ true }}">
+<section aria-label="Latest news" style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px">
+<sc-for list="{{news}}" as="n" hint-placeholder-count="4">
+<dc-import name="Card" post="{{n}}" variant="standard" hint-size="100%,420px"></dc-import>
+</sc-for>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{showGuides}}" hint-placeholder-val="{{ true }}">
+<section aria-label="Guides" style="display: flex; flex-direction: column; gap: 18px; margin-top: 10px">
+<div class="ar-sh">
+<h2><span class="ar-shi" style="background: #E6ECF7; color: #1E4FA8" dc-html="{{guideIcon}}"></span>Guides &amp; explainers <span style="font-size: 14px; font-weight: 600; color: #5A6470">{{countLabel}}</span></h2>
+<a href="Tools.dc.html">Free tools <span aria-hidden="true">→</span></a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px">
+<sc-for list="{{shown}}" as="p" hint-placeholder-count="9">
+<dc-import name="Card" post="{{p}}" variant="standard" hint-size="100%,420px"></dc-import>
+</sc-for>
+</div>
+<sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 40px; border: 1px dashed #C7CFDC; border-radius: 12px; text-align: center; font-size: 16px; color: #5A6470">No articles match. Try another word or topic.</div>
+</sc-if>
+<sc-if value="{{hasMore}}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 20px; display: flex; justify-content: center">
+<button type="button" onClick="{{more}}" class="esme-btn esme-btn--blue esme-btn--lg">Load more ({{remaining}})</button>
+</div>
+</sc-if>
+</section>
+</sc-if>
+</sc-if>
+</div>
+</div>
+</div>
+
+<section aria-label="Newsletter" style="background: #0B2A6B">
+<div style="max-width: 1240px; margin: 0 auto; padding: 48px 32px; display: flex; flex-wrap: wrap; gap: 24px 56px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #F7941D">The Main Street Briefing</span>
+<span style="font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 30px; line-height: 1.2; font-weight: 600; color: #FFFFFF">New guides like these, once a week.</span>
+</div>
+<form action="Page.dc.html" method="get" style="flex: 1 1 420px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end"><input type="hidden" name="p" value="newsletter">
+<label for="nl-arch" style="flex: 1 1 100%; font-size: 14px; font-weight: 600; color: #FFFFFF">Work email</label>
+<input id="nl-arch" name="email" required type="email" placeholder="name@company.com" style="flex: 1 1 240px; height: 50px; padding: 0 14px; border-radius: 8px; border: none; font-size: 16px; font-family: inherit">
+<button type="submit" style="height: 50px; padding: 0 24px; border-radius: 8px; border: none; background: #F7941D; color: #101828; font-weight: 700; font-size: 15px; font-family: inherit; cursor: pointer">Subscribe</button>
+<span class="esme-nl-note is-dark">Free, every Tuesday. You confirm on the next page and can unsubscribe at any time. <a href="Page.dc.html?p=privacy-policy">Privacy policy</a></span>
+</form>
+</div>
+</section>
+</main>
+
+<dc-import name="SiteFooter" note="" hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2400}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const s = ESME.param('section');
+    this.state = { posts: null, failed: false, section: s && ESME.sections[s] ? s : 'all', q: ESME.param('q') || '', type: ESME.param('type') || 'all', sort: 'latest', limit: 12 };
+  }
+  componentDidMount() { ESME.loadPosts().then((posts) => this.setState({ posts })).catch(() => this.setState({ failed: true })); }
+  sync(patch) {
+    this.setState(Object.assign({ limit: 12 }, patch));
+    const st = Object.assign({}, this.state, patch);
+    // The site keeps a topic in the path (/category/money-cash-flow/), the search in the query.
+    const to = new URL('Articles.dc.html' + (st.section === 'all' ? '' : '?section=' + st.section), location.href);
+    if (st.q) to.searchParams.set('q', st.q);
+    if (st.type && st.type !== 'all') to.searchParams.set('type', st.type);
+    history.replaceState(null, '', to.pathname + to.search);
+  }
+  renderVals() {
+    const { posts, failed, section, q, sort, limit, type } = this.state;
+    const S = ESME.sections;
+    const navKey = { funding: 'Funding', growth: 'Growth', money: 'Money', marketing: 'Marketing', people: 'Hiring', tech: 'Tech', policy: 'Policy' };
+    const all = posts || [];
+    const needle = q.trim().toLowerCase();
+    const matchQ = (p) => !needle || (p.title + ' ' + p.excerpt + ' ' + (p.category || '')).toLowerCase().includes(needle);
+    const inSec = (p, key) => key === 'all' || p.section === key;
+    const newsPool = ESME.news;
+    const newsIds = {};
+    const news = type === 'guide' ? [] : newsPool.filter((n) => inSec(n, section) && matchQ(n)).slice(0, 8);
+    news.forEach((n) => { newsIds[n.id] = true; });
+    // Guides & explainers: everything else (a story shown under News is not repeated below).
+    let guides = all.filter((p) => inSec(p, section) && matchQ(p) && !newsIds[p.id] && (type === 'all' || (type === 'guide' ? p.type !== 'news' : p.type === type)));
+    guides = guides.slice().sort((a, b) => (b.at || 0) - (a.at || 0));
+    if (sort === 'az') guides = guides.slice().sort((a, b) => a.title.localeCompare(b.title));
+    if (sort === 'quick') guides = guides.slice().sort((a, b) => a.mins - b.mins);
+    const shown = guides.slice(0, limit);
+    const count = (key) => all.filter((p) => inSec(p, key) && matchQ(p)).length;
+    const sec = section === 'all' ? null : S[section];
+    const topicKeys = ['all'].concat(Object.keys(S));
+    // Site addition: a tag's or an author's articles (old WordPress URLs) reuse this page with their own heading.
+    const L = null;
+    return {
+      navActive: section === 'all' ? 'Articles' : navKey[section],
+      searchIcon: ESME.icon('search', 16), newsIcon: ESME.icon('news', 20), guideIcon: ESME.icon('guide', 20),
+      fundIcon: ESME.icon('funding', 16), calIcon: ESME.icon('calendar', 16), toolIcon: ESME.icon('calculator', 16),
+      topics: topicKeys.map((key) => {
+        const color = key === 'all' ? '#0B2A6B' : S[key].color;
+        return { label: key === 'all' ? 'All topics' : S[key].label, color, tint: color + '1A', icon: ESME.icon(key === 'all' ? 'grid' : key, 17),
+          count: String(count(key)), on: key === section ? 'true' : 'false', pick: () => this.sync({ section: key }) };
+      }),
+      heroColor: sec ? sec.color : '#003399', heroIcon: ESME.icon(section === 'all' ? 'news' : section, 30),
+      eyebrow: L ? L.eyebrow : (sec ? 'Topic' : 'Latest'),
+      heading: L ? L.heading : sec ? sec.label : (type === 'guide' ? 'How-to guides' : type === 'news' ? 'Latest news' : 'Latest news & guides'),
+      intro: L ? L.intro : (sec ? 'News and practical guides on ' + sec.label.toLowerCase() + ' for America’s small businesses.' : (type === 'guide' ? 'Step-by-step guides for running and growing a small business in the U.S.' : type === 'news' ? 'The latest small-business news from Washington, the states and Main Street.' : 'Small-business news and practical guides for owners across all 50 states.')),
+      sort, setSort: (e) => this.setState({ sort: e.target.value }),
+      q, setQ: (e) => this.setState({ q: e.target.value, limit: 12 }),
+      loading: !posts && !failed, failed, ready: !!posts, skeletons: [1, 2, 3, 4, 5, 6],
+      showNews: news.length > 0, showGuides: true,
+      newsTitle: sec ? 'Latest ' + sec.label + ' news' : 'Latest news', news,
+      countLabel: guides.length === 1 ? '1 article' : guides.length + ' articles',
+      shown, empty: !!posts && guides.length === 0,
+      hasMore: guides.length > shown.length, remaining: String(guides.length - shown.length),
+      more: () => this.setState({ limit: limit + 12 })
+    };
+  }
+}
+</script>
+</body>
+</html>

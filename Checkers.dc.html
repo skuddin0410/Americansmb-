@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quick checks — American SMB</title>
+<script src="./data.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#14181D;text-decoration:none}
+a:hover{color:#1E4FA8}
+</style>
+</helmet>
+<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<dc-import name="SiteHeader" active="Tools" hint-size="100%,118px"></dc-import>
+
+<main>
+<section aria-label="Introduction" class="esme-hero"><div class="esme-hero-in">
+<nav class="esme-hero-crumb" aria-label="Breadcrumb" style="font-size: 13px; color: #5A6470; display: flex; gap: 8px"><a href="Tools.dc.html" style="color: #5A6470">Tools</a><span aria-hidden="true">/</span><span>Checkers</span></nav>
+<h1 class="esme-hero-h1" style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 46px; line-height: 1.08; font-weight: 600">Quick checks</h1>
+<p class="esme-hero-lead" style="margin: 0; font-size: 18px; line-height: 1.55; color: #5A6470; max-width: 680px">Two questions owners ask us most: does my business count as “small” for SBA programs, and do I need to send a contractor a 1099-NEC?</p>
+</div></section>
+
+<div style="max-width: 1240px; margin: 0 auto; padding: 48px 32px 64px; display: flex; flex-wrap: wrap; gap: 32px; align-items: stretch">
+
+<section id="size" aria-labelledby="size-h" style="flex: 1 1 520px; min-width: 0; border: 1px solid #E4E7EC; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 20px; scroll-margin-top: 140px"><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1E4FA8">Eligibility</span><h2 id="size-h" style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 28px; font-weight: 600">Am I a “small business”?</h2><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5A6470">The SBA sets a size limit for each industry. Meeting it is required for SBA loans and small-business set-aside contracts.</p></div><div style="display: flex; flex-wrap: wrap; gap: 16px"><div style="flex: 1 1 100%; min-width: 0; display: flex; flex-direction: column; gap: 6px"><label for="sz-ind" style="font-size: 14px; font-weight: 600">Your industry (NAICS code)</label><select id="sz-ind" value="{{ind}}" onChange="{{set_ind}}" style="height: 50px; padding: 0 14px; border-radius: 8px; border: 1px solid #C7CFDC; font-size: 16px; font-family: inherit; background: #FFFFFF; width: 100%; min-width: 0; max-width: 100%"><sc-for list="{{indList}}" as="o" hint-placeholder-count="5"><option value="{{o.v}}">{{o.l}}</option></sc-for></select></div><div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px"><label for="sz-val" style="font-size: 14px; font-weight: 600">{{valLabel}}</label><input id="sz-val" type="number" min="0" step="0.1" value="{{val}}" onInput="{{set_val}}" style="height: 50px; padding: 0 14px; border-radius: 8px; border: 1px solid #C7CFDC; font-size: 17px; font-family: inherit; background: #FFFFFF"></div></div><div style="border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px; background: {{szBg}}; color: {{szFg}}"><span style="font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase">Result</span><span style="font-family: 'Sora', sans-serif; font-size: 24px; font-weight: 700">{{szTitle}}</span><span style="font-size: 15px; line-height: 1.55">{{szText}}</span></div><p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5A6470">Receipts are generally your average annual receipts over the last five completed fiscal years; employees are your average over the last 24 months. Count affiliated businesses too. Standards from the SBA table of size standards (13 CFR 121.201); a 2026 proposal would change some limits. Confirm with the SBA’s size standards tool before you bid or apply. <a href="Post.dc.html?slug=sba-size-standards-proposal-2026" style="color: #1E4FA8">About the proposed changes →</a></p></section>
+<section id="contractors" aria-labelledby="nec-h" style="flex: 1 1 520px; min-width: 0; border: 1px solid #E4E7EC; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 20px; scroll-margin-top: 140px"><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1E4FA8">Contractors</span><h2 id="nec-h" style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 28px; font-weight: 600">Do I need to file a 1099-NEC?</h2><p style="margin: 0; font-size: 15px; line-height: 1.6; color: #5A6470">For payments you made to a contractor or freelancer in 2026 (forms due February 1, 2027).</p></div><div style="display: flex; flex-wrap: wrap; gap: 16px"><div style="flex: 1 1 100%; min-width: 0; display: flex; flex-direction: column; gap: 6px"><label for="n-who" style="font-size: 14px; font-weight: 600">Who did you pay?</label><select id="n-who" value="{{who}}" onChange="{{set_who}}" style="height: 50px; padding: 0 14px; border-radius: 8px; border: 1px solid #C7CFDC; font-size: 16px; font-family: inherit; background: #FFFFFF; width: 100%; min-width: 0; max-width: 100%"><sc-for list="{{whoList}}" as="o" hint-placeholder-count="5"><option value="{{o.v}}">{{o.l}}</option></sc-for></select></div><div style="flex: 1 1 100%; min-width: 0; display: flex; flex-direction: column; gap: 6px"><label for="n-what" style="font-size: 14px; font-weight: 600">What was it for?</label><select id="n-what" value="{{what}}" onChange="{{set_what}}" style="height: 50px; padding: 0 14px; border-radius: 8px; border: 1px solid #C7CFDC; font-size: 16px; font-family: inherit; background: #FFFFFF; width: 100%; min-width: 0; max-width: 100%"><sc-for list="{{whatList}}" as="o" hint-placeholder-count="5"><option value="{{o.v}}">{{o.l}}</option></sc-for></select></div><div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 6px"><label for="n-amt" style="font-size: 14px; font-weight: 600">Total paid to them in 2026 ($)</label><input id="n-amt" type="number" min="0" step="1" value="{{amt}}" onInput="{{set_amt}}" style="height: 50px; padding: 0 14px; border-radius: 8px; border: 1px solid #C7CFDC; font-size: 17px; font-family: inherit; background: #FFFFFF"></div><label style="flex: 1 1 100%; display: flex; gap: 10px; align-items: center; font-size: 14px; font-weight: 600"><input type="checkbox" checked="{{card}}" onChange="{{set_card}}" style="width: 20px; height: 20px">I paid them only by credit card or through a payment app (e.g. PayPal)</label></div><div style="border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 6px; background: {{nBg}}; color: {{nFg}}"><span style="font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase">Result</span><span style="font-family: 'Sora', sans-serif; font-size: 24px; font-weight: 700">{{nTitle}}</span><span style="font-size: 15px; line-height: 1.55">{{nText}}</span></div><p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5A6470">General guidance based on the IRS Instructions for Form 1099-NEC and the 2025 tax law, which raised the threshold to $2,000 for payments made after 2025. Special rules apply to some payments. <a href="Post.dc.html?slug=w2-or-1099-worker-classification" style="color: #1E4FA8">W-2 or 1099? →</a></p></section>
+</div>
+</main>
+
+<dc-import name="SiteFooter" note="General guidance, not legal or tax advice." hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { ind: '722511', val: '4.5', who: 'person', what: 'services', amt: '2500', card: false }; }
+  componentDidMount() { if (location.hash) { const el = document.querySelector(location.hash); if (el) setTimeout(() => el.scrollIntoView(), 50); } }
+  renderVals() {
+    const s = this.state;
+    const IND = [["541810", "Advertising agencies", "r", 25.5], ["812112", "Beauty salons", "r", 9.5], ["541211", "CPA and accounting offices", "r", 26.5], ["624410", "Child care", "r", 9.5], ["458110", "Clothing and accessories stores", "r", 47.0], ["722515", "Coffee shops and snack bars", "r", 22.5], ["236220", "Commercial building construction", "r", 45.0], ["323111", "Commercial printing", "e", 650], ["423430", "Computer equipment & software wholesalers", "e", 250], ["541512", "Computer systems design / IT services", "r", 34.0], ["541511", "Custom computer programming", "r", 34.0], ["621210", "Dental offices", "r", 9.0], ["611710", "Educational support services", "r", 24.0], ["238210", "Electrical contractors", "r", 19.0], ["541330", "Engineering services", "r", 25.5], ["713940", "Fitness centers and gyms", "r", 17.5], ["722511", "Full-service restaurants", "r", 11.5], ["449110", "Furniture stores", "r", 25.0], ["811111", "General auto repair", "r", 9.0], ["455219", "General merchandise stores", "r", 40.0], ["541430", "Graphic design", "r", 9.0], ["424410", "Grocery wholesalers", "e", 250], ["721110", "Hotels and motels", "r", 40.0], ["561720", "Janitorial services", "r", 22.0], ["561730", "Landscaping services", "r", 9.5], ["541110", "Law offices", "r", 15.5], ["722513", "Limited-service restaurants", "r", 13.5], ["484110", "Local trucking", "r", 34.0], ["484121", "Long-distance truckload trucking", "r", 34.0], ["332710", "Machine shops", "e", 500], ["541611", "Management consulting", "r", 24.5], ["441110", "New car dealers", "e", 200], ["236115", "New single-family housing construction", "r", 45.0], ["623110", "Nursing care facilities", "r", 34.0], ["339999", "Other miscellaneous manufacturing", "e", 550], ["812199", "Other personal care services", "r", 9.0], ["238990", "Other specialty trade contractors", "r", 19.0], ["621111", "Physician offices", "r", 16.0], ["238220", "Plumbing, heating and air-conditioning contractors", "r", 19.0], ["531210", "Real estate agents and brokers", "r", 15.0], ["531311", "Residential property managers", "r", 12.5], ["311811", "Retail bakeries", "e", 500], ["445110", "Supermarkets and grocery stores", "r", 40.0], ["541940", "Veterinary services", "r", 10.0]];
+    const set = (k) => (e) => this.setState({ [k]: e.target.type === 'checkbox' ? e.target.checked : e.target.value });
+    const row = IND.find((r) => r[0] === s.ind) || IND[0];
+    const byRev = row[2] === 'r', lim = row[3], num = parseFloat(s.val) || 0;
+    const small = num <= lim;
+    const limTxt = byRev ? '$' + lim.toFixed(1) + ' million in average annual receipts' : lim + ' employees';
+    const amt = parseFloat(s.amt) || 0;
+    let nTitle, nText, nOk = false;
+    if (s.card) { nTitle = 'No 1099-NEC needed'; nText = 'Payments by credit card or through a payment app are reported by the card company or app on Form 1099-K, not by you on a 1099-NEC.'; nOk = true; }
+    else if (s.who === 'corp' && s.what !== 'legal') { nTitle = 'Usually no 1099-NEC'; nText = 'Payments to C and S corporations are generally exempt — except payments for legal services. Keep a W-9 on file to show the payee is a corporation.'; nOk = true; }
+    else if (s.what === 'goods') { nTitle = 'No 1099-NEC for goods'; nText = 'Form 1099-NEC is for services. Payments for merchandise, inventory or freight are not reported on it (rent and some other payments go on Form 1099-MISC).'; nOk = true; }
+    else if (s.what === 'legal' && amt >= 2000) { nTitle = 'Yes, file a 1099-NEC'; nText = 'Payments of $2,000 or more to attorneys for legal services must be reported, even if the law firm is a corporation. Send a copy to the payee and file with the IRS by February 1, 2027.'; }
+    else if (amt >= 2000) { nTitle = 'Yes, file a 1099-NEC'; nText = 'You paid $2,000 or more for services in 2026. Send a copy to the payee and file with the IRS by February 1, 2027. Use the name and taxpayer ID from their W-9.'; }
+    else { nTitle = 'Not required for 2026'; nText = 'You paid less than $2,000 in 2026, so no 1099-NEC is required. For payments made in 2025 and earlier the threshold was $600. Keep their W-9 on file anyway.'; nOk = true; }
+    const v = {};
+    Object.keys(s).forEach((k) => { v[k] = s[k]; v['set_' + k] = set(k); });
+    return Object.assign(v, {
+      indList: IND.map((r) => ({ v: r[0], l: r[1] + ' (' + r[0] + ')' })),
+      valLabel: byRev ? 'Average annual receipts ($ millions)' : 'Average number of employees',
+      szTitle: small ? 'Small for this industry' : 'Above the size standard',
+      szText: (small ? 'Your business is within the SBA size standard for ' : 'Your business is above the SBA size standard for ') + row[1].toLowerCase() + ' (NAICS ' + row[0] + '): ' + limTxt + '.',
+      szBg: small ? '#E7F6EF' : '#FFF4E5', szFg: small ? '#0B5D3B' : '#7A4100',
+      whoList: [{ v: 'person', l: 'An individual, sole proprietor or LLC taxed as one' }, { v: 'partnership', l: 'A partnership or multi-member LLC' }, { v: 'corp', l: 'A C or S corporation' }],
+      whatList: [{ v: 'services', l: 'Services (labor, consulting, design, repairs…)' }, { v: 'legal', l: 'Legal services from an attorney' }, { v: 'goods', l: 'Goods, products or merchandise' }],
+      nTitle, nText, nBg: nOk ? '#E7F6EF' : '#E6ECF7', nFg: nOk ? '#0B5D3B' : '#0B2A6B'
+    });
+  }
+}
+</script>
+</body>
+</html>

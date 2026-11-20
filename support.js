@@ -1,5 +1,5 @@
 /*
- * European SME — standalone runtime for the .dc.html design pages.
+ * American SMB — standalone runtime for the .dc.html pages (adapted from the European SME design runtime).
  * Lets each page render in any browser (e.g. on GitHub Pages) without the
  * Claude Design canvas: parses the <x-dc> template, runs the page's
  * Component class, and supports {{holes}}, <sc-for>, <sc-if>, <dc-import>,
@@ -323,8 +323,7 @@
       });
   }
 
-  // ---------- live articles from europeansme.eu ----------
-  var API = 'https://europeansme.eu/wp-json/wp/v2/posts?per_page=100&_embed=wp:featuredmedia,wp:term,author';
+  // ---------- sections, icons, tools ----------
   var SECTIONS = {
     funding: { desc: 'SBA loans, grants and credit', label: 'Funding & Grants', color: '#B45309' },
     money: { desc: 'Cash flow, pricing, taxes', label: 'Money & Taxes', color: '#0F7B6C' },
@@ -334,57 +333,6 @@
     growth: { desc: 'Starting, scaling, buying a business', label: 'Start & Grow', color: '#1E4FA8' },
     policy: { desc: 'Tariffs, trade, SBA and federal rules', label: 'Trade & Policy', color: '#0B2552' }
   };
-  var CAT_MAP = {
-    funding: 'funding', 'eu-grant': 'funding', investment: 'funding', finance: 'funding',
-    'business-growth': 'growth', 'business-planning': 'growth', 'export': 'growth', franchise: 'growth', advisory: 'growth',
-    economic: 'growth', pricing: 'growth', sales: 'growth', supply: 'growth', sustainability: 'growth',
-    'cash-flow': 'money', payments: 'money', 'electronic-invoicing': 'money', tax: 'money', insurance: 'money',
-    marketing: 'marketing', brand: 'marketing', 'e-commerce': 'marketing',
-    hiring: 'people', leadership: 'people', remote: 'people', 'eu-time-zones': 'people', 'eu-employment-law': 'people',
-    'digital-transformation': 'tech', cybersecurity: 'tech', 'artificial-intelligence': 'tech',
-    law: 'policy'
-  };
-  var POLICY_RE = /\bVAT\b|\bTax|GDPR|\bLaw\b|\bAct\b|State Aid|Competition|Procurement|Compliance|Regulat/i;
-  function plain(html) { return decode(String(html || '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim(); }
-  function clean(html) {
-    return String(html || '')
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/\son\w+\s*=\s*("[^"]*"|'[^']*')/gi, '');
-  }
-  function mapPost(p) {
-    var emb = p._embedded || {};
-    var media = (emb['wp:featuredmedia'] || [])[0] || {};
-    var sizes = (media.media_details && media.media_details.sizes) || {};
-    var pickSize = function (names) {
-      for (var i = 0; i < names.length; i++) if (sizes[names[i]]) return sizes[names[i]].source_url;
-      return media.source_url || '';
-    };
-    var cats = ((emb['wp:term'] || [])[0] || []);
-    var catSlug = cats.length ? cats[0].slug : '';
-    var title = plain(p.title && p.title.rendered);
-    var section = CAT_MAP[catSlug] || (POLICY_RE.test(title) ? 'policy' : 'growth');
-    var text = plain(p.content && p.content.rendered);
-    var words = (text.match(/\S+/g) || []).length;
-    var excerpt = plain(p.excerpt && p.excerpt.rendered).replace(/\s*\[…\]\s*$|\s*\[&hellip;\]\s*$/, '');
-    if (excerpt.length > 220) excerpt = excerpt.slice(0, 217).replace(/\s+\S*$/, '') + '…';
-    var d = new Date(p.date);
-    return {
-      id: p.id, slug: p.slug, link: p.link, title: title, excerpt: excerpt,
-      date: d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }),
-      shortDate: d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }),
-      mins: Math.max(1, Math.round(words / 220)),
-      img: pickSize(['medium_large', 'large', 'bunyad-768', 'full']),
-      imgLarge: pickSize(['full', 'large', 'medium_large']),
-      thumb: pickSize(['bunyad-small', 'medium', 'thumbnail', 'medium_large']),
-      alt: media.alt_text || title,
-      section: section, sectionLabel: SECTIONS[section].label, color: SECTIONS[section].color,
-      category: cats.length ? plain(cats[0].name) : '',
-      author: ((emb.author || [])[0] || {}).name || 'European SME',
-      href: 'Post.dc.html?slug=' + encodeURIComponent(p.slug),
-      content: clean(p.content && p.content.rendered)
-    };
-  }
-
   // Line icons (24px grid, stroke = currentColor), used by menus, tool cards and tool pages.
   var ICONS = {
     funding: '<ellipse cx="12" cy="6.5" rx="7" ry="3"/><path d="M5 6.5v5c0 1.66 3.13 3 7 3s7-1.34 7-3v-5"/><path d="M5 11.5v5c0 1.66 3.13 3 7 3s7-1.34 7-3v-5"/>',
@@ -438,69 +386,24 @@
   }
   // Every tool on the site, in one list, so the header menu, homepage and Tools page stay in step.
   var TOOLS = [
-    { key: 'funding', menu: 'Federal, state and local programs', group: 'Find & plan', name: 'Grant & Loan Finder', short: 'SBA loans, real grants and state programs, with deadlines', icon: 'search', href: '#', tone: '#0B2552' },
-    { key: 'calendar', menu: 'Federal and state due dates', group: 'Find & plan', name: 'Tax Deadline Calendar', short: 'Every federal tax date that applies to your business type', icon: 'calendar', href: '#', tone: '#14181D' },
-    { key: 'states', menuName: 'State guides', menu: 'Rules and incentives by state', group: 'Find & plan', name: 'State-by-state guides', short: 'Licences, sales tax and incentives in all 50 states', icon: 'pin', href: '#', tone: '#0F7B6C', isNew: true },
-    { key: 'tariff', menuName: 'Tariff cost calculator', menu: 'Landed cost on imports', group: 'Check & calculate', name: 'Tariff cost calculator', short: 'Estimate the landed cost of what you import', icon: 'globe', href: '#', tone: '#C8102E', isNew: true },
-    { key: 'size', menuName: 'Am I a small business?', menu: 'SBA size standards check', group: 'Check & calculate', name: 'Am I a "small business"?', short: 'Check the SBA size standard for your industry', icon: 'check', href: '#', tone: '#8A3FB8' },
-    { key: 'calculators', menuName: 'Calculators', menu: 'Pricing, payroll and loan payments', group: 'Check & calculate', name: 'Owner calculators', short: 'Loan payments, price increases and payroll cost', icon: 'calculator', href: '#', tone: '#1E4FA8' }
+    { key: 'funding', menu: 'Federal, state and local programs', group: 'Find & plan', name: 'Grant & Loan Finder', short: 'SBA loans, real grants and state programs, with deadlines', icon: 'search', href: 'FundingFinder.dc.html', tone: '#0B2552' },
+    { key: 'calendar', menu: 'Federal and state due dates', group: 'Find & plan', name: 'Tax Deadline Calendar', short: 'Every federal tax date that applies to your business type', icon: 'calendar', href: 'Compliance.dc.html', tone: '#14181D' },
+    { key: 'states', menuName: 'State guides', menu: 'Rules and incentives by state', group: 'Find & plan', name: 'State-by-state guides', short: 'Licences, sales tax and incentives in all 50 states', icon: 'pin', href: 'Countries.dc.html', tone: '#0F7B6C', isNew: true },
+    { key: 'tariff', menuName: 'Tariff cost calculator', menu: 'Landed cost on imports', group: 'Check & calculate', name: 'Tariff cost calculator', short: 'Estimate the landed cost of what you import', icon: 'globe', href: 'Calculators.dc.html#tariff', tone: '#C8102E', isNew: true },
+    { key: 'size', menuName: 'Am I a small business?', menu: 'SBA size standards check', group: 'Check & calculate', name: 'Am I a “small business”?', short: 'Check the SBA size standard for your industry', icon: 'check', href: 'Checkers.dc.html#size', tone: '#8A3FB8' },
+    { key: 'calculators', menuName: 'Calculators', menu: 'Pricing, payroll and loan payments', group: 'Check & calculate', name: 'Owner calculators', short: 'Loan payments, price increases and the true cost of an employee', icon: 'calculator', href: 'Calculators.dc.html', tone: '#1E4FA8' }
   ];
 
-  // ---- Countries, sample daily news, trending and location detection ----
-  var COUNTRIES = [
-    ['de', 'Germany', 'hub'], ['fr', 'France', 'hub'], ['it', 'Italy', 'hub'], ['es', 'Spain', 'hub'], ['nl', 'Netherlands', 'hub'], ['pl', 'Poland', 'hub'],
-    ['be', 'Belgium', 'light'], ['at', 'Austria', 'light'], ['se', 'Sweden', 'light'], ['ie', 'Ireland', 'light'], ['pt', 'Portugal', 'light'], ['cz', 'Czechia', 'light'],
-    ['dk', 'Denmark', 'light'], ['fi', 'Finland', 'light'], ['ro', 'Romania', 'light'], ['gr', 'Greece', 'light'],
-    ['bg', 'Bulgaria', 'basic'], ['hr', 'Croatia', 'basic'], ['cy', 'Cyprus', 'basic'], ['ee', 'Estonia', 'basic'], ['hu', 'Hungary', 'basic'], ['lv', 'Latvia', 'basic'],
-    ['lt', 'Lithuania', 'basic'], ['lu', 'Luxembourg', 'basic'], ['mt', 'Malta', 'basic'], ['sk', 'Slovakia', 'basic'], ['si', 'Slovenia', 'basic']
-  ].map(function (c, i) {
-    return { code: c[0], name: c[1], tier: c[2], i: i, flag: 'https://flagcdn.com/w80/' + c[0] + '.png',
-      tierLabel: c[2] === 'hub' ? 'Full hub' : c[2] === 'light' ? 'Growing' : 'EU-wide coverage' };
-  });
-  // Focus markets for now: Europe's four largest economies. Others stay in the list above, hidden.
-  var FOCUS = [];
-  COUNTRIES = COUNTRIES.filter(function (c) { return FOCUS.indexOf(c.code) > -1; })
-    .sort(function (a, b) { return FOCUS.indexOf(a.code) - FOCUS.indexOf(b.code); });
-  var BY_CODE = {};
-  COUNTRIES.forEach(function (c) { BY_CODE[c.code] = c; });
-
-  // Placeholder headlines for the demo only. Real stories replace these once the news desk is running.
-  var NEWS_TPL = [
-    ['funding', 'New regional grant round opens for small manufacturers in {C}', 'Applications for the next round of support for small manufacturers are open. Here is who can apply and what to prepare.'],
-    ['money', '{C} tax authority publishes new e-invoicing guidance for SMEs', 'The guidance explains formats, timelines and what small businesses should test with their software provider.'],
-    ['people', 'Skills shortage tops SME concerns in {C} chamber survey', 'Finding qualified staff is again the most-cited problem for small firms. What owners are doing about it.'],
-    ['tech', '{C} launches free cyber security check-ups for small firms', 'A new scheme offers small businesses a free review of their basic security set-up. How to book one.'],
-    ['growth', '{C} exporters look to new markets as trade deals take effect', 'Small exporters are reviewing where to sell next. The markets and support programmes worth knowing about.'],
-    ['policy', 'How {C} plans to apply the EU’s latest SME simplification rules', 'What changes for reporting and paperwork, and when the new rules are expected to apply.'],
-    ['marketing', 'Shoppers in {C} shift towards local brands, retail panel finds', 'What the shift means for small consumer brands and how to position against larger rivals.']
-  ];
-  var EU_NEWS = [
-    ['policy', 'Commission sets out next steps on cutting SME reporting burden', 'An overview of the simplification packages and which changes reach small firms first.'],
-    ['funding', 'EU innovation funding: next cut-off dates for SMEs', 'A round-up of open EU calls relevant to small and medium-sized businesses this month.'],
-    ['money', 'Cross-border VAT: what small sellers should check this quarter', 'Thresholds, the One-Stop Shop and the SME exemption — a checklist for the quarter.']
-  ];
+  // ---- News desk, trending and helpers ----
+  var COUNTRIES = [], BY_CODE = {};
   function dayStart(offset) { var d = new Date(); d.setHours(9, 0, 0, 0); d.setDate(d.getDate() - offset); return d; }
   function hash(str) { var h = 7; for (var i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) % 100003; return h; }
-  function newsItem(id, country, tpl, offset, name) {
-    var d = dayStart(offset);
-    d.setHours(8 + (hash(id) % 9), (hash(id + 'm') % 6) * 10);
-    return { id: id, country: country, section: tpl[0], sectionLabel: SECTIONS[tpl[0]].label, color: SECTIONS[tpl[0]].color, type: 'news', sample: true,
-      title: tpl[1].replace('{C}', name), excerpt: tpl[2], at: d.getTime(), mins: 2, author: 'European SME News Desk',
-      date: d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }),
-      time: d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }),
-      href: 'Post.dc.html?news=' + id };
-  }
   function at(d, h, m) { var x = new Date(d + 'T00:00:00'); x.setHours(h, m || 0, 0, 0); return x.getTime(); }
-  var NEWS = [
-    ['n1', 'marketing', 'Small Business Saturday is Nov. 28: SBA and American Express ask shoppers to #ShopSmall', 'Owners expect a big share of holiday revenue from the day. What to prepare this week.', at('2026-11-20', 9, 10)],
-    ['n2', 'funding', 'Veterans Small Business Week wraps up with resources for 1.8 million veteran owners', 'Capital, contracting and mentoring programmes highlighted by the SBA during the week.', at('2026-11-13', 11, 30)],
-    ['n3', 'growth', 'NFIB: optimism slips to 97.8 while uncertainty falls to its lowest since December', 'More owners plan price increases, and labor quality stays the top problem.', at('2026-11-10', 8, 0)],
-    ['n4', 'marketing', 'NRF: one in five holiday shoppers plan to buy from small or local businesses', 'Retailers lean on email, social and local events to reach them.', at('2026-11-05', 10, 20)]
-  ].map(function (r) {
-    var d = new Date(r[4]);
-    return { id: r[0], section: r[1], sectionLabel: SECTIONS[r[1]].label, color: SECTIONS[r[1]].color, type: 'news', title: r[2], excerpt: r[3], at: r[4], mins: 2,
+  var NEWS = (window.AMSMB_NEWS || []).map(function (r) {
+    var t = at(r.date, r.h || 9, r.m || 0), d = new Date(t);
+    return { id: r.id, slug: r.id, section: r.section, sectionLabel: SECTIONS[r.section].label, color: SECTIONS[r.section].color, type: 'news', title: r.title, excerpt: r.excerpt, content: r.content || '', at: t, mins: 2,
       author: 'American SMB News Desk', date: d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-      time: d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }), href: '#', country: 'us' };
+      time: d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }), href: 'Post.dc.html?news=' + r.id, country: 'us' };
   });
   function dayLabel(t) {
     var a = dayStart(0), d = new Date(t); d.setHours(9, 0, 0, 0);
@@ -528,12 +431,17 @@
   }
   var postsPromise = null;
   var DEADLINES = [
-    { date: '2026-12-31', day: '31', mon: 'Dec', year: '2026', topic: 'Taxes', title: 'Last day to place equipment in service for 2026 deductions', href: '#' },
-    { date: '2027-01-15', day: '15', mon: 'Jan', year: '2027', topic: 'Taxes', title: 'Fourth-quarter 2026 estimated tax payment due', href: '#' },
-    { date: '2027-02-01', day: '1', mon: 'Feb', year: '2027', topic: 'Payroll', title: 'W-2s and 1099-NECs due to workers and the IRS', href: '#' },
-    { date: '2027-03-15', day: '15', mon: 'Mar', year: '2027', topic: 'Taxes', title: 'S-corporation and partnership returns due', href: '#' }
+    { date: '2026-12-31', day: '31', mon: 'Dec', year: '2026', topic: 'Taxes', title: 'Last day to place equipment in service for 2026 deductions', href: 'Post.dc.html?slug=year-end-tax-moves-2026' },
+    { date: '2027-01-15', day: '15', mon: 'Jan', year: '2027', topic: 'Taxes', title: 'Fourth-quarter 2026 estimated tax payment due', href: 'Compliance.dc.html' },
+    { date: '2027-02-01', day: '1', mon: 'Feb', year: '2027', topic: 'Payroll', title: 'W-2s and 1099-NECs due to workers and the IRS', href: 'Checkers.dc.html#contractors' },
+    { date: '2027-03-15', day: '15', mon: 'Mar', year: '2027', topic: 'Taxes', title: 'S-corporation and partnership returns due', href: 'Compliance.dc.html' }
   ];
-  var POSTS = window.AMSMB_POSTS || [];
+  var POSTS = (window.AMSMB_POSTS || []).map(function (p) {
+    var B = window.AMSMB_BODIES || {};
+    if (B[p.slug] && !p.content) p.content = B[p.slug];
+    return p;
+  });
+  var HOME_POSTS = POSTS.filter(function (p) { return !p.isCover; });
   var COVER = window.AMSMB_COVER || null;
   window.ESME = {
     sections: SECTIONS,
@@ -552,14 +460,35 @@
     detectCountry: detectCountry, setCountry: setCountry,
     sectionIcon: function (k) { return icon(k, 18); },
     loadPosts: function () { return Promise.resolve(POSTS); },
+    homePosts: function () { return Promise.resolve(HOME_POSTS); },
     posts: function () { return POSTS; },
+    site: window.AMSMB_SITE || {},
+    forms: (window.AMSMB_SITE || {}).forms || {},
+    // Loads the Fillout embed script when a form ID is set (Contact, Advertise, Submit story).
+    embedForms: function () {
+      if (!document.querySelector('[data-fillout-id]:not([data-fillout-id=""])') || document.getElementById('fillout-embed')) return;
+      var sc = document.createElement('script'); sc.id = 'fillout-embed'; sc.src = 'https://server.fillout.com/embed/v1/'; sc.async = true; document.body.appendChild(sc);
+    },
+    page: function () { var P = window.AMSMB_PAGES || {}; var k = new URLSearchParams(location.search).get('p') || 'not-found'; return P[k] || P['not-found']; },
+    pageKey: function () { return new URLSearchParams(location.search).get('p') || 'not-found'; },
+    // Newsletter: posts to Mailchimp when its form action is set, otherwise opens an email to the team.
+    subscribe: function (email) {
+      var S = window.AMSMB_SITE || {};
+      if (S.mailchimpAction) {
+        var f = document.createElement('form'); f.method = 'post'; f.action = S.mailchimpAction; f.target = '_blank';
+        var i = document.createElement('input'); i.type = 'hidden'; i.name = 'EMAIL'; i.value = email; f.appendChild(i);
+        document.body.appendChild(f); f.submit(); f.remove(); return 'sent';
+      }
+      location.href = 'mailto:' + (S.email || '') + '?subject=' + encodeURIComponent('Subscribe me to the Main Street Briefing') + '&body=' + encodeURIComponent('Please add ' + email + ' to the Main Street Briefing.');
+      return 'mail';
+    },
     cover: function () { return COVER; },
     // Take up to n posts matching test, never reusing one already in `used`.
     take: function (posts, test, n, used) {
       var out = [];
       for (var i = 0; i < posts.length && out.length < n; i++) {
         var p = posts[i];
-        if (used[p.id] || (test && !test(p))) continue;
+        if (used[p.id] || p.isCover || (test && !test(p))) continue;
         used[p.id] = true;
         out.push(p);
       }

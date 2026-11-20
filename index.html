@@ -149,7 +149,7 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 <p style="margin: 0; font-size: 17px; line-height: 1.6; color: rgba(255,255,255,.82); max-width: 560px">{{coverDek}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 4px">
 <a class="esme-btn esme-btn--gold esme-btn--lg" href="{{coverHref}}">Read the story <span aria-hidden="true">→</span></a>
-<a class="esme-btn esme-btn--ghost esme-btn--lg" href="#">All articles</a>
+<a class="esme-btn esme-btn--ghost esme-btn--lg" href="Articles.dc.html">All articles</a>
 </div>
 </div>
 <a href="{{coverHref}}" aria-label="{{coverTitle}}" class="esme-hero-vis" style="flex: 1 1 480px; min-width: 0; display: block; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.12)"><sc-if value="{{coverIsPhoto}}"><img class="esme-hero-img" src="{{coverImg}}" alt="{{coverAlt}}"></sc-if></a>
@@ -231,7 +231,7 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 <section aria-label="Tools for SMEs" style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 76px; padding-bottom: 80px">
 <div class="esme-sechead">
 <div><p class="esme-eyebrow">Free tools</p><h2 class="esme-h2">Tools for American small businesses</h2><p class="esme-sub">Find funding, track tax deadlines and run the numbers — checked monthly by our editors.</p></div>
-<a class="esme-btn esme-btn--blue" href="#">All tools <span aria-hidden="true">→</span></a>
+<a class="esme-btn esme-btn--blue" href="Tools.dc.html">All tools <span aria-hidden="true">→</span></a>
 </div>
 <div class="hm-tools" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px">
 <sc-for list="{{tools}}" as="t" hint-placeholder-count="7">
@@ -251,7 +251,7 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 <div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 72px; padding-bottom: 72px">
 <div class="esme-sechead">
 <div><p class="esme-eyebrow is-dark">Trade &amp; Policy</p><h2 class="esme-h2 is-dark">The rules that shape your business</h2><p class="esme-sub is-dark">Tariffs, taxes, SBA programs and the federal rules that shape how small businesses buy, sell and hire.</p></div>
-<a class="esme-btn esme-btn--gold" href="#">View all policy articles <span aria-hidden="true">→</span></a>
+<a class="esme-btn esme-btn--gold" href="RulesHub.dc.html">View all policy articles <span aria-hidden="true">→</span></a>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px">
 <sc-for list="{{policy}}" as="p" hint-placeholder-count="4">
@@ -328,7 +328,7 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 <li><span dc-html="{{tickTools}}"></span>SBA programs and tax deadlines, explained</li>
 </ul>
 <div class="yc-due">
-<div class="yc-due-h"><span class="yc-due-t"><span dc-html="{{tickTools}}" style="display: flex; color: #003399"></span>Coming up</span><a class="esme-btn esme-btn--blue esme-btn--sm" href="#">All deadlines <span aria-hidden="true">→</span></a></div>
+<div class="yc-due-h"><span class="yc-due-t"><span dc-html="{{tickTools}}" style="display: flex; color: #003399"></span>Coming up</span><a class="esme-btn esme-btn--blue esme-btn--sm" href="Compliance.dc.html">All deadlines <span aria-hidden="true">→</span></a></div>
 <sc-for list="{{dueSoon}}" as="d" hint-placeholder-count="3">
 <a class="yc-due-r" href="{{d.href}}"><span class="yc-due-d"><strong>{{d.day}}</strong>{{d.mon}}</span><span style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><span class="yc-due-k">{{d.topic}} · {{d.year}}</span><span class="yc-due-x">{{d.title}}</span></span></a>
 </sc-for>
@@ -364,8 +364,8 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 </div>
 <div class="yc-box-foot">
 <a class="esme-btn esme-btn--gold" href="{{boxNewsHref}}">All news <span aria-hidden="true">→</span></a>
-<a class="yc-foot-l" href="#">Tax deadlines <span aria-hidden="true">→</span></a>
-<a class="yc-foot-l" href="#">Funding calls <span aria-hidden="true">→</span></a>
+<a class="yc-foot-l" href="Compliance.dc.html">Tax deadlines <span aria-hidden="true">→</span></a>
+<a class="yc-foot-l" href="FundingHub.dc.html">Funding & grants <span aria-hidden="true">→</span></a>
 </div>
 </div>
 </div>
@@ -382,12 +382,12 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 <h2 class="esme-h2 is-dark" style="margin-top: 4px">Get the Main Street Briefing</h2>
 <p class="esme-sub is-dark" style="font-size: 16px">Funding, tax changes, tariff updates and practical playbooks for America’s small-business owners — every Tuesday.</p>
 </div>
-<form action="/newsletter/" method="get" style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 16px; background: #FFFFFF; color: #14181D; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6)">
+<form action="Page.dc.html" method="get" style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 16px; background: #FFFFFF; color: #14181D; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6)"><input type="hidden" name="p" value="newsletter">
 <label for="nl-email" style="font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600">Email address</label>
 <input id="nl-email" name="email" required type="email" placeholder="you@yourbusiness.com" style="height: 48px; padding: 0 14px; border-radius: 8px; border: 1px solid #D0D5DD; font-size: 15px; color: #14181D">
 <button type="submit" class="esme-btn esme-btn--gold esme-btn--lg" style="width: 100%">Subscribe free</button>
 <p style="margin: 0; font-size: 12.5px; color: #5A6470">No spam. Unsubscribe any time.</p>
-<span class="esme-nl-note">Free, every Tuesday. You confirm on the next page and can unsubscribe at any time. <a href="/privacy-policy/">Privacy policy</a></span>
+<span class="esme-nl-note">Free, every Tuesday. You confirm on the next page and can unsubscribe at any time. <a href="Page.dc.html?p=privacy-policy">Privacy policy</a></span>
 </form>
 </div>
 </section>
@@ -418,7 +418,7 @@ class Component extends DCLogic {
         const vis = (x) => ({ isAIAct: x.visual === 'ai-act', isEInvoice: x.visual === 'e-invoice', isEUInc: x.visual === 'eu-inc', isPhoto: VIS.indexOf(x.visual) < 0 });
         const v = vis(p);
         return {
-          coverKicker: (cv && cv.kicker) || 'Cover story', coverTitle: p.title || '', coverDek: p.excerpt || '', coverHref: p.href || '#',
+          coverKicker: (cv && cv.kicker) || 'Cover story', coverTitle: p.title || '', coverDek: p.excerpt || '', coverHref: p.href || 'Articles.dc.html',
           coverIsAIAct: v.isAIAct, coverIsEInvoice: v.isEInvoice, coverIsEUInc: v.isEUInc, coverIsPhoto: v.isPhoto && !!p.imgLarge,
           coverImg: p.imgLarge || '', coverAlt: p.alt || '',
           coverSecondary: ((cv && cv.secondary) || []).map((x) => Object.assign({}, x, vis(x), {
@@ -443,7 +443,7 @@ class Component extends DCLogic {
           boxKicker: geoC ? (geo.source === 'cloudflare' ? 'Live · based on your location' : geo.source === 'browser' ? 'Live · from your browser settings' : 'Live · your country') : 'Live · nationwide',
           boxTitle: 'Today in ' + where, boxHub: geoC ? '#' + geoC.code : '#', boxCta: geoC ? 'Open ' + geoC.name + ' hub' : 'Choose your country',
           statToday: String(today), statWeek: String(week), statTrend: trend,
-          boxNewsHref: '#' + (geoC ? '&country=' + geoC.code : ''), boxRulesHref: '#' + (geoC ? '?country=' + geoC.code : ''),
+          boxNewsHref: 'Articles.dc.html?type=news', boxRulesHref: '#' + (geoC ? '?country=' + geoC.code : ''),
           subLabel: geoC ? 'Get ' + geoC.name + '’s SME news in your inbox' : 'Get America’s small-business news in your inbox',
           mailIcon: ESME.icon('news', 18), checkIcon: ESME.icon('check', 15), chevIcon: ESME.icon('arrow', 16)
         };
@@ -462,7 +462,7 @@ class Component extends DCLogic {
         { title: 'Explore', links: [{ label: 'Latest articles', href: '#' }, { label: 'SME tools', href: '#' }, { label: 'Compliance calendar', href: '#' }, { label: 'Newsletter', href: '#newsletter' }] },
         { title: 'Sections', links: Object.keys(ESME.sections).map((k) => ({ label: ESME.sections[k].label, href: '#' + k })) },
         { title: 'Company', links: [{ label: 'About American SMB', href: '#' }, { label: 'Our authors', href: '#' }, { label: 'Contact us', href: '#' }] },
-        { title: 'Work with us', links: [{ label: 'Advertise with us', href: '/advertise/' }, { label: 'Become a partner', href: '/advertise/#options' }, { label: 'Submit a story', href: '#' }, { label: 'Subscribe', href: '#' }] }
+        { title: 'Work with us', links: [{ label: 'Advertise with us', href: 'Advertise.dc.html' }, { label: 'Become a partner', href: 'Advertise.dc.html#options' }, { label: 'Submit a story', href: '#' }, { label: 'Subscribe', href: '#' }] }
       ],
       loading: !posts && !failed, failed, ready: !!posts,
       skeletons: [1, 2, 3, 4], latest: []
@@ -484,12 +484,12 @@ class Component extends DCLogic {
     const policy = ESME.take(posts, sec('policy'), 4, used);
     const col = (k) => {
       const items = ESME.take(posts, sec(k), 3, used);
-      return { name: S[k].label, color: S[k].color, href: '#' + k, lead: items[0], more: items.slice(1) };
+      return { name: S[k].label, color: S[k].color, href: 'Articles.dc.html?section=' + k, lead: items[0], more: items.slice(1) };
     };
     const columns = ['growth', 'money', 'marketing'].map(col).filter((c) => c.lead);
-    const duo = ['people', 'tech'].map((k) => ({ eyebrow: k === 'people' ? 'Leadership' : 'Digital', name: S[k].label, color: S[k].color, href: '#' + k, items: ESME.take(posts, sec(k), 2, used) })).filter((d) => d.items.length);
+    const duo = ['people', 'tech'].map((k) => ({ eyebrow: k === 'people' ? 'Leadership' : 'Digital', name: S[k].label, color: S[k].color, href: 'Articles.dc.html?section=' + k, items: ESME.take(posts, sec(k), 2, used) })).filter((d) => d.items.length);
     const chips = ['all'].concat(Object.keys(S)).map((k) => ({ label: k === 'all' ? 'All' : S[k].label, on: k === fsec ? 'true' : 'false', cls: k === fsec ? 'is-on' : '', pick: () => this.setState({ fsec: k }) }));
-    const featHref = fsec === 'all' ? '#' : '#' + fsec;
+    const featHref = fsec === 'all' ? 'Articles.dc.html' : 'Articles.dc.html?section=' + fsec;
     const featMore = fsec === 'all' ? 'All news & guides' : 'More in ' + S[fsec].label;
     const popular = ESME.take(posts, sec('funding'), 2, used).concat(ESME.take(posts, null, 5, used)).slice(0, 5).map((post, i) => ({ n: String(i + 1), post }));
     return Object.assign(base, { chips, featHref, featMore, latest, feature, featureSide, policy, columns, duo, popular, total: posts.length });

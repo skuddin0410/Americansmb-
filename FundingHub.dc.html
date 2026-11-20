@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Funding &amp; grants — American SMB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./data.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#14181D;text-decoration:none}
+a:hover{color:#1E4FA8}
+.hub-hero{position:relative;overflow:hidden;color:#FFFFFF;background:radial-gradient(900px 520px at 88% 8%, rgba(247,148,29,.16), transparent 62%),radial-gradient(900px 640px at 0% 100%, rgba(30,79,168,.55), transparent 62%),linear-gradient(135deg,#0B1B33 0%,#0B2A6B 100%)}
+.hub-in{max-width:1232px;margin:0 auto;padding-left:32px;padding-right:32px;box-sizing:border-box}
+.hub-h1{margin:0;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:clamp(30px,3.6vw,46px);line-height:1.1;font-weight:700;letter-spacing:-.025em}
+.hub-lead{margin:0;font-size:17px;line-height:1.6;color:rgba(255,255,255,.82);max-width:600px}
+.hub-panel{display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);box-shadow:0 30px 60px -36px rgba(0,0,0,.7)}
+.hub-panel-t{display:flex;align-items:center;gap:12px;font-family:'Sora',sans-serif;font-size:20px;font-weight:700}
+.hub-panel-i{flex:none;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:#F7941D;color:#0B1B33}
+.hub-ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px;color:rgba(255,255,255,.9)}
+.hub-ticks li{display:flex;align-items:flex-start;gap:10px}
+.hub-ticks li span{flex:none;color:#F7941D;display:flex;margin-top:2px}
+.hub-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.hub-step{position:relative;display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:16px;background:#FFFFFF;border:1px solid #D9DEE7;box-shadow:0 1px 3px rgba(16,24,40,.06),0 10px 24px -18px rgba(16,24,40,.25);color:#14181D;text-decoration:none;transition:transform .2s ease,border-color .2s ease}
+.hub-step:hover{transform:translateY(-4px);border-color:#9DB0D3;color:#14181D;text-decoration:none}
+.hub-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#003399;color:#F7941D;font-family:'Sora',sans-serif;font-size:15px;font-weight:800}
+.hub-step-t{font-family:'Sora',sans-serif;font-size:18px;font-weight:700}
+.hub-step-x{font-size:14.5px;line-height:1.6;color:#5A6470}
+.hub-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:8px;background:#EEF2FA;color:#003399;font-family:'Sora',sans-serif;font-size:13px;font-weight:700}
+.hub-step:hover .hub-btn{background:#003399;color:#FFFFFF}
+</style>
+</helmet>
+<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<dc-import name="SiteHeader" active="Funding" hint-size="100%,118px"></dc-import>
+<main>
+<section class="hub-hero" aria-label="Funding and grants">
+<div class="hub-in" style="padding-top: 64px; padding-bottom: 64px; display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: center">
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<p class="esme-eyebrow is-dark">Funding &amp; grants</p>
+<h1 class="hub-h1">Loans, grants and investment for America’s small businesses</h1>
+<p class="hub-lead">SBA loans, the grants that really exist, tax breaks and free help — find what fits your business and get your application right.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a class="esme-btn esme-btn--gold esme-btn--lg" href="FundingFinder.dc.html">Open the Grant &amp; Loan Finder <span aria-hidden="true">→</span></a>
+<a class="esme-btn esme-btn--ghost esme-btn--lg" href="Checkers.dc.html#size">Am I a small business?</a>
+</div>
+</div>
+<a class="hub-panel" href="FundingFinder.dc.html" style="flex: 1 1 360px; min-width: 0; color: #FFFFFF; text-decoration: none">
+<span class="hub-panel-t"><span class="hub-panel-i" dc-html="{{finderIcon}}"></span>Grant &amp; Loan Finder</span>
+<ul class="hub-ticks">
+<li><span dc-html="{{checkIcon}}"></span>SBA loans, real grants, tax breaks and free help</li>
+<li><span dc-html="{{checkIcon}}"></span>Filter by type, purpose and who it’s for</li>
+<li><span dc-html="{{checkIcon}}"></span>A link to every official program page</li>
+</ul>
+<span class="esme-btn esme-btn--gold" style="align-self: flex-start">Find funding <span aria-hidden="true">→</span></span>
+</a>
+</div>
+</section>
+
+<section class="hub-in" aria-label="How to get funding" style="padding-top: 64px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">Start here</p><h2 class="esme-h2">Three steps to funding</h2><p class="esme-sub">Most rejected applications fail on eligibility or preparation, not on the business idea. Do these in order.</p></div></div>
+<div class="hub-steps">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="3">
+<a class="hub-step" href="{{s.href}}"><span class="hub-num">{{s.n}}</span><span class="hub-step-t">{{s.title}}</span><span class="hub-step-x">{{s.text}}</span><span class="hub-btn">{{s.cta}} <span aria-hidden="true">→</span></span></a>
+</sc-for>
+</div>
+</section>
+
+<sc-if value="{{hasNews}}" hint-placeholder-val="{{ true }}">
+<section class="hub-in" aria-label="Latest funding news" style="padding-top: 64px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">Funding news</p><h2 class="esme-h2">Latest funding calls and results</h2></div><a class="esme-btn esme-btn--blue" href="Articles.dc.html?section=funding">All funding articles <span aria-hidden="true">→</span></a></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px">
+<sc-for list="{{news}}" as="n" hint-placeholder-count="4">
+<dc-import name="Card" post="{{n}}" variant="standard" hint-size="100%,420px"></dc-import>
+</sc-for>
+</div>
+</section>
+</sc-if>
+
+<section class="hub-in" aria-label="Funding guides" style="padding-top: 64px; padding-bottom: 80px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">Guides</p><h2 class="esme-h2">How to apply, and what to apply for</h2><p class="esme-sub">Plain-language guides to SBA loans, grants and other funding for small businesses.</p></div></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px">
+<sc-for list="{{guides}}" as="p" hint-placeholder-count="8">
+<dc-import name="Card" post="{{p}}" variant="standard" hint-size="100%,420px"></dc-import>
+</sc-for>
+</div>
+</section>
+</main>
+<dc-import name="SiteFooter" note="General guidance, not financial or legal advice." hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { posts: null }; }
+  componentDidMount() { ESME.loadPosts().then((posts) => this.setState({ posts })); }
+  renderVals() {
+    const all = (this.state.posts || []).filter((p) => p.section === 'funding');
+    const news = all.filter((p) => p.type === 'news').slice(0, 6);
+    const guides = all.filter((p) => p.type !== 'news').slice(0, 8);
+    return {
+      finderIcon: ESME.icon('search', 24), checkIcon: ESME.icon('check', 16),
+      steps: [
+        { n: '1', title: 'Check you count as “small”', text: 'SBA loans and set-aside contracts depend on your industry’s size standard. It takes a minute.', cta: 'Check my size', href: 'Checkers.dc.html#size' },
+        { n: '2', title: 'Find the right program', text: 'Search SBA loans, grants, tax breaks and free help by type, purpose and who it’s for.', cta: 'Open the Grant & Loan Finder', href: 'FundingFinder.dc.html' },
+        { n: '3', title: 'Prepare your application', text: 'Know what lenders ask for — tax returns, financial statements, projections — before you apply.', cta: 'Read the loan guide', href: 'Post.dc.html?slug=sba-7a-vs-504' }
+      ],
+      news, hasNews: news.length > 0, guides
+    };
+  }
+}
+</script>
+</body>
+</html>

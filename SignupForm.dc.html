@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Newsletter sign-up</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.esme-su-msg{display:flex;align-items:center;gap:8px;padding:12px 14px;border-radius:10px;font-size:14px;line-height:1.45}
+.esme-su-msg.is-ok{background:#ECFDF3;color:#05603A}
+.esme-su-msg.is-err{background:#FEF3F2;color:#B42318}
+.esme-su-consent{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.5;color:#475467}
+.esme-su-consent input{margin-top:3px;width:16px;height:16px;accent-color:#0B2A6B}
+.esme-su-consent a{color:#1E4FA8;text-decoration:underline}
+</style>
+</helmet>
+<form class="yc-sub" onSubmit="{{submit}}" style="margin-top: 32px">
+<label for="su-email" class="yc-sub-l">Email address</label>
+<div class="yc-sub-row">
+<span class="yc-sub-in"><span dc-html="{{mailIcon}}" style="color: #98A2B3; display: flex"></span><input id="su-email" name="email" type="email" required placeholder="you@yourbusiness.com" value="{{email}}" onInput="{{setEmail}}"></span>
+<button type="submit" class="esme-btn esme-btn--gold esme-btn--lg" disabled="{{busy}}">{{button}}</button>
+</div>
+<label class="esme-su-consent"><input type="checkbox" required checked="{{consent}}" onChange="{{toggle}}"><span>Send me the free Main Street Briefing from American SMB. I can unsubscribe at any time. See our <a href="Page.dc.html?p=privacy-policy">privacy policy</a>.</span></label>
+<sc-if value="{{done}}"><p class="esme-su-msg is-ok" role="status" style="margin: 0"><span dc-html="{{checkIcon}}" style="display: flex"></span>{{doneText}}</p></sc-if>
+<sc-if value="{{hasError}}"><p class="esme-su-msg is-err" role="alert" style="margin: 0">{{error}}</p></sc-if>
+<span class="yc-sub-note"><span dc-html="{{checkIcon}}" style="color: #12B76A; display: flex"></span>Free weekly briefing · No spam · Unsubscribe any time</span>
+</form>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":260}}'>
+// Newsletter sign-up on Page.dc.html?p=newsletter (the site's subscribe forms link here with ?email=).
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { email: (typeof ESME !== 'undefined' && ESME.param('email')) || '', consent: false, busy: false, done: false, error: '', how: '' };
+  }
+  componentDidMount() {}
+  renderVals() {
+    const s = this.state;
+    return {
+      email: s.email, consent: s.consent, busy: s.busy, done: s.done, error: s.error, hasError: !!s.error,
+      button: s.busy ? 'Sending…' : 'Subscribe free',
+      doneText: s.how === 'mail' ? 'Your email app has opened with a subscribe request. Send it and we’ll add you to the list.' : 'Thank you! Check your inbox to confirm your subscription. The Main Street Briefing arrives on Tuesdays.',
+      mailIcon: ESME.icon('news', 18), checkIcon: ESME.icon('check', 15),
+      setEmail: (e) => this.setState({ email: e.target.value, error: '' }),
+      toggle: (e) => this.setState({ consent: e.target.checked }),
+      submit: (e) => {
+        e.preventDefault();
+        if (s.busy) return;
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s.email.trim())) { this.setState({ error: 'Please enter a valid email address.' }); return; }
+        if (!s.consent) { this.setState({ error: 'Please tick the box to agree to receive the briefing.' }); return; }
+        const how = ESME.subscribe(s.email.trim());
+        this.setState({ busy: false, done: true, how });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

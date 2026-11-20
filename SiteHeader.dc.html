@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Site header</title>
+<script src="./data.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -124,9 +126,9 @@
 <img src="logo.png" alt="American SMB Business Magazine" width="760" height="145" style="display: block; height: 46px; width: auto; max-width: 52vw">
 </a>
 <nav aria-label="Main" class="esme-nav" id="esme-mainnav">
-<a class="esme-nl {{latestOn}}" href="#">Latest</a>
+<a class="esme-nl {{latestOn}}" href="Articles.dc.html">Latest</a>
 <div class="esme-dd">
-<a class="esme-nl {{newsOn}}" href="#" aria-haspopup="true">News <span class="esme-caret"></span></a>
+<a class="esme-nl {{newsOn}}" href="Articles.dc.html" aria-haspopup="true">News <span class="esme-caret"></span></a>
 <div class="esme-mega"><div class="esme-mm">
 <div class="esme-mmcols">
 <sc-for list="{{mNews.cols}}" as="c" hint-placeholder-count="2">
@@ -143,9 +145,9 @@
 </sc-if>
 </div></div>
 </div>
-<a class="esme-nl {{interviewsOn}}" href="#">Interviews</a>
+<a class="esme-nl {{interviewsOn}}" href="Page.dc.html?p=interviews">Interviews</a>
 <div class="esme-dd">
-<a class="esme-nl {{resOn}}" href="#" aria-haspopup="true">Resources <span class="esme-caret"></span></a>
+<a class="esme-nl {{resOn}}" href="Tools.dc.html" aria-haspopup="true">Resources <span class="esme-caret"></span></a>
 <div class="esme-mega"><div class="esme-mm">
 <div class="esme-mmcols">
 <sc-for list="{{mRes.cols}}" as="c" hint-placeholder-count="2">
@@ -163,7 +165,7 @@
 </div></div>
 </div>
 <div class="esme-dd">
-<a class="esme-nl {{aboutOn}}" href="#" aria-haspopup="true">About Us <span class="esme-caret"></span></a>
+<a class="esme-nl {{aboutOn}}" href="About.dc.html" aria-haspopup="true">About Us <span class="esme-caret"></span></a>
 <div class="esme-mega"><div class="esme-mm">
 <div class="esme-mmcols">
 <sc-for list="{{mAbout.cols}}" as="c" hint-placeholder-count="2">
@@ -183,19 +185,19 @@
 </nav>
 <span style="flex: 1 1 0"></span>
 <button type="button" class="esme-sbtn" aria-label="{{searchLabel}}" aria-expanded="{{searchOpen}}" aria-controls="esme-spanel" onClick="{{toggleSearch}}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></button>
-<a class="esme-btn esme-btn--blue esme-adv" href="#">Advertise With Us</a>
-<a class="esme-btn esme-btn--gold esme-hsub" href="#newsletter">Subscribe Free</a>
+<a class="esme-btn esme-btn--blue esme-adv" href="Advertise.dc.html">Advertise With Us</a>
+<a class="esme-btn esme-btn--gold esme-hsub" href="Page.dc.html?p=newsletter">Subscribe Free</a>
 <button type="button" class="esme-burger" aria-label="{{menuLabel}}" aria-expanded="{{menuOpen}}" aria-controls="esme-mainnav" onClick="{{toggleMenu}}"><span></span><span></span><span></span></button>
 </div>
 <div class="esme-spanel {{searchCls}}" id="esme-spanel">
-<form class="esme-spanel-in" action="#" method="get" role="search">
+<form class="esme-spanel-in" action="Articles.dc.html" method="get" role="search">
 <label for="hdr-q" class="esme-spanel-l">Search American SMB</label>
 <div class="esme-spanel-row">
 <span class="esme-spanel-box"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg><input id="hdr-q" name="q" type="search" placeholder="Search news, guides and tools — e.g. SBA loans, tariffs, taxes" autocomplete="off"></span>
 <button type="submit" class="esme-btn esme-btn--blue esme-btn--lg">Search</button>
 <button type="button" class="esme-spanel-x" aria-label="Close search" onClick="{{toggleSearch}}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
 </div>
-<div class="esme-spanel-pop"><span>Popular:</span><a href="#">Grant & Loan Finder</a><a href="#">Tax deadlines</a><a href="#">SBA loans</a><a href="#">Tariffs</a><a href="#">Health insurance</a></div>
+<div class="esme-spanel-pop"><span>Popular:</span><a href="FundingFinder.dc.html">Grant &amp; Loan Finder</a><a href="Compliance.dc.html">Tax deadlines</a><a href="Articles.dc.html?q=SBA">SBA loans</a><a href="Articles.dc.html?q=tariff">Tariffs</a><a href="Articles.dc.html?q=health">Health insurance</a></div>
 </form>
 </div>
 </div>
@@ -218,7 +220,7 @@ class Component extends DCLogic {
     const withImg = (test) => posts.filter((p) => p.img && test(p))[0];
     const pick = (p) => (p ? { href: p.href, img: p.thumb || p.img, title: p.title } : {});
     const link = (label, href, icon, sub, isNew) => ({ label, href, icon: ic(icon), sub: sub || '', hasSub: !!sub, isNew: !!isNew });
-    const topic = (k) => link(S[k] ? S[k].label : k, '#' + k, k);
+    const topic = (k) => link(S[k] ? S[k].label : k, 'Articles.dc.html?section=' + k, k);
     const menu = (cols, p, pickLabel, pickCta) => ({ cols, pick: pick(p), hasPick: !!p, pickLabel: pickLabel || 'Editor’s pick', pickCta: pickCta || 'Read the full story' });
     const cover = E && E.cover && E.cover();
     const inSection = ['Growth', 'Money', 'Marketing', 'Hiring', 'Tech', 'Articles'].indexOf(active) > -1;
@@ -227,15 +229,15 @@ class Component extends DCLogic {
       // CanadianSME-style menu: Latest · News · Interviews · Resources · About Us
       mNews: menu([
         { heading: 'Money & Economy', links: [topic('funding'), topic('money'), topic('policy'), topic('growth')] },
-        { heading: 'Business & People', links: [topic('people'), topic('marketing'), topic('tech'), link('Founder interviews', '#', 'guide')] }
+        { heading: 'Business & People', links: [topic('people'), topic('marketing'), topic('tech'), link('Founder interviews', 'Page.dc.html?p=interviews', 'guide')] }
       ], (cover && cover.post) || withImg(() => true)),
       mRes: menu([
-        { heading: 'Plan & Run', links: [link('Free tools', '#', 'grid', 'Calculators and checkers'), link('How-to guides', '#', 'guide', 'Step-by-step help'), link('Grant & Loan Finder', '#', 'search', 'SBA, state and local programs'), link('Tax Deadline Calendar', '#', 'calendar', 'Federal and state dates')] },
-        { heading: 'Read & Meet', links: [link('Magazine', '#', 'news', 'Read the latest issue'), link('Events', '#', 'people', 'Summits and webinars'), link('State guides', '#', 'pin', 'All 50 states', true), link('Contributors', '#', 'marketing', 'Our writers and experts')] }
+        { heading: 'Plan & Run', links: [link('Free tools', 'Tools.dc.html', 'grid', 'Calculators and checkers'), link('How-to guides', 'Articles.dc.html?type=guide', 'guide', 'Step-by-step help'), link('Grant & Loan Finder', 'FundingFinder.dc.html', 'search', 'SBA, state and local programs'), link('Tax Deadline Calendar', 'Compliance.dc.html', 'calendar', 'Federal and state dates')] },
+        { heading: 'Read & Meet', links: [link('Magazine', 'Page.dc.html?p=magazine', 'news', 'Read the latest issue'), link('Events', 'Page.dc.html?p=events', 'people', 'Summits and webinars'), link('State guides', 'Countries.dc.html', 'pin', 'All 50 states', true), link('Contributors', 'Page.dc.html?p=contributors', 'marketing', 'Our writers and experts')] }
       ], withImg((p) => /grants that really exist/.test(p.title)) || withImg((p) => p.section === 'funding'), 'Featured guide'),
       mAbout: menu([
-        { heading: 'American SMB', links: [link('About us', '#', 'people'), link('Our team', '#', 'hire'), link('Contact', '#', 'globe')] },
-        { heading: 'Work with us', links: [link('Advertise with us', '#', 'marketing'), link('Submit your story', '#', 'guide'), link('The Main Street Briefing', '#newsletter', 'news')] }
+        { heading: 'American SMB', links: [link('About us', 'About.dc.html', 'people'), link('Our team', 'Page.dc.html?p=team', 'hire'), link('Contact', 'Contact.dc.html', 'globe')] },
+        { heading: 'Work with us', links: [link('Advertise with us', 'Advertise.dc.html', 'marketing'), link('Submit your story', 'SubmitStory.dc.html', 'guide'), link('The Main Street Briefing', 'Page.dc.html?p=newsletter', 'news')] }
       ], posts.filter((p) => p.img)[1], 'Latest story'),
       latestOn: active === 'Articles' ? 'is-on' : '',
       sectionsOn: inSection && active !== 'Articles' ? 'is-on' : '',

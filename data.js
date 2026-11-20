@@ -1,64 +1,128 @@
-/* American SMB — homepage sample content (rough, November 2026). Replace with CMS data later. */
+/* American SMB — site data: settings, articles (metadata), news desk items and simple pages.
+   Article bodies live in articles-1.js and articles-2.js (window.AMSMB_BODIES), loaded on the article page. */
 (function () {
+  /* ---- Site settings: edit these ---- */
+  window.AMSMB_SITE = {
+    name: 'American SMB',
+    url: 'https://americansmb.com',
+    email: 'info@americansmb.com',
+    // Fillout form IDs (the part after fillout.com/t/). Leave empty to show the email fallback.
+    forms: { contact: '', advertise: '', story: '' },
+    // Mailchimp embedded-form action URL (Audience → Signup forms → Embedded forms → form action).
+    // Leave empty and the newsletter form sends a subscribe request by email instead.
+    mailchimpAction: ''
+  };
+
   var SEC = {
     funding: ['Funding & Grants', '#B45309'], money: ['Money & Taxes', '#0F7B6C'], people: ['Hiring & Benefits', '#C8102E'],
     marketing: ['Marketing & Sales', '#8A3FB8'], tech: ['AI & Tech', '#4338CA'], growth: ['Start & Grow', '#1E4FA8'], policy: ['Trade & Policy', '#0B2552']
   };
   function img(id, w) { return 'https://images.unsplash.com/' + id + '?auto=format&fit=crop&q=80&w=' + (w || 900); }
-  var n = 0;
-  function post(section, type, title, excerpt, date, mins, photo) {
-    n += 1;
+  function post(slug, section, type, title, excerpt, date, mins, photo, extra) {
     var d = new Date(date + 'T10:00:00');
-    return {
-      id: 'p' + n, slug: 'post-' + n, type: type, title: title, excerpt: excerpt,
+    return Object.assign({
+      id: slug, slug: slug, type: type, title: title, excerpt: excerpt,
       date: d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
       shortDate: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }), at: d.getTime(),
       mins: mins, img: img(photo, 900), imgLarge: img(photo, 1600), thumb: img(photo, 400), alt: title,
       section: section, sectionLabel: SEC[section][0], color: SEC[section][1], category: SEC[section][0],
-      author: 'American SMB Editorial', href: '#'
-    };
+      author: 'American SMB Editorial Team', href: 'Post.dc.html?slug=' + slug,
+      link: window.AMSMB_SITE.url + '/Post.dc.html?slug=' + slug
+    }, extra || {});
   }
 
-  var cover = post('marketing', 'guide', 'Small Business Saturday is Nov. 28: a 7-day plan for Main Street’s biggest day',
+  var cover = post('small-business-saturday-2026-7-day-plan', 'marketing', 'guide', 'Small Business Saturday is Nov. 28: a 7-day plan for Main Street’s biggest day',
     'One in five holiday shoppers say they plan to buy from small or local businesses this year. Here is how to get found, stock smart and turn one-day visitors into regulars.',
-    '2026-11-20', 7, 'photo-1759630752910-5487316a5194');
-  var sec1 = post('people', 'explainer', 'Health premiums could rise 14% in 2027: how small employers can prepare for renewal',
-    'Why small-group rates are climbing and the options worth a look before you sign.', '2026-11-19', 6, 'photo-1532938911079-1b06ac7ceec7');
-  var sec2 = post('funding', 'news', 'SBA closes 2026 with $100 billion in capital and a $10 million loan ceiling',
-    'What the record year and the higher 7(a) plus 504 limit mean for growing businesses.', '2026-11-18', 4, 'photo-1683283106454-8b1b22ebf9e5');
+    '2026-11-20', 7, 'photo-1759630752910-5487316a5194', { isCover: true });
+  var sec1 = post('small-group-health-premiums-2027', 'people', 'explainer', 'Health premiums could rise 14% in 2027: how small employers can prepare for renewal',
+    'Why small-group rates are climbing and the options worth a look before you sign.', '2026-11-19', 6, 'photo-1532938911079-1b06ac7ceec7', { isCover: true });
+  var sec2 = post('sba-fy2026-100-billion-10-million-limit', 'funding', 'news', 'SBA closes 2026 with $100 billion in capital and a $10 million loan ceiling',
+    'What the record year and the higher 7(a) plus 504 limit mean for growing businesses.', '2026-11-18', 4, 'photo-1683283106454-8b1b22ebf9e5', { isCover: true });
 
   window.AMSMB_COVER = { post: cover, secondary: [sec1, sec2], kicker: 'Cover story · Marketing & Sales' };
 
   window.AMSMB_POSTS = [
-    post('marketing', 'news', 'One in five holiday shoppers plan to buy local this year, retail survey finds', 'Small retailers are leaning on email, social and local events to reach them before the big weekend.', '2026-11-20', 3, 'photo-1513884923967-4b182ef167ab'),
-    post('money', 'guide', 'Year-end tax moves for 2026: bonus depreciation, Section 179 and the Dec. 31 deadline', '100% bonus depreciation is back for good. The five moves to talk through with your accountant before the year closes.', '2026-11-20', 6, 'photo-1554224155-a1487473ffd9'),
-    post('growth', 'news', 'Small-business optimism holds at 97.8 as price-hike plans hit a 2022 high', 'Sales improved in October and uncertainty eased, but more owners plan to raise prices and labor quality is still the top problem.', '2026-11-12', 3, 'photo-1648877794940-4a24e7fb87f8'),
-    post('funding', 'news', 'Veterans Small Business Week: where veteran owners can find capital and contracts', 'Loans, mentoring and federal contracting programmes for America’s 1.8 million veteran-owned businesses.', '2026-11-13', 4, 'photo-1749102166798-5ba7f3907279'),
-    post('people', 'guide', 'Can’t find good workers? One in four owners now call it their top problem', 'Labor quality is back at the top of the list. What the businesses that hire well are doing differently.', '2026-11-11', 6, 'photo-1686771416282-3888ddaf249b'),
-    post('policy', 'explainer', 'Tariffs after the Supreme Court ruling: what changed for small importers, and what didn’t', 'The emergency tariffs were struck down in February and new ones took their place. Section 232 and 301 duties still apply.', '2026-11-16', 7, 'photo-1605732562742-3023a888e56e'),
-    post('tech', 'guide', 'Where to start with AI: five jobs small businesses hand over first', 'About half of owners plan to use more AI this year, mostly for marketing content. A practical starting list.', '2026-11-15', 5, 'photo-1525547719571-a2d4ac8945e2'),
-    post('funding', 'guide', 'SBA 7(a) or 504? Choosing the right loan now that the limit is $10 million', 'Rates, uses, down payments and timelines compared, with the questions lenders will ask.', '2026-11-14', 7, 'photo-1450101499163-c8848c66ca85'),
-    post('policy', 'news', 'SBA proposes new size standards that would make 110,000 more firms “small”', 'The proposal would change who qualifies for SBA loans and set-aside contracts. How to check your industry.', '2026-11-09', 4, 'photo-1520525003249-2b9cdda513bc'),
-    post('policy', 'guide', 'Selling across state lines? A plain guide to sales tax nexus', 'When an out-of-state sale means you owe tax there, and the thresholds most states use.', '2026-11-08', 6, 'photo-1556742031-c6961e8560b0'),
-    post('policy', 'explainer', 'Section 232 and 301 tariffs: which ones still apply to the goods you import', 'Steel, aluminum and China-origin goods still carry duties. How to check your product codes.', '2026-11-07', 6, 'photo-1578575437130-527eed3abbec'),
-    post('policy', 'guide', 'W-2 or 1099? The tests regulators use to classify workers', 'Getting it wrong is expensive. The questions that decide whether someone is an employee.', '2026-11-06', 5, 'photo-1763729805496-b5dbf7f00c79'),
-    post('growth', 'guide', 'Selling to the government: a first-timer’s guide to federal contracts', 'Registration, set-asides and how small firms win their first federal job.', '2026-11-13', 7, 'photo-1542744173-8e7e53415bb0'),
-    post('growth', 'guide', 'Buying an existing business: the due-diligence checklist', 'The documents to ask for and the red flags to look for before you sign.', '2026-11-10', 6, 'photo-1531346878377-a5be20888e57'),
-    post('growth', 'interview', 'Made in USA: how small manufacturers are winning reshored orders', 'Owners on what changed when big customers started buying closer to home.', '2026-11-08', 5, 'photo-1647427060118-4911c9821b82'),
-    post('money', 'guide', 'Raising prices without losing customers: a playbook for 2027', 'How to time it, explain it and protect your best customers.', '2026-11-17', 5, 'photo-1571907483086-3c0ea40cc16d'),
-    post('money', 'guide', 'A 13-week cash flow forecast you can build in one afternoon', 'The simplest tool for spotting a cash crunch before it arrives.', '2026-11-12', 5, 'photo-1529078155058-5d716f45d604'),
-    post('money', 'guide', 'Business credit 101: how to build a score lenders trust', 'Why your business credit file matters and the steps that move it.', '2026-11-09', 4, 'photo-1526304640581-d334cdbbf45e'),
-    post('marketing', 'guide', 'Google Business Profile: the free tool that wins “near me” searches', 'The single highest-return hour most local businesses can spend this month.', '2026-11-18', 5, 'photo-1604357209793-fca5dca89f97'),
-    post('marketing', 'guide', 'Email marketing for Main Street: a simple monthly plan', 'Four emails a month, what to put in them and how to grow the list.', '2026-11-11', 4, 'photo-1596526131083-e8c633c948d2'),
-    post('marketing', 'guide', 'How to get your business recommended by AI search assistants', 'What ChatGPT-style search looks at, and how to make your business easy to recommend.', '2026-11-07', 5, 'photo-1460925895917-afdab827c52f'),
-    post('people', 'explainer', 'ICHRA and QSEHRA explained: alternatives to a group health plan', 'How these reimbursement plans work and when they cost less than a group policy.', '2026-11-16', 6, 'photo-1600880292203-757bb62b4baf'),
-    post('people', 'guide', 'Hiring your first employee: the paperwork checklist', 'EIN, I-9, W-4, state registration and workers’ comp, in the right order.', '2026-11-09', 5, 'photo-1758691737278-3af15b37af48'),
-    post('tech', 'guide', 'Cybersecurity basics every 10-person business needs', 'You are not too small to be targeted. The low-cost steps that stop most attacks.', '2026-11-14', 5, 'photo-1550751827-4bd374c3f58b'),
-    post('tech', 'guide', 'Choosing a POS system: what small retailers should compare', 'Fees, inventory, payments and the features that matter at checkout.', '2026-11-10', 5, 'photo-1519520104014-df63821cb6f9'),
-    post('funding', 'guide', 'Small business grants that really exist: a no-hype guide', 'Most federal money is loans, not grants. Where the real grants are and who can apply.', '2026-11-17', 7, 'photo-1753351052363-53ce102830eb'),
-    post('funding', 'explainer', 'SCALE and E2G: what the SBA’s new manufacturing grants mean for small makers', 'The money goes to organisations that help small manufacturers. How to benefit.', '2026-11-15', 5, 'photo-1610891015188-5369212db097'),
-    post('marketing', 'guide', 'Turning one-day holiday shoppers into regulars', 'Loyalty, follow-up emails and January offers that bring people back.', '2026-11-19', 4, 'photo-1687422808191-93810cd07ab0'),
-    post('money', 'explainer', 'LLC or S-corp: which saves you more in taxes?', 'How each is taxed, when switching makes sense and what it costs to run.', '2026-11-13', 6, 'photo-1598432439250-0330f9130e14'),
-    post('growth', 'guide', 'Shipping costs climbing? How small sellers are cutting freight bills', 'Carrier contracts, packaging and fulfilment options compared.', '2026-11-06', 5, 'photo-1553413077-190dd305871c')
+    post('holiday-shoppers-buy-local-nrf-2026', 'marketing', 'news', 'One in five holiday shoppers plan to buy local this year, retail survey finds', 'Small retailers are leaning on email, social and local events to reach them before the big weekend.', '2026-11-20', 3, 'photo-1513884923967-4b182ef167ab'),
+    post('year-end-tax-moves-2026', 'money', 'guide', 'Year-end tax moves for 2026: bonus depreciation, Section 179 and the Dec. 31 deadline', '100% bonus depreciation is back for good. The five moves to talk through with your accountant before the year closes.', '2026-11-20', 6, 'photo-1554224155-a1487473ffd9'),
+    post('nfib-optimism-october-2026', 'growth', 'news', 'Small-business optimism holds at 97.8 as price-hike plans hit a 2022 high', 'Sales improved in October and uncertainty eased, but more owners plan to raise prices and labor quality is still the top problem.', '2026-11-12', 3, 'photo-1648877794940-4a24e7fb87f8'),
+    post('veterans-small-business-week-2026', 'funding', 'news', 'Veterans Small Business Week: where veteran owners can find capital and contracts', 'Loans, mentoring and federal contracting programs for America’s 1.8 million veteran-owned businesses.', '2026-11-13', 4, 'photo-1749102166798-5ba7f3907279'),
+    post('cant-find-good-workers', 'people', 'guide', 'Can’t find good workers? One in four owners now call it their top problem', 'Labor quality is back at the top of the list. What the businesses that hire well are doing differently.', '2026-11-11', 6, 'photo-1686771416282-3888ddaf249b'),
+    post('tariffs-after-supreme-court-ruling', 'policy', 'explainer', 'Tariffs after the Supreme Court ruling: what changed for small importers, and what didn’t', 'The emergency tariffs were struck down in February and new ones took their place. Section 232 and 301 duties still apply.', '2026-11-16', 7, 'photo-1605732562742-3023a888e56e'),
+    post('where-to-start-with-ai', 'tech', 'guide', 'Where to start with AI: five jobs small businesses hand over first', 'About half of owners plan to use more AI this year, mostly for marketing content. A practical starting list.', '2026-11-15', 5, 'photo-1525547719571-a2d4ac8945e2'),
+    post('sba-7a-vs-504', 'funding', 'guide', 'SBA 7(a) or 504? Choosing the right loan now that the limit is $10 million', 'Rates, uses, down payments and timelines compared, with the questions lenders will ask.', '2026-11-14', 7, 'photo-1450101499163-c8848c66ca85'),
+    post('sba-size-standards-proposal-2026', 'policy', 'news', 'SBA proposes new size standards that would make 110,000 more firms “small”', 'The proposal would change who qualifies for SBA loans and set-aside contracts. How to check your industry.', '2026-11-09', 4, 'photo-1520525003249-2b9cdda513bc'),
+    post('sales-tax-nexus-guide', 'policy', 'guide', 'Selling across state lines? A plain guide to sales tax nexus', 'When an out-of-state sale means you owe tax there, and the thresholds most states use.', '2026-11-08', 6, 'photo-1556742031-c6961e8560b0'),
+    post('section-232-301-tariffs-still-apply', 'policy', 'explainer', 'Section 232 and 301 tariffs: which ones still apply to the goods you import', 'Steel, aluminum and China-origin goods still carry duties. How to check your product codes.', '2026-11-07', 6, 'photo-1578575437130-527eed3abbec'),
+    post('w2-or-1099-worker-classification', 'policy', 'guide', 'W-2 or 1099? The tests regulators use to classify workers', 'Getting it wrong is expensive. The questions that decide whether someone is an employee.', '2026-11-06', 5, 'photo-1763729805496-b5dbf7f00c79'),
+    post('federal-contracts-first-timers-guide', 'growth', 'guide', 'Selling to the government: a first-timer’s guide to federal contracts', 'Registration, set-asides and how small firms win their first federal job.', '2026-11-13', 7, 'photo-1542744173-8e7e53415bb0'),
+    post('buying-an-existing-business-checklist', 'growth', 'guide', 'Buying an existing business: the due-diligence checklist', 'The documents to ask for and the red flags to look for before you sign.', '2026-11-10', 6, 'photo-1531346878377-a5be20888e57'),
+    post('made-in-usa-small-manufacturers-reshoring', 'growth', 'guide', 'Made in USA: how small manufacturers are winning reshored orders', 'What buyers want when they bring production closer to home, and how to use the “Made in USA” label correctly.', '2026-11-08', 5, 'photo-1647427060118-4911c9821b82'),
+    post('raise-prices-without-losing-customers', 'money', 'guide', 'Raising prices without losing customers: a playbook for 2027', 'How to time it, explain it and protect your best customers.', '2026-11-17', 5, 'photo-1571907483086-3c0ea40cc16d'),
+    post('13-week-cash-flow-forecast', 'money', 'guide', 'A 13-week cash flow forecast you can build in one afternoon', 'The simplest tool for spotting a cash crunch before it arrives.', '2026-11-12', 5, 'photo-1529078155058-5d716f45d604'),
+    post('business-credit-101', 'money', 'guide', 'Business credit 101: how to build a score lenders trust', 'Why your business credit file matters and the steps that move it.', '2026-11-09', 4, 'photo-1526304640581-d334cdbbf45e'),
+    post('google-business-profile-guide', 'marketing', 'guide', 'Google Business Profile: the free tool that wins “near me” searches', 'The single highest-return hour most local businesses can spend this month.', '2026-11-18', 5, 'photo-1604357209793-fca5dca89f97'),
+    post('email-marketing-main-street-plan', 'marketing', 'guide', 'Email marketing for Main Street: a simple monthly plan', 'Four emails a month, what to put in them and how to grow the list.', '2026-11-11', 4, 'photo-1596526131083-e8c633c948d2'),
+    post('get-recommended-by-ai-search', 'marketing', 'guide', 'How to get your business recommended by AI search assistants', 'What AI assistants look at, and how to make your business easy to recommend.', '2026-11-07', 5, 'photo-1460925895917-afdab827c52f'),
+    post('ichra-qsehra-explained', 'people', 'explainer', 'ICHRA and QSEHRA explained: alternatives to a group health plan', 'How these reimbursement plans work and when they cost less than a group policy.', '2026-11-16', 6, 'photo-1600880292203-757bb62b4baf'),
+    post('hiring-first-employee-paperwork', 'people', 'guide', 'Hiring your first employee: the paperwork checklist', 'EIN, I-9, W-4, state registration and workers’ comp, in the right order.', '2026-11-09', 5, 'photo-1758691737278-3af15b37af48'),
+    post('cybersecurity-basics-10-person-business', 'tech', 'guide', 'Cybersecurity basics every 10-person business needs', 'You are not too small to be targeted. The low-cost steps that stop most attacks.', '2026-11-14', 5, 'photo-1550751827-4bd374c3f58b'),
+    post('choosing-a-pos-system', 'tech', 'guide', 'Choosing a POS system: what small retailers should compare', 'Fees, inventory, payments and the features that matter at checkout.', '2026-11-10', 5, 'photo-1519520104014-df63821cb6f9'),
+    post('small-business-grants-that-exist', 'funding', 'guide', 'Small business grants that really exist: a no-hype guide', 'Most federal money is loans, not grants. Where the real grants are and who can apply.', '2026-11-17', 7, 'photo-1753351052363-53ce102830eb'),
+    post('sba-scale-e2g-manufacturing-grants', 'funding', 'explainer', 'SCALE and E2G: what the SBA’s new manufacturing grants mean for small makers', 'The money goes to organizations that help small manufacturers. How to benefit.', '2026-11-15', 5, 'photo-1610891015188-5369212db097'),
+    post('turn-holiday-shoppers-into-regulars', 'marketing', 'guide', 'Turning one-day holiday shoppers into regulars', 'Loyalty, follow-up emails and January offers that bring people back.', '2026-11-19', 4, 'photo-1687422808191-93810cd07ab0'),
+    post('llc-or-s-corp-taxes', 'money', 'explainer', 'LLC or S-corp: which saves you more in taxes?', 'How each is taxed, when switching makes sense and what it costs to run.', '2026-11-13', 6, 'photo-1598432439250-0330f9130e14'),
+    post('cut-shipping-costs-small-sellers', 'growth', 'guide', 'Shipping costs climbing? How small sellers are cutting freight bills', 'Carrier rates, packaging and fulfillment options compared.', '2026-11-06', 5, 'photo-1553413077-190dd305871c'),
+    cover, sec1, sec2
   ];
+
+  /* ---- News desk: short news items (shown in "This week on Main Street" and the Latest page) ---- */
+  window.AMSMB_NEWS = [
+    { id: 'small-business-saturday-shop-small-2026', section: 'marketing', date: '2026-11-20', h: 9, m: 10,
+      title: 'Small Business Saturday is Nov. 28: SBA and American Express ask shoppers to #ShopSmall',
+      excerpt: 'The SBA has co-sponsored the day since 2011. What independent businesses should prepare this week.',
+      content: '<p>Small Business Saturday falls on November 28, 2026. The SBA, which has co-sponsored the day with American Express since 2011, is encouraging Americans to shop at independent retailers, restaurants and service businesses on the Saturday after Thanksgiving.</p><p>For many small businesses it is the busiest day of the year. The National Retail Federation’s October survey found one in five holiday shoppers plan to buy from small or local businesses this season.</p><h2>What to do this week</h2><ul><li>Update holiday hours on your Google Business Profile.</li><li>Choose one clear offer and email it to your customers.</li><li>Ask every shopper to join your email list.</li></ul><p>Read the full plan: <a href="Post.dc.html?slug=small-business-saturday-2026-7-day-plan">a 7-day plan for Small Business Saturday</a>.</p>' },
+    { id: 'veterans-small-business-week-wraps-2026', section: 'funding', date: '2026-11-13', h: 11, m: 30,
+      title: 'Veterans Small Business Week wraps up with resources for 1.8 million veteran owners',
+      excerpt: 'Capital, contracting and mentoring programs highlighted by the SBA during the week.',
+      content: '<p>The SBA’s 13th annual National Veterans Small Business Week ran from November 9 to 13, 2026, recognizing the roughly 1.8 million veteran small business owners in the U.S.</p><p>The week highlighted free training through Boots to Business and Veterans Business Outreach Centers, access to SBA loans, and federal contracting opportunities for service-disabled veteran-owned small businesses certified through VetCert.</p><p>Read our guide: <a href="Post.dc.html?slug=veterans-small-business-week-2026">where veteran owners can find capital and contracts</a>.</p>' },
+    { id: 'nfib-october-2026-optimism', section: 'growth', date: '2026-11-10', h: 8, m: 0,
+      title: 'NFIB: optimism slips to 97.8 while uncertainty falls to its lowest since December',
+      excerpt: 'More owners plan price increases, and labor quality stays the top problem.',
+      content: '<p>The NFIB Small Business Optimism Index slipped 0.1 points to 97.8 in October, just below its 53-year average of 98.0. The Uncertainty Index fell 6 points to 84, the lowest since December 2025.</p><p>A net 37% of owners plan to raise prices, the most since July 2022, and 36% reported job openings they could not fill.</p><p>Full analysis: <a href="Post.dc.html?slug=nfib-optimism-october-2026">what the October survey means for your business</a>.</p>' },
+    { id: 'nrf-holiday-shoppers-local-2026', section: 'marketing', date: '2026-11-05', h: 10, m: 20,
+      title: 'NRF: one in five holiday shoppers plan to buy from small or local businesses',
+      excerpt: 'Retailers lean on email, social and local events to reach them.',
+      content: '<p>One in five holiday shoppers plan to purchase gifts and other holiday items at small or local businesses this year, according to the National Retail Federation’s October Holiday Consumer survey.</p><p>Small retailers are preparing with early customer outreach, local events and work on their online visibility.</p><p>More: <a href="Post.dc.html?slug=holiday-shoppers-buy-local-nrf-2026">how small retailers are reaching holiday shoppers</a>.</p>' }
+  ];
+
+  /* ---- Simple pages (Page.dc.html?p=...) ---- */
+  var E = window.AMSMB_SITE.email;
+  window.AMSMB_PAGES = {
+    'newsletter': { crumb: 'Newsletter', kicker: 'Free, every Tuesday', title: 'The Main Street Briefing', form: 'newsletter', newsletter: false,
+      dek: 'One email a week with the funding, tax changes, tariff updates and practical guides that matter to America’s small-business owners.',
+      html: '<h2>What you get</h2><ul><li>New SBA programs, grants and lending changes, explained.</li><li>Tax and payroll deadlines before they arrive.</li><li>Tariff and trade updates for businesses that buy or sell abroad.</li><li>One practical guide you can use the same week.</li></ul><p>Free. No spam. Unsubscribe at any time.</p>' },
+    'interviews': { crumb: 'Interviews', kicker: 'Founder interviews', title: 'Straight talk from America’s small-business owners',
+      dek: 'Our email interviews ask owners the questions other owners want answered: what worked, what didn’t, and what they would do differently.',
+      html: '<h2>How the interviews work</h2><p>We send you ten questions by email. You answer in your own words, in your own time — most owners take about 30 minutes. Our editors tidy the text for length and clarity, send it back for your approval, and publish it with your photo and a link to your business.</p><h2>The questions</h2><ol><li>What does your business do, and who are your customers?</li><li>Why did you start it?</li><li>What was the hardest moment so far, and how did you get through it?</li><li>How did you fund the business?</li><li>What is one decision that made the biggest difference?</li><li>How are tariffs, prices or hiring affecting you this year?</li><li>Which tools or services could you not run the business without?</li><li>What would you tell someone starting the same business today?</li><li>What is next for you?</li><li>Where can readers find you?</li></ol><h2>Who we feature</h2><p>Owners of independent U.S. businesses of any size and industry — from Main Street shops and restaurants to manufacturers, service firms and fast-growing startups. Interviews are free and editorial; we never charge to be interviewed.</p><p><a class="esme-btn esme-btn--gold" href="SubmitStory.dc.html#story-form">Apply to be interviewed →</a></p>' },
+    'magazine': { crumb: 'Magazine', kicker: 'American SMB Magazine', title: 'The American SMB Magazine',
+      dek: 'In-depth stories, founder interviews and practical playbooks for small-business owners, in a magazine you can read online or download.',
+      html: '<h2>Inside each issue</h2><ul><li><strong>Cover interview</strong> with a founder building something worth learning from.</li><li><strong>Money</strong>: funding, taxes and cash flow.</li><li><strong>People</strong>: hiring, benefits and leadership.</li><li><strong>Growth</strong>: marketing, sales, AI and new markets.</li><li><strong>Policy</strong>: the rules and programs that affect your business.</li></ul><h2>The first issue</h2><p>Our launch issue is in production. Subscribe to the Main Street Briefing and you will receive it first, free.</p><h2>Advertise in the magazine</h2><p>Reach small-business owners and decision-makers across the U.S. See our <a href="Advertise.dc.html">advertising options</a>.</p>' },
+    'events': { crumb: 'Events', kicker: 'Events & webinars', title: 'Events for small-business owners',
+      dek: 'Free webinars and in-person events on funding, taxes, AI and growth — with time for your questions.',
+      html: '<h2>Coming up</h2><p>Our first webinar series covers the questions owners ask us most:</p><ul><li><strong>SBA loans in 2027</strong>: 7(a), 504 and the new $10 million combined limit.</li><li><strong>Year-end and 2027 tax planning</strong> for small businesses.</li><li><strong>AI for small business</strong>: practical uses that save time this month.</li><li><strong>Health benefits on a budget</strong>: group plans, ICHRA and QSEHRA.</li></ul><p>Dates are announced first in the Main Street Briefing. <a href="Page.dc.html?p=newsletter">Subscribe free</a> to get the invitations.</p><h2>Partner with us on an event</h2><p>Banks, software companies, chambers and associations can co-host or sponsor events. <a href="Advertise.dc.html#advertise-form">Get in touch</a>.</p>' },
+    'team': { crumb: 'About', crumbHref: 'About.dc.html', kicker: 'Our team', title: 'The people behind American SMB',
+      dek: 'A small editorial and business team focused on one thing: useful, accurate information for small-business owners.',
+      html: '<h2>Editorial</h2><p>Our editors research every article against official sources — the SBA, IRS, Department of Labor, Census Bureau and state agencies — and update guides when rules change. Articles are written for owners, not specialists, in plain English.</p><h2>Business</h2><p>Our partnerships team works with banks, software companies and service providers who want to reach small-business owners, always with sponsored content clearly labeled.</p><h2>Join us</h2><p>We work with freelance writers and subject experts. See our <a href="Page.dc.html?p=contributors">contributor guidelines</a>.</p>' },
+    'contributors': { crumb: 'About', crumbHref: 'About.dc.html', kicker: 'Contributors', title: 'Write for American SMB',
+      dek: 'We publish practical articles by accountants, lawyers, bankers, marketers and experienced owners.',
+      html: '<h2>What we publish</h2><ul><li>Step-by-step guides that a small-business owner can act on.</li><li>Explainers of new rules, programs and deadlines.</li><li>Lessons from running a business, with real numbers where possible.</li></ul><h2>What we don’t publish</h2><ul><li>Promotional articles about your own product (see <a href="Advertise.dc.html">advertising</a> instead).</li><li>Content written mainly for search engines or generated without expert review.</li></ul><h2>Guidelines</h2><ul><li>800–1,500 words, plain English, short paragraphs.</li><li>Cite official sources for facts and figures.</li><li>One link to your own site in your author bio.</li></ul><p>Send a short pitch — headline, three bullet points and a line about you — through our <a href="SubmitStory.dc.html#story-form">submission form</a> or to <a href="mailto:' + E + '">' + E + '</a>.</p>' },
+    'privacy-policy': { crumb: 'Legal', kicker: 'Legal', title: 'Privacy policy', legal: 'privacy-policy', updated: 'November 20, 2026',
+      html: '<p>This policy explains what information American SMB (“we”) collects when you use americansmb.com and how we use it.</p><h2>Information you give us</h2><p>When you subscribe to our newsletter, fill in a form or email us, we collect the details you provide, such as your name, email address, company and message. We use them only to respond to you and to send the emails you asked for.</p><h2>Information collected automatically</h2><p>Like most websites, our hosting provider records basic technical information such as IP address, browser type and pages visited, to keep the site secure and working. Our pages load fonts from Google Fonts and images from Unsplash, which receive standard request information from your browser.</p><h2>Service providers</h2><p>We use trusted providers to run the site and our emails, which may include our hosting provider, our email newsletter service and our form provider. They process data on our behalf.</p><h2>Your choices</h2><p>You can unsubscribe from any email using the link in it. You can ask us to access, correct or delete your personal information by writing to <a href="mailto:' + E + '">' + E + '</a>. Residents of some states, including California, have additional rights under state law; we will honor them.</p><h2>We do not sell your personal information.</h2><h2>Children</h2><p>Our site is for business owners and is not directed at children under 13.</p><h2>Changes</h2><p>We will post any changes on this page with a new “last updated” date.</p><h2>Contact</h2><p>Questions: <a href="mailto:' + E + '">' + E + '</a>.</p>' },
+    'terms-of-use': { crumb: 'Legal', kicker: 'Legal', title: 'Terms of use', legal: 'terms-of-use', updated: 'November 20, 2026',
+      html: '<p>By using americansmb.com you agree to these terms.</p><h2>Information, not advice</h2><p>Our articles and tools give general information for small-business owners. They are not legal, tax, financial or investment advice. Rules change and every business is different — talk to a qualified professional before making decisions. Calculator results are estimates.</p><h2>Accuracy</h2><p>We work hard to keep content accurate and up to date, but we cannot guarantee it is complete or current. If you spot an error, tell us at <a href="mailto:' + E + '">' + E + '</a>.</p><h2>Our content</h2><p>Articles, design and tools on this site belong to American SMB or our licensors. You may share links and short quotes with attribution. Please do not republish full articles without permission. Photos are used under the Unsplash license.</p><h2>Links to other sites</h2><p>We link to government agencies and other websites for your convenience. We are not responsible for their content.</p><h2>Sponsored content</h2><p>Any sponsored content is clearly labeled.</p><h2>Limitation of liability</h2><p>To the extent permitted by law, American SMB is not liable for losses arising from your use of the site or reliance on its content.</p><h2>Contact</h2><p><a href="mailto:' + E + '">' + E + '</a></p>' },
+    'cookie-policy': { crumb: 'Legal', kicker: 'Legal', title: 'Cookie policy', legal: 'cookie-policy', updated: 'November 20, 2026',
+      html: '<p>American SMB does not use advertising or tracking cookies.</p><h2>What we store</h2><p>The site may store small, non-identifying preferences in your browser — for example, answers you enter in our tools so they are still there if you reload the page. This data stays on your device.</p><h2>Third parties</h2><p>Fonts (Google Fonts), images (Unsplash) and, where used, embedded forms (Fillout) are loaded from their providers, which may set their own cookies under their own policies.</p><h2>Managing cookies</h2><p>You can clear or block cookies and site data in your browser settings. The site will still work.</p><p>Questions: <a href="mailto:' + E + '">' + E + '</a>.</p>' },
+    'not-found': { crumb: 'Not found', title: 'Page not found', dek: 'The page you were looking for has moved or does not exist.',
+      html: '<p>Try one of these instead:</p><ul><li><a href="index.html">Home</a></li><li><a href="Articles.dc.html">Latest news &amp; guides</a></li><li><a href="Tools.dc.html">Free tools</a></li><li><a href="FundingFinder.dc.html">Grant &amp; Loan Finder</a></li></ul>' }
+  };
 })();

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>American SMB</title>
+<script src="./data.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#14181D;text-decoration:none}
+a:hover{color:#1E4FA8}
+/* Article body from the CMS: the same look as the inline styles on the ArticleAIAct board */
+.esme-fbody>*{margin:0}
+.esme-fbody>h2{margin:16px 0 0;font-size:30px;line-height:1.2;font-weight:600;color:#14181D}
+.esme-fbody>h2:first-child{margin:0}
+.esme-fbody>h3{margin:8px 0 0;font-size:24px;line-height:1.25;font-weight:600;color:#14181D}
+.esme-fbody>blockquote{margin:10px 0;padding:4px 0 4px 28px;border-left:4px solid #F7941D;font-size:30px;line-height:1.3;font-style:italic;font-weight:500;color:#0B2A6B}
+.esme-fbody>blockquote p{margin:0}
+.esme-fbody>ul,.esme-fbody>ol{margin:0;padding-left:24px;display:flex;flex-direction:column;gap:10px}
+.esme-fbody a{color:#1E4FA8;text-decoration:underline;text-underline-offset:3px}
+.esme-fbody img{max-width:100%;height:auto;border-radius:10px}
+.esme-fbody table{border-collapse:collapse;font-size:16px;line-height:1.5}
+.esme-fbody th,.esme-fbody td{padding:8px 12px;border-bottom:1px solid #E4E7EC;text-align:left}
+.esme-fcap a{color:#1E4FA8;font-weight:600}
+</style>
+</helmet>
+<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<dc-import name="SiteHeader" active="{{navActive}}" hint-size="100%,118px"></dc-import>
+
+<main>
+<section class="esme-hero" aria-label="{{title}}"><div class="esme-hero-in"><nav class="esme-hero-crumb" aria-label="Breadcrumb" style="font-size: 13px; display: flex; flex-wrap: wrap; gap: 8px"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="{{sectionHref}}">{{sectionLabel}}</a><sc-if value="{{hasTopic}}"><span aria-hidden="true">/</span><span>{{topic}}</span></sc-if></nav><div style="max-width: 880px; margin-top: 20px; display: flex; flex-direction: column; gap: 18px"><sc-if value="{{hasKicker}}"><p class="esme-eyebrow is-dark">{{kicker}}</p></sc-if><h1 class="esme-hero-h1" style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(36px, 5vw, 56px); line-height: 1.06; font-weight: 700; letter-spacing: -0.025em">{{title}}</h1><sc-if value="{{hasDek}}"><p class="esme-hero-lead" style="margin: 0; font-size: 19px; line-height: 1.6; max-width: 760px">{{dek}}</p></sc-if></div><sc-if value="{{hasLegal}}" hint-placeholder-val="{{ false }}"><nav class="esme-legalnav" aria-label="Legal pages"><sc-for list="{{legal}}" as="l" hint-placeholder-count="4"><a href="{{l.href}}" aria-current="{{l.current}}">{{l.label}}</a></sc-for></nav></sc-if><sc-if value="{{hasUpdated}}"><span class="esme-hero-note">{{updated}}</span></sc-if></div></section>
+
+<div style="max-width: 1240px; margin: 0 auto; padding: 56px 32px 64px; display: flex; flex-wrap: wrap; gap: 56px">
+<article style="flex: 1 1 600px; min-width: 0; max-width: 720px">
+
+
+<div class="esme-fbody" style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; line-height: 1.7; color: #1A2233; display: flex; flex-direction: column; gap: 22px" dc-html="{{html}}"></div>
+
+<sc-if value="{{hasForm}}"><dc-import name="SignupForm" hint-size="100%,200px"></dc-import></sc-if>
+
+</article>
+
+
+</div>
+
+<sc-if value="{{showNewsletter}}"><section aria-label="Newsletter" style="background: #F5F7FA">
+<div style="max-width: 1240px; margin: 0 auto; padding: 44px 32px; display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: center; justify-content: space-between">
+<span style="flex: 1 1 420px; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 28px; line-height: 1.2; font-weight: 600">{{newsletterTitle}}</span>
+<form action="Page.dc.html" method="get" style="flex: 1 1 420px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end"><input type="hidden" name="p" value="newsletter">
+<label for="nl-ai" style="flex: 1 1 100%; font-size: 14px; font-weight: 600">Work email</label>
+<input id="nl-ai" name="email" required type="email" placeholder="name@company.com" style="flex: 1 1 240px; height: 50px; padding: 0 14px; border-radius: 8px; border: 1px solid #C7CFDC; font-size: 16px; font-family: inherit">
+<button type="submit" style="height: 50px; padding: 0 24px; border-radius: 8px; border: none; background: #0B2A6B; color: #FFFFFF; font-weight: 700; font-size: 15px; font-family: inherit; cursor: pointer">Subscribe</button>
+<span class="esme-nl-note">Free, every Tuesday. You confirm on the next page and can unsubscribe at any time. <a href="Page.dc.html?p=privacy-policy">Privacy policy</a></span>
+</form>
+</div>
+</section></sc-if>
+</main>
+
+<dc-import name="SiteFooter" note="" hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+// Simple pages (legal pages, newsletter, magazine, events, team, interviews, not found). Data: data.js → AMSMB_PAGES.
+class Component extends DCLogic {
+  componentDidMount() { const p = ESME.page(); if (p && p.title) document.title = p.title + ' — American SMB'; }
+  renderVals() {
+    const p = (typeof ESME !== 'undefined' && ESME.page && ESME.page()) || {};
+    return {
+      navActive: 'none',
+      sectionHref: p.crumbHref || 'index.html', sectionLabel: p.crumb || 'American SMB', topic: p.title || '', hasTopic: !!p.title && !p.hideTopic,
+      kicker: p.kicker || '', hasKicker: !!p.kicker, hasDek: !!p.dek, title: p.title || '', dek: p.dek || '', html: p.html || '',
+      updated: p.updated ? 'Last updated ' + p.updated : '', hasUpdated: !!p.updated,
+      hasLegal: !!p.legal, legal: [['privacy-policy', 'Privacy policy'], ['terms-of-use', 'Terms of use'], ['cookie-policy', 'Cookie policy'], ['sitemap', 'Sitemap']].map(([k, label]) => ({ label, href: k === 'sitemap' ? 'Sitemap.dc.html' : 'Page.dc.html?p=' + k, current: k === p.legal ? 'page' : 'false' })),
+      hasForm: !!p.form, showNewsletter: !p.form && p.newsletter !== false,
+      newsletterTitle: 'Get practical guides for your business in your inbox.'
+    };
+  }
+}
+</script>
+</body>
+</html>

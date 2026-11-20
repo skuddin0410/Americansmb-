@@ -1,0 +1,23 @@
+customHeaders:
+  - pattern: '**/*.html'
+    headers:
+      - key: Cache-Control
+        value: 'public, max-age=300, must-revalidate'
+  - pattern: '**/*.js'
+    headers:
+      - key: Cache-Control
+        value: 'public, max-age=300, must-revalidate'
+  - pattern: '**/*.css'
+    headers:
+      - key: Cache-Control
+        value: 'public, max-age=3600'
+  - pattern: '**/*.png'
+    headers:
+      - key: Cache-Control
+        value: 'public, max-age=86400'
+  - pattern: '**/*'
+    headers:
+      - key: X-Content-Type-Options
+        value: nosniff
+      - key: Referrer-Policy
+        value: strict-origin-when-cross-origin

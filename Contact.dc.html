@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Contact American SMB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./data.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#14181D;text-decoration:none}
+a:hover{color:#1E4FA8}
+.ct-in{max-width:1232px;margin:0 auto;padding-left:32px;padding-right:32px;box-sizing:border-box}
+.ct-crumb{display:flex;gap:8px;font-size:13px;color:#5A6470}
+.ct-crumb a{color:#344054}
+.ct-h1{margin:0;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:clamp(32px,3.8vw,48px);line-height:1.1;font-weight:700;letter-spacing:-.025em}
+.ct-lead{margin:0;font-size:17px;line-height:1.65;color:#475467;max-width:520px}
+.ct-list{display:flex;flex-direction:column;gap:14px}
+.ct-item{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:14px;background:#FFFFFF;border:1px solid #D9DEE7;box-shadow:0 1px 3px rgba(16,24,40,.05)}
+.ct-ic{flex:none;width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#EEF2FA;color:#003399}
+.ct-k{display:block;font-family:'Sora',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5A6470}
+.ct-v{display:block;margin-top:4px;font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:#003399}
+.ct-v:hover{color:#1E4FA8;text-decoration:underline}
+.ct-x{display:block;margin-top:4px;font-size:14px;line-height:1.55;color:#5A6470}
+.ct-form{flex:1 1 560px;min-width:0;padding:28px;border-radius:20px;background:#FFFFFF;border:1px solid #D9DEE7;box-shadow:0 1px 3px rgba(16,24,40,.06),0 24px 48px -32px rgba(16,24,40,.35)}
+.ct-form-h{margin:0 0 6px;font-family:'Sora',sans-serif;font-size:22px;font-weight:700}
+.ct-form-s{margin:0 0 18px;font-size:14.5px;line-height:1.6;color:#5A6470}
+.ct-embed{min-height:640px}
+.ct-fallback{display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:14px;background:#F5F7FA;border:1px dashed #C8D1E0}
+.ct-faq{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.ct-q{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:16px;background:#FFFFFF;border:1px solid #D9DEE7}
+.ct-q b{font-family:'Sora',sans-serif;font-size:17px;line-height:1.35}
+.ct-q p{margin:0;font-size:15px;line-height:1.6;color:#5A6470}
+.ct-q a.esme-btn{align-self:flex-start;margin-top:auto}
+</style>
+</helmet>
+<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<dc-import name="SiteHeader" active="About" hint-size="100%,118px"></dc-import>
+<main>
+<section class="esme-hero" aria-label="Contact American SMB"><div class="esme-hero-in"><nav class="ct-crumb esme-hero-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Contact</span></nav><p class="esme-eyebrow is-dark" style="margin-top: 20px">Contact us</p><h1 class="ct-h1 esme-hero-h1">Contact American SMB</h1><p class="ct-lead esme-hero-lead" style="max-width: 640px">Advertising and partnerships, story ideas, questions about an article, or feedback on the site — one form reaches the right person on our team.</p></div></section>
+<section class="ct-in" aria-label="Contact American SMB" style="padding-top: 56px; padding-bottom: 72px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+
+<div class="ct-list">
+<sc-for list="{{channels}}" as="c" hint-placeholder-count="4">
+<div class="ct-item"><span class="ct-ic" dc-html="{{c.icon}}"></span><span><span class="ct-k">{{c.label}}</span><a class="ct-v" href="{{c.href}}">{{c.value}}</a><span class="ct-x">{{c.text}}</span></span></div>
+</sc-for>
+</div>
+</div>
+<div class="ct-form" id="contact-form">
+<h2 class="ct-form-h">Send us a message</h2>
+<p class="ct-form-s">Tell us a little about you and how we can help. We aim to reply within two working days.</p>
+<sc-if value="{{hasForm}}" hint-placeholder-val="{{ true }}">
+<div class="ct-embed" data-fillout-id="{{formId}}" data-fillout-embed-type="standard" data-fillout-dynamic-resize="" data-fillout-inherit-parameters="" style="width: 100%"></div>
+</sc-if>
+<sc-if value="{{noForm}}" hint-placeholder-val="{{ false }}">
+<div class="ct-fallback"><b style="font-family: 'Sora', sans-serif; font-size: 17px">Email us directly</b><span style="font-size: 15px; line-height: 1.6; color: #475467">Our contact form is on its way. Until then, write to us and include your name, company and how we can help.</span><a class="esme-btn esme-btn--blue" href="mailto:info@americansmb.com" style="align-self: flex-start">info@americansmb.com <span aria-hidden="true">→</span></a></div>
+</sc-if>
+</div>
+</section>
+
+<section aria-label="Common questions" style="background: #F5F7FA; border-top: 1px solid #EAECF0">
+<div class="ct-in" style="padding-top: 64px; padding-bottom: 80px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">Before you write</p><h2 class="esme-h2">Common questions</h2></div></div>
+<div class="ct-faq">
+<sc-for list="{{faq}}" as="q" hint-placeholder-count="3">
+<div class="ct-q"><b>{{q.q}}</b><p>{{q.a}}</p><a class="esme-btn esme-btn--line" href="{{q.href}}">{{q.cta}} <span aria-hidden="true">→</span></a></div>
+</sc-for>
+</div>
+</div>
+</section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  componentDidMount() { ESME.embedForms(); }
+  renderVals() {
+    const formId = ESME.forms.contact;
+    return {
+      formId, hasForm: !!formId, noForm: !formId,
+      channels: [
+        { icon: ESME.icon('news', 20), label: 'General and editorial', value: 'info@americansmb.com', href: 'mailto:info@americansmb.com', text: 'Questions about an article, feedback or an error you spotted.' },
+        { icon: ESME.icon('marketing', 20), label: 'Advertising and partnerships', value: 'info@americansmb.com', href: 'mailto:info@americansmb.com?subject=Advertising%20enquiry', text: 'Put “Advertising” in the subject and we’ll send our media options.' },
+        { icon: ESME.icon('guide', 20), label: 'Story ideas', value: 'Submit your story', href: 'SubmitStory.dc.html', text: 'Expert articles, company news and tips for our editors.' },
+        { icon: ESME.icon('people', 20), label: 'Founder interviews', value: 'Be featured', href: 'Page.dc.html?p=interviews', text: 'Run a small business? Answer our email interview and share what you’ve learned.' },
+        { icon: ESME.icon('clock', 20), label: 'Response time', value: 'Within two working days', href: '#contact-form', text: 'Monday to Friday, U.S. Eastern Time.' }
+      ],
+      faq: [
+        { q: 'Can you write about my company?', a: 'We cover companies when their story helps other owners. Send us the details through the Submit your story page.', cta: 'Submit your story', href: 'SubmitStory.dc.html' },
+        { q: 'How do I advertise?', a: 'We offer sponsored articles, newsletter placements and site partnerships, always clearly labelled.', cta: 'Advertising options', href: 'Advertise.dc.html' },
+        { q: 'Can I get the weekly email?', a: 'Yes — the Main Street Briefing is free. One email a week with funding news, tax changes and practical guides.', cta: 'Subscribe free', href: 'Page.dc.html?p=newsletter' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

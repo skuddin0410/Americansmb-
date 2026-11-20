@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grant &amp; Loan Finder — American SMB</title>
+<script src="./data.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#14181D;text-decoration:none}
+a:hover{color:#1E4FA8}
+</style>
+</helmet>
+<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<dc-import name="SiteHeader" active="Funding" hint-size="100%,118px"></dc-import>
+
+<main>
+<section aria-label="Introduction" style="background: #0B2A6B; color: #FFFFFF">
+<div style="max-width: 1240px; margin: 0 auto; padding: 48px 32px 44px; display: flex; flex-direction: column; gap: 14px">
+<nav aria-label="Breadcrumb" style="font-size: 13px; color: #C9D3EA; display: flex; gap: 8px"><a href="Tools.dc.html" style="color: #C9D3EA">Tools</a><span aria-hidden="true">/</span><span>Grant &amp; Loan Finder</span></nav>
+<h1 style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 48px; line-height: 1.08; font-weight: 600">Grant &amp; Loan Finder</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; color: #C9D3EA; max-width: 720px">SBA loans, real grants, tax breaks and free help for U.S. small businesses. Filter by what you need; every listing links to the official program page.</p>
+<span style="font-size: 13px; color: #F7941D; font-weight: 600">Compiled by the American SMB editorial team · Confirm details on the official site before you apply</span>
+</div>
+</section>
+
+<div style="max-width: 1240px; margin: 0 auto; padding: 40px 32px 64px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<aside aria-label="Filters" style="flex: 0 1 300px; min-width: 260px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span id="f-type" style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase">Type of funding</span>
+<div role="group" aria-labelledby="f-type" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{typeChips}}" as="c" hint-placeholder-count="4">
+<button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: {{c.bg}}; color: {{c.fg}}; border: 1px solid {{c.border}}">{{c.label}}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span id="f-theme" style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase">What it's for</span>
+<div role="group" aria-labelledby="f-theme" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{themeChips}}" as="c" hint-placeholder-count="5">
+<button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: {{c.bg}}; color: {{c.fg}}; border: 1px solid {{c.border}}">{{c.label}}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span id="f-country" style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase">Who it’s for</span>
+<div role="group" aria-labelledby="f-country" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{countryChips}}" as="c" hint-placeholder-count="9">
+<button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: {{c.bg}}; color: {{c.fg}}; border: 1px solid {{c.border}}">{{c.label}}</button>
+</sc-for>
+</div>
+<span style="font-size: 13px; line-height: 1.5; color: #5A6470">Choosing a group shows programs made for it. Most SBA programs are open to any eligible small business.</span>
+</div>
+<div style="background: #F5F7FA; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; font-weight: 700">Not sure where to start?</span>
+<span style="font-size: 14px; line-height: 1.5; color: #5A6470">Most SBA programs require you to meet the SBA’s size standard for your industry.</span>
+<a href="Checkers.dc.html#size" style="font-size: 14px; font-weight: 700; color: #1E4FA8">Check: am I a small business? →</a>
+</div>
+</aside>
+
+<section aria-label="Results" style="flex: 1 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
+<h2 style="margin: 0; font-size: 18px; font-weight: 700">{{countLabel}}</h2>
+<button type="button" onClick="{{reset}}" style="border: none; background: transparent; color: #1E4FA8; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; min-height: 44px">Clear filters</button>
+</div>
+<sc-for list="{{results}}" as="r" hint-placeholder-count="5">
+<article style="border: 1px solid #E4E7EC; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; align-items: flex-start">
+<div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+<span style="font-size: 12px; font-weight: 600; color: #5A6470">{{r.body}}</span>
+<h3 style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 24px; line-height: 1.2; font-weight: 600">{{r.name}}</h3>
+</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap">
+<span style="font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: #E6ECF7; color: #0B2A6B">{{r.typeLabel}}</span>
+<span style="font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: #F5F7FA; color: #1A2233">{{r.themeLabel}}</span>
+</div>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #1A2233">{{r.desc}}</p>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px 24px">
+<div><dt style="font-size: 12px; font-weight: 700; color: #5A6470">How much</dt><dd style="margin: 2px 0 0; font-size: 14px; font-weight: 600">{{r.amount}}</dd></div>
+<div><dt style="font-size: 12px; font-weight: 700; color: #5A6470">Who can apply</dt><dd style="margin: 2px 0 0; font-size: 14px; font-weight: 600">{{r.who}}</dd></div>
+<div><dt style="font-size: 12px; font-weight: 700; color: #5A6470">Next deadline</dt><dd style="margin: 2px 0 0; font-size: 14px; font-weight: 600; color: #0B2A6B">{{r.deadline}}</dd></div>
+</dl>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid #EEF1F5">
+<span style="font-size: 12px; color: #5A6470">Source: {{r.source}}</span>
+<div style="display: flex; gap: 10px">
+<a href="{{r.guide}}" style="font-size: 14px; font-weight: 700; padding: 10px 16px; border-radius: 8px; border: 1px solid #0B2A6B; color: #0B2A6B">Our guide</a>
+<a href="{{r.url}}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 16px; border-radius: 8px; background: #0B2A6B; color: #FFFFFF">Official site ↗</a>
+</div>
+</div>
+</article>
+</sc-for>
+<sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 32px; border: 1px dashed #C7CFDC; border-radius: 12px; text-align: center; color: #5A6470; font-size: 15px">No programmes match these filters yet. Try another type, or get funding alerts by email.</div>
+</sc-if>
+<p style="margin: 8px 0 0; font-size: 13px; line-height: 1.6; color: #5A6470">Amounts and rates are summarised from the official programme pages. Always check the official program page before applying — terms change.</p>
+</section>
+</div>
+</main>
+
+<dc-import name="SiteFooter" note="General guidance, not financial or legal advice." hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2300}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { type: 'all', theme: 'all', country: 'all' }; }
+  componentDidMount() {}
+  renderVals() {
+    const { type, theme, country } = this.state;
+    const types = [['all', 'All'], ['loan', 'Loans & guarantees'], ['grant', 'Grants'], ['equity', 'Investment'], ['tax', 'Tax breaks'], ['help', 'Free help']];
+    const themes = [['all', 'All'], ['startup', 'Starting up'], ['growth', 'Growth & working capital'], ['property', 'Real estate & equipment'], ['innovation', 'R&D & innovation'], ['export', 'Export']];
+    const countries = [['all', 'Everyone'], ['veterans', 'Veterans'], ['rural', 'Rural businesses'], ['manufacturers', 'Manufacturers'], ['export', 'Exporters']];
+    const chip = (key, label, current, field) => {
+      const on = key === current;
+      return { label, on: on ? 'true' : 'false', bg: on ? '#0B2A6B' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14181D', border: on ? '#0B2A6B' : '#C7CFDC', pick: () => this.setState({ [field]: key }) };
+    };
+    const all = [
+      {"country": "any", "name": "SBA 7(a) loan", "url": "https://www.sba.gov/funding-programs/loans/7a-loans", "guide": "Post.dc.html?slug=sba-7a-vs-504", "body": "U.S. Small Business Administration · through banks and lenders", "types": ["loan"], "typeLabel": "Loan guarantee", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "The SBA’s main loan program: working capital, buying a business, equipment, refinancing and real estate. The SBA guarantees part of the loan so lenders can say yes more often.", "amount": "Up to $5 million (combine with a 504 loan for up to $10 million)", "who": "For-profit U.S. small businesses that meet SBA size standards", "deadline": "Open all year", "source": "sba.gov"},
+      {"country": "any", "name": "SBA Express", "url": "https://www.sba.gov/funding-programs/loans/7a-loans", "guide": "Post.dc.html?slug=sba-7a-vs-504", "body": "U.S. Small Business Administration · through lenders", "types": ["loan"], "typeLabel": "Loan guarantee", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "A faster 7(a) option: the lender makes the credit decision itself, so approvals come quicker. The SBA guarantee is lower than a standard 7(a).", "amount": "Up to $500,000", "who": "Small businesses that meet SBA size standards", "deadline": "Open all year", "source": "sba.gov"},
+      {"country": "any", "name": "SBA 504 loan", "url": "https://www.sba.gov/funding-programs/loans/504-loans", "guide": "Post.dc.html?slug=sba-7a-vs-504", "body": "U.S. Small Business Administration · Certified Development Companies", "types": ["loan"], "typeLabel": "Loan", "theme": "property", "themeLabel": "Real estate & equipment", "desc": "Long-term, fixed-rate financing to buy or build commercial real estate or major equipment. Usually 10% down, with a bank and a Certified Development Company sharing the rest.", "amount": "Up to $5 million SBA portion ($5.5 million for some manufacturing and energy projects)", "who": "Small businesses that will occupy the property", "deadline": "Open all year", "source": "sba.gov"},
+      {"country": "any", "name": "SBA Microloan", "url": "https://www.sba.gov/funding-programs/loans/microloans", "guide": "Post.dc.html?slug=small-business-grants-that-exist", "body": "U.S. Small Business Administration · nonprofit intermediaries", "types": ["loan"], "typeLabel": "Loan", "theme": "startup", "themeLabel": "Starting up", "desc": "Small loans through community nonprofit lenders, often with free business coaching. Good for startups and businesses that can’t get a bank loan yet.", "amount": "Up to $50,000", "who": "Startups and small businesses, including those with limited credit history", "deadline": "Open all year", "source": "sba.gov"},
+      {"country": "any", "name": "SBA CAPLines", "url": "https://www.sba.gov/funding-programs/loans/7a-loans", "guide": "Post.dc.html?slug=13-week-cash-flow-forecast", "body": "U.S. Small Business Administration · through lenders", "types": ["loan"], "typeLabel": "Line of credit", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "Revolving lines of credit under the 7(a) program for seasonal needs, specific contracts, building projects or general working capital.", "amount": "Up to $5 million", "who": "Small businesses with short-term or cyclical cash needs", "deadline": "Open all year", "source": "sba.gov"},
+      {"country": "any", "name": "SBA Export Working Capital Program", "url": "https://www.sba.gov/funding-programs/loans/export-loans", "guide": "Post.dc.html?slug=section-232-301-tariffs-still-apply", "body": "U.S. Small Business Administration · through lenders", "types": ["loan"], "typeLabel": "Loan guarantee", "theme": "export", "themeLabel": "Export", "desc": "Working capital to fill export orders — buy materials, pay staff and support foreign receivables.", "amount": "Up to $5 million", "who": "Small businesses that export or are ready to", "deadline": "Open all year", "source": "sba.gov"},
+      {"country": "any", "name": "SBA International Trade Loan", "url": "https://www.sba.gov/funding-programs/loans/export-loans", "guide": "Post.dc.html?slug=made-in-usa-small-manufacturers-reshoring", "body": "U.S. Small Business Administration · through lenders", "types": ["loan"], "typeLabel": "Loan guarantee", "theme": "export", "themeLabel": "Export", "desc": "Long-term financing for fixed assets and working capital for businesses that export or compete with imports. In 2026 the SBA widened eligibility to many manufacturers that do not export directly.", "amount": "Up to $5 million", "who": "Exporters and businesses hurt by import competition, including many manufacturers", "deadline": "Open all year", "source": "sba.gov"},
+      {"country": "any", "name": "SBA Export Express", "url": "https://www.sba.gov/funding-programs/loans/export-loans", "guide": "Post.dc.html?slug=sba-7a-vs-504", "body": "U.S. Small Business Administration · through lenders", "types": ["loan"], "typeLabel": "Loan or line of credit", "theme": "export", "themeLabel": "Export", "desc": "A streamlined loan or line of credit for export development, such as trade shows, translations and foreign marketing.", "amount": "Up to $500,000", "who": "Small businesses developing export sales", "deadline": "Open all year", "source": "sba.gov"},
+      {"country": "any", "name": "SBIR and STTR (America’s Seed Fund)", "url": "https://www.sbir.gov/", "guide": "Post.dc.html?slug=small-business-grants-that-exist", "body": "11 federal agencies, coordinated by the SBA", "types": ["grant"], "typeLabel": "Grant / contract", "theme": "innovation", "themeLabel": "R&D & innovation", "desc": "Non-dilutive funding for small businesses doing research and development that federal agencies need — in health, defense, energy, agriculture, space and more. Check SBIR.gov for the current status of the programs and open topics.", "amount": "Set per agency and phase", "who": "U.S. small businesses (generally under 500 employees) doing R&D", "deadline": "Set by each agency’s solicitation", "source": "sbir.gov"},
+      {"country": "any", "name": "Small Business Investment Companies (SBIC)", "url": "https://www.sba.gov/funding-programs/investment-capital", "guide": "Post.dc.html?slug=sba-fy2026-100-billion-10-million-limit", "body": "Private investment funds licensed by the SBA", "types": ["equity"], "typeLabel": "Equity / debt investment", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "Private funds that use SBA-backed leverage to invest in small businesses through equity, mezzanine and long-term loans. You approach the funds directly.", "amount": "Set by each fund", "who": "Established, growing small businesses", "deadline": "Open all year", "source": "sba.gov"},
+      {"country": "any", "name": "State Small Business Credit Initiative (SSBCI)", "url": "https://home.treasury.gov/policy-issues/small-business-programs/state-small-business-credit-initiative-ssbci", "guide": "Post.dc.html?slug=small-business-grants-that-exist", "body": "U.S. Treasury · run by each state", "types": ["loan", "equity"], "typeLabel": "Loans, guarantees, equity", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "Federal funding that states use for loan participation, guarantees, collateral support and venture capital programs. Each state runs its own programs.", "amount": "Set by each state program", "who": "Small businesses in participating states", "deadline": "Set by each state", "source": "treasury.gov"},
+      {"country": "any", "name": "CDFI lenders", "url": "https://www.cdfifund.gov/", "guide": "Post.dc.html?slug=business-credit-101", "body": "Community Development Financial Institutions", "types": ["loan"], "typeLabel": "Loan", "theme": "startup", "themeLabel": "Starting up", "desc": "Mission-driven lenders that serve businesses and communities banks often miss, frequently with coaching and more flexible terms.", "amount": "From small microloans to larger business loans", "who": "Small businesses, especially in underserved areas", "deadline": "Open all year", "source": "cdfifund.gov"},
+      {"country": "rural", "name": "USDA Business & Industry Loan Guarantees", "url": "https://www.rd.usda.gov/programs-services/business-programs/business-industry-loan-guarantees", "guide": "Post.dc.html?slug=small-business-grants-that-exist", "body": "U.S. Department of Agriculture · Rural Development", "types": ["loan"], "typeLabel": "Loan guarantee", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "Guarantees on loans from approved lenders to businesses in rural areas, for buildings, equipment, working capital and acquisitions.", "amount": "Set by the lender; large guarantees available", "who": "Businesses in eligible rural areas", "deadline": "Open all year", "source": "rd.usda.gov"},
+      {"country": "rural", "name": "USDA Value-Added Producer Grants", "url": "https://www.rd.usda.gov/programs-services/business-programs/value-added-producer-grants", "guide": "Post.dc.html?slug=small-business-grants-that-exist", "body": "U.S. Department of Agriculture · Rural Development", "types": ["grant"], "typeLabel": "Grant", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "Grants to help agricultural producers turn raw products into higher-value goods — for planning or working capital.", "amount": "Set in each year’s notice", "who": "Independent agricultural producers and producer groups", "deadline": "Annual application window", "source": "rd.usda.gov"},
+      {"country": "rural", "name": "USDA Rural Energy for America Program (REAP)", "url": "https://www.rd.usda.gov/programs-services/energy-programs/rural-energy-america-program-renewable-energy-systems-energy-efficiency-improvement-guaranteed-loans", "guide": "Post.dc.html?slug=year-end-tax-moves-2026", "body": "U.S. Department of Agriculture · Rural Development", "types": ["grant", "loan"], "typeLabel": "Grant + loan guarantee", "theme": "property", "themeLabel": "Real estate & equipment", "desc": "Grants and loan guarantees for renewable energy systems and energy-efficiency upgrades.", "amount": "Set in each year’s notice", "who": "Rural small businesses and agricultural producers", "deadline": "Set in the current notice", "source": "rd.usda.gov"},
+      {"country": "export", "name": "EXIM Working Capital Loan Guarantee", "url": "https://www.exim.gov/solutions/working-capital", "guide": "Post.dc.html?slug=section-232-301-tariffs-still-apply", "body": "Export-Import Bank of the United States", "types": ["loan"], "typeLabel": "Loan guarantee", "theme": "export", "themeLabel": "Export", "desc": "Helps exporters get working capital from commercial lenders to fill orders and offer credit to foreign buyers.", "amount": "Set by the lender", "who": "U.S. exporters", "deadline": "Open all year", "source": "exim.gov"},
+      {"country": "export", "name": "EXIM Export Credit Insurance", "url": "https://www.exim.gov/solutions/export-credit-insurance", "guide": "Post.dc.html?slug=section-232-301-tariffs-still-apply", "body": "Export-Import Bank of the United States", "types": ["loan"], "typeLabel": "Insurance", "theme": "export", "themeLabel": "Export", "desc": "Protects you if a foreign buyer doesn’t pay, so you can offer open-account terms and borrow against foreign receivables.", "amount": "Covers a share of the invoice value", "who": "U.S. exporters", "deadline": "Open all year", "source": "exim.gov"},
+      {"country": "export", "name": "State Trade Expansion Program (STEP)", "url": "https://www.sba.gov/funding-programs/grants/state-trade-expansion-program-step", "guide": "Post.dc.html?slug=small-business-grants-that-exist", "body": "SBA grants · run by state trade offices", "types": ["grant"], "typeLabel": "Export support", "theme": "export", "themeLabel": "Export", "desc": "States use STEP funding to help small businesses pay for trade shows, trade missions and export marketing. Availability depends on your state and current federal funding.", "amount": "Set by each state", "who": "Small businesses starting or growing exports", "deadline": "Set by each state", "source": "sba.gov"},
+      {"country": "any", "name": "SBA Disaster Loans", "url": "https://www.sba.gov/funding-programs/disaster-assistance", "guide": "Post.dc.html?slug=13-week-cash-flow-forecast", "body": "U.S. Small Business Administration", "types": ["loan"], "typeLabel": "Direct loan", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "Low-interest loans from the SBA to repair damage and cover working capital after a declared disaster, including economic injury.", "amount": "Up to $2 million", "who": "Businesses in declared disaster areas", "deadline": "Set for each disaster declaration", "source": "sba.gov"},
+      {"country": "any", "name": "Research & development tax credit", "url": "https://www.irs.gov/forms-pubs/about-form-6765", "guide": "Post.dc.html?slug=year-end-tax-moves-2026", "body": "Internal Revenue Service", "types": ["tax"], "typeLabel": "Tax credit", "theme": "innovation", "themeLabel": "R&D & innovation", "desc": "A credit for qualifying research spending. Eligible startups can use part of the credit against payroll taxes even before they owe income tax.", "amount": "Based on qualifying research spending", "who": "Businesses developing products, processes or software", "deadline": "Claimed on your tax return", "source": "irs.gov"},
+      {"country": "any", "name": "Section 179 and bonus depreciation", "url": "https://www.irs.gov/forms-pubs/about-form-4562", "guide": "Post.dc.html?slug=year-end-tax-moves-2026", "body": "Internal Revenue Service", "types": ["tax"], "typeLabel": "Tax deduction", "theme": "property", "themeLabel": "Real estate & equipment", "desc": "Deduct the cost of qualifying equipment, vehicles and software in the year you start using it — up to $2.56 million under Section 179 for 2026, plus 100% bonus depreciation.", "amount": "Up to $2,560,000 (Section 179, 2026)", "who": "Businesses buying qualifying property", "deadline": "Property placed in service by Dec. 31", "source": "irs.gov"},
+      {"country": "any", "name": "Small business health care tax credit", "url": "https://www.irs.gov/affordable-care-act/employers/small-business-health-care-tax-credit-and-the-shop-marketplace", "guide": "Post.dc.html?slug=small-group-health-premiums-2027", "body": "Internal Revenue Service", "types": ["tax"], "typeLabel": "Tax credit", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "A credit for small employers that pay at least half of employee premiums for coverage bought through the SHOP marketplace. Available for two consecutive years.", "amount": "Up to 50% of premiums paid", "who": "Employers with fewer than 25 full-time equivalent employees and average wages under the IRS limit", "deadline": "Claimed on your tax return", "source": "irs.gov"},
+      {"country": "any", "name": "Small Business Development Centers (SBDC)", "url": "https://www.sba.gov/local-assistance/resource-partners/small-business-development-centers-sbdc", "guide": "Post.dc.html?slug=sba-7a-vs-504", "body": "SBA resource partners · nearly every state", "types": ["help"], "typeLabel": "Free advice", "theme": "startup", "themeLabel": "Starting up", "desc": "Free one-on-one advising and low-cost training on business plans, loan applications, marketing and more.", "amount": "Free", "who": "Anyone starting or running a small business", "deadline": "Open all year", "source": "sba.gov"},
+      {"country": "any", "name": "SCORE mentoring", "url": "https://www.score.org/", "guide": "Post.dc.html?slug=buying-an-existing-business-checklist", "body": "SBA resource partner", "types": ["help"], "typeLabel": "Free mentoring", "theme": "startup", "themeLabel": "Starting up", "desc": "Free mentoring from experienced business owners and executives, in person or by video.", "amount": "Free", "who": "Anyone starting or running a small business", "deadline": "Open all year", "source": "score.org"},
+      {"country": "manufacturers", "name": "Manufacturing Extension Partnership (MEP)", "url": "https://www.nist.gov/mep", "guide": "Post.dc.html?slug=made-in-usa-small-manufacturers-reshoring", "body": "NIST · centers in all 50 states and Puerto Rico", "types": ["help"], "typeLabel": "Subsidized consulting", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "Consulting for small and medium manufacturers on productivity, quality, supply chain, workforce and growth.", "amount": "Subsidized services", "who": "Small and medium-sized manufacturers", "deadline": "Open all year", "source": "nist.gov"},
+      {"country": "manufacturers", "name": "SBA SCALE and E2G grant partners", "url": "https://www.sba.gov/", "guide": "Post.dc.html?slug=sba-scale-e2g-manufacturing-grants", "body": "U.S. Small Business Administration", "types": ["help"], "typeLabel": "Funded support", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "Organizations funded through the SBA’s 2026 SCALE ($8.9 million to 18 organizations) and E2G ($50 million to 11 organizations) grants help small manufacturers scale production and strengthen supply chains.", "amount": "Free or subsidized help through award recipients", "who": "Small manufacturers", "deadline": "Contact award recipients", "source": "sba.gov"},
+      {"country": "any", "name": "APEX Accelerators", "url": "https://www.napex.us/locations/", "guide": "Post.dc.html?slug=federal-contracts-first-timers-guide", "body": "Department of Defense · local centers", "types": ["help"], "typeLabel": "Free advice", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "Free help registering in SAM.gov, finding government contract opportunities and preparing bids.", "amount": "Free", "who": "Businesses that want to sell to government", "deadline": "Open all year", "source": "napex.us"},
+      {"country": "veterans", "name": "Veterans Business Outreach Centers (VBOC)", "url": "https://www.sba.gov/local-assistance/resource-partners/veterans-business-outreach-centers-vboc", "guide": "Post.dc.html?slug=veterans-small-business-week-2026", "body": "SBA Office of Veterans Business Development", "types": ["help"], "typeLabel": "Free advice", "theme": "startup", "themeLabel": "Starting up", "desc": "Business planning, training and mentoring for veterans, service members and military spouses, including Boots to Business.", "amount": "Free", "who": "Veterans, service members and military spouses", "deadline": "Open all year", "source": "sba.gov"},
+      {"country": "veterans", "name": "SBA VetCert (SDVOSB / VOSB)", "url": "https://veterans.certify.sba.gov/", "guide": "Post.dc.html?slug=federal-contracts-first-timers-guide", "body": "U.S. Small Business Administration", "types": ["help"], "typeLabel": "Certification", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "Certification that lets veteran-owned and service-disabled veteran-owned small businesses compete for federal set-aside contracts.", "amount": "Access to set-aside contracts", "who": "Veteran-owned small businesses", "deadline": "Open all year", "source": "sba.gov"},
+      {"country": "any", "name": "Federal grants on Grants.gov", "url": "https://www.grants.gov/", "guide": "Post.dc.html?slug=small-business-grants-that-exist", "body": "U.S. federal government", "types": ["grant"], "typeLabel": "Grant listings", "theme": "innovation", "themeLabel": "R&D & innovation", "desc": "The official list of federal grant opportunities. Most are for organizations, research or specific projects rather than general business costs — filter by eligibility.", "amount": "Varies", "who": "Check each opportunity’s eligibility", "deadline": "Set by each opportunity", "source": "grants.gov"}
+    ];
+    const results = all.filter((p) => (type === 'all' || p.types.includes(type)) && (theme === 'all' || p.theme === theme || p.theme === 'all') && (country === 'all' || p.country === country));
+    return {
+      typeChips: types.map(([k, l]) => chip(k, l, type, 'type')),
+      themeChips: themes.map(([k, l]) => chip(k, l, theme, 'theme')),
+      countryChips: countries.map(([k, l]) => chip(k, l, country, 'country')),
+      results,
+      empty: results.length === 0,
+      countLabel: results.length === 1 ? '1 program' : results.length + ' programs',
+      reset: () => this.setState({ type: 'all', theme: 'all', country: 'all' })
+    };
+  }
+}
+</script>
+</body>
+</html>

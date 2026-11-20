@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Submit your story — American SMB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./data.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#14181D;text-decoration:none}
+a:hover{color:#1E4FA8}
+.ss-hero{position:relative;overflow:hidden;color:#FFFFFF;background:radial-gradient(900px 520px at 88% 8%, rgba(247,148,29,.16), transparent 62%),radial-gradient(900px 640px at 0% 100%, rgba(30,79,168,.55), transparent 62%),linear-gradient(135deg,#0B1B33 0%,#0B2A6B 100%)}
+.ss-in{max-width:1232px;margin:0 auto;padding-left:32px;padding-right:32px;box-sizing:border-box}
+.ss-crumb{display:flex;gap:8px;font-size:13px;color:rgba(255,255,255,.7)}
+.ss-crumb a{color:rgba(255,255,255,.85)}
+.ss-h1{margin:0;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:clamp(32px,4vw,50px);line-height:1.08;font-weight:700;letter-spacing:-.025em}
+.ss-lead{margin:0;font-size:18px;line-height:1.6;color:rgba(255,255,255,.84);max-width:640px}
+.ss-panel{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16)}
+.ss-panel-t{font-family:'Sora',sans-serif;font-size:18px;font-weight:700}
+.ss-ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.5;color:rgba(255,255,255,.9)}
+.ss-ticks li{display:flex;align-items:flex-start;gap:10px}
+.ss-ticks li span{flex:none;color:#F7941D;display:flex;margin-top:2px}
+.ss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
+.ss-card{display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:16px;background:#FFFFFF;border:1px solid #D9DEE7;box-shadow:0 1px 3px rgba(16,24,40,.06),0 10px 24px -18px rgba(16,24,40,.25)}
+.ss-ic{flex:none;width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:#EEF2FA;color:#003399}
+.ss-card-t{font-family:'Sora',sans-serif;font-size:18px;font-weight:700;line-height:1.3}
+.ss-card-x{margin:0;font-size:15px;line-height:1.6;color:#5A6470}
+.ss-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.ss-box{padding:28px;border-radius:18px;border:1px solid #D9DEE7;background:#FFFFFF}
+.ss-box h3{margin:0 0 14px;display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-size:19px}
+.ss-box ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+.ss-box li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.55;color:#344054}
+.ss-box li span{flex:none;display:flex;margin-top:3px}
+.ss-yes span{color:#067647}
+.ss-no span{color:#B42318}
+.ss-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;counter-reset:s}
+.ss-step{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:16px;background:#F5F7FA;border:1px solid #EAECF0}
+.ss-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#003399;color:#F7941D;font-family:'Sora',sans-serif;font-size:15px;font-weight:800}
+.ss-step b{font-family:'Sora',sans-serif;font-size:17px}
+.ss-step p{margin:0;font-size:14.5px;line-height:1.6;color:#5A6470}
+.ss-form{padding:28px;border-radius:20px;background:#FFFFFF;border:1px solid #D9DEE7;box-shadow:0 1px 3px rgba(16,24,40,.06),0 24px 48px -32px rgba(16,24,40,.35)}
+.ss-embed{min-height:640px}
+.ss-fallback{display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:14px;background:#F5F7FA;border:1px dashed #C8D1E0}
+</style>
+</helmet>
+<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<dc-import name="SiteHeader" active="About" hint-size="100%,118px"></dc-import>
+<main>
+<section class="ss-hero" aria-label="Submit your story">
+<div class="ss-in" style="padding-top: 28px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 36px">
+<nav class="ss-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Submit your story</span></nav>
+<div style="display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: center">
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<p class="esme-eyebrow is-dark">Submit your story</p>
+<h1 class="ss-h1">Share what you know with America’s small-business owners</h1>
+<p class="ss-lead">Have you solved a problem other owners are facing? Built something worth hearing about? Spotted a rule change or funding call that small firms are missing? Tell our editors — the best stories come from the people doing the work.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px"><a class="esme-btn esme-btn--gold esme-btn--lg" href="#story-form">Submit your story <span aria-hidden="true">→</span></a><a class="esme-btn esme-btn--ghost esme-btn--lg" href="#guidelines">Read the guidelines</a></div>
+</div>
+<div class="ss-panel">
+<span class="ss-panel-t">What a good pitch includes</span>
+<ul class="ss-ticks">
+<sc-for list="{{pitch}}" as="p" hint-placeholder-count="4"><li><span dc-html="{{checkIcon}}"></span>{{p}}</li></sc-for>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="ss-in" aria-label="What you can submit" style="padding-top: 80px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">What we publish</p><h2 class="esme-h2">Four ways to be featured</h2><p class="esme-sub">We publish stories that help owners across the U.S. make better decisions about their business.</p></div></div>
+<div class="ss-grid">
+<sc-for list="{{kinds}}" as="k" hint-placeholder-count="4">
+<div class="ss-card"><span class="ss-ic" dc-html="{{k.icon}}"></span><span class="ss-card-t">{{k.title}}</span><p class="ss-card-x">{{k.text}}</p></div>
+</sc-for>
+</div>
+</section>
+
+<section class="ss-in" id="guidelines" aria-label="Guidelines" style="padding-top: 80px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">Guidelines</p><h2 class="esme-h2">What we look for</h2></div></div>
+<div class="ss-two">
+<div class="ss-box"><h3><span style="display: flex; color: #067647" dc-html="{{checkIcon}}"></span>We’re looking for</h3><ul class="ss-yes"><sc-for list="{{yes}}" as="y" hint-placeholder-count="5"><li><span dc-html="{{checkIcon}}"></span>{{y}}</li></sc-for></ul></div>
+<div class="ss-box"><h3><span style="display: flex; color: #B42318" dc-html="{{crossIcon}}"></span>We don’t publish</h3><ul class="ss-no"><sc-for list="{{no}}" as="n" hint-placeholder-count="5"><li><span dc-html="{{crossIcon}}"></span>{{n}}</li></sc-for></ul></div>
+</div>
+</section>
+
+<section class="ss-in" aria-label="How it works" style="padding-top: 80px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">How it works</p><h2 class="esme-h2">From pitch to publication</h2></div></div>
+<div class="ss-steps">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<div class="ss-step"><span class="ss-num">{{s.n}}</span><b>{{s.title}}</b><p>{{s.text}}</p></div>
+</sc-for>
+</div>
+</section>
+
+<section class="ss-in" id="story-form" aria-label="Story form" style="padding-top: 80px; padding-bottom: 88px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">Send your pitch</p><h2 class="esme-h2">Tell us your story</h2><p class="esme-sub">Choose “Submit a story” under “How can we help?” and outline your idea in the message. You don’t need to send a finished article.</p></div></div>
+<div class="ss-form">
+<sc-if value="{{hasForm}}" hint-placeholder-val="{{ true }}">
+<div class="ss-embed" data-fillout-id="{{formId}}" data-fillout-embed-type="standard" data-fillout-dynamic-resize="" data-fillout-inherit-parameters="" style="width: 100%"></div>
+</sc-if>
+<sc-if value="{{noForm}}" hint-placeholder-val="{{ false }}">
+<div class="ss-fallback"><b style="font-family: 'Sora', sans-serif; font-size: 17px">Email your pitch</b><span style="font-size: 15px; line-height: 1.6; color: #475467">Send a short outline, a few lines about you and any links to <a href="mailto:info@americansmb.com?subject=Story%20pitch" style="color: #1E4FA8; text-decoration: underline">info@americansmb.com</a> with “Story pitch” in the subject.</span></div>
+</sc-if>
+</div>
+</section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3200}}'>
+class Component extends DCLogic {
+  componentDidMount() { ESME.embedForms(); }
+  renderVals() {
+    const formId = ESME.forms.story || ESME.forms.contact;
+    return {
+      formId, hasForm: !!formId, noForm: !formId,
+      checkIcon: ESME.icon('check', 16),
+      crossIcon: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+      pitch: [
+        'A working headline and the story in two or three sentences',
+        'Why it matters to small businesses right now',
+        'Who you are and why you’re the right person to tell it',
+        'Facts, figures or examples that back it up'
+      ],
+      kinds: [
+        { icon: ESME.icon('guide', 22), title: 'Expert guides', text: 'Practical, step-by-step advice from accountants, lawyers, marketers and other specialists — written for owners, not other experts.' },
+        { icon: ESME.icon('growth', 22), title: 'Business stories', text: 'How your company grew, changed course, entered a new market or survived a hard year, and what others can learn from it.' },
+        { icon: ESME.icon('news', 22), title: 'News and tips', text: 'A new funding call, a rule change, a local programme or an industry shift that small firms should know about.' },
+        { icon: ESME.icon('people', 22), title: 'Opinion', text: 'A clear, well-argued view on a policy or trend affecting America’s small businesses, backed by experience.' }
+      ],
+      yes: [
+        'Original, unpublished articles and ideas',
+        'Practical lessons with real examples, numbers and steps',
+        'Topics that matter to small businesses across the U.S.',
+        'Plain, clear language a busy owner can act on',
+        'Claims supported by sources we can check'
+      ],
+      no: [
+        'Product promotions or sales pitches (see advertising instead)',
+        'Articles already published elsewhere, or written by AI without real expertise',
+        'Paid links, or stories submitted in exchange for payment',
+        'Content about one company that offers no lesson for others',
+        'Unverified claims, personal attacks or political campaigning'
+      ],
+      steps: [
+        { n: '1', title: 'Send your pitch', text: 'Use the form below. An outline is enough — no need to write the full article first.' },
+        { n: '2', title: 'We review it', text: 'Our editors read every pitch and reply within ten working days if it’s a fit.' },
+        { n: '3', title: 'Write and edit', text: 'We agree the angle and length with you, then edit for clarity, accuracy and our style.' },
+        { n: '4', title: 'Publish and share', text: 'Your story goes live with your name and short bio, and may feature in the Main Street Briefing.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,14 +1,54 @@
 # American SMB — americansmb.com
 
-Homepage for American SMB, the magazine for America's small businesses. Live preview: https://skuddin0410.github.io/Americansmb-/
+The magazine for America's small businesses. A static website (HTML, CSS and JavaScript, no build step) built on the European SME "Template 2" design, with a CanadianSME-style menu.
 
-Built from the European SME "Template 2" design files (same layout and components), with:
+Preview: https://skuddin0410.github.io/Americansmb-/
 
-- `index.html` — homepage (from `Main.dc.html`)
-- `SiteHeader.dc.html` — header with a CanadianSME-style menu: Latest · News · Interviews · Resources · About Us
-- `SiteFooter.dc.html`, `Card.dc.html` — footer and article cards
-- `esme.css`, `support.js` — shared styles and the small runtime that renders the `.dc.html` files
-- `data.js` — sample articles (rough content, November 2026) — replace with CMS data later
-- `logo.png` (for white backgrounds), `logo-dark.png` (for dark backgrounds), `favicon.png`
+## Pages
 
-Photos are from Unsplash (free licence). Links are placeholders (`#`) until the inner pages exist.
+| Page | File |
+|---|---|
+| Homepage | `index.html` |
+| Latest news & guides (topic filter, search, `?section=`, `?type=guide`) | `Articles.dc.html` |
+| Article (`?slug=...`) and news item (`?news=...`) | `Post.dc.html` |
+| Funding & grants hub | `FundingHub.dc.html` |
+| Grant & Loan Finder (31 programs, filters) | `FundingFinder.dc.html` |
+| Trade & policy hub | `RulesHub.dc.html` |
+| Tax Deadline Calendar (filters, add-to-calendar) | `Compliance.dc.html` |
+| Free tools hub | `Tools.dc.html` |
+| Calculators: tariff/landed cost, price increase, loan payment, employee cost | `Calculators.dc.html` |
+| Quick checks: SBA size standard, 1099-NEC | `Checkers.dc.html` |
+| Cyber & AI readiness check | `CyberCheck.dc.html` |
+| First-hire checklist | `HiringKit.dc.html` |
+| State guides (list) and state guide (`?state=TX`) | `Countries.dc.html`, `Country.dc.html` |
+| About, Contact, Advertise, Submit your story, Sitemap | `About.dc.html`, `Contact.dc.html`, `Advertise.dc.html`, `SubmitStory.dc.html`, `Sitemap.dc.html` |
+| Newsletter, Interviews, Magazine, Events, Team, Contributors, Privacy, Terms, Cookies, Not found (`?p=...`) | `Page.dc.html` |
+
+Shared parts: `SiteHeader.dc.html`, `SiteFooter.dc.html`, `Card.dc.html`, `SignupForm.dc.html`, `esme.css`, `support.js` (the small runtime that renders the `.dc.html` files).
+
+## Content and settings
+
+- `data.js` — **site settings** (email, Fillout form IDs, Mailchimp form action), article list, news desk items and the simple pages.
+- `articles-1.js`, `articles-2.js` — full text of the 33 articles (HTML), keyed by slug.
+- `states.js` — state sales tax rate, income tax yes/no and notes for all 50 states + D.C.
+- Funding programs are in `FundingFinder.dc.html`; tax deadlines in `Compliance.dc.html`.
+
+To add an article: add a `post(...)` line in `data.js` and its body under the same slug in `articles-2.js`.
+
+### Forms
+- **Contact / Advertise / Submit story**: paste your Fillout form IDs into `AMSMB_SITE.forms` in `data.js`. Until then the pages show an email button to info@americansmb.com.
+- **Newsletter**: paste your Mailchimp embedded-form action URL into `AMSMB_SITE.mailchimpAction`. Until then, subscribing opens an email to info@americansmb.com.
+
+## Deploy on AWS Amplify
+
+1. Amplify console → **Create new app** → **GitHub** → choose `skuddin0410/Americansmb-`, branch `main`.
+2. Amplify detects `amplify.yml` (no build step; it publishes the repository root).
+3. Deploy. Every push to `main` redeploys.
+4. Optional — in **Hosting → Rewrites and redirects**, add a 404 rule: source `/<*>`, target `/Page.dc.html?p=not-found`, type `404 (Rewrite)`.
+5. Add the custom domain `americansmb.com` under **Hosting → Custom domains**.
+
+`customHttp.yml` sets short cache times for HTML/JS so updates show within minutes.
+
+## Notes
+- Photos: Unsplash (free license), loaded from images.unsplash.com.
+- Facts and figures were checked against official sources in November 2026 (SBA, IRS, NFIB, KFF, NRF, SSA, 13 CFR 121.201). Review time-sensitive items (tax limits, deadlines, rates) each year.

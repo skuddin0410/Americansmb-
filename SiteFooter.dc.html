@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Site footer</title>
+<script src="./data.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -47,14 +49,14 @@
 <div class="esme-ft-col" aria-label="Contact" role="group">
 <h3 class="esme-ft-h" style="margin-bottom: 10px">Contact</h3>
 <a class="esme-ft-mail" href="mailto:info@americansmb.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>info@americansmb.com</a>
-<a href="#">Contact form</a>
-<a href="#">Advertising enquiries</a>
-<a href="#">Story ideas</a>
+<a href="Contact.dc.html">Contact form</a>
+<a href="Advertise.dc.html#advertise-form">Advertising enquiries</a>
+<a href="SubmitStory.dc.html">Story ideas</a>
 </div>
 </div>
 <div class="esme-ft-bar">
 <span>© {{year}} American SMB Business Magazine. All rights reserved.<sc-if value="{{hasNote}}" hint-placeholder-val="{{ false }}"><span class="esme-ft-note"> · {{note}}</span></sc-if></span>
-<span style="display: flex; flex-wrap: wrap; gap: 18px"><a href="#">Privacy</a><a href="#">Terms of use</a><a href="#">Cookies</a><a href="#cookie-settings">Cookie settings</a><a href="#">Sitemap</a></span>
+<span style="display: flex; flex-wrap: wrap; gap: 18px"><a href="Page.dc.html?p=privacy-policy">Privacy</a><a href="Page.dc.html?p=terms-of-use">Terms of use</a><a href="Page.dc.html?p=cookie-policy">Cookies</a><a href="Sitemap.dc.html">Sitemap</a></span>
 </div>
 </div>
 </footer>
@@ -68,9 +70,9 @@ class Component extends DCLogic {
       year: String(new Date().getFullYear()),
       note, hasNote: !!note,
       cols: [
-        { title: 'Explore', links: [{ label: 'Latest news & guides', href: '#' }, { label: 'Funding & grants', href: '#' }, { label: 'Tax deadlines', href: '#' }, { label: 'Free tools', href: '#' }, { label: 'Weekly Briefing', href: '#' }] },
-        { title: 'Topics', links: Object.keys(S).map((k) => ({ label: S[k].label, href: '#' + k })) },
-        { title: 'Company', links: [{ label: 'About American SMB', href: '#' }, { label: 'Contact us', href: '#' }, { label: 'Advertise with us', href: '#' }, { label: 'Submit your story', href: '#' }, { label: 'Become a partner', href: '#' }] }
+        { title: 'Explore', links: [{ label: 'Latest news & guides', href: 'Articles.dc.html' }, { label: 'Funding & grants', href: 'FundingHub.dc.html' }, { label: 'Tax deadlines', href: 'Compliance.dc.html' }, { label: 'Free tools', href: 'Tools.dc.html' }, { label: 'Main Street Briefing', href: '#' }] },
+        { title: 'Topics', links: Object.keys(S).map((k) => ({ label: S[k].label, href: 'Articles.dc.html?section=' + k })) },
+        { title: 'Company', links: [{ label: 'About American SMB', href: 'About.dc.html' }, { label: 'Contact us', href: 'Contact.dc.html' }, { label: 'Advertise with us', href: 'Advertise.dc.html' }, { label: 'Submit your story', href: 'SubmitStory.dc.html' }, { label: 'Become a partner', href: '#' }] }
       ]
     };
   }

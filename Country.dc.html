@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>State guide — American SMB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./data.js"></script>
+<script src="./states.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+a{color:#14181D;text-decoration:none}
+a:hover{color:#1E4FA8}
+.ch-h2{margin:0;display:flex;align-items:center;gap:10px;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:21px;font-weight:700;letter-spacing:-.01em}
+.ch-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;padding-bottom:10px;border-bottom:2px solid #101828}
+.ch-day{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#344054}
+.ch-tab{display:inline-flex;align-items:center;gap:9px;padding:7px 14px 7px 7px;border-radius:999px;border:1px solid #D0D5DD;background:#FFFFFF;font-family:'Sora',sans-serif;font-size:13px;font-weight:600;color:#14181D;cursor:pointer;transition:border-color .15s ease}
+.ch-tab:hover{border-color:#101828}
+.ch-tab .t{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--tint);color:var(--c)}
+.ch-tab .t svg{width:17px;height:17px}
+.ch-tab[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#FFFFFF}
+.ch-tab[aria-pressed="true"] .t{background:rgba(255,255,255,.2);color:#FFFFFF}
+.ch-rank{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #EAECF0}
+.ch-rank:hover .ch-rt{color:#1E4FA8}
+.ch-tool{display:flex;gap:14px;align-items:center;padding:16px;background:#FFFFFF;border:1px solid #EAECF0;border-radius:14px;box-shadow:0 1px 2px rgba(16,24,40,.04);transition:transform .2s ease,border-color .2s ease}
+.ch-tool:hover{transform:translateY(-3px);border-color:#D0D5DD;text-decoration:none;color:#14181D}
+.ch-ti{flex:none;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.ch-demo{padding:10px 14px;border-radius:10px;background:#FFF8E6;border:1px solid #F5DFA3;font-size:13px;line-height:1.5;color:#6B4E00}
+.ch-switch{height:40px;padding:0 12px;border-radius:9px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#FFFFFF;font-family:'Sora',sans-serif;font-size:13.5px;font-weight:600;cursor:pointer}
+.ch-switch option{color:#14181D}
+</style>
+</helmet>
+<div style="color: #14181D; background: #FFFFFF">
+<dc-import name="SiteHeader" active="Countries" hint-size="100%,118px"></dc-import>
+<main>
+<sc-if value="{{missing}}"><section style="max-width: 1232px; margin: 0 auto; padding: 72px 32px"><h1 style="font-family: 'Sora', sans-serif">State not found</h1><p><a href="Countries.dc.html" style="color: #1E4FA8">See all state guides →</a></p></section></sc-if>
+<sc-if value="{{ready}}">
+<section aria-label="Introduction" style="background: radial-gradient(800px 420px at 100% 0%, rgba(247,148,29,.16), transparent 60%), linear-gradient(135deg, #0B1B33, #0B2A6B); color: #FFFFFF">
+<div style="max-width: 1232px; margin: 0 auto; padding: 48px 32px 44px; display: flex; flex-direction: column; gap: 16px">
+<nav aria-label="Breadcrumb" style="font-size: 13px; display: flex; gap: 8px; color: rgba(255,255,255,.75)"><a href="index.html" style="color: rgba(255,255,255,.75)">Home</a><span aria-hidden="true">/</span><a href="Countries.dc.html" style="color: rgba(255,255,255,.75)">State guides</a><span aria-hidden="true">/</span><span>{{st.name}}</span></nav>
+<div style="display: flex; align-items: center; gap: 16px"><img src="{{flag}}" alt="" style="width: 72px; height: 48px; object-fit: cover; border-radius: 6px; box-shadow: 0 0 0 1px rgba(255,255,255,.25)"><h1 style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(32px, 4.4vw, 50px); line-height: 1.06; font-weight: 700; letter-spacing: -0.03em; color: #FFFFFF">Small business in {{st.name}}</h1></div>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: rgba(255,255,255,.8); max-width: 680px">The state taxes, registrations and free help that matter when you start or run a business in {{st.name}}.</p>
+</div>
+</section>
+<section aria-label="Quick facts" style="background: #F5F7FA">
+<div style="max-width: 1232px; margin: 0 auto; padding: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border: 1px solid #EAECF0; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #5A6470">State sales tax</span><span style="font-family: 'Sora', sans-serif; font-size: 28px; font-weight: 700; color: #0B2A6B">{{salesTxt}}</span><span style="font-size: 13.5px; color: #5A6470">{{salesSub}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #EAECF0; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #5A6470">Tax on wages</span><span style="font-family: 'Sora', sans-serif; font-size: 28px; font-weight: 700; color: #0B2A6B">{{incomeTxt}}</span><span style="font-size: 13.5px; color: #5A6470">{{incomeSub}}</span></div>
+<div style="background: #FFFFFF; border: 1px solid #EAECF0; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #5A6470">Remote sellers</span><span style="font-family: 'Sora', sans-serif; font-size: 22px; font-weight: 700; color: #0B2A6B">{{nexusTxt}}</span><span style="font-size: 13.5px; color: #5A6470">Economic nexus rules apply to out-of-state sellers. <a href="Post.dc.html?slug=sales-tax-nexus-guide" style="color: #1E4FA8">How nexus works →</a></span></div>
+</div>
+<sc-if value="{{hasNote}}"><div style="max-width: 1232px; margin: 0 auto; padding: 0 32px 32px"><p style="margin: 0; padding: 14px 18px; border-radius: 10px; background: #FFF4E5; color: #7A4100; font-size: 15px; line-height: 1.55"><strong>Good to know: </strong>{{st.note}}</p></div></sc-if>
+</section>
+<div style="max-width: 1232px; margin: 0 auto; padding: 48px 32px 72px; display: flex; flex-wrap: wrap; gap: 48px">
+<section aria-label="Checklist" style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0 0 6px; font-family: 'Sora', sans-serif; font-size: 28px; font-weight: 700">Starting or running a business in {{st.name}}</h2>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{steps}}" as="x" hint-placeholder-count="6">
+<li style="display: flex; gap: 14px; padding: 16px 18px; border: 1px solid #EAECF0; border-radius: 12px"><span style="flex: none; width: 32px; height: 32px; border-radius: 16px; background: #0B2A6B; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 700">{{x.n}}</span><span style="display: flex; flex-direction: column; gap: 4px"><strong style="font-family: 'Sora', sans-serif; font-size: 16.5px">{{x.t}}</strong><span style="font-size: 15px; line-height: 1.6; color: #475467">{{x.d}}</span></span></li>
+</sc-for>
+</ol>
+<p style="margin: 6px 0 0; font-size: 13px; line-height: 1.6; color: #5A6470">General information, not legal or tax advice. Statewide rates as of 2026 — confirm with the state before you rely on them.</p>
+</section>
+<aside aria-label="Help and guides" style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="background: #0B2A6B; color: #FFFFFF; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 700; color: #FFFFFF">Free help in {{st.name}}</h2>
+<sc-for list="{{help}}" as="h" hint-placeholder-count="3"><a href="{{h.href}}" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border-radius: 10px; background: rgba(255,255,255,.08); color: #FFFFFF; text-decoration: none"><strong style="font-size: 15px">{{h.t}} ↗</strong><span style="font-size: 13px; color: rgba(255,255,255,.75)">{{h.d}}</span></a></sc-for>
+</div>
+<div style="border: 1px solid #EAECF0; border-radius: 16px; padding: 20px 22px; display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0 0 6px; font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 700">Useful guides</h2>
+<sc-for list="{{guides}}" as="g" hint-placeholder-count="4"><a href="{{g.href}}" style="padding: 10px 0; border-bottom: 1px solid #EEF1F5; font-size: 15px; font-weight: 600; line-height: 1.4">{{g.t}}</a></sc-for>
+</div>
+<a href="Countries.dc.html" class="esme-btn esme-btn--line" style="align-self: flex-start">All state guides</a>
+</aside>
+</div>
+</sc-if>
+</main>
+<dc-import name="SiteFooter" note="" hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  componentDidMount() { const st = this.st(); if (st) document.title = 'Small business in ' + st.name + ' — American SMB'; }
+  st() { const c = (ESME.param('state') || '').toUpperCase(); return (window.AMSMB_STATES || []).find((x) => x.code === c) || null; }
+  renderVals() {
+    const st = this.st();
+    if (!st) return { missing: true, ready: false };
+    const noSales = !st.sales;
+    const steps = [
+      { t: 'Choose and register your business structure', d: 'Sole proprietors can often start under their own name; LLCs and corporations register with the ' + st.name + ' Secretary of State (or equivalent office). Register any trade name (“doing business as”) you use.' },
+      { t: 'Get your federal EIN', d: 'Apply free on IRS.gov. You need it to hire, open a business bank account and register for state taxes.' },
+      { t: noSales ? 'Check business taxes and licenses' : 'Register to collect sales tax', d: noSales ? st.name + ' has no general statewide sales tax, but local taxes or business taxes may still apply. Check with the state revenue department and your city or county.' : 'If you sell taxable goods or services, get a sales tax permit from the ' + st.name + ' revenue department before your first sale. Local rates are added on top of the ' + st.sales + '% state rate in many areas.' },
+      { t: 'Get local licenses and permits', d: 'Cities and counties issue business licenses, zoning approvals and health or building permits. Ask your city hall or county clerk what your business needs.' },
+      { t: 'Register as an employer before you hire', d: (st.income ? 'Register for state income tax withholding and ' : 'Register for ') + 'state unemployment insurance, buy workers’ compensation insurance and report new hires to the state.' },
+      { t: 'Know your deadlines', d: 'State returns, sales tax filings and annual reports have their own due dates. Add them to your calendar alongside federal dates.' }
+    ].map((x, i) => Object.assign({ n: String(i + 1) }, x));
+    return {
+      ready: true, missing: false, st, hasNote: !!st.note,
+      flag: 'https://flagcdn.com/w160/us-' + st.code.toLowerCase() + '.png',
+      salesTxt: noSales ? 'None' : st.sales + '%', salesSub: noSales ? 'No general statewide sales tax' : 'Statewide rate; local taxes may be added',
+      incomeTxt: st.income ? 'Yes' : 'No', incomeSub: st.income ? 'State income tax on wages and business income' : 'No state tax on wages',
+      nexusTxt: noSales ? 'Not applicable' : 'Check thresholds',
+      steps,
+      help: [
+        { t: 'Small Business Development Center', d: 'Free one-on-one advice near you', href: 'https://americassbdc.org/find-your-sbdc/' },
+        { t: 'SBA district office', d: 'Loans, contracting and local programs', href: 'https://www.sba.gov/local-assistance/find' },
+        { t: 'State tax agency', d: 'IRS list of state tax and business websites', href: 'https://www.irs.gov/businesses/small-businesses-self-employed/state-government-websites' },
+        { t: 'SCORE mentors', d: 'Free mentoring from experienced owners', href: 'https://www.score.org/mentors/' }
+      ],
+      guides: [
+        { t: 'Selling across state lines? A plain guide to sales tax nexus', href: 'Post.dc.html?slug=sales-tax-nexus-guide' },
+        { t: 'Hiring your first employee: the paperwork checklist', href: 'Post.dc.html?slug=hiring-first-employee-paperwork' },
+        { t: 'LLC or S-corp: which saves you more in taxes?', href: 'Post.dc.html?slug=llc-or-s-corp-taxes' },
+        { t: 'Grant & Loan Finder', href: 'FundingFinder.dc.html' },
+        { t: 'Tax Deadline Calendar', href: 'Compliance.dc.html' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

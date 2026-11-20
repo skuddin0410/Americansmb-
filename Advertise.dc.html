@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Advertise with American SMB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./data.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="esme.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#14181D;text-decoration:none}
+a:hover{color:#1E4FA8}
+.ad-hero{position:relative;overflow:hidden;color:#FFFFFF;background:radial-gradient(900px 520px at 88% 8%, rgba(247,148,29,.16), transparent 62%),radial-gradient(900px 640px at 0% 100%, rgba(30,79,168,.55), transparent 62%),linear-gradient(135deg,#0B1B33 0%,#0B2A6B 100%)}
+.ad-in{max-width:1232px;margin:0 auto;padding-left:32px;padding-right:32px;box-sizing:border-box}
+.ad-crumb{display:flex;gap:8px;font-size:13px;color:rgba(255,255,255,.7)}
+.ad-crumb a{color:rgba(255,255,255,.85)}
+.ad-h1{margin:0;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:clamp(32px,4vw,52px);line-height:1.08;font-weight:700;letter-spacing:-.025em}
+.ad-h1 em{font-style:normal;color:#F7941D}
+.ad-lead{margin:0;font-size:18px;line-height:1.6;color:rgba(255,255,255,.84);max-width:620px}
+.ad-panel{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);box-shadow:0 30px 60px -36px rgba(0,0,0,.7)}
+.ad-panel-t{font-family:'Sora',sans-serif;font-size:18px;font-weight:700}
+.ad-ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;font-size:15px;line-height:1.5;color:rgba(255,255,255,.9)}
+.ad-ticks li{display:flex;align-items:flex-start;gap:10px}
+.ad-ticks li span{flex:none;color:#F7941D;display:flex;margin-top:2px}
+.ad-aud{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ad-aud-i{display:flex;flex-direction:column;gap:10px;padding:22px;border-radius:16px;background:#F5F7FA;border:1px solid #EAECF0}
+.ad-aud-i b{font-family:'Sora',sans-serif;font-size:16.5px;line-height:1.3}
+.ad-aud-i span.x{font-size:14.5px;line-height:1.55;color:#5A6470}
+.ad-ic{flex:none;width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:#EEF2FA;color:#003399}
+.ad-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.ad-card{display:flex;flex-direction:column;gap:12px;padding:26px;border-radius:16px;background:#FFFFFF;border:1px solid #D9DEE7;box-shadow:0 1px 3px rgba(16,24,40,.06),0 10px 24px -18px rgba(16,24,40,.25);color:#14181D;text-decoration:none;transition:transform .2s ease,border-color .2s ease}
+a.ad-card:hover{transform:translateY(-4px);border-color:#9DB0D3;color:#14181D;text-decoration:none}
+.ad-card-t{font-family:'Sora',sans-serif;font-size:19px;font-weight:700;line-height:1.3}
+.ad-card-x{margin:0;font-size:15px;line-height:1.65;color:#5A6470}
+.ad-fmt{display:flex;flex-wrap:wrap;gap:6px}
+.ad-fmt span{padding:4px 10px;border-radius:999px;background:#EEF2FA;color:#003399;font-family:'Sora',sans-serif;font-size:11.5px;font-weight:600}
+.ad-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;background:#003399;color:#FFFFFF;font-family:'Sora',sans-serif;font-size:13px;font-weight:700}
+a.ad-card:hover .ad-btn{background:#1E4FA8}
+.ad-goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.ad-goal{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16)}
+.ad-goal b{font-family:'Sora',sans-serif;font-size:18px;color:#FFFFFF}
+.ad-goal span.x{font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.8)}
+.ad-goal .ad-ic{background:#F7941D;color:#0B1B33}
+.ad-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.ad-step{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:16px;background:#FFFFFF;border:1px solid #D9DEE7}
+.ad-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#003399;color:#F7941D;font-family:'Sora',sans-serif;font-size:15px;font-weight:800}
+.ad-step b{font-family:'Sora',sans-serif;font-size:17px}
+.ad-step p{margin:0;font-size:14.5px;line-height:1.6;color:#5A6470}
+.ad-why{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.ad-why-i{display:flex;gap:14px;align-items:flex-start}
+.ad-why-i b{display:block;font-family:'Sora',sans-serif;font-size:17px;margin-bottom:6px}
+.ad-why-i span.x{font-size:14.5px;line-height:1.6;color:#5A6470}
+.ad-formwrap{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start}
+.ad-form{flex:1 1 560px;min-width:0;padding:28px;border-radius:20px;background:#FFFFFF;border:1px solid #D9DEE7;box-shadow:0 1px 3px rgba(16,24,40,.06),0 24px 48px -32px rgba(16,24,40,.35)}
+.ad-embed{min-height:640px}
+.ad-fallback{display:flex;flex-direction:column;gap:14px;padding:26px;border-radius:14px;background:#F5F7FA;border:1px dashed #C8D1E0}
+.ad-faq{display:flex;flex-direction:column;gap:12px}
+.ad-faq details{border:1px solid #D9DEE7;border-radius:14px;background:#FFFFFF;padding:0 22px}
+.ad-faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-family:'Sora',sans-serif;font-size:16.5px;font-weight:700}
+.ad-faq summary::-webkit-details-marker{display:none}
+.ad-faq summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#EEF2FA;color:#003399;font-size:18px;font-weight:700}
+.ad-faq details[open] summary::after{content:"\2212"}
+.ad-faq details p{margin:0 0 18px;font-size:15px;line-height:1.65;color:#475467}
+</style>
+</helmet>
+<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<dc-import name="SiteHeader" active="About" hint-size="100%,118px"></dc-import>
+<main>
+<section class="ad-hero" aria-label="Advertise with American SMB">
+<div class="ad-in" style="padding-top: 28px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 36px">
+<nav class="ad-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Advertise</span></nav>
+<div style="display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: center">
+<div style="flex: 1 1 500px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<p class="esme-eyebrow is-dark">Advertise with us</p>
+<h1 class="ad-h1">Connect your brand with <em>America’s</em> small-business community</h1>
+<p class="ad-lead">Reach the owners, founders and managers who run America’s small businesses — when they are looking for funding, working through tax and policy changes and choosing the services that help them grow.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px"><a class="esme-btn esme-btn--gold esme-btn--lg" href="#advertise-form">Request a campaign proposal <span aria-hidden="true">→</span></a><a class="esme-btn esme-btn--ghost esme-btn--lg" href="#options">See advertising options</a></div>
+</div>
+<div class="ad-panel">
+<span class="ad-panel-t">Why brands work with American SMB</span>
+<ul class="ad-ticks">
+<sc-for list="{{why}}" as="w" hint-placeholder-count="4"><li><span dc-html="{{checkIcon}}"></span>{{w}}</li></sc-for>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="ad-in" aria-label="Audience" style="padding-top: 80px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">Our audience</p><h2 class="esme-h2">Reach the people building America’s businesses</h2><p class="esme-sub">Our readers are decision-makers. They come to American SMB to act — to apply for funding, meet a deadline or choose a supplier.</p></div></div>
+<div class="ad-aud">
+<sc-for list="{{audience}}" as="a" hint-placeholder-count="5">
+<div class="ad-aud-i"><span class="ad-ic" dc-html="{{a.icon}}"></span><b>{{a.title}}</b><span class="x">{{a.text}}</span></div>
+</sc-for>
+</div>
+</section>
+
+<section class="ad-in" id="options" aria-label="Advertising options" style="padding-top: 80px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">Advertising options</p><h2 class="esme-h2">Choose the right channels for your campaign</h2><p class="esme-sub">Use one channel or combine several. We confirm formats, timing and availability with you when we plan the campaign.</p></div></div>
+<div class="ad-grid">
+<sc-for list="{{options}}" as="o" hint-placeholder-count="6">
+<a class="ad-card" href="#advertise-form"><span class="ad-ic" dc-html="{{o.icon}}"></span><span class="ad-card-t">{{o.title}}</span><p class="ad-card-x">{{o.text}}</p><span class="ad-fmt"><sc-for list="{{o.formats}}" as="f" hint-placeholder-count="3"><span>{{f}}</span></sc-for></span><span class="ad-btn">Enquire about this option <span aria-hidden="true">→</span></span></a>
+</sc-for>
+</div>
+</section>
+
+<section aria-label="Campaign goals" style="margin-top: 88px; color: #FFFFFF; background: radial-gradient(800px 500px at 100% 0%, rgba(247,148,29,.14), transparent 60%), linear-gradient(135deg, #0B1B33 0%, #0B2A6B 100%)">
+<div class="ad-in" style="padding-top: 72px; padding-bottom: 80px; display: flex; flex-direction: column; gap: 32px">
+<div class="esme-sechead" style="margin-bottom: 0"><div><p class="esme-eyebrow is-dark">Your goals</p><h2 class="esme-h2 is-dark">Build a campaign around what you want to achieve</h2><p class="esme-sub" style="color: rgba(255,255,255,.78)">Tell us your goal and we’ll put together a proposal that combines the right channels.</p></div><a class="esme-btn esme-btn--gold" href="#advertise-form">Discuss your campaign <span aria-hidden="true">→</span></a></div>
+<div class="ad-goals">
+<sc-for list="{{goals}}" as="g" hint-placeholder-count="4">
+<div class="ad-goal"><span class="ad-ic" dc-html="{{g.icon}}"></span><b>{{g.title}}</b><span class="x">{{g.text}}</span></div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section class="ad-in" aria-label="How it works" style="padding-top: 80px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">How it works</p><h2 class="esme-h2">From first message to live campaign</h2></div></div>
+<div class="ad-steps">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<div class="ad-step"><span class="ad-num">{{s.n}}</span><b>{{s.title}}</b><p>{{s.text}}</p></div>
+</sc-for>
+</div>
+</section>
+
+<section class="ad-in" aria-label="Our standards" style="padding-top: 80px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">Trust</p><h2 class="esme-h2">Advertising that readers trust</h2><p class="esme-sub">Readers trust American SMB because we keep advertising and editorial separate. That trust is what makes your message work.</p></div></div>
+<div class="ad-why">
+<sc-for list="{{standards}}" as="t" hint-placeholder-count="3">
+<div class="ad-why-i"><span class="ad-ic" dc-html="{{t.icon}}"></span><span><b>{{t.title}}</b><span class="x">{{t.text}}</span></span></div>
+</sc-for>
+</div>
+</section>
+
+<section class="ad-in" id="advertise-form" aria-label="Advertising enquiry" style="padding-top: 88px">
+<div class="ad-formwrap">
+<div style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<p class="esme-eyebrow">Get in touch</p>
+<h2 class="esme-h2">Let’s build your campaign</h2>
+<p style="margin: 0; font-size: 16.5px; line-height: 1.65; color: #475467">Tell us about your brand, your goals and the channels you’re interested in. Choose <strong>“Advertising and partnerships”</strong> under “How can we help?” and we’ll come back with options, availability and rates.</p>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 14px; background: #F5F7FA; border: 1px solid #EAECF0">
+<span style="font-family: 'Sora', sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #5A6470">Prefer email?</span>
+<a href="mailto:info@americansmb.com?subject=Advertising%20enquiry" style="font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 700; color: #003399">info@americansmb.com</a>
+<span style="font-size: 14px; color: #5A6470">Put “Advertising” in the subject. We reply within two working days.</span>
+</div>
+</div>
+<div class="ad-form">
+<sc-if value="{{hasForm}}" hint-placeholder-val="{{ true }}">
+<div class="ad-embed" data-fillout-id="{{formId}}" data-fillout-embed-type="standard" data-fillout-dynamic-resize="" data-fillout-inherit-parameters="" style="width: 100%"></div>
+</sc-if>
+<sc-if value="{{noForm}}" hint-placeholder-val="{{ false }}">
+<div class="ad-fallback"><b style="font-family: 'Sora', sans-serif; font-size: 17px">Email us directly</b><span style="font-size: 15px; line-height: 1.6; color: #475467">Write to us with your brand, goals and preferred channels.</span><a class="esme-btn esme-btn--blue" href="mailto:info@americansmb.com?subject=Advertising%20enquiry" style="align-self: flex-start">info@americansmb.com <span aria-hidden="true">→</span></a></div>
+</sc-if>
+</div>
+</div>
+</section>
+
+<section class="ad-in" aria-label="Advertising questions" style="padding-top: 88px; padding-bottom: 96px">
+<div class="esme-sechead"><div><p class="esme-eyebrow">FAQ</p><h2 class="esme-h2">Advertising questions</h2></div></div>
+<div class="ad-faq">
+<sc-for list="{{faq}}" as="q" hint-placeholder-count="6">
+<details><summary>{{q.q}}</summary><p>{{q.a}}</p></details>
+</sc-for>
+</div>
+</section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,380px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4400}}'>
+class Component extends DCLogic {
+  componentDidMount() { ESME.embedForms(); }
+  renderVals() {
+    const formId = ESME.forms.advertise || ESME.forms.contact;
+    return {
+      formId, hasForm: !!formId, noForm: !formId,
+      checkIcon: ESME.icon('check', 16),
+      why: [
+        'A focused audience of small-business decision-makers across the U.S.',
+        'Readers who come with a task: funding, compliance, growth',
+        'Brand-safe, practical content with clear labelling',
+        'Flexible campaigns, from one placement to a full partnership'
+      ],
+      audience: [
+        { icon: ESME.icon('people', 22), title: 'Owners and founders', text: 'The people who make the buying decisions in small and medium-sized firms.' },
+        { icon: ESME.icon('growth', 22), title: 'Startups and scale-ups', text: 'Growing companies looking for finance, talent, tools and new markets.' },
+        { icon: ESME.icon('money', 22), title: 'Finance and operations leads', text: 'Managers who handle cash flow, payments, tax, compliance and suppliers.' },
+        { icon: ESME.icon('globe', 22), title: 'Businesses buying and selling across borders', text: 'Firms importing, exporting and selling across state lines.' },
+        { icon: ESME.icon('guide', 22), title: 'Advisers and support organizations', text: 'Accountants, consultants, chambers and business support teams who guide small businesses.' }
+      ],
+      options: [
+        { icon: ESME.icon('grid', 22), title: 'Website display advertising', text: 'Banners across the homepage, articles and topic pages, in front of readers while they research decisions.', formats: ['Homepage', 'Articles', 'Topic pages'] },
+        { icon: ESME.icon('guide', 22), title: 'Sponsored articles and branded content', text: 'Practical, expert content written with our editorial team and clearly labelled as sponsored.', formats: ['Sponsored article', 'Expert guide', 'Series'] },
+        { icon: ESME.icon('invoice', 22), title: 'Main Street Briefing sponsorship', text: 'Your message in our weekly email to opted-in readers, next to the week’s funding news and tax changes.', formats: ['Newsletter banner', 'Sponsored slot'] },
+        { icon: ESME.icon('funding', 22), title: 'Hub and topic sponsorship', text: 'Own the space around a subject: the Funding hub, Trade & Policy or a topic such as Money & Taxes or AI & Tech.', formats: ['Funding hub', 'Trade & Policy', 'Topics'] },
+        { icon: ESME.icon('calculator', 22), title: 'Tool sponsorship', text: 'Be the partner behind a free tool — the Grant & Loan Finder, Tax Deadline Calendar or our calculators — used when owners act.', formats: ['Presented by', 'Tool placement'] },
+        { icon: ESME.icon('shield', 22), title: 'Custom partnerships', text: 'Multi-channel campaigns, content series, reports or lead generation built around your goals.', formats: ['Content series', 'Reports', 'Campaigns'] }
+      ],
+      goals: [
+        { icon: ESME.icon('trend', 22), title: 'Brand awareness', text: 'Put your brand in front of small-business decision-makers across the U.S.' },
+        { icon: ESME.icon('guide', 22), title: 'Thought leadership', text: 'Share expertise that positions your company as the trusted name in its field.' },
+        { icon: ESME.icon('news', 22), title: 'Product and service launches', text: 'Introduce something new to businesses that can use it straight away.' },
+        { icon: ESME.icon('people', 22), title: 'Engagement and enquiries', text: 'Drive sign-ups, demos and conversations with qualified business audiences.' }
+      ],
+      steps: [
+        { n: '1', title: 'Tell us your goals', text: 'Send the form below with your brand, goals, timing and the channels you’re interested in.' },
+        { n: '2', title: 'Receive a proposal', text: 'We reply within two working days and send a proposal with options, availability and rates.' },
+        { n: '3', title: 'Plan the creative', text: 'We agree formats and dates; for sponsored content, we shape the angle with you.' },
+        { n: '4', title: 'Go live and review', text: 'Your campaign runs as agreed, and we keep you updated along the way.' }
+      ],
+      standards: [
+        { icon: ESME.icon('check', 22), title: 'Always labelled', text: 'Sponsored articles, newsletter placements and partner content are always clearly marked as sponsored.' },
+        { icon: ESME.icon('shield', 22), title: 'Editorial independence', text: 'Advertisers don’t review or approve our news coverage, and advertising never buys a story.' },
+        { icon: ESME.icon('people', 22), title: 'Useful to readers', text: 'We work with brands whose products genuinely help small businesses, and keep sponsored content practical.' }
+      ],
+      faq: [
+        { q: 'What advertising formats are available?', a: 'Website display banners, sponsored articles and branded content, Main Street Briefing newsletter placements, sponsorship of our hubs, topics and free tools, and custom multi-channel partnerships.' },
+        { q: 'Can I combine several channels?', a: 'Yes. Most campaigns combine channels — for example a sponsored guide promoted in the Main Street Briefing and on the matching topic page. We’ll suggest the mix that fits your goal and budget.' },
+        { q: 'Do you work with agencies?', a: 'Yes. Agencies can enquire on behalf of their clients through the same form; just mention the brand you represent.' },
+        { q: 'How do I get prices and availability?', a: 'Send the form with your goals and timing, and we’ll reply within two working days with options, availability and rates.' },
+        { q: 'What creative specifications do you need?', a: 'We confirm sizes, file formats and deadlines for each placement when we plan your campaign, so you only prepare what you need.' },
+        { q: 'How is sponsored content labelled?', a: 'Every sponsored article and placement is clearly marked as sponsored. Sponsors don’t approve our editorial coverage, and our news team decides what we report.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
