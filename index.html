@@ -337,7 +337,7 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 <div class="yc-box">
 <div class="yc-box-head">
 <span class="yc-live-big"><span class="yc-pulse"></span>Live <span style="color: #FFFFFF">from Main Street</span></span>
-<span class="yc-badge">{{statWeek}} stories this week</span>
+<span class="yc-badge">{{statWeek}} stories this month</span>
 </div>
 <div class="yc-stats"><span>Trending: <strong style="color: #F7941D">{{statTrend}}</strong></span></div>
 <sc-if value="{{hasTop}}" hint-placeholder-val="{{ true }}">
@@ -378,14 +378,14 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 <div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 72px; padding-bottom: 72px; display: flex; flex-wrap: wrap; gap: 40px 72px; align-items: center">
 <div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 14px">
 <p class="esme-eyebrow is-dark">Free for American business owners</p>
-<h2 class="esme-h2 is-dark" style="margin-top: 4px">Get the Weekly Briefing</h2>
+<h2 class="esme-h2 is-dark" style="margin-top: 4px">Get the Main Street Briefing</h2>
 <p class="esme-sub is-dark" style="font-size: 16px">Funding, tax changes, tariff updates and practical playbooks for America’s small-business owners — every Tuesday.</p>
 </div>
 <form action="/newsletter/" method="get" style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 16px; background: #FFFFFF; color: #14181D; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6)">
 <label for="nl-email" style="font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600">Email address</label>
 <input id="nl-email" name="email" required type="email" placeholder="you@yourbusiness.com" style="height: 48px; padding: 0 14px; border-radius: 8px; border: 1px solid #D0D5DD; font-size: 15px; color: #14181D">
 <button type="submit" class="esme-btn esme-btn--gold esme-btn--lg" style="width: 100%">Subscribe free</button>
-<p style="margin: 0; font-size: 12.5px; color: #5A6470">No spam. Unsubscribe any time. Free, every Tuesday.</p>
+<p style="margin: 0; font-size: 12.5px; color: #5A6470">No spam. Unsubscribe any time.</p>
 <span class="esme-nl-note">Free, every Tuesday. You confirm on the next page and can unsubscribe at any time. <a href="/privacy-policy/">Privacy policy</a></span>
 </form>
 </div>
@@ -432,7 +432,7 @@ class Component extends DCLogic {
         const pool = ESME.news.filter((n) => !code || n.country === code || n.country === 'eu');
         const deco = (n) => Object.assign({}, n, { icon: ESME.icon(n.section, 18), tint: n.color + '1A', dayLabel: ESME.dayLabel(n.at) });
         const today = pool.filter((n) => ESME.dayLabel(n.at) === 'Today').length;
-        const week = pool.filter((n) => n.at > Date.now() - 7 * 86400000).length;
+        const week = pool.filter((n) => n.at > Date.now() - 30 * 86400000).length;
         const counts = {}; pool.forEach((n) => { counts[n.sectionLabel] = (counts[n.sectionLabel] || 0) + 1; });
         const trend = Object.keys(counts).sort((x, y) => counts[y] - counts[x])[0] || '';
         const where = geoC ? geoC.name : 'America';

@@ -229,7 +229,7 @@ class Component extends DCLogic {
       mRes: menu([
         { heading: 'Plan & Run', links: [link('Free tools', '#', 'grid', 'Calculators and checkers'), link('How-to guides', '#', 'guide', 'Step-by-step help'), link('Grant & Loan Finder', '#', 'search', 'SBA, state and local programs'), link('Tax Deadline Calendar', '#', 'calendar', 'Federal and state dates')] },
         { heading: 'Read & Meet', links: [link('Magazine', '#', 'news', 'Read the latest issue'), link('Events', '#', 'people', 'Summits and webinars'), link('State guides', '#', 'pin', 'All 50 states', true), link('Contributors', '#', 'marketing', 'Our writers and experts')] }
-      ], bySlug('post-26') || withImg((p) => p.section === 'funding'), 'Featured guide'),
+      ], withImg((p) => /grants that really exist/.test(p.title)) || withImg((p) => p.section === 'funding'), 'Featured guide'),
       mAbout: menu([
         { heading: 'American SMB', links: [link('About us', '#', 'people'), link('Our team', '#', 'hire'), link('Contact', '#', 'globe')] },
         { heading: 'Work with us', links: [link('Advertise with us', '#', 'marketing'), link('Submit your story', '#', 'guide'), link('The Main Street Briefing', '#newsletter', 'news')] }
