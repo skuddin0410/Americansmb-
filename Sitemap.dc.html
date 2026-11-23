@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Sitemap — American SMB</title>
+<title>Sitemap — AmericanSMB</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./data.js"></script>
 <script src="./support.js"></script>
@@ -11,38 +11,40 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="esme.css">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0F1F4D">
 <style>
 body{margin:0;background:#FFFFFF}
-a{color:#14181D;text-decoration:none}
-a:hover{color:#1E4FA8;text-decoration:underline}
+a{color:#1D2939;text-decoration:none}
+a:hover{color:#1C3577;text-decoration:underline}
 .sm-in{max-width:1232px;margin:0 auto;padding-left:32px;padding-right:32px;box-sizing:border-box}
-.sm-crumb{display:flex;gap:8px;font-size:13px;color:#5A6470}
-.sm-crumb a{color:#344054}
-.sm-h1{margin:0;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:clamp(32px,3.8vw,46px);line-height:1.1;font-weight:700;letter-spacing:-.025em}
+.sm-crumb{display:flex;gap:8px;font-size:13px;color:#475467}
+.sm-crumb a{color:#475467}
+.sm-h1{margin:0;font-family:'Montserrat',Arial,sans-serif;font-size:clamp(32px,3.8vw,46px);line-height:1.1;font-weight:700;letter-spacing:-.025em}
 .sm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
-.sm-box{padding:22px;border-radius:12px;border:1px solid #D9DEE7;background:#FFFFFF}
-.sm-box h2{margin:0 0 12px;display:flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-size:17px}
-.sm-box h2 span{display:flex;color:#003399}
+.sm-box{padding:22px;border-radius:8px;border:1px solid #D0D5DD;background:#FFFFFF}
+.sm-box h2{margin:0 0 12px;display:flex;align-items:center;gap:10px;font-family:'Montserrat',sans-serif;font-size:17px}
+.sm-box h2 span{display:flex;color:#0F1F4D}
 .sm-box ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column}
-.sm-box li a{display:flex;align-items:center;min-height:34px;font-size:15px;color:#344054}
-.sm-box li a:hover{color:#1E4FA8}
+.sm-box li a{display:flex;align-items:center;min-height:34px;font-size:15px;color:#475467}
+.sm-box li a:hover{color:#1C3577}
 .sm-topic{margin-top:40px}
-.sm-topic h3{margin:0 0 10px;display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:2px solid var(--c);font-family:'Sora',sans-serif;font-size:18px}
+.sm-topic h3{margin:0 0 10px;display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:2px solid var(--c);font-family:'Montserrat',sans-serif;font-size:18px}
 .sm-topic h3 i{width:10px;height:10px;border-radius:50%;background:var(--c)}
-.sm-topic h3 small{font-size:13px;font-weight:600;color:#5A6470}
+.sm-topic h3 small{font-size:13px;font-weight:600;color:#475467}
 .sm-list{margin:0;padding:0;list-style:none;columns:2 360px;column-gap:40px}
 .sm-list li{break-inside:avoid}
-.sm-list a{display:block;padding:7px 0;font-size:14.5px;line-height:1.45;color:#344054}
-.sm-list a:hover{color:#1E4FA8}
+.sm-list a{display:block;padding:7px 0;font-size:14.5px;line-height:1.45;color:#475467}
+.sm-list a:hover{color:#1C3577}
 </style>
 </helmet>
-<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<div style="font-family: 'Montserrat', Arial, sans-serif; color: #1D2939; background: #FFFFFF">
 <dc-import name="SiteHeader" active="none" hint-size="100%,118px"></dc-import>
 <main>
-<section class="esme-hero" aria-label="Sitemap"><div class="esme-hero-in"><nav class="sm-crumb esme-hero-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Sitemap</span></nav><p class="esme-eyebrow is-dark" style="margin-top: 20px">Legal &amp; site</p><h1 class="sm-h1 esme-hero-h1">Sitemap</h1><p class="esme-hero-lead" style="margin: 0; font-size: 18px; line-height: 1.65; max-width: 680px">Every section, tool and page on American SMB, plus all {{count}} articles by topic.</p><sc-if value="{{hasLegal}}" hint-placeholder-val="{{ false }}"><nav class="esme-legalnav" aria-label="Legal pages"><sc-for list="{{legal}}" as="l" hint-placeholder-count="4"><a href="{{l.href}}" aria-current="{{l.current}}">{{l.label}}</a></sc-for></nav></sc-if></div></section>
+<section class="esme-hero" aria-label="Sitemap"><div class="esme-hero-in"><nav class="sm-crumb esme-hero-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Sitemap</span></nav><p class="esme-eyebrow is-dark" style="margin-top: 20px">Legal &amp; site</p><h1 class="sm-h1 esme-hero-h1">Sitemap</h1><p class="esme-hero-lead" style="margin: 0; font-size: 18px; line-height: 1.65; max-width: 680px">Every section, tool and page on AmericanSMB, plus all {{count}} articles by topic.</p><sc-if value="{{hasLegal}}" hint-placeholder-val="{{ false }}"><nav class="esme-legalnav" aria-label="Legal pages"><sc-for list="{{legal}}" as="l" hint-placeholder-count="4"><a href="{{l.href}}" aria-current="{{l.current}}">{{l.label}}</a></sc-for></nav></sc-if></div></section>
 <div style="height: 48px"></div>
 <section class="sm-in" aria-label="Sections" style="padding-bottom: 24px">
 <div class="sm-grid">
@@ -80,7 +82,7 @@ class Component extends DCLogic {
         { title: 'Funding', icon: ESME.icon('funding', 18), links: [l('Funding & grants overview', 'FundingHub.dc.html'), l('Grant & Loan Finder', 'FundingFinder.dc.html'), l('Am I a small business?', 'Checkers.dc.html#size'), l('Funding news', 'Articles.dc.html?section=funding')] },
         { title: 'Trade, policy and deadlines', icon: ESME.icon('calendar', 18), links: [l('Trade & policy overview', 'RulesHub.dc.html'), l('Tax Deadline Calendar', 'Compliance.dc.html'), l('1099-NEC checker', 'Checkers.dc.html#contractors'), l('State guides', 'Countries.dc.html'), l('Trade & policy news', 'Articles.dc.html?section=policy')] },
         { title: 'Free tools', icon: ESME.icon('calculator', 18), links: [l('All tools', 'Tools.dc.html')].concat(ESME.tools.map((t) => l(t.name, t.href))) },
-        { title: 'About American SMB', icon: ESME.icon('people', 18), links: [l('About us', 'About.dc.html'), l('Contact', 'Contact.dc.html'), l('Advertise', 'Advertise.dc.html'), l('Submit your story', 'SubmitStory.dc.html'), l('The Main Street Briefing', 'Page.dc.html?p=newsletter'), l('Founder interviews', 'Page.dc.html?p=interviews'), l('Magazine', 'Page.dc.html?p=magazine'), l('Events', 'Page.dc.html?p=events'), l('Our team', 'Page.dc.html?p=team'), l('Write for us', 'Page.dc.html?p=contributors'), l('Privacy policy', 'Page.dc.html?p=privacy-policy'), l('Cookie policy', 'Page.dc.html?p=cookie-policy'), l('Terms of use', 'Page.dc.html?p=terms-of-use')] }
+        { title: 'About AmericanSMB', icon: ESME.icon('people', 18), links: [l('About us', 'About.dc.html'), l('Contact', 'Contact.dc.html'), l('Advertise', 'Advertise.dc.html'), l('Submit your story', 'SubmitStory.dc.html'), l('The Main Street Briefing', 'Page.dc.html?p=newsletter'), l('Founder interviews', 'Page.dc.html?p=interviews'), l('Magazine', 'Page.dc.html?p=magazine'), l('Events', 'Page.dc.html?p=events'), l('Our team', 'Page.dc.html?p=team'), l('Write for us', 'Page.dc.html?p=contributors'), l('Privacy policy', 'Page.dc.html?p=privacy-policy'), l('Cookie policy', 'Page.dc.html?p=cookie-policy'), l('Terms of use', 'Page.dc.html?p=terms-of-use')] }
       ],
       topics: keys.map((k) => { const ps = posts.filter((p) => p.section === k); return { label: S[k].label, color: S[k].color, href: 'Articles.dc.html?section=' + k, n: String(ps.length), posts: ps.map((p) => ({ title: p.title, href: p.href })) }; })
     };

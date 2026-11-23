@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>American SMB — The magazine for America’s small businesses</title>
+<title>AmericanSMB — The magazine for America’s small businesses</title>
 <script src="./data.js"></script>
 <script src="./support.js"></script>
 </head>
@@ -11,141 +11,143 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="esme.css">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0F1F4D">
 <style>
 body{margin:0;background:#FFFFFF}
-a{color:#14181D;text-decoration:none}
-a:hover{color:#1E4FA8}
+a{color:#1D2939;text-decoration:none}
+a:hover{color:#1C3577}
 .esme-herocard{transition:background-color .2s ease,border-color .2s ease,transform .2s ease}
-.esme-herocard:hover{background:rgba(255,255,255,.09) !important;border-color:rgba(247,148,29,.5) !important;transform:translateY(-2px);color:#FFFFFF !important;text-decoration:none}
+.esme-herocard:hover{background:rgba(255,255,255,.09) !important;border-color:rgba(247,147,30,.5) !important;transform:translateY(-2px);color:#FFFFFF !important;text-decoration:none}
 .esme-ticker::-webkit-scrollbar{display:none}
 .esme-ticker{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 32px,#000 calc(100% - 32px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 32px,#000 calc(100% - 32px),transparent 100%)}
 .esme-tktrack{display:flex;gap:28px;width:max-content;animation:esme-marquee 70s linear infinite}
 .esme-ticker:hover .esme-tktrack,.esme-ticker:focus-within .esme-tktrack{animation-play-state:paused}
 @keyframes esme-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.esme-tktrack{animation:none}.esme-ticker{overflow-x:auto;scrollbar-width:none}.esme-tkdup{display:none !important}}
-.esme-ticker a:hover span{color:#F7941D}
-.esme-tkbar{background:#101828;color:#FFFFFF;border-top:1px solid rgba(255,255,255,.06)}
+.esme-ticker a:hover span{color:#F7931E}
+.esme-tkbar{background:#0F1F4D;color:#FFFFFF;border-top:1px solid rgba(255,255,255,.06)}
 .esme-tkin{max-width:1232px;margin:0 auto;padding:0 32px;box-sizing:border-box;display:flex;align-items:stretch;gap:24px;min-height:148px}
-.esme-tklabel{flex:none;display:inline-flex;align-items:center;gap:10px;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#FFFFFF}
-.esme-tkdot{width:9px;height:9px;border-radius:50%;background:#F7941D;box-shadow:0 0 0 4px rgba(247,148,29,.18)}
+.esme-tklabel{flex:none;display:inline-flex;align-items:center;gap:10px;font-family:'Montserrat',Arial,sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#FFFFFF}
+.esme-tkdot{width:9px;height:9px;border-radius:50%;background:#F7931E;box-shadow:0 0 0 4px rgba(247,147,30,.18)}
 .esme-tktrack{gap:0 !important;height:100%}
 .esme-tki{flex:0 0 400px;box-sizing:border-box;display:flex;gap:18px;align-items:center;padding:24px 26px;border-left:1px solid rgba(255,255,255,.1);color:#FFFFFF !important;text-decoration:none !important}
 .esme-tki img{width:132px;height:92px;flex:none;object-fit:cover;border-radius:8px;background:#1D2939}
 .esme-tki-b{display:flex;flex-direction:column;gap:8px;min-width:0}
-.esme-tki-k{font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#F7941D;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.esme-tki-t{font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:16.5px;font-weight:600;line-height:1.35;color:#FFFFFF;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.esme-tki:hover .esme-tki-t,.esme-tki:focus-visible .esme-tki-t{color:#F7941D}
-.esme-tki:focus-visible{outline:2px solid #F7941D;outline-offset:-4px}
+.esme-tki-k{font-family:'Montserrat',Arial,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#F7931E;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.esme-tki-t{font-family:'Montserrat',Arial,sans-serif;font-size:16.5px;font-weight:600;line-height:1.35;color:#FFFFFF;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.esme-tki:hover .esme-tki-t,.esme-tki:focus-visible .esme-tki-t{color:#F7931E}
+.esme-tki:focus-visible{outline:2px solid #F7931E;outline-offset:-4px}
 @media (max-width: 860px){.esme-tkin{padding:0 20px;min-height:120px;gap:14px}.esme-tklabel{display:none}.esme-tki{flex-basis:320px;padding:18px 18px;gap:14px}.esme-tki img{width:96px;height:68px}.esme-tki-t{font-size:15px}}
-.esme-tic{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;transition:transform .2s ease}
+.esme-tic{width:48px;height:48px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:transform .2s ease}
 .esme-toolcard:hover .esme-tic{transform:rotate(-6deg) scale(1.06)}
 .esme-toolcard{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
-.esme-toolcard:hover{transform:translateY(-4px);border-color:#D0D5DD !important;color:#14181D !important;text-decoration:none}
+.esme-toolcard:hover{transform:translateY(-4px);border-color:#D0D5DD !important;color:#1D2939 !important;text-decoration:none}
 .esme-flink:hover{color:#FFFFFF !important}
-button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-serif}
+button.esme-chipf{cursor:pointer;font-family:'Montserrat',Arial,sans-serif}
 .yc-wrap{max-width:1232px;box-sizing:border-box;margin:0 auto;padding:64px 32px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
 /* Site: the cover-story visual runs from the kicker to the buttons on wide screens */
 .esme-hero-img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
 @media (min-width: 961px){.esme-hero-vis{display:flex !important}.esme-hero-vis figure,.esme-hero-vis .esme-hero-img{flex:1 1 auto;aspect-ratio:auto !important;min-height:330px}}
 .yc-left{display:flex;flex-direction:column;gap:18px}
-.yc-ticks{list-style:none;margin:2px 0 4px;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px;color:#344054}
+.yc-ticks{list-style:none;margin:2px 0 4px;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px;color:#475467}
 .yc-ticks li{display:flex;align-items:center;gap:12px}
-.yc-ticks li span{flex:none;width:30px;height:30px;border-radius:9px;background:#E6ECF7;color:#003399;display:flex;align-items:center;justify-content:center}
-.yc-sub{display:flex;flex-direction:column;gap:10px;margin-top:6px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #EAECF0;box-shadow:0 1px 2px rgba(16,24,40,.04),0 12px 28px -20px rgba(16,24,40,.35)}
-.yc-sub-l{font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:#101828}
+.yc-ticks li span{flex:none;width:30px;height:30px;border-radius:9px;background:#E4E8EF;color:#0F1F4D;display:flex;align-items:center;justify-content:center}
+.yc-sub{display:flex;flex-direction:column;gap:10px;margin-top:6px;padding:20px;border-radius:16px;background:#FFFFFF;border:1px solid #E4E8EF;box-shadow:0 1px 2px rgba(15,31,77,.04),0 12px 28px -20px rgba(15,31,77,.35)}
+.yc-sub-l{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:#0F1F4D}
 .yc-sub-row{display:flex;gap:10px;flex-wrap:wrap}
-.yc-sub-in{flex:1 1 220px;display:flex;align-items:center;gap:8px;height:50px;padding:0 14px;border:1.5px solid #D0D5DD;border-radius:10px;background:#FFFFFF;transition:border-color .15s ease,box-shadow .15s ease}
-.yc-sub-in:focus-within{border-color:#003399;box-shadow:0 0 0 4px rgba(0,51,153,.1)}
-.yc-sub-in input{flex:1;min-width:0;border:none;outline:none;background:transparent;font-size:15px;color:#14181D}
-.yc-sub-note{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#5A6470}
-.yc-box{display:flex;flex-direction:column;gap:16px;padding:24px;border-radius:22px;color:#FFFFFF;background:radial-gradient(520px 260px at 100% 0%, rgba(247,148,29,.16), transparent 60%),radial-gradient(420px 260px at 0% 100%, rgba(47,91,183,.45), transparent 60%),linear-gradient(140deg,#0B1B33,#0B2A6B 70%,#003399);box-shadow:0 30px 60px -36px rgba(11,27,51,.8),inset 0 0 0 1px rgba(255,255,255,.06)}
+.yc-sub-in{flex:1 1 220px;display:flex;align-items:center;gap:8px;height:50px;padding:0 14px;border:1.5px solid #D0D5DD;border-radius:8px;background:#FFFFFF;transition:border-color .15s ease,box-shadow .15s ease}
+.yc-sub-in:focus-within{border-color:#0F1F4D;box-shadow:0 0 0 4px rgba(15,31,77,.1)}
+.yc-sub-in input{flex:1;min-width:0;border:none;outline:none;background:transparent;font-size:15px;color:#1D2939}
+.yc-sub-note{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#475467}
+.yc-box{display:flex;flex-direction:column;gap:16px;padding:24px;border-radius:16px;color:#FFFFFF;background:radial-gradient(520px 260px at 100% 0%, rgba(86,128,214,.24), transparent 60%),radial-gradient(420px 260px at 0% 100%, rgba(28,53,119,.45), transparent 60%),linear-gradient(140deg,#071131,#0F1F4D 70%,#0F1F4D);box-shadow:0 30px 60px -36px rgba(11,27,51,.8),inset 0 0 0 1px rgba(255,255,255,.06)}
 .yc-box-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .yc-box-flag{width:60px;height:40px;object-fit:cover;border-radius:7px;box-shadow:0 0 0 2px rgba(255,255,255,.25),0 10px 20px -10px rgba(0,0,0,.6)}
-.yc-live-l{display:inline-flex;align-items:center;gap:8px;font-family:'Sora',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9FE1CB}
-.yc-pulse{width:8px;height:8px;border-radius:50%;background:#32D583;box-shadow:0 0 0 0 rgba(50,213,131,.6);animation:yc-p 1.8s infinite}
-@keyframes yc-p{0%{box-shadow:0 0 0 0 rgba(50,213,131,.55)}70%{box-shadow:0 0 0 9px rgba(50,213,131,0)}100%{box-shadow:0 0 0 0 rgba(50,213,131,0)}}
-.yc-live-big{display:inline-flex;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.01em;color:#9FE1CB}
+.yc-live-l{display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#F7931E}
+.yc-pulse{width:8px;height:8px;border-radius:50%;background:#F7931E;box-shadow:0 0 0 0 rgba(247,147,30,.6);animation:yc-p 1.8s infinite}
+@keyframes yc-p{0%{box-shadow:0 0 0 0 rgba(247,147,30,.55)}70%{box-shadow:0 0 0 9px rgba(247,147,30,0)}100%{box-shadow:0 0 0 0 rgba(247,147,30,0)}}
+.yc-live-big{display:inline-flex;align-items:center;gap:10px;font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.01em;color:#F7931E}
 .yc-live-big .yc-pulse{width:10px;height:10px}
 .yc-right{display:flex;flex-direction:column;gap:14px}
-.yc-more{display:flex;justify-content:flex-end;gap:22px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700}
-.yc-more a{color:#1E4FA8;text-decoration:none}
-.yc-more a:hover{color:#003399;text-decoration:underline;text-underline-offset:3px}
-.yc-box-t{font-family:'Sora',sans-serif;font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
-.yc-stats{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.06);font-size:13px;color:rgba(255,255,255,.75)}
-.yc-stats strong{color:#FFFFFF;font-family:'Sora',sans-serif}
+.yc-more{display:flex;justify-content:flex-end;gap:22px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700}
+.yc-more a{color:#1C3577;text-decoration:none}
+.yc-more a:hover{color:#0F1F4D;text-decoration:underline;text-underline-offset:3px}
+.yc-box-t{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.yc-stats{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,.06);font-size:13px;color:rgba(255,255,255,.75)}
+.yc-stats strong{color:#FFFFFF;font-family:'Montserrat',sans-serif}
 .yc-sep{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.35)}
-.yc-top{display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:16px;background:#FFFFFF;color:#14181D;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
-.yc-top:hover{transform:translateY(-2px);box-shadow:0 18px 30px -18px rgba(0,0,0,.6);color:#14181D;text-decoration:none}
-.yc-top-k{display:flex;align-items:center;gap:8px;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#344054}
-.yc-top-t{font-family:'Sora',sans-serif;font-size:19px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
-.yc-top:hover .yc-top-t{color:#1E4FA8}
-.yc-top-m{font-size:14px;line-height:1.55;color:#5A6470}
-.yc-top-f{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:#5A6470;padding-top:8px;border-top:1px solid #EAECF0}
-.esme-toolcard .esme-tbtn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;background:#003399;color:#FFFFFF;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:13px;font-weight:700;line-height:1;transition:background-color .2s ease,color .2s ease}
-.esme-toolcard:hover .esme-tbtn{background:#1E4FA8;color:#FFFFFF}
+.yc-top{display:flex;flex-direction:column;gap:8px;padding:18px;border-radius:16px;background:#FFFFFF;color:#1D2939;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+.yc-top:hover{transform:translateY(-2px);box-shadow:0 18px 30px -18px rgba(0,0,0,.6);color:#1D2939;text-decoration:none}
+.yc-top-k{display:flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#475467}
+.yc-top-t{font-family:'Montserrat',sans-serif;font-size:19px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
+.yc-top:hover .yc-top-t{color:#1C3577}
+.yc-top-m{font-size:14px;line-height:1.55;color:#475467}
+.yc-top-f{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:#475467;padding-top:8px;border-top:1px solid #E4E8EF}
+.esme-toolcard .esme-tbtn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;background:#0F1F4D;color:#FFFFFF;font-family:'Montserrat',Arial,sans-serif;font-size:13px;font-weight:700;line-height:1;transition:background-color .2s ease,color .2s ease}
+.esme-toolcard:hover .esme-tbtn{background:#1C3577;color:#FFFFFF}
 .esme-btn--sm{padding:7px 13px;font-size:12.5px}
 .hm-band{position:relative}
 @media (min-width: 900px){.hm-tools{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}
-.hm-band--blue{background:radial-gradient(700px 380px at 100% 0%, rgba(30,79,168,.10), transparent 62%),#EEF2F8;border-top:1px solid #E1E7F0;border-bottom:1px solid #E1E7F0}
-.hm-band--navy{color:#FFFFFF;background:radial-gradient(45% 65% at 8% 80%, rgba(30,90,168,.85), rgba(30,90,168,0) 70%),radial-gradient(40% 60% at 95% 10%, rgba(247,148,29,.18), rgba(247,148,29,0) 70%),#0A1630}
+.hm-band--blue{background:radial-gradient(700px 380px at 100% 0%, rgba(28,53,119,.10), transparent 62%),#F2F4F7;border-top:1px solid #E4E8EF;border-bottom:1px solid #E4E8EF}
+.hm-band--navy{color:#FFFFFF;background:radial-gradient(45% 65% at 8% 80%, rgba(28,53,119,.85), rgba(28,53,119,0) 70%),radial-gradient(40% 60% at 95% 10%, rgba(86,128,214,.24), rgba(86,128,214,0) 70%),#071131}
 .hm-band--navy .esme-sechead .esme-sub{color:rgba(255,255,255,.78)}
-.hm-band--grey{background:#F4F6F8;border-top:1px solid #E8EBEF;border-bottom:1px solid #E8EBEF}
-.hm-band--gold{background:#FFFFFF;border-top:1px solid #EAECF0;border-bottom:1px solid #EAECF0}
+.hm-band--grey{background:#F2F4F7;border-top:1px solid #E4E8EF;border-bottom:1px solid #E4E8EF}
+.hm-band--gold{background:#FFFFFF;border-top:1px solid #E4E8EF;border-bottom:1px solid #E4E8EF}
 .esme-toolcard{background:#FFFFFF !important}
 
-.esme-arrowbtn{justify-self:end;width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#003399;color:#FFFFFF !important;transition:background-color .2s ease,transform .2s ease}
-.esme-arrowbtn:hover{background:#1E4FA8;transform:translateX(3px)}
-.esme-arrowbtn:focus-visible{outline:3px solid #1E4FA8;outline-offset:2px}
-.esme-toolcard{border-color:#D9DEE7 !important}
-.yc-badge{margin-left:auto;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.1);font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.85)}
-.yc-top-b{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:8px;background:#003399;color:#FFFFFF;font-family:'Sora',sans-serif;font-size:12.5px;font-weight:700}
-.yc-top:hover .yc-top-b{background:#1E4FA8}
+.esme-arrowbtn{justify-self:end;width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#0F1F4D;color:#FFFFFF !important;transition:background-color .2s ease,transform .2s ease}
+.esme-arrowbtn:hover{background:#1C3577;transform:translateX(3px)}
+.esme-arrowbtn:focus-visible{outline:3px solid #1C3577;outline-offset:2px}
+.esme-toolcard{border-color:#D0D5DD !important}
+.yc-badge{margin-left:auto;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.1);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.85)}
+.yc-top-b{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:8px;background:#0F1F4D;color:#FFFFFF;font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:700}
+.yc-top:hover .yc-top-b{background:#1C3577}
 .yc-foot-l{display:inline-flex;align-items:center;gap:6px;color:#FFFFFF !important}
-.yc-foot-l:hover{color:#F7941D !important}
-.yc-due{display:flex;flex-direction:column;gap:4px;margin-top:6px;padding:18px 18px 10px;border-radius:16px;background:#FFFFFF;border:1px solid #D9DEE7;box-shadow:0 1px 2px rgba(16,24,40,.04),0 12px 28px -20px rgba(16,24,40,.35)}
-.yc-due-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:10px;margin-bottom:4px;border-bottom:1px solid #EAECF0}
+.yc-foot-l:hover{color:#F7931E !important}
+.yc-due{display:flex;flex-direction:column;gap:4px;margin-top:6px;padding:18px 18px 10px;border-radius:16px;background:#FFFFFF;border:1px solid #D0D5DD;box-shadow:0 1px 2px rgba(15,31,77,.04),0 12px 28px -20px rgba(15,31,77,.35)}
+.yc-due-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:10px;margin-bottom:4px;border-bottom:1px solid #E4E8EF}
 .yc-due-h a.esme-btn{color:#FFFFFF}
-.yc-due-t{display:inline-flex;align-items:center;gap:8px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;color:#101828}
-.yc-due-r{display:flex;align-items:center;gap:14px;padding:9px 8px;margin:0 -8px;border-radius:10px;color:#14181D;text-decoration:none}
-.yc-due-r:hover{background:#F5F7FA;color:#14181D;text-decoration:none}
-.yc-due-r:hover .yc-due-x{color:#1E4FA8}
-.yc-due-d{flex:none;width:52px;height:52px;border-radius:12px;background:#003399;color:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;line-height:1.1}
-.yc-due-d strong{font-size:19px;letter-spacing:0;color:#F7941D}
-.yc-due-k{font-family:'Sora',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#667085}
-.yc-due-x{font-size:14.5px;font-weight:600;line-height:1.35;color:#14181D}
-.yc-sample{background:#FFF4D6;color:#6B4E00}
-.yc-ic{flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.yc-due-t{display:inline-flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:#0F1F4D}
+.yc-due-r{display:flex;align-items:center;gap:14px;padding:9px 8px;margin:0 -8px;border-radius:8px;color:#1D2939;text-decoration:none}
+.yc-due-r:hover{background:#F2F4F7;color:#1D2939;text-decoration:none}
+.yc-due-r:hover .yc-due-x{color:#1C3577}
+.yc-due-d{flex:none;width:52px;height:52px;border-radius:8px;background:#0F1F4D;color:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;line-height:1.1}
+.yc-due-d strong{font-size:19px;letter-spacing:0;color:#F7931E}
+.yc-due-k{font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#475467}
+.yc-due-x{font-size:14.5px;font-weight:600;line-height:1.35;color:#1D2939}
+.yc-sample{background:#FFF4D6;color:#B45309}
+.yc-ic{flex:none;width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center}
 .yc-ic svg{width:18px;height:18px}
-.yc-row{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#FFFFFF;text-decoration:none;transition:background-color .15s ease,border-color .15s ease}
-.yc-row:hover{background:rgba(255,255,255,.1);border-color:rgba(247,148,29,.45);color:#FFFFFF;text-decoration:none}
-.yc-row .yc-ic{background:rgba(255,255,255,.1) !important;color:#F7941D !important}
-.yc-row-k{font-family:'Sora',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.yc-row-t{font-family:'Sora',sans-serif;font-size:14.5px;font-weight:600;line-height:1.35}
-.yc-row-time{flex:none;font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.65)}
+.yc-row{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#FFFFFF;text-decoration:none;transition:background-color .15s ease,border-color .15s ease}
+.yc-row:hover{background:rgba(255,255,255,.1);border-color:rgba(247,147,30,.45);color:#FFFFFF;text-decoration:none}
+.yc-row .yc-ic{background:rgba(255,255,255,.1) !important;color:#F7931E !important}
+.yc-row-k{font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.yc-row-t{font-family:'Montserrat',sans-serif;font-size:14.5px;font-weight:600;line-height:1.35}
+.yc-row-time{flex:none;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.65)}
 .yc-chev{flex:none;color:rgba(255,255,255,.4);display:flex;transition:transform .15s ease,color .15s ease}
-.yc-row:hover .yc-chev{color:#F7941D;transform:translateX(2px)}
-.yc-box-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;padding-top:6px;border-top:1px solid rgba(255,255,255,.1);font-family:'Sora',sans-serif;font-size:13px;font-weight:600}
+.yc-row:hover .yc-chev{color:#F7931E;transform:translateX(2px)}
+.yc-box-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;padding-top:6px;border-top:1px solid rgba(255,255,255,.1);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600}
 .yc-box-foot a{text-decoration:none}
-.yc-box-foot a.yc-foot-l:hover{color:#F7941D;text-decoration:none}
+.yc-box-foot a.yc-foot-l:hover{color:#F7931E;text-decoration:none}
 .yc-switch{margin-left:auto;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);cursor:pointer}
-.yc-switch select{border:none;outline:none;background:transparent;color:#FFFFFF;font-family:'Sora',sans-serif;font-size:12.5px;font-weight:600;cursor:pointer}
-.yc-switch option{color:#14181D}
-.yc-sample{flex:none;padding:2px 6px;border-radius:4px;background:rgba(247,148,29,.18);color:#F7941D;font-family:'Sora',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.yc-switch select{border:none;outline:none;background:transparent;color:#FFFFFF;font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:600;cursor:pointer}
+.yc-switch option{color:#1D2939}
+.yc-sample{flex:none;padding:2px 6px;border-radius:4px;background:rgba(247,147,30,.18);color:#F7931E;font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 @media (max-width: 960px){.yc-wrap{grid-template-columns:1fr;gap:32px;padding:48px 24px}}
 </style>
 </helmet>
-<div style="color: #14181D; background: #FFFFFF; min-height: 100vh">
+<div style="color: #1D2939; background: #FFFFFF; min-height: 100vh">
 <dc-import name="SiteHeader" active="none" hint-size="100%,118px"></dc-import>
 
 <main>
-<section aria-label="Cover story" style="position: relative; overflow: hidden; color: #FFFFFF; background: radial-gradient(900px 520px at 88% 8%, rgba(247,148,29,.16), transparent 62%), radial-gradient(900px 640px at 0% 100%, rgba(30,79,168,.55), transparent 62%), linear-gradient(135deg, #0B1B33 0%, #0B2A6B 100%)">
+<section aria-label="Cover story" style="position: relative; overflow: hidden; color: #FFFFFF; background: radial-gradient(900px 520px at 88% 8%, rgba(86,128,214,.24), transparent 62%), radial-gradient(900px 640px at 0% 100%, rgba(28,53,119,.55), transparent 62%), linear-gradient(135deg,#071131 0%,#0F1F4D 55%,#1C3577 100%)">
 <div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 64px; padding-bottom: 40px; display: flex; flex-wrap: wrap; align-items: stretch; gap: 48px">
 <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
-<h1 style="margin: -0.16em 0 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(30px, 3.3vw, 44px); line-height: 1.12; font-weight: 700; letter-spacing: -0.025em; color: #FFFFFF"><a href="{{coverHref}}" style="color: inherit; text-decoration: none">{{coverTitle}}</a></h1>
-<span aria-hidden="true" style="width: 56px; height: 3px; border-radius: 2px; background: #F7941D"></span>
+<h1 style="margin: -0.16em 0 0; font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(30px, 3.3vw, 44px); line-height: 1.12; font-weight: 700; letter-spacing: -0.025em; color: #FFFFFF"><a href="{{coverHref}}" style="color: inherit; text-decoration: none">{{coverTitle}}</a></h1>
+<span aria-hidden="true" style="width: 56px; height: 3px; border-radius: 2px; background: #F7931E"></span>
 <p style="margin: 0; font-size: 17px; line-height: 1.6; color: rgba(255,255,255,.82); max-width: 560px">{{coverDek}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 4px">
 <a class="esme-btn esme-btn--gold esme-btn--lg" href="{{coverHref}}">Read the story <span aria-hidden="true">→</span></a>
@@ -156,11 +158,11 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 </div>
 <div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-bottom: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 20px">
 <sc-for list="{{coverSecondary}}" as="c">
-<a href="{{c.href}}" class="esme-herocard" style="display: flex; flex-wrap: wrap; gap: 18px; align-items: center; padding: 12px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); color: #FFFFFF; text-decoration: none">
+<a href="{{c.href}}" class="esme-herocard" style="display: flex; flex-wrap: wrap; gap: 18px; align-items: center; padding: 12px; border-radius: 8px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.14); color: #FFFFFF; text-decoration: none">
 <span style="flex: 0 0 200px; max-width: 100%; border-radius: 9px; overflow: hidden; display: block"><sc-if value="{{c.isPhoto}}"><img src="{{c.img}}" alt="{{c.alt}}" loading="lazy" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover"></sc-if></span>
 <span style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 9px">
 <span class="esme-tag esme-tag--gold" style="align-self: flex-start">{{c.tag}}</span>
-<span style="font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 18px; line-height: 1.3; font-weight: 700">{{c.title}}</span>
+<span style="font-family: 'Montserrat', Arial, sans-serif; font-size: 18px; line-height: 1.3; font-weight: 700">{{c.title}}</span>
 <span style="font-size: 12.5px; color: rgba(255,255,255,.7)">{{c.meta}}</span>
 </span>
 </a>
@@ -201,7 +203,7 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 </div>
 </sc-if>
 <sc-if value="{{failed}}" hint-placeholder-val="{{ false }}">
-<div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 48px; padding-bottom: 48px; font-size: 16px; color: #5A6470">Live articles could not be loaded right now. Please refresh, or <a href="#" style="color: #1E4FA8; text-decoration: underline">browse all articles</a>.</div>
+<div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 48px; padding-bottom: 48px; font-size: 16px; color: #475467">Live articles could not be loaded right now. Please refresh, or <a href="#" style="color: #1C3577; text-decoration: underline">browse all articles</a>.</div>
 </sc-if>
 
 <sc-if value="{{ready}}" hint-placeholder-val="{{ false }}">
@@ -235,10 +237,10 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 </div>
 <div class="hm-tools" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px">
 <sc-for list="{{tools}}" as="t" hint-placeholder-count="7">
-<a href="{{t.href}}" class="esme-toolcard" style="display: flex; flex-direction: column; gap: 14px; padding: 22px; background: #FFFFFF; border: 1px solid #EAECF0; border-radius: 14px; box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px -16px rgba(16,24,40,.18); color: #14181D; text-decoration: none">
+<a href="{{t.href}}" class="esme-toolcard" style="display: flex; flex-direction: column; gap: 14px; padding: 22px; background: #FFFFFF; border: 1px solid #E4E8EF; border-radius: 8px; box-shadow: 0 1px 2px rgba(15,31,77,.04), 0 8px 24px -16px rgba(15,31,77,.18); color: #1D2939; text-decoration: none">
 <span style="display: flex; justify-content: space-between; align-items: flex-start"><span class="esme-tic" style="color: {{t.tone}}; background: {{t.tint}}" dc-html="{{t.iconSvg}}"></span><sc-if value="{{t.isNew}}" hint-placeholder-val="{{ false }}"><span class="esme-tag esme-tag--gold">New</span></sc-if></span>
-<span style="font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 17px; font-weight: 700">{{t.name}}</span>
-<span style="font-size: 14px; line-height: 1.6; color: #5A6470">{{t.long}}</span>
+<span style="font-family: 'Montserrat', Arial, sans-serif; font-size: 17px; font-weight: 700">{{t.name}}</span>
+<span style="font-size: 14px; line-height: 1.6; color: #475467">{{t.long}}</span>
 <span class="esme-tbtn">Open tool <span aria-hidden="true">→</span></span>
 </a>
 </sc-for>
@@ -271,13 +273,13 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
 <div style="display: grid; grid-template-columns: 34px 1fr 34px; align-items: center; gap: 8px; padding-bottom: 12px; border-bottom: 2px solid {{c.color}}">
 <span aria-hidden="true"></span>
-<h3 style="margin: 0; display: flex; align-items: center; justify-content: center; text-align: center; gap: 9px; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; font-weight: 700"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: {{c.color}}"></span>{{c.name}}</h3>
+<h3 style="margin: 0; display: flex; align-items: center; justify-content: center; text-align: center; gap: 9px; font-family: 'Montserrat', Arial, sans-serif; font-size: 20px; font-weight: 700"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: {{c.color}}"></span>{{c.name}}</h3>
 <a class="esme-arrowbtn" href="{{c.href}}" aria-label="More in {{c.name}}" title="More in {{c.name}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </div>
 <dc-import name="Card" post="{{c.lead}}" variant="standard" hint-size="100%,400px"></dc-import>
 <div>
 <sc-for list="{{c.more}}" as="m" hint-placeholder-count="2">
-<div style="border-bottom: 1px solid #EAECF0"><dc-import name="Card" post="{{m}}" variant="compact" hint-size="100%,92px"></dc-import></div>
+<div style="border-bottom: 1px solid #E4E8EF"><dc-import name="Card" post="{{m}}" variant="compact" hint-size="100%,92px"></dc-import></div>
 </sc-for>
 </div>
 </div>
@@ -303,12 +305,12 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 </sc-for>
 </div>
 <aside aria-label="Popular" style="flex: 4 1 300px; min-width: 0">
-<div style="position: sticky; top: 104px; background: #FFFFFF; border: 1px solid #EAECF0; border-radius: 14px; padding: 24px 22px 10px; box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px -16px rgba(16,24,40,.18)">
+<div style="position: sticky; top: 104px; background: #FFFFFF; border: 1px solid #E4E8EF; border-radius: 8px; padding: 24px 22px 10px; box-shadow: 0 1px 2px rgba(15,31,77,.04), 0 8px 24px -16px rgba(15,31,77,.18)">
 <p class="esme-eyebrow">Most read</p>
-<h2 style="margin: 10px 0 6px; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.01em">Popular this month</h2>
+<h2 style="margin: 10px 0 6px; font-family: 'Montserrat', Arial, sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.01em">Popular this month</h2>
 <ol style="list-style: none; margin: 0; padding: 0">
 <sc-for list="{{popular}}" as="r" hint-placeholder-count="5">
-<li style="border-bottom: 1px solid #EAECF0"><dc-import name="Card" post="{{r.post}}" variant="compact" rank="{{r.n}}" hint-size="100%,92px"></dc-import></li>
+<li style="border-bottom: 1px solid #E4E8EF"><dc-import name="Card" post="{{r.post}}" variant="compact" rank="{{r.n}}" hint-size="100%,92px"></dc-import></li>
 </sc-for>
 </ol>
 </div>
@@ -320,15 +322,15 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 <div class="yc-wrap">
 <div class="yc-left">
 <p class="esme-eyebrow">This week on Main Street</p>
-<h2 style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(28px, 3vw, 38px); line-height: 1.12; font-weight: 700; letter-spacing: -0.025em">Small-business news, as it happens</h2>
-<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #5A6470">The funding, tax changes and market news that matter to America’s small businesses — checked by our editors every day.</p>
+<h2 style="margin: 0; font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(28px, 3vw, 38px); line-height: 1.12; font-weight: 700; letter-spacing: -0.025em">Small-business news, as it happens</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #475467">The funding, tax changes and market news that matter to America’s small businesses — checked by our editors every day.</p>
 <ul class="yc-ticks">
 <li><span dc-html="{{tickNews}}"></span>Daily news, only when something happens</li>
 <li><span dc-html="{{tickTrend}}"></span>What other owners are reading this week</li>
 <li><span dc-html="{{tickTools}}"></span>SBA programs and tax deadlines, explained</li>
 </ul>
 <div class="yc-due">
-<div class="yc-due-h"><span class="yc-due-t"><span dc-html="{{tickTools}}" style="display: flex; color: #003399"></span>Coming up</span><a class="esme-btn esme-btn--blue esme-btn--sm" href="Compliance.dc.html">All deadlines <span aria-hidden="true">→</span></a></div>
+<div class="yc-due-h"><span class="yc-due-t"><span dc-html="{{tickTools}}" style="display: flex; color: #0F1F4D"></span>Coming up</span><a class="esme-btn esme-btn--blue esme-btn--sm" href="Compliance.dc.html">All deadlines <span aria-hidden="true">→</span></a></div>
 <sc-for list="{{dueSoon}}" as="d" hint-placeholder-count="3">
 <a class="yc-due-r" href="{{d.href}}"><span class="yc-due-d"><strong>{{d.day}}</strong>{{d.mon}}</span><span style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><span class="yc-due-k">{{d.topic}} · {{d.year}}</span><span class="yc-due-x">{{d.title}}</span></span></a>
 </sc-for>
@@ -340,7 +342,7 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 <span class="yc-live-big"><span class="yc-pulse"></span>Live <span style="color: #FFFFFF">from Main Street</span></span>
 <span class="yc-badge">{{statWeek}} stories this month</span>
 </div>
-<div class="yc-stats"><span>Trending: <strong style="color: #F7941D">{{statTrend}}</strong></span></div>
+<div class="yc-stats"><span>Trending: <strong style="color: #F7931E">{{statTrend}}</strong></span></div>
 <sc-if value="{{hasTop}}" hint-placeholder-val="{{ true }}">
 <a class="yc-top" href="{{top.href}}">
 <span class="yc-top-k"><span class="yc-ic" style="background: {{top.tint}}; color: {{top.color}}" dc-html="{{top.icon}}"></span>Top story · {{top.sectionLabel}}</span>
@@ -375,18 +377,18 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 
 </sc-if>
 
-<section id="newsletter" aria-label="Newsletter" style="color: #FFFFFF; background: radial-gradient(800px 500px at 100% 0%, rgba(247,148,29,.14), transparent 60%), linear-gradient(135deg, #0B1B33 0%, #0B2A6B 100%)">
+<section id="newsletter" aria-label="Newsletter" style="color: #FFFFFF; background: radial-gradient(800px 500px at 100% 0%, rgba(86,128,214,.24), transparent 60%), linear-gradient(135deg,#071131 0%,#0F1F4D 55%,#1C3577 100%)">
 <div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 72px; padding-bottom: 72px; display: flex; flex-wrap: wrap; gap: 40px 72px; align-items: center">
 <div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 14px">
 <p class="esme-eyebrow is-dark">Free for American business owners</p>
 <h2 class="esme-h2 is-dark" style="margin-top: 4px">Get the Main Street Briefing</h2>
 <p class="esme-sub is-dark" style="font-size: 16px">Funding, tax changes, tariff updates and practical playbooks for America’s small-business owners — every Tuesday.</p>
 </div>
-<form action="Page.dc.html" method="get" style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 16px; background: #FFFFFF; color: #14181D; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6)"><input type="hidden" name="p" value="newsletter">
-<label for="nl-email" style="font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600">Email address</label>
-<input id="nl-email" name="email" required type="email" placeholder="you@yourbusiness.com" style="height: 48px; padding: 0 14px; border-radius: 8px; border: 1px solid #D0D5DD; font-size: 15px; color: #14181D">
+<form action="Page.dc.html" method="get" style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 16px; background: #FFFFFF; color: #1D2939; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6)"><input type="hidden" name="p" value="newsletter">
+<label for="nl-email" style="font-family: 'Montserrat', Arial, sans-serif; font-size: 13px; font-weight: 600">Email address</label>
+<input id="nl-email" name="email" required type="email" placeholder="you@yourbusiness.com" style="height: 48px; padding: 0 14px; border-radius: 8px; border: 1px solid #D0D5DD; font-size: 15px; color: #1D2939">
 <button type="submit" class="esme-btn esme-btn--gold esme-btn--lg" style="width: 100%">Subscribe free</button>
-<p style="margin: 0; font-size: 12.5px; color: #5A6470">No spam. Unsubscribe any time.</p>
+<p style="margin: 0; font-size: 12.5px; color: #475467">No spam. Unsubscribe any time.</p>
 <span class="esme-nl-note">Free, every Tuesday. You confirm on the next page and can unsubscribe at any time. <a href="Page.dc.html?p=privacy-policy">Privacy policy</a></span>
 </form>
 </div>
@@ -396,7 +398,7 @@ button.esme-chipf{cursor:pointer;font-family:'Sora','Helvetica Neue',Arial,sans-
 <dc-import name="SiteFooter" note="" hint-size="100%,380px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"brand":{"editor":"color","default":"#0B2A6B","options":["#0B2A6B","#003399","#14213D","#1E3A8A"]},"$preview":{"width":1440,"height":4000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"brand":{"editor":"color","default":"#0F1F4D","options":["#0F1F4D","#0F1F4D","#071131","#1C3577"]},"$preview":{"width":1440,"height":4000}}'>
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { posts: null, failed: false }; }
   componentDidMount() {
@@ -456,12 +458,12 @@ class Component extends DCLogic {
       pickLabel: geoC ? geoC.name + ' · change' : 'Choose country',
       allCountries: ESME.countries.slice().sort((x, y) => x.name.localeCompare(y.name)),
       goCountry: (e) => { const v = e.target.value; if (!v) return; ESME.setCountry(v); location.href = '#' + v; },
-      brand: this.props.brand ?? '#0B2A6B',
+      brand: this.props.brand ?? '#0F1F4D',
       tools: ESME.tools.map((t) => Object.assign({}, t, { iconSvg: ESME.icon(t.icon, 24), tint: t.tone + '14', isNew: !!t.isNew })),
       footCols: [
         { title: 'Explore', links: [{ label: 'Latest articles', href: '#' }, { label: 'SME tools', href: '#' }, { label: 'Compliance calendar', href: '#' }, { label: 'Newsletter', href: '#newsletter' }] },
         { title: 'Sections', links: Object.keys(ESME.sections).map((k) => ({ label: ESME.sections[k].label, href: '#' + k })) },
-        { title: 'Company', links: [{ label: 'About American SMB', href: '#' }, { label: 'Our authors', href: '#' }, { label: 'Contact us', href: '#' }] },
+        { title: 'Company', links: [{ label: 'About AmericanSMB', href: '#' }, { label: 'Our authors', href: '#' }, { label: 'Contact us', href: '#' }] },
         { title: 'Work with us', links: [{ label: 'Advertise with us', href: 'Advertise.dc.html' }, { label: 'Become a partner', href: 'Advertise.dc.html#options' }, { label: 'Submit a story', href: '#' }, { label: 'Subscribe', href: '#' }] }
       ],
       loading: !posts && !failed, failed, ready: !!posts,

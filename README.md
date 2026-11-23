@@ -1,4 +1,4 @@
-# American SMB — americansmb.com
+# AmericanSMB — americansmb.com
 
 The magazine for America's small businesses. A static website (HTML, CSS and JavaScript, no build step) built on the European SME "Template 2" design, with a CanadianSME-style menu.
 
@@ -52,3 +52,13 @@ To add an article: add a `post(...)` line in `data.js` and its body under the sa
 ## Notes
 - Photos: Unsplash (free license), loaded from images.unsplash.com.
 - Facts and figures were checked against official sources in November 2026 (SBA, IRS, NFIB, KFF, NRF, SSA, 13 CFR 121.201). Review time-sensitive items (tax limits, deadlines, rates) each year.
+
+## Brand
+
+The design follows the **AmericanSMB Brand Guidelines, Edition 1.0 (Nov 2026)**:
+
+- Logo files: `logo.png` (full color, for white backgrounds), `logo-dark.png` (reversed, for navy), `favicon.png` and `apple-touch-icon.png` (shield icon).
+- Colors: Brand Navy `#0F1F4D`, Brand Orange `#F7931E` (accent only, navy text on orange), Orange Text `#B45309` (small orange text and links), Light Grey `#F2F4F7`, Body Ink `#1D2939`, Muted Ink `#475467`, Border Grey `#D0D5DD`. No red, green or purple.
+- Type: Montserrat for everything (Arial fallback).
+- Corners: 8px buttons and cards, 16px large panels. One soft shadow: `0 8px 24px` navy at 8%.
+- Name: always **AmericanSMB** (one word). Tagline, word for word: *For American Small Businesses*.

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Grant &amp; Loan Finder — American SMB</title>
+<title>Grant &amp; Loan Finder — AmericanSMB</title>
 <script src="./data.js"></script>
 <script src="./support.js"></script>
 </head>
@@ -11,25 +11,27 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="esme.css">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0F1F4D">
 <style>
 body{margin:0;background:#FFFFFF}
-a{color:#14181D;text-decoration:none}
-a:hover{color:#1E4FA8}
+a{color:#1D2939;text-decoration:none}
+a:hover{color:#1C3577}
 </style>
 </helmet>
-<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<div style="font-family: 'Montserrat', Arial, sans-serif; color: #1D2939; background: #FFFFFF">
 <dc-import name="SiteHeader" active="Funding" hint-size="100%,118px"></dc-import>
 
 <main>
-<section aria-label="Introduction" style="background: #0B2A6B; color: #FFFFFF">
+<section aria-label="Introduction" style="background: #0F1F4D; color: #FFFFFF">
 <div style="max-width: 1240px; margin: 0 auto; padding: 48px 32px 44px; display: flex; flex-direction: column; gap: 14px">
 <nav aria-label="Breadcrumb" style="font-size: 13px; color: #C9D3EA; display: flex; gap: 8px"><a href="Tools.dc.html" style="color: #C9D3EA">Tools</a><span aria-hidden="true">/</span><span>Grant &amp; Loan Finder</span></nav>
-<h1 style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 48px; line-height: 1.08; font-weight: 600">Grant &amp; Loan Finder</h1>
+<h1 style="margin: 0; font-family: 'Montserrat', Arial, sans-serif; font-size: 48px; line-height: 1.08; font-weight: 600">Grant &amp; Loan Finder</h1>
 <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #C9D3EA; max-width: 720px">SBA loans, real grants, tax breaks and free help for U.S. small businesses. Filter by what you need; every listing links to the official program page.</p>
-<span style="font-size: 13px; color: #F7941D; font-weight: 600">Compiled by the American SMB editorial team · Confirm details on the official site before you apply</span>
+<span style="font-size: 13px; color: #F7931E; font-weight: 600">Compiled by the AmericanSMB editorial team · Confirm details on the official site before you apply</span>
 </div>
 </section>
 
@@ -58,51 +60,51 @@ a:hover{color:#1E4FA8}
 <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: {{c.bg}}; color: {{c.fg}}; border: 1px solid {{c.border}}">{{c.label}}</button>
 </sc-for>
 </div>
-<span style="font-size: 13px; line-height: 1.5; color: #5A6470">Choosing a group shows programs made for it. Most SBA programs are open to any eligible small business.</span>
+<span style="font-size: 13px; line-height: 1.5; color: #475467">Choosing a group shows programs made for it. Most SBA programs are open to any eligible small business.</span>
 </div>
-<div style="background: #F5F7FA; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 8px">
+<div style="background: #F2F4F7; border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 14px; font-weight: 700">Not sure where to start?</span>
-<span style="font-size: 14px; line-height: 1.5; color: #5A6470">Most SBA programs require you to meet the SBA’s size standard for your industry.</span>
-<a href="Checkers.dc.html#size" style="font-size: 14px; font-weight: 700; color: #1E4FA8">Check: am I a small business? →</a>
+<span style="font-size: 14px; line-height: 1.5; color: #475467">Most SBA programs require you to meet the SBA’s size standard for your industry.</span>
+<a href="Checkers.dc.html#size" style="font-size: 14px; font-weight: 700; color: #1C3577">Check: am I a small business? →</a>
 </div>
 </aside>
 
 <section aria-label="Results" style="flex: 1 1 600px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
 <h2 style="margin: 0; font-size: 18px; font-weight: 700">{{countLabel}}</h2>
-<button type="button" onClick="{{reset}}" style="border: none; background: transparent; color: #1E4FA8; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; min-height: 44px">Clear filters</button>
+<button type="button" onClick="{{reset}}" style="border: none; background: transparent; color: #1C3577; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; min-height: 44px">Clear filters</button>
 </div>
 <sc-for list="{{results}}" as="r" hint-placeholder-count="5">
-<article style="border: 1px solid #E4E7EC; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<article style="border: 1px solid #E4E8EF; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; align-items: flex-start">
 <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
-<span style="font-size: 12px; font-weight: 600; color: #5A6470">{{r.body}}</span>
-<h3 style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 24px; line-height: 1.2; font-weight: 600">{{r.name}}</h3>
+<span style="font-size: 12px; font-weight: 600; color: #475467">{{r.body}}</span>
+<h3 style="margin: 0; font-family: 'Montserrat', Arial, sans-serif; font-size: 24px; line-height: 1.2; font-weight: 600">{{r.name}}</h3>
 </div>
 <div style="display: flex; gap: 6px; flex-wrap: wrap">
-<span style="font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: #E6ECF7; color: #0B2A6B">{{r.typeLabel}}</span>
-<span style="font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: #F5F7FA; color: #1A2233">{{r.themeLabel}}</span>
+<span style="font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: #E4E8EF; color: #0F1F4D">{{r.typeLabel}}</span>
+<span style="font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: #F2F4F7; color: #071131">{{r.themeLabel}}</span>
 </div>
 </div>
-<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #1A2233">{{r.desc}}</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #071131">{{r.desc}}</p>
 <dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px 24px">
-<div><dt style="font-size: 12px; font-weight: 700; color: #5A6470">How much</dt><dd style="margin: 2px 0 0; font-size: 14px; font-weight: 600">{{r.amount}}</dd></div>
-<div><dt style="font-size: 12px; font-weight: 700; color: #5A6470">Who can apply</dt><dd style="margin: 2px 0 0; font-size: 14px; font-weight: 600">{{r.who}}</dd></div>
-<div><dt style="font-size: 12px; font-weight: 700; color: #5A6470">Next deadline</dt><dd style="margin: 2px 0 0; font-size: 14px; font-weight: 600; color: #0B2A6B">{{r.deadline}}</dd></div>
+<div><dt style="font-size: 12px; font-weight: 700; color: #475467">How much</dt><dd style="margin: 2px 0 0; font-size: 14px; font-weight: 600">{{r.amount}}</dd></div>
+<div><dt style="font-size: 12px; font-weight: 700; color: #475467">Who can apply</dt><dd style="margin: 2px 0 0; font-size: 14px; font-weight: 600">{{r.who}}</dd></div>
+<div><dt style="font-size: 12px; font-weight: 700; color: #475467">Next deadline</dt><dd style="margin: 2px 0 0; font-size: 14px; font-weight: 600; color: #0F1F4D">{{r.deadline}}</dd></div>
 </dl>
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid #EEF1F5">
-<span style="font-size: 12px; color: #5A6470">Source: {{r.source}}</span>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid #F2F4F7">
+<span style="font-size: 12px; color: #475467">Source: {{r.source}}</span>
 <div style="display: flex; gap: 10px">
-<a href="{{r.guide}}" style="font-size: 14px; font-weight: 700; padding: 10px 16px; border-radius: 8px; border: 1px solid #0B2A6B; color: #0B2A6B">Our guide</a>
-<a href="{{r.url}}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 16px; border-radius: 8px; background: #0B2A6B; color: #FFFFFF">Official site ↗</a>
+<a href="{{r.guide}}" style="font-size: 14px; font-weight: 700; padding: 10px 16px; border-radius: 8px; border: 1px solid #0F1F4D; color: #0F1F4D">Our guide</a>
+<a href="{{r.url}}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 700; padding: 10px 16px; border-radius: 8px; background: #0F1F4D; color: #FFFFFF">Official site ↗</a>
 </div>
 </div>
 </article>
 </sc-for>
 <sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
-<div style="padding: 32px; border: 1px dashed #C7CFDC; border-radius: 12px; text-align: center; color: #5A6470; font-size: 15px">No programmes match these filters yet. Try another type, or get funding alerts by email.</div>
+<div style="padding: 32px; border: 1px dashed #D0D5DD; border-radius: 8px; text-align: center; color: #475467; font-size: 15px">No programmes match these filters yet. Try another type, or get funding alerts by email.</div>
 </sc-if>
-<p style="margin: 8px 0 0; font-size: 13px; line-height: 1.6; color: #5A6470">Amounts and rates are summarised from the official programme pages. Always check the official program page before applying — terms change.</p>
+<p style="margin: 8px 0 0; font-size: 13px; line-height: 1.6; color: #475467">Amounts and rates are summarised from the official programme pages. Always check the official program page before applying — terms change.</p>
 </section>
 </div>
 </main>
@@ -121,7 +123,7 @@ class Component extends DCLogic {
     const countries = [['all', 'Everyone'], ['veterans', 'Veterans'], ['rural', 'Rural businesses'], ['manufacturers', 'Manufacturers'], ['export', 'Exporters']];
     const chip = (key, label, current, field) => {
       const on = key === current;
-      return { label, on: on ? 'true' : 'false', bg: on ? '#0B2A6B' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14181D', border: on ? '#0B2A6B' : '#C7CFDC', pick: () => this.setState({ [field]: key }) };
+      return { label, on: on ? 'true' : 'false', bg: on ? '#0F1F4D' : '#FFFFFF', fg: on ? '#FFFFFF' : '#1D2939', border: on ? '#0F1F4D' : '#D0D5DD', pick: () => this.setState({ [field]: key }) };
     };
     const all = [
       {"country": "any", "name": "SBA 7(a) loan", "url": "https://www.sba.gov/funding-programs/loans/7a-loans", "guide": "Post.dc.html?slug=sba-7a-vs-504", "body": "U.S. Small Business Administration · through banks and lenders", "types": ["loan"], "typeLabel": "Loan guarantee", "theme": "growth", "themeLabel": "Growth & working capital", "desc": "The SBA’s main loan program: working capital, buying a business, equipment, refinancing and real estate. The SBA guarantees part of the loan so lenders can say yes more often.", "amount": "Up to $5 million (combine with a 504 loan for up to $10 million)", "who": "For-profit U.S. small businesses that meet SBA size standards", "deadline": "Open all year", "source": "sba.gov"},

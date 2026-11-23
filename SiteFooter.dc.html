@@ -11,20 +11,20 @@
 <x-dc>
 <helmet>
 <style>
-.esme-ft{background:#101828;color:#C8CDD6;font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif}
-.esme-ft a{color:#C8CDD6;text-decoration:none}
+.esme-ft{background:#0F1F4D;color:#D0D5DD;font-family:'Montserrat',Arial,sans-serif}
+.esme-ft a{color:#D0D5DD;text-decoration:none}
 .esme-ft a:hover{color:#FFFFFF;text-decoration:none}
-.esme-ft-h{margin:0 0 4px;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF}
-.esme-ft-h::after{content:"";display:block;width:24px;height:2px;margin-top:10px;background:#F7941D;border-radius:2px}
+.esme-ft-h{margin:0 0 4px;font-family:'Montserrat',Arial,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFFFFF}
+.esme-ft-h::after{content:"";display:block;width:24px;height:2px;margin-top:10px;background:#F7931E;border-radius:2px}
 .esme-ft-sub{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
 .esme-ft-sub input{flex:1 1 200px;min-width:0;height:44px;padding:0 12px;border-radius:8px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#FFFFFF;font-size:14.5px;font-family:inherit}
 .esme-ft-sub input::placeholder{color:rgba(200,205,214,.7)}
-.esme-ft-sub input:focus{outline:none;border-color:#F7941D}
+.esme-ft-sub input:focus{outline:none;border-color:#F7931E}
 .esme-ft-bar{margin-top:48px;padding-top:20px;border-top:1px solid rgba(200,205,214,.18);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;font-size:13px}
 .esme-ft-note{color:#98A2B3}
 .esme-ft-col{flex:1 1 140px;display:flex;flex-direction:column;gap:2px;font-size:14px}
 .esme-ft-col a{display:flex;align-items:center;min-height:32px}
-.esme-ft-mail{display:inline-flex !important;align-items:center;gap:8px;margin-top:4px;color:#F7941D !important;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-weight:700}
+.esme-ft-mail{display:inline-flex !important;align-items:center;gap:8px;margin-top:4px;color:#F7931E !important;font-family:'Montserrat',Arial,sans-serif;font-weight:700}
 .esme-ft-mail:hover{color:#FFFFFF !important}
 .esme-ft-mail svg{flex:none}
 .esme-ft-bar a{display:inline-flex;align-items:center;min-height:32px}
@@ -35,8 +35,8 @@
 <div style="max-width: 1232px; margin: 0 auto; padding-left: 32px; padding-right: 32px; box-sizing: border-box; padding-top: 64px; padding-bottom: 28px">
 <div style="display: flex; flex-wrap: wrap; gap: 40px 32px; justify-content: space-between">
 <div style="flex: 2 1 260px; display: flex; flex-direction: column; gap: 16px">
-<img src="logo-dark.png" alt="American SMB Business Magazine" width="760" height="145" style="display: block; height: 52px; width: auto; align-self: flex-start">
-<p style="margin: 0; font-size: 14.5px; line-height: 1.65; max-width: 340px">America’s magazine for small business owners: practical news, guides and free tools to help you start, run and grow your business in all 50 states.</p>
+<img src="logo-dark.png" alt="AmericanSMB — For American Small Businesses" width="760" height="145" style="display: block; height: 52px; width: auto; align-self: flex-start">
+<p style="margin: 0; font-size: 14.5px; line-height: 1.65; max-width: 340px">Practical news, stories and tools that help American small business owners grow.</p>
 </div>
 <sc-for list="{{cols}}" as="fc" hint-placeholder-count="4">
 <nav aria-label="{{fc.title}}" class="esme-ft-col">
@@ -55,7 +55,7 @@
 </div>
 </div>
 <div class="esme-ft-bar">
-<span>© {{year}} American SMB Business Magazine. All rights reserved.<sc-if value="{{hasNote}}" hint-placeholder-val="{{ false }}"><span class="esme-ft-note"> · {{note}}</span></sc-if></span>
+<span>© {{year}} AmericanSMB. All rights reserved.<sc-if value="{{hasNote}}" hint-placeholder-val="{{ false }}"><span class="esme-ft-note"> · {{note}}</span></sc-if></span>
 <span style="display: flex; flex-wrap: wrap; gap: 18px"><a href="Page.dc.html?p=privacy-policy">Privacy</a><a href="Page.dc.html?p=terms-of-use">Terms of use</a><a href="Page.dc.html?p=cookie-policy">Cookies</a><a href="Sitemap.dc.html">Sitemap</a></span>
 </div>
 </div>
@@ -72,7 +72,7 @@ class Component extends DCLogic {
       cols: [
         { title: 'Explore', links: [{ label: 'Latest news & guides', href: 'Articles.dc.html' }, { label: 'Funding & grants', href: 'FundingHub.dc.html' }, { label: 'Tax deadlines', href: 'Compliance.dc.html' }, { label: 'Free tools', href: 'Tools.dc.html' }, { label: 'Main Street Briefing', href: '#' }] },
         { title: 'Topics', links: Object.keys(S).map((k) => ({ label: S[k].label, href: 'Articles.dc.html?section=' + k })) },
-        { title: 'Company', links: [{ label: 'About American SMB', href: 'About.dc.html' }, { label: 'Contact us', href: 'Contact.dc.html' }, { label: 'Advertise with us', href: 'Advertise.dc.html' }, { label: 'Submit your story', href: 'SubmitStory.dc.html' }, { label: 'Become a partner', href: '#' }] }
+        { title: 'Company', links: [{ label: 'About AmericanSMB', href: 'About.dc.html' }, { label: 'Contact us', href: 'Contact.dc.html' }, { label: 'Advertise with us', href: 'Advertise.dc.html' }, { label: 'Submit your story', href: 'SubmitStory.dc.html' }, { label: 'Become a partner', href: '#' }] }
       ]
     };
   }

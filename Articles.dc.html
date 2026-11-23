@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Articles — American SMB</title>
+<title>Articles — AmericanSMB</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./data.js"></script>
 <script src="./support.js"></script>
@@ -11,52 +11,54 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="esme.css">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0F1F4D">
 <style>
 body{margin:0;background:#FFFFFF}
-a{color:#14181D;text-decoration:none}
-a:hover{color:#1E4FA8}
+a{color:#1D2939;text-decoration:none}
+a:hover{color:#1C3577}
 .esme-chipbtn{transition:background .15s ease, border-color .15s ease}
-.esme-chipbtn:hover{border-color:#101828}
-.ar-h{font-family:'Sora',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5A6470}
+.esme-chipbtn:hover{border-color:#0F1F4D}
+.ar-h{font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#475467}
 .ar-tools{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
-.ar-search{position:relative;display:flex;align-items:center;gap:8px;height:44px;width:300px;max-width:100%;padding:0 12px;border:1px solid #D0D5DD;border-radius:10px;background:#FFFFFF;color:#98A2B3}
-.ar-search:focus-within{border-color:#1E4FA8;box-shadow:0 0 0 3px rgba(30,79,168,.12)}
-.ar-search input{flex:1;min-width:0;border:none;outline:none;background:transparent;font-size:14.5px;color:#14181D}
+.ar-search{position:relative;display:flex;align-items:center;gap:8px;height:44px;width:300px;max-width:100%;padding:0 12px;border:1px solid #D0D5DD;border-radius:8px;background:#FFFFFF;color:#98A2B3}
+.ar-search:focus-within{border-color:#1C3577;box-shadow:0 0 0 3px rgba(28,53,119,.12)}
+.ar-search input{flex:1;min-width:0;border:none;outline:none;background:transparent;font-size:14.5px;color:#1D2939}
 .ar-layout{display:grid;grid-template-columns:292px minmax(0,1fr);gap:34px;align-items:start}
 .ar-side{position:sticky;top:24px;display:flex;flex-direction:column;gap:16px}
-.ar-sidecard{padding:16px;border-radius:18px;background:linear-gradient(180deg,#F5F7FB 0%,#FFFFFF 100%);border:1px solid #E4E8F0;box-shadow:0 1px 2px rgba(16,24,40,.04),0 12px 28px -22px rgba(16,24,40,.35)}
-.ar-side-h{margin:2px 6px 12px;font-family:'Sora',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5A6470}
+.ar-sidecard{padding:16px;border-radius:16px;background:linear-gradient(180deg,#F7F8FA 0%,#FFFFFF 100%);border:1px solid #E4E8EF;box-shadow:0 1px 2px rgba(15,31,77,.04),0 12px 28px -22px rgba(15,31,77,.35)}
+.ar-side-h{margin:2px 6px 12px;font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#475467}
 .ar-chips{display:flex;flex-direction:column;gap:4px}
 .ar-sidelinks{display:flex;flex-direction:column;gap:2px}
-.ar-sidelinks a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;font-family:'Sora',sans-serif;font-size:13.5px;font-weight:600;color:#1E4FA8}
-.ar-sidelinks a:hover{background:#EEF2FA;color:#003399}
-.ar-sidelinks a span{display:flex;color:#1E4FA8}
+.ar-sidelinks a{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:13.5px;font-weight:600;color:#1C3577}
+.ar-sidelinks a:hover{background:#F2F4F7;color:#0F1F4D}
+.ar-sidelinks a span{display:flex;color:#1C3577}
 .ar-main{min-width:0;display:flex;flex-direction:column;gap:26px}
-.ar-chip{display:flex;width:100%;text-align:left;align-items:center;gap:11px;padding:7px 10px 7px 7px;border:1px solid transparent;border-radius:12px;background:transparent;cursor:pointer;font-family:'Sora',sans-serif;font-size:13.5px;font-weight:600;color:#14181D;transition:background-color .15s ease,border-color .15s ease,color .15s ease}
-.ar-chip:hover{background:#FFFFFF;border-color:#E4E8F0;transform:translateX(2px)}
+.ar-chip{display:flex;width:100%;text-align:left;align-items:center;gap:11px;padding:7px 10px 7px 7px;border:1px solid transparent;border-radius:8px;background:transparent;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:13.5px;font-weight:600;color:#1D2939;transition:background-color .15s ease,border-color .15s ease,color .15s ease}
+.ar-chip:hover{background:#FFFFFF;border-color:#E4E8EF;transform:translateX(2px)}
 .ar-cl{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ar-chip{transition:background-color .15s ease,border-color .15s ease,color .15s ease,transform .15s ease}
 .ar-ct{flex:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--tint);color:var(--c)}
 .ar-ct svg{width:17px;height:17px}
-.ar-n{font-size:11.5px;font-weight:700;color:#667085;background:#F2F4F7;border-radius:999px;padding:2px 8px}
+.ar-n{font-size:11.5px;font-weight:700;color:#475467;background:#F2F4F7;border-radius:999px;padding:2px 8px}
 .ar-chip[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#FFFFFF;box-shadow:0 8px 18px -10px var(--c)}
 .ar-chip[aria-pressed="true"] .ar-ct{background:rgba(255,255,255,.18);color:#FFFFFF}
 .ar-chip[aria-pressed="true"] .ar-n{background:rgba(255,255,255,.2);color:#FFFFFF}
-.ar-hero{position:relative;flex:none;width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--c),#1E4FA8);color:#FFFFFF;box-shadow:0 12px 24px -12px var(--c),inset 0 0 0 1px rgba(255,255,255,.15)}
+.ar-hero{position:relative;flex:none;width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--c),#1C3577);color:#FFFFFF;box-shadow:0 12px 24px -12px var(--c),inset 0 0 0 1px rgba(255,255,255,.15)}
 .ar-hero svg{width:30px;height:30px}
-.ar-sh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-bottom:12px;border-bottom:2px solid #101828}
-.ar-sh h2{margin:0;display:flex;align-items:center;gap:12px;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:21px;font-weight:700}
-.ar-sh a{font-family:'Sora',sans-serif;font-size:13.5px;font-weight:700;color:#1E4FA8}
-.ar-shi{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.ar-sh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-bottom:12px;border-bottom:2px solid #0F1F4D}
+.ar-sh h2{margin:0;display:flex;align-items:center;gap:12px;font-family:'Montserrat',Arial,sans-serif;font-size:21px;font-weight:700}
+.ar-sh a{font-family:'Montserrat',sans-serif;font-size:13.5px;font-weight:700;color:#1C3577}
+.ar-shi{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center}
 .ar-shi svg{width:20px;height:20px}
-@media (max-width: 960px){.ar-layout{grid-template-columns:minmax(0,1fr);gap:22px}.ar-side{position:static}.ar-sidelinks{display:none}.ar-sidecard{padding:12px}.ar-chips{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:8px}.ar-chip{flex:none;width:auto;border-color:#D9DEE7;border-radius:999px;background:#FFFFFF;padding:5px 12px 5px 5px}.ar-cl{flex:none}}
+@media (max-width: 960px){.ar-layout{grid-template-columns:minmax(0,1fr);gap:22px}.ar-side{position:static}.ar-sidelinks{display:none}.ar-sidecard{padding:12px}.ar-chips{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:8px}.ar-chip{flex:none;width:auto;border-color:#D0D5DD;border-radius:999px;background:#FFFFFF;padding:5px 12px 5px 5px}.ar-cl{flex:none}}
 @media (max-width: 700px){.ar-search{width:100%}}
 </style>
 </helmet>
-<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<div style="font-family: 'Montserrat', Arial, sans-serif; color: #1D2939; background: #FFFFFF">
 <dc-import name="SiteHeader" active="{{navActive}}" hint-size="100%,118px"></dc-import>
 
 <main>
@@ -66,13 +68,13 @@ a:hover{color:#1E4FA8}
 <p class="esme-eyebrow is-dark">{{eyebrow}}</p>
 <div style="display: flex; align-items: center; gap: 18px; min-width: 0">
 <span class="ar-hero" style="--c: {{heroColor}}" dc-html="{{heroIcon}}"></span>
-<h1 class="esme-hero-h1" style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(30px, 3.8vw, 42px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em">{{heading}}</h1>
+<h1 class="esme-hero-h1" style="margin: 0; font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(30px, 3.8vw, 42px); line-height: 1.1; font-weight: 700; letter-spacing: -0.03em">{{heading}}</h1>
 </div>
 </div>
 <div class="ar-tools">
 <div class="ar-search"><span dc-html="{{searchIcon}}"></span><label for="art-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search articles</label><input id="art-search" type="search" placeholder="Search: VAT, hiring, cash flow…" value="{{q}}" onInput="{{setQ}}"></div>
 <label class="esme-hero-lead" style="display: flex; align-items: center; gap: 8px; font-size: 14px">Sort
-<select id="art-sort" value="{{sort}}" onChange="{{setSort}}" style="height: 44px; padding: 0 10px; border-radius: 10px; border: 1px solid #D0D5DD; font-size: 14px; font-family: inherit; background: #FFFFFF">
+<select id="art-sort" value="{{sort}}" onChange="{{setSort}}" style="height: 44px; padding: 0 10px; border-radius: 8px; border: 1px solid #D0D5DD; font-size: 14px; font-family: inherit; background: #FFFFFF">
 <option value="latest">Latest</option>
 <option value="quick">Quickest reads</option>
 <option value="az">A–Z</option>
@@ -110,7 +112,7 @@ a:hover{color:#1E4FA8}
 </div>
 </sc-if>
 <sc-if value="{{failed}}" hint-placeholder-val="{{ false }}">
-<div style="padding: 32px; border: 1px solid #E4E7EC; border-radius: 12px; font-size: 16px; color: #5A6470">We couldn't load the articles right now. Please refresh the page.</div>
+<div style="padding: 32px; border: 1px solid #E4E8EF; border-radius: 8px; font-size: 16px; color: #475467">We couldn't load the articles right now. Please refresh the page.</div>
 </sc-if>
 
 <sc-if value="{{ready}}" hint-placeholder-val="{{ false }}">
@@ -127,7 +129,7 @@ a:hover{color:#1E4FA8}
 <sc-if value="{{showGuides}}" hint-placeholder-val="{{ true }}">
 <section aria-label="Guides" style="display: flex; flex-direction: column; gap: 18px; margin-top: 10px">
 <div class="ar-sh">
-<h2><span class="ar-shi" style="background: #E6ECF7; color: #1E4FA8" dc-html="{{guideIcon}}"></span>Guides &amp; explainers <span style="font-size: 14px; font-weight: 600; color: #5A6470">{{countLabel}}</span></h2>
+<h2><span class="ar-shi" style="background: #E4E8EF; color: #1C3577" dc-html="{{guideIcon}}"></span>Guides &amp; explainers <span style="font-size: 14px; font-weight: 600; color: #475467">{{countLabel}}</span></h2>
 <a href="Tools.dc.html">Free tools <span aria-hidden="true">→</span></a>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px">
@@ -136,7 +138,7 @@ a:hover{color:#1E4FA8}
 </sc-for>
 </div>
 <sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
-<div style="padding: 40px; border: 1px dashed #C7CFDC; border-radius: 12px; text-align: center; font-size: 16px; color: #5A6470">No articles match. Try another word or topic.</div>
+<div style="padding: 40px; border: 1px dashed #D0D5DD; border-radius: 8px; text-align: center; font-size: 16px; color: #475467">No articles match. Try another word or topic.</div>
 </sc-if>
 <sc-if value="{{hasMore}}" hint-placeholder-val="{{ false }}">
 <div style="margin-top: 20px; display: flex; justify-content: center">
@@ -150,16 +152,16 @@ a:hover{color:#1E4FA8}
 </div>
 </div>
 
-<section aria-label="Newsletter" style="background: #0B2A6B">
+<section aria-label="Newsletter" style="background: #0F1F4D">
 <div style="max-width: 1240px; margin: 0 auto; padding: 48px 32px; display: flex; flex-wrap: wrap; gap: 24px 56px; align-items: center; justify-content: space-between">
 <div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 10px">
-<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #F7941D">The Main Street Briefing</span>
-<span style="font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 30px; line-height: 1.2; font-weight: 600; color: #FFFFFF">New guides like these, once a week.</span>
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #F7931E">The Main Street Briefing</span>
+<span style="font-family: 'Montserrat', Arial, sans-serif; font-size: 30px; line-height: 1.2; font-weight: 600; color: #FFFFFF">New guides like these, once a week.</span>
 </div>
 <form action="Page.dc.html" method="get" style="flex: 1 1 420px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end"><input type="hidden" name="p" value="newsletter">
 <label for="nl-arch" style="flex: 1 1 100%; font-size: 14px; font-weight: 600; color: #FFFFFF">Work email</label>
 <input id="nl-arch" name="email" required type="email" placeholder="name@company.com" style="flex: 1 1 240px; height: 50px; padding: 0 14px; border-radius: 8px; border: none; font-size: 16px; font-family: inherit">
-<button type="submit" style="height: 50px; padding: 0 24px; border-radius: 8px; border: none; background: #F7941D; color: #101828; font-weight: 700; font-size: 15px; font-family: inherit; cursor: pointer">Subscribe</button>
+<button type="submit" style="height: 50px; padding: 0 24px; border-radius: 8px; border: none; background: #F7931E; color: #0F1F4D; font-weight: 700; font-size: 15px; font-family: inherit; cursor: pointer">Subscribe</button>
 <span class="esme-nl-note is-dark">Free, every Tuesday. You confirm on the next page and can unsubscribe at any time. <a href="Page.dc.html?p=privacy-policy">Privacy policy</a></span>
 </form>
 </div>
@@ -214,11 +216,11 @@ class Component extends DCLogic {
       searchIcon: ESME.icon('search', 16), newsIcon: ESME.icon('news', 20), guideIcon: ESME.icon('guide', 20),
       fundIcon: ESME.icon('funding', 16), calIcon: ESME.icon('calendar', 16), toolIcon: ESME.icon('calculator', 16),
       topics: topicKeys.map((key) => {
-        const color = key === 'all' ? '#0B2A6B' : S[key].color;
+        const color = key === 'all' ? '#0F1F4D' : S[key].color;
         return { label: key === 'all' ? 'All topics' : S[key].label, color, tint: color + '1A', icon: ESME.icon(key === 'all' ? 'grid' : key, 17),
           count: String(count(key)), on: key === section ? 'true' : 'false', pick: () => this.sync({ section: key }) };
       }),
-      heroColor: sec ? sec.color : '#003399', heroIcon: ESME.icon(section === 'all' ? 'news' : section, 30),
+      heroColor: sec ? sec.color : '#0F1F4D', heroIcon: ESME.icon(section === 'all' ? 'news' : section, 30),
       eyebrow: L ? L.eyebrow : (sec ? 'Topic' : 'Latest'),
       heading: L ? L.heading : sec ? sec.label : (type === 'guide' ? 'How-to guides' : type === 'news' ? 'Latest news' : 'Latest news & guides'),
       intro: L ? L.intro : (sec ? 'News and practical guides on ' + sec.label.toLowerCase() + ' for America’s small businesses.' : (type === 'guide' ? 'Step-by-step guides for running and growing a small business in the U.S.' : type === 'news' ? 'The latest small-business news from Washington, the states and Main Street.' : 'Small-business news and practical guides for owners across all 50 states.')),

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tax Deadline Calendar — American SMB</title>
+<title>Tax Deadline Calendar — AmericanSMB</title>
 <script src="./data.js"></script>
 <script src="./support.js"></script>
 </head>
@@ -11,28 +11,30 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="esme.css">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0F1F4D">
 <style>
 body{margin:0;background:#FFFFFF}
-a{color:#14181D;text-decoration:none}
-a:hover{color:#1E4FA8}
+a{color:#1D2939;text-decoration:none}
+a:hover{color:#1C3577}
 </style>
 </helmet>
-<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<div style="font-family: 'Montserrat', Arial, sans-serif; color: #1D2939; background: #FFFFFF">
 <dc-import name="SiteHeader" active="Tools" hint-size="100%,118px"></dc-import>
 
 <main>
-<section aria-label="Introduction" style="background: #14181D; color: #FFFFFF">
+<section aria-label="Introduction" style="background: #1D2939; color: #FFFFFF">
 <div style="max-width: 1240px; margin: 0 auto; padding: 48px 32px 44px; display: flex; flex-wrap: wrap; gap: 24px 48px; justify-content: space-between; align-items: flex-end">
 <div style="flex: 1 1 560px; display: flex; flex-direction: column; gap: 14px">
 <nav aria-label="Breadcrumb" style="font-size: 13px; color: #C9D3EA; display: flex; gap: 8px"><a href="Tools.dc.html" style="color: #C9D3EA">Tools</a><span aria-hidden="true">/</span><span>Tax Deadline Calendar</span></nav>
-<h1 style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 48px; line-height: 1.08; font-weight: 600">Tax Deadline Calendar</h1>
+<h1 style="margin: 0; font-family: 'Montserrat', Arial, sans-serif; font-size: 48px; line-height: 1.08; font-weight: 600">Tax Deadline Calendar</h1>
 <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #C9D3EA; max-width: 680px">Federal tax and payroll deadlines for small businesses, in date order. Filter by your business type and add any deadline to your own calendar.</p>
 </div>
-<div style="flex: 0 1 320px; border: 1px solid rgba(201,211,234,0.3); border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px">
-<span style="font-size: 13px; font-weight: 700; color: #F7941D">Compiled by the American SMB editorial team</span>
+<div style="flex: 0 1 320px; border: 1px solid rgba(201,211,234,0.3); border-radius: 8px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 13px; font-weight: 700; color: #F7931E">Compiled by the AmericanSMB editorial team</span>
 <span style="font-size: 13px; line-height: 1.5; color: #C9D3EA">For calendar-year businesses. Dates are adjusted for weekends and holidays; confirm with the IRS or your accountant. State deadlines differ.</span>
 </div>
 </div>
@@ -44,7 +46,7 @@ a:hover{color:#1E4FA8}
 <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: {{c.bg}}; color: {{c.fg}}; border: 1px solid {{c.border}}">{{c.label}}</button>
 </sc-for>
 </div>
-<sc-if value="{{hasGeo}}" hint-placeholder-val="{{ false }}"><span style="flex-basis: 100%; order: 3; font-size: 13px; font-weight: 600; color: #0F7B6C">✓ {{geoNote}}</span></sc-if>
+<sc-if value="{{hasGeo}}" hint-placeholder-val="{{ false }}"><span style="flex-basis: 100%; order: 3; font-size: 13px; font-weight: 600; color: #0F1F4D">✓ {{geoNote}}</span></sc-if>
 <div role="group" aria-label="Topic" style="display: flex; flex-wrap: wrap; gap: 8px">
 <sc-for list="{{topicChips}}" as="c" hint-placeholder-count="3">
 <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="min-height: 40px; padding: 0 14px; border-radius: 8px; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: {{c.bg}}; color: {{c.fg}}; border: 1px solid {{c.border}}">{{c.label}}</button>
@@ -57,49 +59,49 @@ a:hover{color:#1E4FA8}
 <h2 style="margin: 0 0 8px; font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase">Coming up · {{countLabel}}</h2>
 <ol style="list-style: none; margin: 0; padding: 0">
 <sc-for list="{{events}}" as="e" hint-placeholder-count="6">
-<li style="display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E4E7EC">
+<li style="display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid #E4E8EF">
 <div style="flex: 0 0 96px; display: flex; flex-direction: column; gap: 2px">
-<span style="font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 30px; font-weight: 600; line-height: 1; color: #0B2A6B">{{e.day}}</span>
+<span style="font-family: 'Montserrat', Arial, sans-serif; font-size: 30px; font-weight: 600; line-height: 1; color: #0F1F4D">{{e.day}}</span>
 <span style="font-size: 14px; font-weight: 700">{{e.month}}</span>
 </div>
 <div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 8px">
 <div style="display: flex; flex-wrap: wrap; gap: 6px">
-<span style="font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: #E6ECF7; color: #0B2A6B">{{e.where}}</span>
-<span style="font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: #F5F7FA; color: #1A2233">{{e.topicLabel}}</span>
+<span style="font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: #E4E8EF; color: #0F1F4D">{{e.where}}</span>
+<span style="font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: #F2F4F7; color: #071131">{{e.topicLabel}}</span>
 </div>
-<h3 style="margin: 0; font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; line-height: 1.25; font-weight: 600">{{e.title}}</h3>
-<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #1A2233"><strong style="font-weight: 700">What to do: </strong>{{e.todo}}</p>
+<h3 style="margin: 0; font-family: 'Montserrat', Arial, sans-serif; font-size: 22px; line-height: 1.25; font-weight: 600">{{e.title}}</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #071131"><strong style="font-weight: 700">What to do: </strong>{{e.todo}}</p>
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px">
-<span style="font-size: 12px; color: #5A6470">Source: {{e.source}}</span>
-<sc-if value="{{e.hasDate}}" hint-placeholder-val="{{ true }}"><a href="{{e.ics}}" download="{{e.file}}" style="min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #0B2A6B; background: #FFFFFF; color: #0B2A6B; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; text-decoration: none">Add to calendar</a></sc-if><sc-if value="{{e.noDate}}" hint-placeholder-val="{{ false }}"><span style="font-size: 13px; font-weight: 600; color: #5A6470">Date to be confirmed</span></sc-if>
+<span style="font-size: 12px; color: #475467">Source: {{e.source}}</span>
+<sc-if value="{{e.hasDate}}" hint-placeholder-val="{{ true }}"><a href="{{e.ics}}" download="{{e.file}}" style="min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #0F1F4D; background: #FFFFFF; color: #0F1F4D; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; text-decoration: none">Add to calendar</a></sc-if><sc-if value="{{e.noDate}}" hint-placeholder-val="{{ false }}"><span style="font-size: 13px; font-weight: 600; color: #475467">Date to be confirmed</span></sc-if>
 </div>
 </div>
 </li>
 </sc-for>
 </ol>
 <sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
-<div style="margin-top: 16px; padding: 28px; border: 1px dashed #C7CFDC; border-radius: 12px; text-align: center; color: #5A6470; font-size: 15px">No upcoming deadlines for this filter. Choose “All businesses” to see every date.</div>
+<div style="margin-top: 16px; padding: 28px; border: 1px dashed #D0D5DD; border-radius: 8px; text-align: center; color: #475467; font-size: 15px">No upcoming deadlines for this filter. Choose “All businesses” to see every date.</div>
 </sc-if>
 </section>
 
 <aside aria-label="Good to know" style="flex: 0 1 360px; min-width: 280px; display: flex; flex-direction: column; gap: 24px">
-<div style="background: #F5F7FA; border-radius: 12px; padding: 24px">
+<div style="background: #F2F4F7; border-radius: 8px; padding: 24px">
 <h2 style="margin: 0 0 6px; font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase">Good to know</h2>
 <sc-for list="{{inForce}}" as="f" hint-placeholder-count="5">
-<div style="padding: 14px 0; border-bottom: 1px solid #E4E7EC; display: flex; flex-direction: column; gap: 4px">
-<span style="font-size: 12px; font-weight: 700; color: #1E4FA8">{{f.since}}</span>
+<div style="padding: 14px 0; border-bottom: 1px solid #E4E8EF; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 12px; font-weight: 700; color: #1C3577">{{f.since}}</span>
 <span style="font-size: 15px; font-weight: 600; line-height: 1.4">{{f.title}}</span>
 </div>
 </sc-for>
 </div>
-<form action="Page.dc.html" method="get" style="background: #0B2A6B; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 12px"><input type="hidden" name="p" value="newsletter">
-<span style="font-family: 'Sora', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; line-height: 1.25; font-weight: 600; color: #FFFFFF">Get a reminder 30 days before each deadline.</span>
+<form action="Page.dc.html" method="get" style="background: #0F1F4D; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 12px"><input type="hidden" name="p" value="newsletter">
+<span style="font-family: 'Montserrat', Arial, sans-serif; font-size: 22px; line-height: 1.25; font-weight: 600; color: #FFFFFF">Get a reminder 30 days before each deadline.</span>
 <label for="cc-email" style="font-size: 13px; font-weight: 600; color: #C9D3EA">Work email</label>
 <input id="cc-email" name="email" type="email" required placeholder="name@company.eu" style="height: 48px; padding: 0 14px; border-radius: 8px; border: none; font-size: 16px; font-family: inherit">
-<button type="submit" style="height: 48px; border-radius: 8px; border: none; background: #F7941D; color: #101828; font-weight: 700; font-size: 15px; font-family: inherit; cursor: pointer">Get compliance alerts</button>
+<button type="submit" style="height: 48px; border-radius: 8px; border: none; background: #F7931E; color: #0F1F4D; font-weight: 700; font-size: 15px; font-family: inherit; cursor: pointer">Get compliance alerts</button>
 <span class="esme-nl-note is-dark">Free, every Tuesday. You confirm on the next page and can unsubscribe at any time. <a href="Page.dc.html?p=privacy-policy">Privacy policy</a></span>
 </form>
-<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #5A6470">General guidance, not legal advice. Dates can move — the AI Act's high-risk deadlines were postponed in July 2026 — so always check the source.</p>
+<p style="margin: 0; font-size: 13px; line-height: 1.6; color: #475467">General guidance, not legal advice. Dates can move — the AI Act's high-risk deadlines were postponed in July 2026 — so always check the source.</p>
 </aside>
 </div>
 </main>
@@ -117,7 +119,7 @@ class Component extends DCLogic {
     const topics = [['all', 'All topics'], ['income', 'Income tax'], ['est', 'Estimated tax'], ['payroll', 'Payroll'], ['info', 'Information returns']];
     const chip = (key, label, current, field) => {
       const on = key === current;
-      return { label, on: on ? 'true' : 'false', bg: on ? '#0B2A6B' : '#FFFFFF', fg: on ? '#FFFFFF' : '#14181D', border: on ? '#0B2A6B' : '#C7CFDC', pick: () => this.setState({ [field]: key }) };
+      return { label, on: on ? 'true' : 'false', bg: on ? '#0F1F4D' : '#FFFFFF', fg: on ? '#FFFFFF' : '#1D2939', border: on ? '#0F1F4D' : '#D0D5DD', pick: () => this.setState({ [field]: key }) };
     };
     const ev = [
       {"day": "15", "month": "Dec 2026", "p": ["ccorp"], "where": "C corporations", "t": "est", "topicLabel": "Estimated tax", "title": "Fourth-quarter 2026 estimated tax payment for calendar-year corporations", "todo": "Pay through EFTPS or IRS Direct Pay for businesses. Base it on your expected 2026 tax.", "source": "IRS Publication 509"},
@@ -146,7 +148,7 @@ class Component extends DCLogic {
       e.noDate = !e.hasDate;
       if (e.hasDate) {
         const d = m[2] + MON[m[1]] + String(e.day).padStart(2, '0');
-        const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//American SMB//Tax Deadline Calendar//EN', 'BEGIN:VEVENT', 'UID:amsmb-' + d + '-' + i + '@americansmb.com', 'DTSTAMP:20261109T000000Z', 'DTSTART;VALUE=DATE:' + d, 'SUMMARY:' + e.title.replace(/[,;]/g, ' '), 'DESCRIPTION:' + ('What to do: ' + e.todo + ' Source: ' + e.source).replace(/[,;]/g, ' '), 'BEGIN:VALARM', 'TRIGGER:-P30D', 'ACTION:DISPLAY', 'DESCRIPTION:Reminder', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+        const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//AmericanSMB//Tax Deadline Calendar//EN', 'BEGIN:VEVENT', 'UID:amsmb-' + d + '-' + i + '@americansmb.com', 'DTSTAMP:20261109T000000Z', 'DTSTART;VALUE=DATE:' + d, 'SUMMARY:' + e.title.replace(/[,;]/g, ' '), 'DESCRIPTION:' + ('What to do: ' + e.todo + ' Source: ' + e.source).replace(/[,;]/g, ' '), 'BEGIN:VALARM', 'TRIGGER:-P30D', 'ACTION:DISPLAY', 'DESCRIPTION:Reminder', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
         e.ics = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
         e.file = 'american-smb-' + d + '.ics';
       }

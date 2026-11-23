@@ -9,12 +9,12 @@
 <x-dc>
 <helmet>
 <style>
-.esme-su-msg{display:flex;align-items:center;gap:8px;padding:12px 14px;border-radius:10px;font-size:14px;line-height:1.45}
-.esme-su-msg.is-ok{background:#ECFDF3;color:#05603A}
-.esme-su-msg.is-err{background:#FEF3F2;color:#B42318}
+.esme-su-msg{display:flex;align-items:center;gap:8px;padding:12px 14px;border-radius:8px;font-size:14px;line-height:1.45}
+.esme-su-msg.is-ok{background:#F2F4F7;color:#0F1F4D}
+.esme-su-msg.is-err{background:#FFF4E5;color:#B45309}
 .esme-su-consent{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.5;color:#475467}
-.esme-su-consent input{margin-top:3px;width:16px;height:16px;accent-color:#0B2A6B}
-.esme-su-consent a{color:#1E4FA8;text-decoration:underline}
+.esme-su-consent input{margin-top:3px;width:16px;height:16px;accent-color:#0F1F4D}
+.esme-su-consent a{color:#1C3577;text-decoration:underline}
 </style>
 </helmet>
 <form class="yc-sub" onSubmit="{{submit}}" style="margin-top: 32px">
@@ -23,10 +23,10 @@
 <span class="yc-sub-in"><span dc-html="{{mailIcon}}" style="color: #98A2B3; display: flex"></span><input id="su-email" name="email" type="email" required placeholder="you@yourbusiness.com" value="{{email}}" onInput="{{setEmail}}"></span>
 <button type="submit" class="esme-btn esme-btn--gold esme-btn--lg" disabled="{{busy}}">{{button}}</button>
 </div>
-<label class="esme-su-consent"><input type="checkbox" required checked="{{consent}}" onChange="{{toggle}}"><span>Send me the free Main Street Briefing from American SMB. I can unsubscribe at any time. See our <a href="Page.dc.html?p=privacy-policy">privacy policy</a>.</span></label>
+<label class="esme-su-consent"><input type="checkbox" required checked="{{consent}}" onChange="{{toggle}}"><span>Send me the free Main Street Briefing from AmericanSMB. I can unsubscribe at any time. See our <a href="Page.dc.html?p=privacy-policy">privacy policy</a>.</span></label>
 <sc-if value="{{done}}"><p class="esme-su-msg is-ok" role="status" style="margin: 0"><span dc-html="{{checkIcon}}" style="display: flex"></span>{{doneText}}</p></sc-if>
 <sc-if value="{{hasError}}"><p class="esme-su-msg is-err" role="alert" style="margin: 0">{{error}}</p></sc-if>
-<span class="yc-sub-note"><span dc-html="{{checkIcon}}" style="color: #12B76A; display: flex"></span>Free weekly briefing · No spam · Unsubscribe any time</span>
+<span class="yc-sub-note"><span dc-html="{{checkIcon}}" style="color: #B45309; display: flex"></span>Free weekly briefing · No spam · Unsubscribe any time</span>
 </form>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":720,"height":260}}'>

@@ -1,20 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;800&display=swap');
-/* European SME — shared styles, modelled on the canadiansme.ca design system.
-   Headings, nav, labels and buttons: Sora. Body text: IBM Plex Sans. */
+
+/* AmericanSMB — shared styles. Follows the AmericanSMB Brand Guidelines, Edition 1.0 (Nov 2026):
+   one typeface (Montserrat, Arial fallback), Brand Navy #0F1F4D, Brand Orange #F7931E as the accent,
+   Orange Text #B45309 for small orange text and links, 8px corners, one soft navy shadow. */
 :root{
-  --esme-ink:#101828; --esme-text:#14181D; --esme-muted:#5A6470; --esme-label:#344054;
-  --esme-line:#E4E7EC; --esme-line2:#EAECF0; --esme-surface:#F5F7FA;
-  --esme-navy:#0B2A6B; --esme-deep:#0B1B33; --esme-blue:#1E4FA8; --esme-gold:#F7941D; --esme-gold-d:#E6B800;
-  --esme-sora:'Sora','Helvetica Neue',Arial,sans-serif;
-  --esme-plex:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --esme-ink:#0F1F4D; --esme-text:#1D2939; --esme-muted:#475467; --esme-label:#475467;
+  --esme-line:#E4E8EF; --esme-line2:#E4E8EF; --esme-surface:#F2F4F7;
+  --esme-navy:#0F1F4D; --esme-deep:#071131; --esme-blue:#1C3577; --esme-gold:#F7931E; --esme-gold-d:#F7931E;
+  --esme-sora:'Montserrat',Arial,sans-serif;
+  --esme-plex:'Montserrat',Arial,sans-serif;
 }
 body{margin:0;background:#FFFFFF;font-family:var(--esme-plex);color:var(--esme-text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 h1,h2,h3,h4{font-family:var(--esme-sora)}
 input,button,select,textarea{font-family:inherit}
 
-/* Section heading: small spaced label with a gold rule, then a bold Sora title */
-.esme-eyebrow{display:flex;align-items:center;gap:14px;margin:0;font-family:var(--esme-sora);font-size:12px;font-weight:600;line-height:1;letter-spacing:.24em;text-transform:uppercase;color:var(--esme-label)}
-.esme-eyebrow::after{content:"";width:46px;height:2px;background:var(--esme-gold-d)}
+/* Section heading: small spaced label with a gold rule, then a bold Montserrat title */
+.esme-eyebrow{display:flex;align-items:center;gap:14px;margin:0;font-family:var(--esme-sora);font-size:12px;font-weight:600;line-height:1;letter-spacing:.12em;text-transform:uppercase;color:var(--esme-label)}
+.esme-eyebrow::after{content:"";width:46px;height:2px;background:#1C3577}
 .esme-eyebrow.is-dark{color:rgba(255,255,255,.82)}
 .esme-eyebrow.is-dark::after{background:var(--esme-gold)}
 .esme-h2{margin:12px 0 0;font-family:var(--esme-sora);font-size:36px;line-height:1.15;font-weight:700;letter-spacing:-.02em;color:var(--esme-ink)}
@@ -33,10 +34,10 @@ input,button,select,textarea{font-family:inherit}
 .esme-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 18px;border-radius:8px;border:1px solid transparent;font-family:var(--esme-sora);font-size:13px;font-weight:700;line-height:1.25;white-space:nowrap;cursor:pointer;text-decoration:none;transition:transform .15s ease,box-shadow .15s ease,background-color .15s ease}
 .esme-btn:hover{text-decoration:none;transform:translateY(-1px)}
 .esme-btn:focus-visible{outline:3px solid var(--esme-blue);outline-offset:2px}
-.esme-btn--gold,.esme-btn--gold:hover{background:var(--esme-gold);color:var(--esme-ink);box-shadow:0 1px 2px rgba(230,184,0,.4)}
+.esme-btn--gold,.esme-btn--gold:hover{background:var(--esme-gold);color:var(--esme-ink);box-shadow:0 1px 2px rgba(247,147,30,.4)}
 .esme-btn--gold:hover{background:#FFA94D}
 .esme-btn--blue,.esme-btn--blue:hover{background:var(--esme-blue);color:#FFFFFF}
-.esme-btn--blue:hover{background:#2459BA}
+.esme-btn--blue:hover{background:#0F1F4D}
 .esme-btn--navy,.esme-btn--navy:hover{background:var(--esme-navy);color:#FFFFFF}
 .esme-btn--ghost,.esme-btn--ghost:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.4);color:#FFFFFF}
 .esme-btn--line,.esme-btn--line:hover{background:#FFFFFF;border-color:#D0D5DD;color:var(--esme-ink)}
@@ -52,7 +53,7 @@ input,button,select,textarea{font-family:inherit}
 .esme-tag--gold{background:var(--esme-gold);color:var(--esme-ink)}
 .esme-tag--outline{border:1px solid rgba(255,255,255,.45);color:#FFFFFF}
 
-.esme-skel{background:linear-gradient(90deg,#EEF1F5 25%,#F6F8FB 50%,#EEF1F5 75%);background-size:200% 100%;animation:esme-sh 1.2s infinite linear;border-radius:12px}
+.esme-skel{background:linear-gradient(90deg,#F2F4F7 25%,#F7F8FA 50%,#F2F4F7 75%);background-size:200% 100%;animation:esme-sh 1.2s infinite linear;border-radius:12px}
 @keyframes esme-sh{from{background-position:200% 0}to{background-position:-200% 0}}
 @media (max-width: 720px){.esme-h2{font-size:28px}}
 
@@ -63,60 +64,60 @@ input,button,select,textarea{font-family:inherit}
 .esme-btn--lg{min-height:48px;padding:0 24px;font-size:15px}
 .esme-arrowbtn{width:32px !important;height:32px !important}
 @container (max-width: 300px){.esme-more{padding:0 11px !important}}
-/* Corners: 8px buttons, 12px cards, 16px large panels. */
-.esme-card,.esme-toolcard,.esme-herocard,.yc-row,.yc-due-r{border-radius:12px !important}
+/* Corners: 8px buttons and cards, 16px large panels (brand book p.27). */
+.esme-card,.esme-toolcard,.esme-herocard,.yc-row,.yc-due-r{border-radius:8px !important}
 
 /* Phone: drop the top-bar tagline rather than clip it */
 @media (max-width: 560px){ .esme-tagline{ display:none !important } }
 
 /* Article "Sources" toggle (closed by default) */
-.esme-sources{margin-top:8px;padding-top:16px;border-top:1px solid #E4E7EC;font-size:14px;line-height:1.7;color:#5A6470}
-.esme-sources>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;min-height:32px;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#14181D}
+.esme-sources{margin-top:8px;padding-top:16px;border-top:1px solid #E4E8EF;font-size:14px;line-height:1.7;color:#475467}
+.esme-sources>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;min-height:32px;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#1D2939}
 .esme-sources>summary::-webkit-details-marker{display:none}
-.esme-sources>summary::after{content:'+';font-size:16px;font-weight:700;color:#1E4FA8;letter-spacing:0}
+.esme-sources>summary::after{content:'+';font-size:16px;font-weight:700;color:#1C3577;letter-spacing:0}
 .esme-sources[open]>summary::after{content:'\2212'}
 .esme-sources ul,.esme-sources ol{margin:8px 0 0;padding-left:20px;font-size:14px}
-.esme-sources a{color:#1E4FA8}
+.esme-sources a{color:#1C3577}
 
 /* Article byline: EU star-ring avatar, date and reading time, share row */
-.esme-byline{margin-top:28px;padding:14px 0 18px;border-bottom:1px solid #E4E7EC;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+.esme-byline{margin-top:28px;padding:14px 0 18px;border-bottom:1px solid #E4E8EF;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
 .esme-byline-who{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;border-radius:10px}
-.esme-byline-who:focus-visible{outline:2px solid #1E4FA8;outline-offset:4px}
+.esme-byline-who:focus-visible{outline:2px solid #1C3577;outline-offset:4px}
 .esme-byline-av{position:relative;width:56px;height:56px;flex:0 0 56px;display:flex;align-items:center;justify-content:center}
-.esme-byline-ini{position:relative;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:14px;font-weight:700;letter-spacing:.02em;color:#FFFFFF}
+.esme-byline-ini{position:relative;font-family:'Montserrat',Arial,sans-serif;font-size:14px;font-weight:700;letter-spacing:.02em;color:#FFFFFF}
 .esme-byline-txt{display:flex;flex-direction:column;gap:4px}
-.esme-byline-name{font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:16px;font-weight:600;color:#14181D;line-height:1.3}
-.esme-byline-who:hover .esme-byline-name{color:#1E4FA8}
-.esme-byline-meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:#5A6470}
+.esme-byline-name{font-family:'Montserrat',Arial,sans-serif;font-size:16px;font-weight:600;color:#1D2939;line-height:1.3}
+.esme-byline-who:hover .esme-byline-name{color:#1C3577}
+.esme-byline-meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13.5px;color:#475467}
 .esme-byline-meta>span{display:inline-flex;align-items:center;gap:6px}
 .esme-byline-share{display:flex;align-items:center;gap:8px}
-.esme-byline-sl{font-size:13.5px;font-weight:600;color:#5A6470;margin-right:4px}
-.esme-byline-ok{font-size:13px;font-weight:600;color:#0F7B6C}
-.esme-byline .esme-share{width:40px;height:40px;border-radius:20px;border:1px solid #E4E7EC;background:#FFFFFF;color:#14181D;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;transition:border-color .15s ease,color .15s ease}
-.esme-byline .esme-share:hover{border-color:#0B2A6B;color:#0B2A6B}
-.esme-byline .esme-share:focus-visible{outline:2px solid #1E4FA8;outline-offset:2px}
+.esme-byline-sl{font-size:13.5px;font-weight:600;color:#475467;margin-right:4px}
+.esme-byline-ok{font-size:13px;font-weight:600;color:#0F1F4D}
+.esme-byline .esme-share{width:40px;height:40px;border-radius:20px;border:1px solid #E4E8EF;background:#FFFFFF;color:#1D2939;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;transition:border-color .15s ease,color .15s ease}
+.esme-byline .esme-share:hover{border-color:#0F1F4D;color:#0F1F4D}
+.esme-byline .esme-share:focus-visible{outline:2px solid #1C3577;outline-offset:2px}
 @media (max-width:560px){.esme-byline-sl{display:none}}
 /* Breadcrumb: current article title, one line */
-.esme-crumb-cur{max-width:min(420px,60vw);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#14181D}
+.esme-crumb-cur{max-width:min(420px,60vw);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#1D2939}
 /* Article rail: Weekly Briefing sign-up */
-.esme-railsub{position:relative;overflow:hidden;background:#0B2A6B;border-radius:16px;padding:26px 24px 22px;display:flex;flex-direction:column;gap:12px;color:#FFFFFF}
+.esme-railsub{position:relative;overflow:hidden;background:#0F1F4D;border-radius:16px;padding:26px 24px 22px;display:flex;flex-direction:column;gap:12px;color:#FFFFFF}
 .esme-railsub-ring{position:absolute;right:-44px;top:-44px;opacity:.85}
-.esme-railsub-h{position:relative;margin:0;max-width:220px;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:22px;line-height:1.25;font-weight:600;color:#FFFFFF}
-.esme-railsub-p{position:relative;margin:0;font-size:14.5px;line-height:1.6;color:#C9D4EA}
+.esme-railsub-h{position:relative;margin:0;max-width:220px;font-family:'Montserrat',Arial,sans-serif;font-size:22px;line-height:1.25;font-weight:600;color:#FFFFFF}
+.esme-railsub-p{position:relative;margin:0;font-size:14.5px;line-height:1.6;color:#C9D3EA}
 .esme-railsub-f{display:flex;flex-direction:column;gap:8px;margin-top:4px}
-.esme-railsub-f input{height:44px;border-radius:8px;border:1px solid rgba(255,255,255,.25);background:#FFFFFF;color:#14181D;padding:0 14px;font:inherit;font-size:15px}
-.esme-railsub-f input:focus-visible{outline:2px solid #F7941D;outline-offset:2px}
+.esme-railsub-f input{height:44px;border-radius:8px;border:1px solid rgba(255,255,255,.25);background:#FFFFFF;color:#1D2939;padding:0 14px;font:inherit;font-size:15px}
+.esme-railsub-f input:focus-visible{outline:2px solid #F7931E;outline-offset:2px}
 .esme-railsub-f .esme-btn{width:100%;justify-content:center;min-height:44px}
-.esme-railsub-n{font-size:12.5px;color:#9FB1D6}
+.esme-railsub-n{font-size:12.5px;color:#9DB0D3}
 .esme-vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Branded page hero (same look as the Advertise page): navy with a gold glow, used by every
    page whose top was plain white or grey. Colours here win over the old inline ones. */
-.esme-hero{position:relative;overflow:hidden;color:#FFFFFF;background:radial-gradient(900px 520px at 88% 8%,rgba(247,148,29,.16),transparent 62%),radial-gradient(900px 640px at 0% 100%,rgba(30,79,168,.55),transparent 62%),linear-gradient(135deg,#0B1B33 0%,#0B2A6B 100%);border-bottom:0!important}
+.esme-hero{position:relative;overflow:hidden;color:#FFFFFF;background:radial-gradient(900px 520px at 88% 8%,rgba(86,128,214,.24),transparent 62%),radial-gradient(900px 640px at 0% 100%,rgba(28,53,119,.55),transparent 62%),linear-gradient(135deg,#071131 0%,#0F1F4D 55%,#1C3577 100%);border-bottom:0!important}
 .esme-hero-in{max-width:1232px;margin:0 auto;padding:28px 32px 64px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px}
 .esme-hero .esme-hero-crumb,.esme-hero .esme-hero-crumb span{color:rgba(255,255,255,.7)!important}
 .esme-hero .esme-hero-crumb a{color:rgba(255,255,255,.88)!important}
-.esme-hero .esme-hero-crumb a:hover{color:#F7941D!important}
+.esme-hero .esme-hero-crumb a:hover{color:#F7931E!important}
 .esme-hero .esme-hero-h1{color:#FFFFFF!important}
 .esme-hero .esme-hero-lead{color:rgba(255,255,255,.84)!important}
 .esme-hero-note{font-size:14px;color:rgba(255,255,255,.66)}
@@ -124,8 +125,8 @@ input,button,select,textarea{font-family:inherit}
 .esme-legalnav{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
 .esme-legalnav a{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;font-size:15px;font-weight:600;color:#FFFFFF!important;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06);text-decoration:none;transition:background .15s ease,border-color .15s ease}
 .esme-legalnav a:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.5)}
-.esme-legalnav a[aria-current="page"]{background:#F7941D;border-color:#F7941D;color:#101828!important}
-.esme-legalnav a:focus-visible{outline:2px solid #F7941D;outline-offset:3px}
+.esme-legalnav a[aria-current="page"]{background:#F7931E;border-color:#F7931E;color:#0F1F4D!important}
+.esme-legalnav a:focus-visible{outline:2px solid #F7931E;outline-offset:3px}
 
 /* Button text keeps its colour on hover, whatever a section's own link-hover rule says (18 Nov audit) */
 .esme-btn--gold:hover,.esme-btn--gold:focus-visible{color:var(--esme-ink)!important}
@@ -133,7 +134,7 @@ input,button,select,textarea{font-family:inherit}
 .esme-btn--blue:hover,.esme-btn--navy:hover,.esme-btn--ghost:hover{color:#FFFFFF!important}
 .esme-btn--line:hover{color:var(--esme-ink)!important}
 /* Breadcrumbs on dark heroes: gold on hover, never the blue meant for white pages */
-.ad-crumb a:hover,.co-crumb a:hover,.ss-crumb a:hover{color:#F7941D!important}
+.ad-crumb a:hover,.co-crumb a:hover,.ss-crumb a:hover{color:#F7931E!important}
 
 /* Small consent note under every newsletter box (GDPR: the sign-up itself, with its consent tick box, is on /newsletter/) */
 .esme-nl-note{flex:1 1 100%;display:block;width:100%;margin-top:2px;font-size:12.5px;line-height:1.5;opacity:.78}
@@ -141,3 +142,25 @@ input,button,select,textarea{font-family:inherit}
 
 .esme-nl-note.is-dark{color:rgba(255,255,255,.82);opacity:1}
 .esme-nl-note.is-dark a{color:#FFFFFF}
+
+/* ---- AmericanSMB brand layer (Brand Guidelines 1.0) ---- */
+:root{--asmb-navy:#0F1F4D;--asmb-navy-d:#071131;--asmb-navy-l:#1C3577;--asmb-orange:#F7931E;--asmb-otext:#B45309;
+  --asmb-grey:#F2F4F7;--asmb-ink:#1D2939;--asmb-muted:#475467;--asmb-line:#D0D5DD;--asmb-shadow:0 8px 24px rgba(15,31,77,.08);
+  --asmb-navy-grad:radial-gradient(700px 420px at 92% 0%,rgba(86,128,214,.24),transparent 62%),linear-gradient(135deg,#071131 0%,#0F1F4D 55%,#1C3577 100%);
+  --asmb-light-grad:linear-gradient(160deg,#F7F8FA 0%,#F2F4F7 55%,#E4E8EF 100%)}
+body{font-size:16px;line-height:1.6;color:var(--asmb-ink)}
+::selection{background:var(--asmb-orange);color:var(--asmb-navy)}
+.esme-h2{font-weight:800;letter-spacing:-.015em;color:var(--asmb-navy)}
+.esme-h2.is-dark{color:#FFFFFF}
+.esme-sub{font-size:16px}
+.esme-hero{background:var(--asmb-navy-grad)}
+/* Orange buttons always carry navy text (white on orange fails contrast) */
+.esme-btn--gold,.esme-btn--gold:hover{background:var(--asmb-orange);color:var(--asmb-navy);box-shadow:none}
+.esme-btn--gold:hover{background:#FFA94D}
+.esme-btn--blue,.esme-btn--blue:hover{background:var(--asmb-navy);color:#FFFFFF}
+.esme-btn--blue:hover{background:var(--asmb-navy-l)}
+.esme-btn--line,.esme-btn--line:hover{background:#FFFFFF;border-color:var(--asmb-navy);color:var(--asmb-navy)}
+.esme-btn--line:hover{background:var(--asmb-grey)}
+.esme-btn:focus-visible,a:focus-visible{outline-color:var(--asmb-orange)}
+.esme-chipf.is-on,.esme-chipf.is-on:hover{background:var(--asmb-navy);border-color:var(--asmb-navy)}
+.esme-sources a{color:var(--asmb-otext)}

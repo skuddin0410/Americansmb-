@@ -1,4 +1,4 @@
-/* American SMB — article bodies, part 2. */
+/* AmericanSMB — article bodies, part 2. */
 window.AMSMB_BODIES = window.AMSMB_BODIES || {};
 Object.assign(window.AMSMB_BODIES, {
 

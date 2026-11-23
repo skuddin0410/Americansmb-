@@ -1,5 +1,5 @@
 /*
- * American SMB — standalone runtime for the .dc.html pages (adapted from the European SME design runtime).
+ * AmericanSMB — standalone runtime for the .dc.html pages (adapted from the European SME design runtime).
  * Lets each page render in any browser (e.g. on GitHub Pages) without the
  * Claude Design canvas: parses the <x-dc> template, runs the page's
  * Component class, and supports {{holes}}, <sc-for>, <sc-if>, <dc-import>,
@@ -326,12 +326,12 @@
   // ---------- sections, icons, tools ----------
   var SECTIONS = {
     funding: { desc: 'SBA loans, grants and credit', label: 'Funding & Grants', color: '#B45309' },
-    money: { desc: 'Cash flow, pricing, taxes', label: 'Money & Taxes', color: '#0F7B6C' },
-    people: { desc: 'Hiring, payroll, health benefits', label: 'Hiring & Benefits', color: '#C8102E' },
-    marketing: { desc: 'Local SEO, social, email, ecommerce', label: 'Marketing & Sales', color: '#8A3FB8' },
-    tech: { desc: 'AI, cybersecurity, software', label: 'AI & Tech', color: '#4338CA' },
-    growth: { desc: 'Starting, scaling, buying a business', label: 'Start & Grow', color: '#1E4FA8' },
-    policy: { desc: 'Tariffs, trade, SBA and federal rules', label: 'Trade & Policy', color: '#0B2552' }
+    money: { desc: 'Cash flow, pricing, taxes', label: 'Money & Taxes', color: '#0F1F4D' },
+    people: { desc: 'Hiring, payroll, health benefits', label: 'Hiring & Benefits', color: '#1C3577' },
+    marketing: { desc: 'Local SEO, social, email, ecommerce', label: 'Marketing & Sales', color: '#B45309' },
+    tech: { desc: 'AI, cybersecurity, software', label: 'AI & Tech', color: '#0F1F4D' },
+    growth: { desc: 'Starting, scaling, buying a business', label: 'Start & Grow', color: '#1C3577' },
+    policy: { desc: 'Tariffs, trade, SBA and federal rules', label: 'Trade & Policy', color: '#475467' }
   };
   // Line icons (24px grid, stroke = currentColor), used by menus, tool cards and tool pages.
   var ICONS = {
@@ -386,12 +386,12 @@
   }
   // Every tool on the site, in one list, so the header menu, homepage and Tools page stay in step.
   var TOOLS = [
-    { key: 'funding', menu: 'Federal, state and local programs', group: 'Find & plan', name: 'Grant & Loan Finder', short: 'SBA loans, real grants and state programs, with deadlines', icon: 'search', href: 'FundingFinder.dc.html', tone: '#0B2552' },
-    { key: 'calendar', menu: 'Federal and state due dates', group: 'Find & plan', name: 'Tax Deadline Calendar', short: 'Every federal tax date that applies to your business type', icon: 'calendar', href: 'Compliance.dc.html', tone: '#14181D' },
-    { key: 'states', menuName: 'State guides', menu: 'Rules and incentives by state', group: 'Find & plan', name: 'State-by-state guides', short: 'Licences, sales tax and incentives in all 50 states', icon: 'pin', href: 'Countries.dc.html', tone: '#0F7B6C', isNew: true },
-    { key: 'tariff', menuName: 'Tariff cost calculator', menu: 'Landed cost on imports', group: 'Check & calculate', name: 'Tariff cost calculator', short: 'Estimate the landed cost of what you import', icon: 'globe', href: 'Calculators.dc.html#tariff', tone: '#C8102E', isNew: true },
-    { key: 'size', menuName: 'Am I a small business?', menu: 'SBA size standards check', group: 'Check & calculate', name: 'Am I a “small business”?', short: 'Check the SBA size standard for your industry', icon: 'check', href: 'Checkers.dc.html#size', tone: '#8A3FB8' },
-    { key: 'calculators', menuName: 'Calculators', menu: 'Pricing, payroll and loan payments', group: 'Check & calculate', name: 'Owner calculators', short: 'Loan payments, price increases and the true cost of an employee', icon: 'calculator', href: 'Calculators.dc.html', tone: '#1E4FA8' }
+    { key: 'funding', menu: 'Federal, state and local programs', group: 'Find & plan', name: 'Grant & Loan Finder', short: 'SBA loans, real grants and state programs, with deadlines', icon: 'search', href: 'FundingFinder.dc.html', tone: '#071131' },
+    { key: 'calendar', menu: 'Federal and state due dates', group: 'Find & plan', name: 'Tax Deadline Calendar', short: 'Every federal tax date that applies to your business type', icon: 'calendar', href: 'Compliance.dc.html', tone: '#1D2939' },
+    { key: 'states', menuName: 'State guides', menu: 'Rules and incentives by state', group: 'Find & plan', name: 'State-by-state guides', short: 'Licences, sales tax and incentives in all 50 states', icon: 'pin', href: 'Countries.dc.html', tone: '#0F1F4D', isNew: true },
+    { key: 'tariff', menuName: 'Tariff cost calculator', menu: 'Landed cost on imports', group: 'Check & calculate', name: 'Tariff cost calculator', short: 'Estimate the landed cost of what you import', icon: 'globe', href: 'Calculators.dc.html#tariff', tone: '#B45309', isNew: true },
+    { key: 'size', menuName: 'Am I a small business?', menu: 'SBA size standards check', group: 'Check & calculate', name: 'Am I a “small business”?', short: 'Check the SBA size standard for your industry', icon: 'check', href: 'Checkers.dc.html#size', tone: '#475467' },
+    { key: 'calculators', menuName: 'Calculators', menu: 'Pricing, payroll and loan payments', group: 'Check & calculate', name: 'Owner calculators', short: 'Loan payments, price increases and the true cost of an employee', icon: 'calculator', href: 'Calculators.dc.html', tone: '#1C3577' }
   ];
 
   // ---- News desk, trending and helpers ----
@@ -402,7 +402,7 @@
   var NEWS = (window.AMSMB_NEWS || []).map(function (r) {
     var t = at(r.date, r.h || 9, r.m || 0), d = new Date(t);
     return { id: r.id, slug: r.id, section: r.section, sectionLabel: SECTIONS[r.section].label, color: SECTIONS[r.section].color, type: 'news', title: r.title, excerpt: r.excerpt, content: r.content || '', at: t, mins: 2,
-      author: 'American SMB News Desk', date: d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+      author: 'AmericanSMB News Desk', date: d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
       time: d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }), href: 'Post.dc.html?news=' + r.id, country: 'us' };
   });
   function dayLabel(t) {

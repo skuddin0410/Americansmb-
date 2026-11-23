@@ -1,4 +1,4 @@
-/* American SMB — state basics (statewide rates as of 2026; local taxes extra). Confirm with each state. */
+/* AmericanSMB — state basics (statewide rates as of 2026; local taxes extra). Confirm with each state. */
 window.AMSMB_STATES = [
 {
 "code": "AL",

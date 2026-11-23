@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>About American SMB</title>
+<title>About AmericanSMB</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./data.js"></script>
 <script src="./support.js"></script>
@@ -11,62 +11,64 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Sora:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="esme.css">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0F1F4D">
 <style>
 body{margin:0;background:#FFFFFF}
-a{color:#14181D;text-decoration:none}
-a:hover{color:#1E4FA8}
-.co-hero{position:relative;overflow:hidden;color:#FFFFFF;background:radial-gradient(900px 520px at 88% 8%, rgba(247,148,29,.16), transparent 62%),radial-gradient(900px 640px at 0% 100%, rgba(30,79,168,.55), transparent 62%),linear-gradient(135deg,#0B1B33 0%,#0B2A6B 100%)}
+a{color:#1D2939;text-decoration:none}
+a:hover{color:#1C3577}
+.co-hero{position:relative;overflow:hidden;color:#FFFFFF;background:radial-gradient(900px 520px at 88% 8%, rgba(86,128,214,.24), transparent 62%),radial-gradient(900px 640px at 0% 100%, rgba(28,53,119,.55), transparent 62%),linear-gradient(135deg,#071131 0%,#0F1F4D 55%,#1C3577 100%)}
 .co-in{max-width:1232px;margin:0 auto;padding-left:32px;padding-right:32px;box-sizing:border-box}
 .co-crumb{display:flex;gap:8px;font-size:13px;color:rgba(255,255,255,.7)}
 .co-crumb a{color:rgba(255,255,255,.85)}
-.co-crumb a:hover{color:#F7941D}
-.co-h1{margin:0;font-family:'Sora','Helvetica Neue',Arial,sans-serif;font-size:clamp(32px,4vw,52px);line-height:1.08;font-weight:700;letter-spacing:-.025em}
-.co-h1 em{font-style:normal;color:#F7941D}
+.co-crumb a:hover{color:#F7931E}
+.co-h1{margin:0;font-family:'Montserrat',Arial,sans-serif;font-size:clamp(32px,4vw,52px);line-height:1.08;font-weight:700;letter-spacing:-.025em}
+.co-h1 em{font-style:normal;color:#F7931E}
 .co-lead{margin:0;font-size:18px;line-height:1.6;color:rgba(255,255,255,.84);max-width:640px}
 .co-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
 .co-stat{display:flex;flex-direction:column;gap:6px;padding:22px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16)}
-.co-stat b{font-family:'Sora',sans-serif;font-size:34px;font-weight:800;line-height:1;color:#F7941D}
+.co-stat b{font-family:'Montserrat',sans-serif;font-size:34px;font-weight:800;line-height:1;color:#F7931E}
 .co-stat span{font-size:14px;color:rgba(255,255,255,.82)}
 .co-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-.co-card{display:flex;flex-direction:column;gap:12px;padding:26px;border-radius:16px;background:#FFFFFF;border:1px solid #D9DEE7;box-shadow:0 1px 3px rgba(16,24,40,.06),0 10px 24px -18px rgba(16,24,40,.25);color:#14181D;text-decoration:none;transition:transform .2s ease,border-color .2s ease}
-a.co-card:hover{transform:translateY(-4px);border-color:#9DB0D3;color:#14181D;text-decoration:none}
-.co-ic{flex:none;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:#EEF2FA;color:#003399}
-.co-card-t{font-family:'Sora',sans-serif;font-size:19px;font-weight:700;line-height:1.3}
-.co-card-x{margin:0;font-size:15px;line-height:1.65;color:#5A6470}
-.co-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;background:#003399;color:#FFFFFF;font-family:'Sora',sans-serif;font-size:13px;font-weight:700}
-a.co-card:hover .co-btn{background:#1E4FA8}
+.co-card{display:flex;flex-direction:column;gap:12px;padding:26px;border-radius:16px;background:#FFFFFF;border:1px solid #D0D5DD;box-shadow:0 1px 3px rgba(15,31,77,.06),0 10px 24px -18px rgba(15,31,77,.25);color:#1D2939;text-decoration:none;transition:transform .2s ease,border-color .2s ease}
+a.co-card:hover{transform:translateY(-4px);border-color:#9DB0D3;color:#1D2939;text-decoration:none}
+.co-ic{flex:none;width:48px;height:48px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:#F2F4F7;color:#0F1F4D}
+.co-card-t{font-family:'Montserrat',sans-serif;font-size:19px;font-weight:700;line-height:1.3}
+.co-card-x{margin:0;font-size:15px;line-height:1.65;color:#475467}
+.co-btn{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;background:#0F1F4D;color:#FFFFFF;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700}
+a.co-card:hover .co-btn{background:#1C3577}
 .co-split{display:flex;flex-wrap:wrap;gap:40px 64px;align-items:center}
-.co-quote{flex:1 1 380px;min-width:0;padding:34px;border-radius:20px;background:#0B2A6B;color:#FFFFFF;box-shadow:0 30px 60px -36px rgba(11,27,51,.7)}
-.co-quote b{display:block;font-family:'Sora',sans-serif;font-size:64px;font-weight:800;line-height:1;color:#F7941D}
+.co-quote{flex:1 1 380px;min-width:0;padding:34px;border-radius:16px;background:#0F1F4D;color:#FFFFFF;box-shadow:0 30px 60px -36px rgba(11,27,51,.7)}
+.co-quote b{display:block;font-family:'Montserrat',sans-serif;font-size:64px;font-weight:800;line-height:1;color:#F7931E}
 .co-quote p{margin:12px 0 0;font-size:17px;line-height:1.6;color:rgba(255,255,255,.88)}
 .co-quote small{display:block;margin-top:14px;font-size:12.5px;color:rgba(255,255,255,.6)}
 .co-prose{flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:16px}
-.co-prose p{margin:0;font-size:17px;line-height:1.7;color:#344054}
+.co-prose p{margin:0;font-size:17px;line-height:1.7;color:#475467}
 .co-topics{display:flex;flex-wrap:wrap;gap:12px}
-.co-topic{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:#FFFFFF;border:1px solid #D9DEE7;font-family:'Sora',sans-serif;font-size:14.5px;font-weight:600;color:#14181D;transition:border-color .2s ease,transform .2s ease}
-.co-topic:hover{border-color:#003399;color:#003399;transform:translateY(-2px)}
+.co-topic{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:#FFFFFF;border:1px solid #D0D5DD;font-family:'Montserrat',sans-serif;font-size:14.5px;font-weight:600;color:#1D2939;transition:border-color .2s ease,transform .2s ease}
+.co-topic:hover{border-color:#0F1F4D;color:#0F1F4D;transform:translateY(-2px)}
 .co-topic span{display:flex;color:var(--c)}
-.co-band{color:#FFFFFF;background:radial-gradient(800px 500px at 100% 0%, rgba(247,148,29,.14), transparent 60%),linear-gradient(135deg,#0B1B33 0%,#0B2A6B 100%)}
+.co-band{color:#FFFFFF;background:radial-gradient(800px 500px at 100% 0%, rgba(86,128,214,.24), transparent 60%),linear-gradient(135deg,#071131 0%,#0F1F4D 55%,#1C3577 100%)}
 .co-work{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
 .co-wk{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#FFFFFF;text-decoration:none;transition:transform .2s ease,border-color .2s ease}
-.co-wk:hover{transform:translateY(-4px);border-color:rgba(247,148,29,.6);color:#FFFFFF;text-decoration:none}
-.co-wk-t{font-family:'Sora',sans-serif;font-size:19px;font-weight:700}
+.co-wk:hover{transform:translateY(-4px);border-color:rgba(247,147,30,.6);color:#FFFFFF;text-decoration:none}
+.co-wk-t{font-family:'Montserrat',sans-serif;font-size:19px;font-weight:700}
 .co-wk-x{font-size:15px;line-height:1.6;color:rgba(255,255,255,.8)}
 </style>
 </helmet>
-<div style="font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; color: #14181D; background: #FFFFFF">
+<div style="font-family: 'Montserrat', Arial, sans-serif; color: #1D2939; background: #FFFFFF">
 <dc-import name="SiteHeader" active="About" hint-size="100%,118px"></dc-import>
 <main>
-<section class="co-hero" aria-label="About American SMB">
+<section class="co-hero" aria-label="About AmericanSMB">
 <div class="co-in" style="padding-top: 28px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 40px">
 <nav class="co-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>About us</span></nav>
 <div style="display: flex; flex-direction: column; gap: 22px; max-width: 820px">
 <p class="esme-eyebrow is-dark">About us</p>
 <h1 class="co-h1">Practical help for <em>America’s</em> small businesses</h1>
-<p class="co-lead">American SMB is a business magazine for the people who run America’s small businesses. We turn news from Washington and the states, funding programs and new rules into clear, practical steps — and give owners free tools to act on them.</p>
+<p class="co-lead">AmericanSMB is a business magazine for the people who run America’s small businesses. We turn news from Washington and the states, funding programs and new rules into clear, practical steps — and give owners free tools to act on them.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a class="esme-btn esme-btn--gold esme-btn--lg" href="Articles.dc.html">Read the latest <span aria-hidden="true">→</span></a>
 <a class="esme-btn esme-btn--ghost esme-btn--lg" href="Contact.dc.html">Contact the team</a>
@@ -81,7 +83,7 @@ a.co-card:hover .co-btn{background:#1E4FA8}
 </section>
 
 <section class="co-in" aria-label="What we offer" style="padding-top: 80px">
-<div class="esme-sechead"><div><p class="esme-eyebrow">How we help</p><h2 class="esme-h2">One platform, many ways to grow</h2><p class="esme-sub">Everything on American SMB is free to read and free to use.</p></div></div>
+<div class="esme-sechead"><div><p class="esme-eyebrow">How we help</p><h2 class="esme-h2">One platform, many ways to grow</h2><p class="esme-sub">Everything on AmericanSMB is free to read and free to use.</p></div></div>
 <div class="co-grid">
 <sc-for list="{{offers}}" as="o" hint-placeholder-count="6">
 <a class="co-card" href="{{o.href}}"><span class="co-ic" dc-html="{{o.icon}}"></span><span class="co-card-t">{{o.title}}</span><p class="co-card-x">{{o.text}}</p><span class="co-btn">{{o.cta}} <span aria-hidden="true">→</span></span></a>
@@ -105,7 +107,7 @@ a.co-card:hover .co-btn{background:#1E4FA8}
 </div>
 </section>
 
-<section aria-label="What guides us" style="margin-top: 88px; background: #F5F7FA; border-top: 1px solid #EAECF0; border-bottom: 1px solid #EAECF0">
+<section aria-label="What guides us" style="margin-top: 88px; background: #F2F4F7; border-top: 1px solid #E4E8EF; border-bottom: 1px solid #E4E8EF">
 <div class="co-in" style="padding-top: 72px; padding-bottom: 72px">
 <div class="esme-sechead"><div><p class="esme-eyebrow">What guides us</p><h2 class="esme-h2">Small-business support you can trust</h2></div></div>
 <div class="co-grid">
@@ -127,7 +129,7 @@ a.co-card:hover .co-btn{background:#1E4FA8}
 
 <section class="co-band" aria-label="Work with us">
 <div class="co-in" style="padding-top: 72px; padding-bottom: 80px; display: flex; flex-direction: column; gap: 32px">
-<div class="esme-sechead" style="margin-bottom: 0"><div><p class="esme-eyebrow is-dark">Work with us</p><h2 class="esme-h2 is-dark">Get in touch with American SMB</h2><p class="esme-sub" style="color: rgba(255,255,255,.78)">Write to us at <a href="mailto:info@americansmb.com" style="color: #F7941D">info@americansmb.com</a> or choose the route that fits.</p></div></div>
+<div class="esme-sechead" style="margin-bottom: 0"><div><p class="esme-eyebrow is-dark">Work with us</p><h2 class="esme-h2 is-dark">Get in touch with AmericanSMB</h2><p class="esme-sub" style="color: rgba(255,255,255,.78)">Write to us at <a href="mailto:info@americansmb.com" style="color: #F7931E">info@americansmb.com</a> or choose the route that fits.</p></div></div>
 <div class="co-work">
 <sc-for list="{{work}}" as="w" hint-placeholder-count="4">
 <a class="co-wk" href="{{w.href}}"><span class="co-wk-t">{{w.title}}</span><span class="co-wk-x">{{w.text}}</span><span class="esme-btn esme-btn--gold" style="align-self: flex-start; margin-top: 6px">{{w.cta}} <span aria-hidden="true">→</span></span></a>

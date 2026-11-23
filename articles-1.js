@@ -1,4 +1,4 @@
-/* American SMB — article bodies, part 1. Keyed by slug. Plain HTML: p, h2, h3, ul, ol, table, blockquote. */
+/* AmericanSMB — article bodies, part 1. Keyed by slug. Plain HTML: p, h2, h3, ul, ol, table, blockquote. */
 window.AMSMB_BODIES = window.AMSMB_BODIES || {};
 Object.assign(window.AMSMB_BODIES, {
 
